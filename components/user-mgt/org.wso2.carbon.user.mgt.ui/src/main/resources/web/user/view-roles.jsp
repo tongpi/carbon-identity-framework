@@ -477,9 +477,9 @@
                                     <td>
                                         <% if (!userRealmInfo.getAdminRole().equals(name.getItemName()) &&
                                                 CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/rolemgt/update")) {%>
-                                        <a style="background-image:url(images/edit.gif);" class="icon-link"
+                                        <!-- <a style="background-image:url(images/edit.gif);" class="icon-link"
                                            href="../role/edit-permissions.jsp?roleName=<%=Encode.forUriComponent(name.getItemName())%>&prevPage=view&prevUser=<%=Encode.forUriComponent(encryptedUsername)%>&prevPageNumber=<%=pageNumber%>"><fmt:message
-                                                key="edit.permissions"/></a>
+                                                key="edit.permissions"/></a> -->
                                         <%} %>
                                         <% if (!userRealmInfo.getEveryOneRole().equals(name.getItemName()) &&
                                                 CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/usermgt/view")) {%>

@@ -453,9 +453,9 @@
                                 for (String domainName : domainNames) {
                                     if (selectedDomain.equals(domainName)) {
                             %>
-                            <input id="domain" name="domain" value="<%=Encode.forHtmlAttribute(domainName)%>">
+                            <input id="domain" type="hidden" name="domain" value="<%=Encode.forHtmlAttribute(domainName)%>">
                             <% }}}%> 
-                            <input id="claimUri" name="claimUri" value="Select" >
+                            <input id="claimUri" type="hidden" name="claimUri" value="Select" >
                             <input type="text" name="<%=UserAdminUIConstants.USER_LIST_FILTER%>"
                                    value="<%=Encode.forHtmlAttribute(filter)%>" label="<fmt:message key="list.users"/>"
                                    black-list-patterns="xml-meta-exists"/>
