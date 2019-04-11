@@ -166,7 +166,8 @@
 
             if (e != null) {
 
-                var selectedDomainValue = e.options[e.selectedIndex].text.toUpperCase()
+                // var selectedDomainValue = e.options[e.selectedIndex].text.toUpperCase()
+                var selectedDomainValue = e.value
                 var pwd = "pwd_";
                 var usr = "usr_";
 
