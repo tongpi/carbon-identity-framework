@@ -178,7 +178,8 @@
             <!-- markup for expand/contract links -->
             <div id="expandcontractdiv" style="margin-bottom:10px;">
                     <a id="expand" href="#"><img src="images/expandall.gif" align="top" /><fmt:message key="Expand.all"/></a>
-                    <a id="collapse" href="#" style="margin-left:20px"><img src="images/contractall.gif" align="top" /><fmt:message key=" Collapse.all"/></a>
+                    <a id="collapse" href="#" style="margin-left:20px"><img src="images/contractall.gif" align="top" />
+                      <fmt:message key="Collapse.all"/></a>
                 </div>
 
             <div id="treeDiv1"></div>
