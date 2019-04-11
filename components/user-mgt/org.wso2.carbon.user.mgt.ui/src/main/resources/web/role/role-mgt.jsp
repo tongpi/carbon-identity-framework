@@ -386,8 +386,8 @@
 
         <div id="workArea">
 
-            <form name="filterForm" method="post" action="role-mgt.jsp">
-                <table class="styledLeft noBorders">
+            <!--<form name="filterForm" method="post" action="role-mgt.jsp">
+                 <table class="styledLeft noBorders">
                     <thead>
                     <tr>
                         <th colspan="2"><fmt:message key="role.search"/></th>
@@ -439,8 +439,8 @@
 
                     </tr>
                     </tbody>
-                </table>
-            </form>
+                </table> 
+            </form>-->
 
             <% if (CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/userstore/count/view")) { %>
 
@@ -580,9 +580,9 @@
                     <td>
                         <a href="#" class="icon-link" title="Operation is Disabled"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="rename"/></a>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message
-                                key="edit.permissions"/></a>
+                                key="edit.permissions"/></a> -->
                         <a href="#" class="icon-link" title="Operation is Disabled"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="edit.users"/></a>
                         <a href="#" class="icon-link" title="Operation is Disabled"
@@ -612,8 +612,8 @@
                         <a href="#" class="icon-link" title="Operation is Disabled"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="rename"/></a>
                         <% if (!data.getItemName().equals(userRealmInfo.getAdminRole())) {%>
-                        <a href="edit-permissions.jsp?roleName=<%=Encode.forUriComponent(roleName)%>" class="icon-link"
-                           style="background-image:url(images/edit.gif);"><fmt:message key="edit.permissions"/></a>
+                        <!-- <a href="edit-permissions.jsp?roleName=<%=Encode.forUriComponent(roleName)%>" class="icon-link"
+                           style="background-image:url(images/edit.gif);"><fmt:message key="edit.permissions"/></a> -->
                         <% }
                         }%>
 
@@ -656,8 +656,8 @@
                         <% } %>
                         <% if (!data.getItemName().equals(userRealmInfo.getAdminRole()) &&
                                 CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/rolemgt/update")) {%>
-                        <a href="edit-permissions.jsp?roleName=<%=Encode.forUriComponent(roleName)%>" class="icon-link"
-                           style="background-image:url(images/edit.gif);"><fmt:message key="edit.permissions"/></a>
+                        <!-- <a href="edit-permissions.jsp?roleName=<%=Encode.forUriComponent(roleName)%>" class="icon-link"
+                           style="background-image:url(images/edit.gif);"><fmt:message key="edit.permissions"/></a> -->
                         <% }
                         }%>
 
@@ -755,10 +755,10 @@
     <script type="text/javascript">
         alternateTableRows('roleTable', 'tableEvenRow', 'tableOddRow');
 
-        $(document).ready(function () {
-            $('form[name=filterForm]').submit(function(){
-                return doValidateForm(this, '<fmt:message key="error.input.validation.msg"/>');
-            })
-        });
+        // $(document).ready(function () {
+        //     $('form[name=filterForm]').submit(function(){
+        //         return doValidateForm(this, '<fmt:message key="error.input.validation.msg"/>');
+        //     })
+        // });
     </script>
 </fmt:bundle>

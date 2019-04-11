@@ -119,13 +119,13 @@
 
 
                             <% if (CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/rolemgt/create")) { %>
-                            <tr>
+                            <!-- <tr>
                                 <td>
                                     <a class="icon-link"
                                        style="background-image:url(images/user-roles.gif);"
                                        href="../role/add-step1.jsp"><fmt:message key="add-roles"/></a>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <% } %>
                         </table>
                         <%
@@ -142,7 +142,7 @@
                                     && CarbonUIUtil.isUserAuthorized(request,
                                     "/permission/admin/manage/identity/usermgt/users"))) {
                         %>
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:2px;">
+                       <!--  <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:2px;">
                             <tr>
                                 <td class="addNewSecurity">
                                     <a href="../user/bulk-import.jsp" class="icon-link"
@@ -151,7 +151,7 @@
                                 </td>
                             </tr>
                         </table>
-
+ -->
                         <%
                             }
                         %>

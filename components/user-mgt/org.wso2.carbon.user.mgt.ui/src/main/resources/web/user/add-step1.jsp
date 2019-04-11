@@ -383,7 +383,7 @@
                     <tr>
                         <td class="formRaw">
                             <table class="normal" id="mainTable">
-                                <%
+                               <!--  <%
                                     if (domainNames != null && domainNames.size() > 0) {
                                 %>
                                 <tr>
@@ -411,9 +411,18 @@
                                 </tr>
                                 <%
                                     }
-                                %>
+                                %> -->
                                 <tr>
-                                    <td><fmt:message key="user.name"/><font color="red">*</font>
+                                    <td>
+                                    <%
+                                    if (domainNames != null && domainNames.size() > 0) {
+                                    
+                                            for (String domainName : domainNames) {
+                                                if (selectedDomain.equals(domainName)) {
+                                        %>
+                                        <input type="hidden" id="domain" name="domain" value="<%=Encode.forHtmlAttribute(domainName)%>">
+                                    <% }}} %>                                         
+                                        <fmt:message key="user.name"/><font color="red">*</font>
                                     </td>
                                     <td><input type="text" name="username"
                                                value=""
