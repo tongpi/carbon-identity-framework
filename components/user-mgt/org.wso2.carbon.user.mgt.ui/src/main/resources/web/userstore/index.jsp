@@ -115,7 +115,7 @@
             <table class="styledLeft">
                 <tbody>
                 <tr>
-                    <td class="middle-header">Change Password</td>
+                    <td class="middle-header"><fmt:message key="change.password"/></td>
                 </tr>
                 <tr>
                     <td>

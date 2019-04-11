@@ -670,9 +670,8 @@
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message
                                 key="delete"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
-                           style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;">User
-                            Profile</a>
+                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
+                           style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;"><fmt:message key="User.Profile"/></a> -->
                     </td>
                 </tr>
                 <%
@@ -747,11 +746,10 @@
                                     && CarbonUIUtil.isUserAuthorized(request,
                                     "/permission/admin/manage/identity/usermgt/update")) {
                         %>
-                        <a
+                        <!-- <a
                                 href="../userprofile/index.jsp?username=<%=Encode.forUriComponent(encryptedUsername)%>&displayName=<%=Encode.forUriComponent(displayName)%>&fromUserMgt=true"
                            class="icon-link"
-                           style="background-image:url(../userprofile/images/my-prof.gif);">User
-                            Profile</a>
+                           style="background-image:url(../userprofile/images/my-prof.gif);"><fmt:message key="User.Profile"/></a> -->
                         <%
                             }
                         %>
@@ -785,9 +783,8 @@
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message
                                 key="delete"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
-                           style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;">User
-                            Profile</a>
+                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
+                           style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;"><fmt:message key="User.Profile"/></a> -->
                         <%
                                 continue;
                             }
@@ -878,9 +875,8 @@
                                     && CarbonUIUtil.isUserAuthorized(request,
                                     "/permission/admin/configure/security/usermgt/profiles")) {
                         %>
-                        <a href="../userprofile/index.jsp?username=<%=Encode.forUriComponent(encryptedUsername)%>&displayName=<%=Encode.forUriComponent(displayName)%>&fromUserMgt=true"
-                           class="icon-link" style="background-image:url(../userprofile/images/my-prof.gif);">User
-                            Profile</a>
+                        <!-- <a href="../userprofile/index.jsp?username=<%=Encode.forUriComponent(encryptedUsername)%>&displayName=<%=Encode.forUriComponent(displayName)%>&fromUserMgt=true"
+                           class="icon-link" style="background-image:url(../userprofile/images/my-prof.gif);"><fmt:message key="User.Profile"/></a> -->
                         <%
                             }
                         %>
