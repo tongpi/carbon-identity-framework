@@ -413,7 +413,7 @@
                     </thead>
                     <tbody>
 
-                    <%
+                   <!--  <%
                         if (domainNames != null && domainNames.length > 0) {
                     %>
                     <tr>
@@ -442,21 +442,28 @@
                     </tr>
                     <%
                         }
-                    %>
+                    %> -->
 
                     <tr>
                         <td class="leftCol-big" style="padding-right: 0 !important;"><fmt:message
                                 key="list.users"/></td>
                         <td>
+                         <%
+                            if (domainNames != null && domainNames.length > 0) {
+                                for (String domainName : domainNames) {
+                                    if (selectedDomain.equals(domainName)) {
+                            %>
+                            <input id="domain" name="domain" value="<%=Encode.forHtmlAttribute(domainName)%>">
+                            <% }}}%> 
+                            <input id="claimUri" name="claimUri" value="Select" >
                             <input type="text" name="<%=UserAdminUIConstants.USER_LIST_FILTER%>"
                                    value="<%=Encode.forHtmlAttribute(filter)%>" label="<fmt:message key="list.users"/>"
                                    black-list-patterns="xml-meta-exists"/>
-
                             <input class="button" type="submit"
                                    value="<fmt:message key="user.search"/>"/>
                         </td>
                     </tr>
-                    <tr>
+                   <!--  <tr>
                         <td><fmt:message key="claim.uri"/></td>
                         <td><select id="claimUri" name="claimUri">
                             <option value="Select" selected="selected"><%=UserAdminUIConstants.SELECT%></option>
@@ -482,7 +489,7 @@
                             %>
                         </select>
                         </td>
-                    </tr>
+                    </tr> -->
                     </tbody>
                 </table>
             </form>

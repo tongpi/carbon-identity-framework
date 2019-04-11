@@ -587,8 +587,8 @@
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="edit.users"/></a>
                         <a href="#" class="icon-link" title="Operation is Disabled"
                            style="background-image:url(images/view.gif);color:#CCC;"><fmt:message key="view.users"/></a>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
-                           style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message key="delete"/></a>
+                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
+                           style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message key="delete"/></a> -->
                     </td>
                 </tr>
                 <%
@@ -626,8 +626,8 @@
                                 key="view.users"/></a>
                         <% } %>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
-                           style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message key="delete"/></a>
+                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
+                           style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message key="delete"/></a> -->
                     </td>
                 </tr>
                 <%
@@ -681,9 +681,9 @@
                                 !data.getItemName().equals(userRealmInfo.getEveryOneRole()) && data.getEditable() &&
                                 CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/rolemgt/delete"))
                         {%>
-                        <a href="#" onclick="deleteUserGroup('<%=Encode.forJavaScriptAttribute(roleName)%>')"
+                        <!-- <a href="#" onclick="deleteUserGroup('<%=Encode.forJavaScriptAttribute(roleName)%>')"
                            class="icon-link" style="background-image:url(images/delete.gif);"><fmt:message
-                                key="delete"/></a>
+                                key="delete"/></a> -->
                         <% }
                         } %>
 
