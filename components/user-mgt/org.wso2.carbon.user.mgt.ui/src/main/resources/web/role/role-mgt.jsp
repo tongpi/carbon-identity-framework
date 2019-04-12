@@ -569,9 +569,8 @@
                                 if (displayName == null) {
                                     displayName = roleName;
                                 }
-                            string exclude1="/everyone"
-                            string exclude2="Application/"
-                 if (workFlowAddPendingRolesList.contains(roleName) && (!Encode.forHtmlContent(displayName).contains(exclude1) && !Encode.forHtmlContent(displayName).contains(exclude2))) {
+                           
+                 if (workFlowAddPendingRolesList.contains(roleName) && !displayName.contains("/everyone") && !displayName.contains("Application/")) {
                 %>
                 <tr>
                     <td><%=Encode.forHtmlContent(displayName)%>
@@ -594,7 +593,7 @@
                     </td>
                 </tr>
                 <%
-                } else if (showDeletePendingRolesList.contains(roleName) && (!Encode.forHtmlContent(displayName).contains(exclude1) && !Encode.forHtmlContent(displayName).contains(exclude2))) {
+                } else if (showDeletePendingRolesList.contains(roleName) && !displayName.contains("/everyone") && !displayName.contains("Application/")) {
                 %>
                    <%-- <%if(hasMultipleUserStores){%>
                     	<td>
@@ -633,7 +632,7 @@
                     </td>
                 </tr>
                 <%
-                } else if(!Encode.forHtmlContent(displayName).contains(exclude1) && !Encode.forHtmlContent(displayName).contains(exclude2)){
+                } else if(!displayName.contains("/everyone") && !displayName.contains("Application/")){
                 %>
                 <tr>
                     <td><%=Encode.forHtmlContent(displayName)%>

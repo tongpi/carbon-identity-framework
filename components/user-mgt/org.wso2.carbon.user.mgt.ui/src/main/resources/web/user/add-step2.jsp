@@ -324,6 +324,10 @@
                                         <%
                                             if (roles != null) {
                                                 for (FlaggedName name : roles) {
+                                                    if(name != null && (name.getItemName().contains("/everyone") || 
+                                                        name.getItemName().contains("Application/"))){
+                                                        continue;
+                                                    } 
                                                     if (name != null) {
                                                         String doCheck = "";
                                                         String doEdit = "";

@@ -458,6 +458,10 @@
                                 <%
                                     if (roles != null) {
                                         for (FlaggedName name : roles) {
+                                            if(name != null && (name.getItemName().contains("/everyone") || 
+                                                        name.getItemName().contains("Application/"))){
+                                                        continue;
+                                                    }                                            
                                             if (name != null) {
                                                 String doEdit = "";
                                                 String doCheck = "";
@@ -498,10 +502,10 @@
                                     </td>
                                     <td>
                                         <% if (!userRealmInfo.getAdminRole().equals(name.getItemName())) {%>
-                                        <a style="background-image:url(images/edit.gif);"
+                                        <!-- <a style="background-image:url(images/edit.gif);"
                                            class="icon-link"
                                            href="../role/edit-permissions.jsp?roleName=<%=Encode.forUriComponent(name.getItemName())%>&prevPage=edit&prevUser=<%=Encode.forUriComponent(encryptedUsername)%>&prevPageNumber=<%=pageNumber%>"><fmt:message
-                                                key="edit.permissions"/>
+                                                key="edit.permissions"/> -->
                                         </a>
                                         <% } %>
                                         <% if (!userRealmInfo.getEveryOneRole().equals(name.getItemName())) {%>
