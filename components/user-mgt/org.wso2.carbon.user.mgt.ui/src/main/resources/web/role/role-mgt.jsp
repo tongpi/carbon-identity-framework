@@ -569,7 +569,9 @@
                                 if (displayName == null) {
                                     displayName = roleName;
                                 }
-                                if (workFlowAddPendingRolesList.contains(roleName)) {
+                            string exclude1="/everyone"
+                            string exclude2="Application/"
+                 if (workFlowAddPendingRolesList.contains(roleName) && (!Encode.forHtmlContent(displayName).contains(exclude1) && !Encode.forHtmlContent(displayName).contains(exclude2))) {
                 %>
                 <tr>
                     <td><%=Encode.forHtmlContent(displayName)%>
@@ -580,9 +582,9 @@
                     <td>
                         <a href="#" class="icon-link" title="Operation is Disabled"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="rename"/></a>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message
-                                key="edit.permissions"/></a>
+                                key="edit.permissions"/></a> -->
                         <a href="#" class="icon-link" title="Operation is Disabled"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="edit.users"/></a>
                         <a href="#" class="icon-link" title="Operation is Disabled"
@@ -592,7 +594,7 @@
                     </td>
                 </tr>
                 <%
-                } else if (showDeletePendingRolesList.contains(roleName)) {
+                } else if (showDeletePendingRolesList.contains(roleName) && (!Encode.forHtmlContent(displayName).contains(exclude1) && !Encode.forHtmlContent(displayName).contains(exclude2))) {
                 %>
                    <%-- <%if(hasMultipleUserStores){%>
                     	<td>
@@ -612,8 +614,8 @@
                         <a href="#" class="icon-link" title="Operation is Disabled"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="rename"/></a>
                         <% if (!data.getItemName().equals(userRealmInfo.getAdminRole())) {%>
-                        <a href="edit-permissions.jsp?roleName=<%=Encode.forUriComponent(roleName)%>" class="icon-link"
-                           style="background-image:url(images/edit.gif);"><fmt:message key="edit.permissions"/></a>
+                        <!-- <a href="edit-permissions.jsp?roleName=<%=Encode.forUriComponent(roleName)%>" class="icon-link"
+                           style="background-image:url(images/edit.gif);"><fmt:message key="edit.permissions"/></a> -->
                         <% }
                         }%>
 
@@ -631,7 +633,7 @@
                     </td>
                 </tr>
                 <%
-                } else {
+                } else if(!Encode.forHtmlContent(displayName).contains(exclude1) && !Encode.forHtmlContent(displayName).contains(exclude2)){
                 %>
                 <tr>
                     <td><%=Encode.forHtmlContent(displayName)%>
@@ -656,8 +658,8 @@
                         <% } %>
                         <% if (!data.getItemName().equals(userRealmInfo.getAdminRole()) &&
                                 CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/rolemgt/update")) {%>
-                        <a href="edit-permissions.jsp?roleName=<%=Encode.forUriComponent(roleName)%>" class="icon-link"
-                           style="background-image:url(images/edit.gif);"><fmt:message key="edit.permissions"/></a>
+                        <!-- <a href="edit-permissions.jsp?roleName=<%=Encode.forUriComponent(roleName)%>" class="icon-link"
+                           style="background-image:url(images/edit.gif);"><fmt:message key="edit.permissions"/></a> -->
                         <% }
                         }%>
 
