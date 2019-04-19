@@ -569,8 +569,10 @@
                                 if (displayName == null) {
                                     displayName = roleName;
                                 }
+                                boolean hiddenElementRow = !displayName.contains("/everyone") && !displayName.contains("Application/") && !displayName.contains("Internal/identity");
+                                boolean hiddenOneElement = displayName.contains("Internal/publisher") || displayName.contains("Internal/subscriber") || displayName.contains("Internal/creator");
                            
-                 if (workFlowAddPendingRolesList.contains(roleName) && !displayName.contains("/everyone") && !displayName.contains("Application/")) {
+                 if (workFlowAddPendingRolesList.contains(roleName) &&  hiddenElementRow) {
                 %>
                 <tr>
                     <td><%=Encode.forHtmlContent(displayName)%>
@@ -579,21 +581,25 @@
                              alt="Workflow-pending-user-add" height="15" width="15">
                     </td>
                     <td>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <%
+                        if(!hiddenOneElement){
+                        %>
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="rename"/></a>
-                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
+                        <%}%>
+                        <!-- <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message
                                 key="edit.permissions"/></a> -->
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="edit.users"/></a>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/view.gif);color:#CCC;"><fmt:message key="view.users"/></a>
-                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
-                           style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message key="delete"/></a> -->
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
+                           style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message key="delete"/></a>
                     </td>
                 </tr>
                 <%
-                } else if (showDeletePendingRolesList.contains(roleName) && !displayName.contains("/everyone") && !displayName.contains("Application/")) {
+                } else if (showDeletePendingRolesList.contains(roleName) && hiddenElementRow) {
                 %>
                    <%-- <%if(hasMultipleUserStores){%>
                     	<td>
@@ -609,8 +615,8 @@
                              alt="Workflow-pending-user-delete" height="15" width="15">
                     </td>
                     <td>
-                        <%if (!data.getShared()) { %>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <%if (!data.getShared() && !hiddenOneElement) { %>
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="rename"/></a>
                         <% if (!data.getItemName().equals(userRealmInfo.getAdminRole())) {%>
                         <!-- <a href="edit-permissions.jsp?roleName=<%=Encode.forUriComponent(roleName)%>" class="icon-link"
@@ -618,7 +624,7 @@
                         <% }
                         }%>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="edit.users"/></a>
 
                         <% if (!userRealmInfo.getEveryOneRole().equals(data.getItemName())) { %>
@@ -627,12 +633,12 @@
                                 key="view.users"/></a>
                         <% } %>
 
-                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
-                           style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message key="delete"/></a> -->
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
+                           style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message key="delete"/></a>
                     </td>
                 </tr>
                 <%
-                } else if(!displayName.contains("/everyone") && !displayName.contains("Application/")){
+                } else if(hiddenElementRow){
                 %>
                 <tr>
                     <td><%=Encode.forHtmlContent(displayName)%>
@@ -649,7 +655,7 @@
                         <%if (!data.getShared()) { %>
                         <% if (!data.getItemName().equals(userRealmInfo.getAdminRole()) &&
                                 !data.getItemName().equals(userRealmInfo.getEveryOneRole()) && data.getEditable() &&
-                                CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/rolemgt/update")) {%>
+                                CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/rolemgt/update") && !hiddenOneElement) {%>
 
                         <a href="#" onclick="updateUserGroup('<%=Encode.forJavaScriptAttribute(roleName)%>')"
                            class="icon-link" style="background-image:url(images/edit.gif);"><fmt:message
@@ -681,11 +687,17 @@
                         <% if (!data.getItemName().equals(userRealmInfo.getAdminRole()) &&
                                 !data.getItemName().equals(userRealmInfo.getEveryOneRole()) && data.getEditable() &&
                                 CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/rolemgt/delete"))
-                        {%>
-                        <!-- <a href="#" onclick="deleteUserGroup('<%=Encode.forJavaScriptAttribute(roleName)%>')"
+                        {
+                            if (hiddenOneElement) {
+                            %>
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
+                           style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message key="delete"/></a>                                
+                        <% } else {%>
+                        <a href="#" onclick="deleteUserGroup('<%=Encode.forJavaScriptAttribute(roleName)%>')"
                            class="icon-link" style="background-image:url(images/delete.gif);"><fmt:message
-                                key="delete"/></a> -->
-                        <% }
+                                key="delete"/></a>                                
+                        <%}
+                    }
                         } %>
 
                     </td>

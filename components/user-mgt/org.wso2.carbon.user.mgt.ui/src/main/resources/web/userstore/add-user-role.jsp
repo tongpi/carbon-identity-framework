@@ -119,13 +119,13 @@
 
 
                             <% if (CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/rolemgt/create")) { %>
-                            <!-- <tr>
+                             <tr>
                                 <td>
                                     <a class="icon-link"
                                        style="background-image:url(images/user-roles.gif);"
                                        href="../role/add-step1.jsp"><fmt:message key="add-roles"/></a>
                                 </td>
-                            </tr> -->
+                            </tr>
                             <% } %>
                         </table>
                         <%

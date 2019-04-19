@@ -661,23 +661,23 @@
                              alt="Workflow-pending-user-add" height="15" width="15">
                     </td>
                     <td>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(../admin/images/edit.gif);color:#CCC;"><fmt:message
                                 key="change.password"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(../admin/images/edit.gif);color:#CCC;"><fmt:message
                                 key="edit.roles"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/view.gif);color:#CCC;"><fmt:message
                                 key="view.roles"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message
                                 key="delete"/></a>
 
-                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
+                        <!-- <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;"><fmt:message key="User.Profile"/></a> -->
                     </td>
                 </tr>
@@ -715,7 +715,7 @@
                             }
                         %>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(../admin/images/edit.gif);color:#CCC;"><fmt:message
                                 key="edit.roles"/></a>
 
@@ -731,7 +731,7 @@
                             }
                         %>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message
                                 key="delete"/></a>
 
@@ -774,23 +774,23 @@
                             if (userRealmInfo.getAdminUser().equals(userName) &&
                                     !Util.isCurrentUser(currentUser, userName, userRealmInfo)) {
                         %>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(../admin/images/edit.gif);color:#CCC;"><fmt:message
                                 key="change.password"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(../admin/images/edit.gif);color:#CCC;"><fmt:message
                                 key="edit.roles"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/view.gif);color:#CCC;"><fmt:message
                                 key="view.roles"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message
                                 key="delete"/></a>
 
-                        <!-- <a href="#" class="icon-link" title="Operation is Disabled"
+                        <!-- <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;"><fmt:message key="User.Profile"/></a> -->
                         <%
                                 continue;
@@ -858,7 +858,7 @@
                         } else if (Util.isCurrentUser(currentUser, userName, userRealmInfo) ||
                                 userName.equals(userRealmInfo.getAdminUser())) {
                         %>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="<fmt:message key='Operation.is.Disabled'/>"
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message
                                 key="delete"/></a>
                         <%

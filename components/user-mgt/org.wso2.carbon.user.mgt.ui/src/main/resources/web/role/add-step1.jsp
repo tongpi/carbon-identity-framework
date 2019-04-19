@@ -168,7 +168,8 @@
             var e = document.getElementById("domain");
             var roleRegEx = "<%=Encode.forJavaScriptBlock(userStoreInfo.getRoleNameRegEx())%>";
             if (e != null) {
-                var selectedDomainValue = e.options[e.selectedIndex].text.toUpperCase()
+                // var selectedDomainValue = e.options[e.selectedIndex].text.toUpperCase();
+                var selectedDomainValue = e.value;
                 var rl = "role_";
 
                 var roleRegExElm = document.getElementById(rl + selectedDomainValue);
@@ -234,7 +235,7 @@
         <h2><fmt:message key="add-roles"/></h2>
         <%} %>
         <div id="workArea">
-            <h3><fmt:message key="step.1.role"/></h3>
+            <!-- <h3><fmt:message key="step.1.role"/></h3> -->
 
             <form method="post" name="addRoleForm" onsubmit="return doValidation();" action="add-finish-ajaxprocessor.jsp">
 
@@ -272,7 +273,7 @@
                     <tr>
                         <td class="formRaw">
                             <table class="normal">
-                                <%
+                                <!-- <%
                                     if (!UserAdminUIConstants.INTERNAL_ROLE.equalsIgnoreCase(roleType) &&
                                         domainNames != null && domainNames.size() > 0) {
                                 %>
@@ -302,11 +303,18 @@
                                 </tr>
                                 <%
                                     }
-                                %>
+                                %> -->
                                 <tr>
                                     <td><fmt:message key="role.name"/><font color="red">*</font>
                                     </td>
-                                    <td><input type="text" name="roleName" value=""/></td>
+                                    <td>
+                                        <%
+                                            for (String domainName : domainNames) {
+                                                if (selectedDomain.equals(domainName)) {
+                                        %>
+                                        <input type="hidden" id="domain" name="domain" value="<%=Encode.forHtmlAttribute(domainName)%>">
+                                        <% } } %>                                        
+                                        <input type="text" name="roleName" value=""/></td>
                                     <td id="sharedRoleTd"><c:if test="<%=sharedRoleEnabled%>">
                                         <input type="checkbox" value="true" name="sharedRole"
                                                id="sharedRoleBox"/>
@@ -322,8 +330,8 @@
                     </tr>
                     <tr>
                         <td class="buttonRow">
-                            <input type="button" class="button" value="<fmt:message key="next"/> >"
-                                   onclick="doNext();"/>
+                           <!--  <input type="button" class="button" value="<fmt:message key="next"/> >"
+                                   onclick="doNext();"/> -->
                             <input type="submit" class="button" value="<fmt:message key="finish"/>">
                             <input type="button" class="button" value="<fmt:message key="cancel"/>"
                                    onclick="doCancel();"/>

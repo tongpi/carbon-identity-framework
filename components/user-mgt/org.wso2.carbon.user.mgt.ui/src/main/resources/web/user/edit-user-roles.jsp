@@ -458,10 +458,13 @@
                                 <%
                                     if (roles != null) {
                                         for (FlaggedName name : roles) {
-                                            if(name != null && (name.getItemName().contains("/everyone") || 
-                                                        name.getItemName().contains("Application/"))){
-                                                        continue;
-                                                    }                                            
+                                            //需要隐藏的角色
+                                            boolean hiddenElement = name.getItemName().contains("/everyone") || name.getItemName().contains("Application/") || name.getItemName().contains("/identity");
+                                            
+                                            if(name != null && hiddenElement){
+                                                    continue;
+                                                }
+
                                             if (name != null) {
                                                 String doEdit = "";
                                                 String doCheck = "";
