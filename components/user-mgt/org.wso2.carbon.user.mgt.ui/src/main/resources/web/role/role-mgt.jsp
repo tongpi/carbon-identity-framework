@@ -386,7 +386,7 @@
 
         <div id="workArea">
 
-            <!--<form name="filterForm" method="post" action="role-mgt.jsp">
+            <form name="filterForm" method="post" action="role-mgt.jsp">
                  <table class="styledLeft noBorders">
                     <thead>
                     <tr>
@@ -394,7 +394,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <%
+                    <!-- <%
                         if (ArrayUtils.isNotEmpty(domainNames)) {
                     %>
                     <tr>
@@ -423,12 +423,21 @@
                     </tr>
                     <%
                         }
-                    %>
+                    %> -->
 
                     <tr>
                         <td class="leftCol-big" style="padding-right: 0 !important;"><fmt:message
                                 key="list.roles"/></td>
                         <td>
+                            <% if (ArrayUtils.isNotEmpty(domainNames)) { %>
+                        
+                                <%
+                                    for (String domainName : domainNames) {
+                                        if (selectedDomain.equals(domainName)) {
+                                %>
+                                    <input type="hidden" id="domain" name="domain" value="<%=Encode.forHtmlAttribute(domainName)%>">
+                            
+                            <% } } } %>                           
                             <input type="text" name="<%=UserAdminUIConstants.ROLE_LIST_FILTER%>"
                                    value="<%=Encode.forHtmlAttribute(filter)%>" label="<fmt:message key="list.roles"/>"
                                    black-list-patterns="xml-meta-exists"/>
@@ -440,7 +449,7 @@
                     </tr>
                     </tbody>
                 </table> 
-            </form>-->
+            </form>
 
             <% if (CarbonUIUtil.isUserAuthorized(request, "/permission/admin/manage/identity/userstore/count/view")) { %>
 
@@ -768,10 +777,10 @@
     <script type="text/javascript">
         alternateTableRows('roleTable', 'tableEvenRow', 'tableOddRow');
 
-        // $(document).ready(function () {
-        //     $('form[name=filterForm]').submit(function(){
-        //         return doValidateForm(this, '<fmt:message key="error.input.validation.msg"/>');
-        //     })
-        // });
+        $(document).ready(function () {
+            $('form[name=filterForm]').submit(function(){
+                return doValidateForm(this, '<fmt:message key="error.input.validation.msg"/>');
+            })
+        });
     </script>
 </fmt:bundle>
