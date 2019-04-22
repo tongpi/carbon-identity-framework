@@ -15,6 +15,8 @@
    specific language governing permissions and limitations
    under the License.
   --%>
+<!--设置页面编码-->
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <%@ taglib uri="http://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project/Owasp.CsrfGuard.tld" prefix="csrf" %>
@@ -262,12 +264,12 @@
             </form>
             <p>&nbsp;</p>
 
-            <carbon:paginator pageNumber="<%=pageNumber%>"
+            <!-- <carbon:paginator pageNumber="<%=pageNumber%>"
                               action="post"
                               numberOfPages="<%=numberOfPages%>"
                               noOfPageLinksToDisplay="<%=noOfPageLinksToDisplay%>"
                               page="add-step2.jsp" pageNumberParameterName="pageNumber"
-                              parameters="<%="username=" + Encode.forHtmlAttribute(userName)%>"/>
+                              parameters="<%="username=" + Encode.forHtmlAttribute(userName)%>"/> -->
 
             <form method="post" action="add-finish-ajaxprocessor.jsp" onsubmit="return doValidation();" name="edit_users"
                   id="edit_users">
@@ -369,12 +371,21 @@
 
                         </td>
                     </tr>
-                    <carbon:paginator pageNumber="<%=pageNumber%>"
+                    <!-- <carbon:paginator pageNumber="<%=pageNumber%>"
                                       action="post"
                                       numberOfPages="<%=numberOfPages%>"
                                       noOfPageLinksToDisplay="<%=noOfPageLinksToDisplay%>"
                                       page="add-step2.jsp" pageNumberParameterName="pageNumber"
-                                      parameters="<%="username=" + Encode.forHtmlAttribute(userName)%>"/>
+                                      parameters="<%="username=" + Encode.forHtmlAttribute(userName)%>"/> -->
+                    <!--为js 获取参数做转换-->
+                    <input type="hidden" id="pageNumberCustom" value="<%=pageNumber%>">
+                    <input type="hidden" id="numberOfPagesCustom" value="<%=numberOfPages%>">
+                    <input type="hidden" id="noOfPageLinksToDisplayCustom" value="<%=noOfPageLinksToDisplay%>">
+                    <input type="hidden" id="parametersCustom" value="<%="username=" + Encode.forHtmlAttribute(userName)%>">
+            
+                    <!--分页导航-->
+                    <div id="pageNavigator"></div>                    
+
                     <%
                         if (roles != null) {
                             if (roles.length > 0) {
@@ -487,6 +498,114 @@
                 return doValidateForm(this, '<fmt:message key="error.input.validation.msg"/>');
             })
         });
+
+        $(document).ready(function () {
+            var dataNumberOfPages = $("#numberOfPagesCustom").val();
+            var dataPageNumber = $("#pageNumberCustom").val();
+            var dataNoOfPageLinksToDisplay = $("#noOfPageLinksToDisplayCustom").val();
+            // 生成分页导航html
+            var navigatorHtml =loadNavigator(dataNumberOfPages, dataPageNumber , dataNoOfPageLinksToDisplay);
+            $('#pageNavigator').append(navigatorHtml);  
+
+        });        
+
+        // 点击切换页
+        function doPaginate(obj, pageNumber){
+            var dataParametersCustom = $("#parametersCustom").val();
+            window.location.href="add-step2.jsp?pageNumber=" + pageNumber +"&" + dataParametersCustom;
+        }        
+
+        // 生成分页导航html
+        function loadNavigator(numberOfPages, pageNumber , noOfPageLinksToDisplay){
+
+            var next = "下一页" ;
+            var prev = "上一页" ;
+            var page = "test.jsp" ;
+            var pageNumberParameterName = "pageName" ;
+            var showPageNumbers = true ;
+            var action = "post" ;
+
+            var var11 = "<table><tr>";
+            if(numberOfPages > 1) {
+                if(pageNumber > 0) {
+                    if( "post" != action) {
+                        var11 = var11 + "<td><strong><a href=\"" + page + "?" + pageNumberParameterName + "=0" + "&" + parameters + "\">&lt;&lt;首页" + "&nbsp;&nbsp;</a></strong></td>" + "<td><strong><a href=\"" + page + "?" + pageNumberParameterName + "=" + (pageNumber - 1) + "&" + parameters + "\">" + "&lt;&nbsp;" + prev + "&nbsp;&nbsp;</a></strong></td>";
+                    } else {
+                        var11 = var11 + "<td><strong><a href='#' onclick=\"doPaginate(this,\'" + 0 + "\')\">&lt;&lt;首页" + "&nbsp;&nbsp;</a></strong></td>" + "<td><strong><a href='#' onclick=\"doPaginate(this,\'" + (pageNumber - 1) + "\')\">" + "&lt;&nbsp;" + prev + "&nbsp;&nbsp;</a></strong></td>";
+                    }
+                } else {
+                    var11 = var11 + "<td ><strong ><span style=\"color:gray\">&lt;&lt; 首页 &nbsp;&nbsp;&lt;" + prev + "&nbsp;&nbsp;</span></strong></td>";
+                }
+
+                if(!showPageNumbers) {
+                    var11 = var11 + "<td><strong> Page &nbsp;&nbsp;" + (pageNumber + 1) + " of  " + numberOfPages + " &nbsp;&nbsp;</strong></td>";
+                } else {
+                    var e;
+                    var msg;
+
+                    if(noOfPageLinksToDisplay % 2 == 0) {
+                       
+                        if(pageNumber - (noOfPageLinksToDisplay / 2 - 1) < 0) {
+                            e = 0;
+                        } else {
+                            e = pageNumber - (noOfPageLinksToDisplay / 2 - 1);
+                        }
+
+                        if(pageNumber + noOfPageLinksToDisplay / 2 > numberOfPages - 1) {
+                            msg = numberOfPages - 1;
+                        } else {
+                            msg = pageNumber + noOfPageLinksToDisplay / 2;
+                        }
+                    } else {
+                        if(pageNumber - Math.floor((noOfPageLinksToDisplay / 2)) < 0) {
+                            e = 0;
+                        } else {
+                            e = pageNumber - Math.floor((noOfPageLinksToDisplay / 2));
+                        }
+
+                        if(pageNumber +  Math.floor((noOfPageLinksToDisplay / 2)) > numberOfPages - 1) {
+                            msg = numberOfPages - 1;
+                        } else {
+                            msg = pageNumber +  Math.floor((noOfPageLinksToDisplay / 2));
+                        }
+                    }
+                    if(e != 0) {
+
+                        var11 = var11 + "<td><strong> ... &nbsp;&nbsp;</strong></td> ";
+                    }
+
+                    for(var i = e; i <= msg; ++i) {
+                        if(i == pageNumber) {
+                            var11 = var11 + "<td><strong>" + (i + 1) + "&nbsp;&nbsp;</strong></td>";
+                        } else if("post" != action) {
+                            var11 = var11 + "<td><strong><a href=\"" + page + "?" + pageNumberParameterName + "=" + i + "&" + parameters + "\">" + (i + 1) + " &nbsp;&nbsp;</a></strong></td>";
+                        } else {
+                            var11 = var11 + "<td><strong><a href='#' onclick=\"doPaginate(this,\'" + i + "\')\">" + (i + 1) + " &nbsp;&nbsp;</a></strong></td>";
+                        }
+                    }
+
+                    if(msg != numberOfPages - 1) {
+                        var11 = var11 + "<td><strong> ... &nbsp;&nbsp;</strong></td> ";
+                    }
+                }
+
+                if(pageNumber < numberOfPages - 1) {
+                    if( "post" != action) {
+                        var11 = var11 + "<td ><strong ><a href =\"" + page + "?" + pageNumberParameterName + "=" + (pageNumber + 1) + "&" + parameters + "\">" + next + "&nbsp;&gt;</a></strong></td>" + "<td ><strong ><a href =\"" + page + "?" + pageNumberParameterName + "=" + (numberOfPages - 1) + "&" + parameters + "\">" + "&nbsp;&nbsp;尾页" + "&nbsp;&gt;&gt;</a></strong></td>";
+                    } else {
+                        var11 = var11 + "<td ><strong><a href='#' onclick=\"doPaginate(this,\'" + (pageNumber + 1) + "\')\">" + next + "&nbsp;&gt;</a></strong></td>" + "<td ><strong ><a href='#' onclick=\"doPaginate(this,\'" + (numberOfPages - 1) + "\')\">" + "&nbsp;&nbsp;尾页" + "&nbsp;&gt;&gt;</a></strong></td>";
+                    }
+                } else {
+                    var11 = var11 + "<td ><strong ><span style=\"color:gray\">" + next + " &gt;&nbsp;&nbsp;" + "尾页" + "&gt;&gt; " + "</span></strong></td>";
+                }
+            }
+
+            var11 = var11 + "</tr ></table > ";
+            return var11 ;
+
+        }
+
+               
 
     </script>
 </fmt:bundle>
