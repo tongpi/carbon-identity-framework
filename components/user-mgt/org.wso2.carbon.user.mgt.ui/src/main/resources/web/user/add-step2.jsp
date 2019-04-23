@@ -36,6 +36,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.ResourceBundle" %>
@@ -130,6 +131,25 @@
                 exceededDomains = dataList.remove(dataList.size() - 1);
                 session.setAttribute(UserAdminUIConstants.USER_LIST_ADD_USER_ROLE_CACHE_EXCEEDED, exceededDomains);
                 if (dataList != null && dataList.size() > 0) {
+                
+                    //移除需要隐藏的角色
+                    for (Iterator<FlaggedName> iterator = dataList.iterator(); iterator.hasNext(); ) {
+                        FlaggedName flaggedName = iterator.next();
+                        if (flaggedName == null) {
+                            continue;
+                        }
+                        String roleName = flaggedName.getItemName();
+
+                        String displayName = flaggedName.getItemDisplayName();
+                        if (displayName == null) {
+                            displayName = roleName;
+                        }
+                    boolean hiddenElementRow = displayName.contains("/everyone") || displayName.contains("Application/") || displayName.contains("Internal/identity"); 
+                        if(hiddenElementRow) {
+                            iterator.remove();
+                        } 
+                    }                    
+
                     flaggedNameMap = new HashMap<Integer, PaginatedNamesBean>();
                     int max = pageNumber + cachePages;
                     for (int i = (pageNumber - cachePages); i < max; i++) {
@@ -378,13 +398,7 @@
                                       page="add-step2.jsp" pageNumberParameterName="pageNumber"
                                       parameters="<%="username=" + Encode.forHtmlAttribute(userName)%>"/> -->
                     <!--为js 获取参数做转换-->
-                    <input type="hidden" id="pageNumberCustom" value="<%=pageNumber%>">
-                    <input type="hidden" id="numberOfPagesCustom" value="<%=numberOfPages%>">
-                    <input type="hidden" id="noOfPageLinksToDisplayCustom" value="<%=noOfPageLinksToDisplay%>">
-                    <input type="hidden" id="parametersCustom" value="<%="username=" + Encode.forHtmlAttribute(userName)%>">
-            
-                    <!--分页导航-->
-                    <div id="pageNavigator"></div>                    
+                                      
 
                     <%
                         if (roles != null) {
@@ -445,6 +459,13 @@
                         </td>
                     </tr>
                 </table>
+                    <input type="hidden" id="pageNumberCustom" value="<%=pageNumber%>">
+                    <input type="hidden" id="numberOfPagesCustom" value="<%=numberOfPages%>">
+                    <input type="hidden" id="noOfPageLinksToDisplayCustom" value="<%=noOfPageLinksToDisplay%>">
+                    <input type="hidden" id="parametersCustom" value="<%="username=" + Encode.forHtmlAttribute(userName)%>">
+            
+                    <!--分页导航-->
+                    <div id="pageNavigator"></div>                  
             </form>
         </div>
     </div>

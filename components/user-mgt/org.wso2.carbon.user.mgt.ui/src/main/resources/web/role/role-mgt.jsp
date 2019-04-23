@@ -271,6 +271,7 @@
                     datas = aggregateRoleList.toArray(new FlaggedName[aggregateRoleList.size()]);
                 }
                 datasList = new ArrayList<FlaggedName>(Arrays.asList(datas));
+
                 exceededDomains = datasList.remove(datasList.size() - 1);
                 session.setAttribute(UserAdminUIConstants.ROLE_LIST_CACHE_EXCEEDED, exceededDomains);
                 datas = datasList.toArray(new FlaggedName[datasList.size()]);
@@ -285,6 +286,24 @@
             }
 
             if (datasList != null) {
+                //移除需要隐藏的角色
+                for (Iterator<FlaggedName> iterator = datasList.iterator(); iterator.hasNext(); ) {
+                        FlaggedName flaggedName = iterator.next();
+                        if (flaggedName == null) {
+                            continue;
+                        }
+                        String roleName = flaggedName.getItemName();
+
+                        String displayName = flaggedName.getItemDisplayName();
+                        if (displayName == null) {
+                            displayName = roleName;
+                        }
+                    boolean hiddenElementRow = displayName.contains("/everyone") || displayName.contains("Application/") || displayName.contains("Internal/identity"); 
+                        if(hiddenElementRow) {
+                            iterator.remove();
+                        } 
+                    }
+            
                 flaggedNameMap = new HashMap<Integer, PaginatedNamesBean>();
                 int max = pageNumber + cachePages;
                 for (int i = (pageNumber - cachePages); i < max; i++) {
@@ -541,11 +560,11 @@
             <%}%>
             <p>&nbsp;</p>
 
-          <!--   <carbon:paginator pageNumber="<%=pageNumber%>"
+            <!-- <carbon:paginator pageNumber="<%=pageNumber%>"
                               numberOfPages="<%=numberOfPages%>"
                               noOfPageLinksToDisplay="<%=noOfPageLinksToDisplay%>"
-                              page="role-mgt.jsp" pageNumberParameterName="pageNumber"/> -->
-
+                              page="role-mgt.jsp" pageNumberParameterName="pageNumber"/>
+ -->
             <table class="styledLeft" id="roleTable">
                 <%
                     if (ArrayUtils.isNotEmpty(roles)) {
@@ -580,10 +599,9 @@
                                 if (displayName == null) {
                                     displayName = roleName;
                                 }
-                                boolean hiddenElementRow = !displayName.contains("/everyone") && !displayName.contains("Application/") && !displayName.contains("Internal/identity");
                                 boolean hiddenOneElement = displayName.contains("Internal/publisher") || displayName.contains("Internal/subscriber") || displayName.contains("Internal/creator");
                            
-                 if (workFlowAddPendingRolesList.contains(roleName) &&  hiddenElementRow) {
+                 if (workFlowAddPendingRolesList.contains(roleName)) {
                 %>
                 <tr>
                     <td><%=Encode.forHtmlContent(displayName)%>
@@ -610,7 +628,7 @@
                     </td>
                 </tr>
                 <%
-                } else if (showDeletePendingRolesList.contains(roleName) && hiddenElementRow) {
+                } else if (showDeletePendingRolesList.contains(roleName) ) {
                 %>
                    <%-- <%if(hasMultipleUserStores){%>
                     	<td>
@@ -649,7 +667,7 @@
                     </td>
                 </tr>
                 <%
-                } else if(hiddenElementRow){
+                } else {
                 %>
                 <tr>
                     <td><%=Encode.forHtmlContent(displayName)%>
@@ -724,11 +742,11 @@
                 </tbody>
             </table>
 
-           <!--  <carbon:paginator pageNumber="<%=pageNumber%>"
+             <!-- <carbon:paginator pageNumber="<%=pageNumber%>"
                               numberOfPages="<%=numberOfPages%>"
                               noOfPageLinksToDisplay="<%=noOfPageLinksToDisplay%>"
                               page="role-mgt.jsp" pageNumberParameterName="pageNumber"/>
-             -->
+              -->
              <!--为js 获取参数做转换-->
             <input type="hidden" id="pageNumberCustom" value="<%=pageNumber%>">
             <input type="hidden" id="numberOfPagesCustom" value="<%=numberOfPages%>">

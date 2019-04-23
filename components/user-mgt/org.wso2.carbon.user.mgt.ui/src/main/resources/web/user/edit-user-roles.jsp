@@ -35,6 +35,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.LinkedHashSet" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
@@ -190,6 +191,24 @@
                 }
 
                 if (CollectionUtils.isNotEmpty(dataList)) {
+
+
+                //移除需要隐藏的角色
+                for (Iterator<FlaggedName> iterator = dataList.iterator(); iterator.hasNext(); ) {
+                        FlaggedName flaggedName = iterator.next();
+                        if (flaggedName == null) {
+                            continue;
+                        }
+                        String roleName = flaggedName.getItemName();
+
+                        
+                boolean hiddenElementRow = roleName.contains("/everyone") || roleName.contains("Application/") || roleName.contains("Internal/identity"); 
+                        if(hiddenElementRow) {
+                            iterator.remove();
+                        } 
+                    }
+                                
+
                     flaggedNameMap = new HashMap<Integer, PaginatedNamesBean>();
                     int max = pageNumber + cachePages;
                     for (int i = (pageNumber - cachePages); i < max; i++) {
