@@ -45,7 +45,7 @@
     <div class="container-fluid">
         <div class="pull-left brand float-remove-xs text-center-xs">
             <a href="#">
-                <img src="images/logo-inverse.svg" alt="wso2" title="wso2" class="logo">
+                <img src="images/logo-inverse.svg" alt="gds" title="gds" class="logo">
                 <h1><em><%=AuthenticationEndpointUtil.i18n(resourceBundle, "identity.server")%>
                 </em></h1>
             </a>
@@ -70,7 +70,7 @@
                 <div class="clearfix"></div>
                 <%-- Customizable content. Due to this nature, i18n is not implemented for this section --%>
                 <div id="cookiePolicy" class="padding-double">
-                    <h4><a href="http://wso2.org/library/identity-server"><strong>关于身份服务器</strong></a></h4>
+                    <h4><a href="#"><strong>关于身份服务器</strong></a></h4>
                     <p>身份服务器是基于开放标准和规范的身份管理和授权服务器.</p>
                     <div class="margin-bottom-double"></div>
                     <h2 id="cookie-policy"><strong>Cookie 政策</strong></h2>
@@ -193,7 +193,7 @@
                     <h2 id="disclaimer">放弃或拒绝</h2>
                     <p>此cookie政策仅用于产品本身份服务器的说明性目的。 产品发货时，保单中的内容在技术上是正确的。 运行此身份服务器实例的组织对有效的Cookie策略拥有完全的权限和责任. </p>
                     <p>产品提供者的员工，合作伙伴和关联公司无权访问，也不需要，存储，处理或控制任何数据，包括身份服务器中包含的个人数据。 所有数据，包括个人数据，均由运行身份服务器的实体或个人控制和处理。 产品提供者的员工、合作伙伴和关联公司不是任何数据隐私法规意义上的数据处理者或数据控制者。
-                    对于此类实体或个人使用WSO2 IS 5.5.0的合法性或方式和目的，WSO2不提供任何保证或承担任何责任或义务. </p>
+                    对于此类实体或个人使用身份服务器的合法性或方式和目的，产品提供者不提供任何保证或承担任何责任或义务. </p>
                 </div>
                 <%-- /Costomizable content --%>
                 <div class="clearfix"></div>
@@ -209,7 +209,7 @@
     <div class="container-fluid">
         <p><%=AuthenticationEndpointUtil.i18n(resourceBundle, "wso2.identity.server")%> | &copy;
             <script>document.write(new Date().getFullYear());</script>
-            <a href="http://wso2.com/" target="_blank"><i class="icon fw fw-wso2"></i>
+            <a href="#" target="_blank"><i class="icon fw fw-wso2"></i>
                 <%=AuthenticationEndpointUtil.i18n(resourceBundle, "inc")%>
             </a>. <%=AuthenticationEndpointUtil.i18n(resourceBundle, "all.rights.reserved")%>
         </p>

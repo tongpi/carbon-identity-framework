@@ -45,7 +45,7 @@
     <div class="container-fluid">
         <div class="pull-left brand float-remove-xs text-center-xs">
             <a href="#">
-                <img src="images/logo-inverse.svg" alt="wso2" title="wso2" class="logo">
+                <img src="images/logo-inverse.svg" alt="gds" title="gds" class="logo">
                 <h1><em><%=AuthenticationEndpointUtil.i18n(resourceBundle, "identity.server")%>
                 </em></h1>
             </a>
@@ -70,114 +70,112 @@
                 <div class="clearfix"></div>
                 <%-- Customizable content. Due to this nature, i18n is not implemented for this section --%>
                 <div id="privacyPolicy" class="padding-double">
-                    <h4><a href="http://wso2.org/library/identity-server"><strong>About WSO2 Identity Server</strong></a></h4>
-                    <p>WSO2 Identity Server (referred to as &ldquo;WSO2 IS 5.5.0&rdquo; within this policy) is an open source Identity Management and Entitlement Server that is based on open standards and specifications.</p>
+                    <h4><a href="#"><strong>关于身份服务器</strong></a></h4>
+                    <p>身份服务器是基于开放标准和规范的身份管理和授权服务器.</p>
                     <div class="margin-bottom-double"></div>
-                    <h2 id="privacy-policy"><strong>Privacy Policy</strong></h2>
-                    <p>This policy describes how WSO2 IS 5.5.0 captures your personal information, the purposes of collection, and information about the retention of your personal information.</p>
-                    <p>Please note that this policy is for reference only, and is applicable for the software as a product. WSO2 Inc. and its developers have no access to the information held within WSO2 IS 5.5.0. Please see the <a href="privacy_policy.do#disclaimer">Disclaimer</a> section for more information</p>
-                    <p>Entities, organisations or individuals controlling the use and administration of WSO2 IS 5.5.0 should create their own privacy policies setting out the manner in which data is controlled or processed by the respective entity, organisation or individual.</p>
+                    <h2 id="privacy-policy"><strong>隐私政策</strong></h2>
+                    <p>本政策描述了身份服务器如何捕获您的个人信息，收集目的以及有关保留您个人信息的信息.</p>
+                    <p>请注意，此政策仅供参考，适用于作为产品的软件。 产品提供者及其开发人员无法访问身份服务器中保存的信息。 有关更多信息，请参阅免责声明部分</p>
+                    <p>控制身份服务器使用和管理的实体，组织或个人应制定自己的隐私政策，规定各实体，组织或个人控制或处理数据的方式.</p>
                     <div class="margin-bottom-double"></div>
-                    <h2 id="what-is-personal-information">What is personal information?</h2>
-                    <p>WSO2 IS 5.5.0 considers anything related to you, and by which you may be identified, as your personal information. This includes, but is not limited to:</p>
+                    <h2 id="what-is-personal-information">说明是个人信息?</h2>
+                    <p>身份服务器会考虑与您相关的任何内容，并将您识别为您的个人信息。 这包括但不限于:</p>
                     <ul>
-                        <li>Your user name (except in cases where the user name created by your employer is under contract)</li>
-                        <li>Your date of birth/age</li>
-                        <li>IP address used to log in</li>
-                        <li>Your device ID if you use a device (e.g., phone or tablet) to log in</li>
+                        <li>您的用户名</li>
+                        <li>您的出生日期/年龄</li>
+                        <li>用于登录的IP地址</li>
+                        <li>如果您使用设备（例如，手机或平板电脑）登录，则为您的设备ID</li>
                     </ul>
-                    <p>However, WSO2 IS 5.5.0 also collects the following information that is not considered personal information, but is used only for <strong>statistical</strong> purposes. The reason for this is that this information can not be used to track you.</p>
+                    <p>但是，身份服务器还收集以下不被视为个人信息的信息，但仅用于统计目的。 原因是此信息不能用于跟踪您.</p>
                     <ul>
-                        <li>City/Country from which you originated the TCP/IP connection</li>
-                        <li>Time of the day that you logged in (year, month, week, hour or minute)</li>
-                        <li>Type of device that you used to log in (e.g., phone or tablet)</li>
-                        <li>Operating system and generic browser information</li>
+                        <li>发起TCP/IP连接的城市、国家、地区</li>
+                        <li>您登录的时间（年，月，周，小时或分钟）</li>
+                        <li>您用于登录的设备类型（例如，手机或平板电脑）</li>
+                        <li>操作系统和通用浏览器信息</li>
                     </ul>
                     <div class="margin-bottom-double"></div>
-                    <h2 id="collection-of-personal-information">Collection of personal information</h2>
-                    <p>WSO2 IS 5.5.0 collects your information only to serve your access requirements. For example:
+                    <h2 id="collection-of-personal-information">个人信息收集</h2>
+                    <p>身份服务器仅收集您的信息以满足您的访问要求。例如:
                     <ul>
-                        <li>WSO2 IS 5.5.0 uses your IP address to detect any suspicious login attempts to your account.</li>
-                        <li>WSO2 IS 5.5.0 uses attributes like your first name, last name, etc., to provide a rich and personalized user experience.</li>
-                        <li>WSO2 IS 5.5.0 uses your security questions and answers only to allow account recovery.</li>
+                        <li>用您的IP地址检测您帐户的任何可疑登录尝试.</li>
+                        <li>使用诸如您的名字，姓氏等属性来提供丰富且个性化的用户体验.</li>
+                        <li>使用您的安全问题和答案只用来允许帐户恢复.</li>
                     </ul>
                     <div class="margin-bottom"></div>
-                    <h3 id="tracking-technologies">Tracking Technologies</h3>
-                    <p>WSO2 IS 5.5.0 collects your information by:</p>
+                    <h3 id="tracking-technologies">跟踪技术</h3>
+                    <p>身份服务器采用以下技术跟踪个人信息:</p>
                     <ul>
-                        <li>Collecting information from the user profile page where you enter your personal data.</li>
-                        <li>Tracking your IP address with HTTP request, HTTP headers, and TCP/IP.</li>
-                        <li>Tracking your geographic information with the IP address.</li>
-                        <li>Tracking your login history with browser cookies. Please see our <a href="cookie_policy.do">cookie policy</a> for more information.</li>
+                        <li>从您输入个人数据的用户个人资料页面收集信息.</li>
+                        <li>使用HTTP请求，HTTP标头和TCP/IP跟踪您的IP地址.</li>
+                        <li>使用IP地址跟踪您的地理信息和所在位置.</li>
+                        <li>使用浏览器Cookie跟踪您的登录历史记录. 有关更多信息，请参阅我们的 <a href="cookie_policy.do">cookie政策</a> .</li>
                     </ul>
                     <div class="margin-bottom-double"></div>
-                    <h2 id="user-of-personal-information">Use of personal information</h2>
-                    <p>WSO2 IS 5.5.0 will only use your personal information for the purposes for which it was collected (or for a use identified as consistent with that purpose).</p>
-                    <p>WSO2 IS 5.5.0 uses your personal information only for the following purposes.</p>
+                    <h2 id="user-of-personal-information">使用个人信息</h2>
+                    <p>身份服务器仅将您的个人信息用于其收集目的（或用于与该目的一致的用途）.</p>
+                    <p>身份服务器仅将您的个人信息用于以下目的.</p>
                     <ul>
-                        <li>To provide you with a personalized user experience. WSO2 IS 5.5.0 uses your name and uploaded profile pictures for this purpose.</li>
-                        <li>To protect your account from unauthorized access or potential hacking attempts. WSO2 IS 5.5.0 uses HTTP or TCP/IP Headers for this purpose.</li>
+                        <li>为您提供个性化的用户体验。 为此，身份服务器使用您的姓名和上传的个人资料照片.</li>
+                        <li>保护您的帐户免遭未经授权的访问或潜在的黑客攻击。 为此，身份服务器使用HTTP或TCP/IP标头.</li>
                         <ul>
-                            <li>This includes:</li>
+                            <li>这包括:</li>
                             <ul>
-                                <li>IP address</li>
-                                <li>Browser fingerprinting</li>
+                                <li>IP 地址</li>
+                                <li>浏览器指纹</li>
                                 <li>Cookies</li>
                             </ul>
                         </ul>
-                        <li>Derive statistical data for analytical purposes on system performance improvements. WSO2 IS 5.5.0 will not keep any personal information after statistical calculations. Therefore, the statistical report has no means of identifying an individual person.</li>
+                        <li>导出统计数据以用于系统性能改进的分析目的。 身份服务器在统计计算后不会保留任何个人信息。 因此，统计报告无法识别个人.</li>
                         <ul>
-                            <li>WSO2 IS 5.5.0 may use:</li>
+                            <li>身份服务器可能使用:</li>
                             <ul>
-                                <li>IP Address to derive geographic information</li>
-                                <li>Browser fingerprinting to determine the browser technology or/and version</li>
+                                <li>用于获取地理信息的IP地址</li>
+                                <li>浏览器指纹识别以确定浏览器技术和版本</li>
                             </ul>
                         </ul>
                     </ul>
                     <div class="margin-bottom-double"></div>
-                    <h2 id="disclosure-of-personal-information">Disclosure of personal information</h2>
-                    <p>WSO2 IS 5.5.0 only discloses personal information to the relevant applications (also known as “Service Providers”) that are registered with WSO2 IS 5.5.0. These applications are registered by the identity administrator of your entity or organization. Personal information is disclosed only for the purposes for which it was collected (or for a use identified as consistent with that purpose), as controlled by such Service Providers, unless you have consented otherwise or where it is required by law.</p>
+                    <h2 id="disclosure-of-personal-information">披露个人信息</h2>
+                    <p>身份服务器仅向在身份服务器注册的相关应用程序（也称为芒聍聍服务提供商芒聙discloses）公开个人信息。 这些应用程序由您的实体或组织的身份管理员注册。 个人信息仅出于收集目的（或用于与此目的一致的用途）披露，由此类服务提供商控制，除非您已经另行同意或法律要求.</p>
                     <div class="margin-bottom"></div>
-                    <h3 id="legal-process">Legal process</h3>
-                    <p>Please note that the organisation, entity or individual running WSO2 IS 5.5.0 may be compelled to disclose your personal information with or without your consent when it is required by law following due and lawful process.</p>
+                    <h3 id="legal-process">司法程序</h3>
+                    <p>请注意，运营身份服务器的组织，实体或个人可能会被迫在法律要求的情况下，经过适当和合法的流程，在您同意或未经您同意的情况下披露您的个人信息.</p>
                     <div class="margin-bottom-double"></div>
-                    <h2 id="storage-of-personal-information">Storage of personal information</h2>
+                    <h2 id="storage-of-personal-information">存储个人信息</h2>
                     <div class="margin-bottom"></div>
-                    <h3 id="where-your-personal-information-stored">Where your personal information is stored</h3>
-                    <p>WSO2 IS 5.5.0 stores your personal information in secured databases. WSO2 IS 5.5.0 exercises proper industry accepted security measures to protect the database where your personal information is held. WSO2 IS 5.5.0 as a product does not transfer or share your data with any third parties or locations. </p>
-                    <p>WSO2 IS 5.5.0 may use encryption to keep your personal data with an added level of security.</p>
+                    <h3 id="where-your-personal-information-stored">存储您的个人信息的地方</h3>
+                    <p>身份服务器将您的个人信息存储在安全数据库中。 身份服务器采用适当的行业认可的安全措施来保护您的个人信息所在的数据库. </p>
+                    <p>身份服务器可能使用加密技术来保护您的个人数据的安全性.</p>
                     <div class="margin-bottom"></div>
-                    <h3 id="how-long-does-is-5.5-keep-your-personal-information">How long your personal information is retained</h3>
-                    <p>WSO2 IS 5.5.0 retains your personal data as long as you are an active user of our system. You can update your personal data at any time using the given self-care user portals.</p>
-                    <p>WSO2 IS 5.5.0 may keep hashed secrets to provide you with an added level of security. This includes:</p>
+                    <h3 id="how-long-does-is-5.5-keep-your-personal-information">您的个人信息保留多长时间</h3>
+                    <p>只要您是我们系统的活跃用户，身份服务器就会保留您的个人数据。 您可以使用指定的自助用户门户随时更新您的个人数据.</p>
+                    <p>身份服务器可以保留散列密码，为您提供更高级别的安全性。 这包括:</p>
                     <ul>
-                            <li>Current password</li>
-                            <li>Previously used passwords</li>
+                            <li>当前密码</li>
+                            <li>曾经用过的密码</li>
                     </ul>
                     <div class="margin-bottom"></div>
-                    <h3 id="how-to-request-removal-of-your-personal-information">How to request removal of your personal information</h3>
-                    <p>You can request the administrator to delete your account. The administrator is the administrator of the tenant you are registered under, or the super-administrator if you do not use the tenant feature.</p>
-                    <p>Additionally, you can request to anonymize all traces of your activities that WSO2 IS 5.5.0 may have retained in logs, databases or analytical storage.</p>
+                    <h3 id="how-to-request-removal-of-your-personal-information">如何申请删除您的个人信息</h3>
+                    <p>您可以请求管理员删除您的帐户。 管理员是您在其下注册的租户的管理员，如果您不使用租户功能，则是超级管理员.</p>
+                    <p>此外，您可以请求匿名化身份服务器可能在日志，数据库或分析存储中保留的所有活动痕迹.</p>
                     <div class="margin-bottom-double"></div>
-                    <h2 id="more-information">More information</h2>
+                    <h2 id="more-information">更多信息</h2>
                     <div class="margin-bottom"></div>
-                    <h3 id="changes-to-this-policy">Changes to this policy</h3>
-                    <p>Upgraded versions of WSO2 IS 5.5.0 may contain changes to this policy and revisions to this policy will be packaged within such upgrades. Such changes would only apply to users who choose to use upgraded versions.</p>
-                    <p>The organization running WSO2 IS 5.5.0 may revise the Privacy Policy from time to time. You can find the most recent governing policy with the respective link provided by the organization running WSO2 IS 5.5. The organization will notify any changes to the privacy policy over our oficial public channels.</p>
+                    <h3 id="changes-to-this-policy">对此政策的更改</h3>
+                    <p>身份服务器的升级版本可能包含对此策略的更改，并且此策略的修订将打包在此类升级中。 此类更改仅适用于选择使用升级版本的用户.</p>
+                    <p>运行身份服务器的组织可能会不时修订隐私政策。 您可以使用运行身份服务器的组织提供的相应链接找到最新的管理策略。 组织将通过我们的公共渠道通知隐私政策的任何变更.</p>
                     <div class="margin-bottom"></div>
-                    <h3 id="your-choices">Your choices</h3>
-                    <p>If you are already have a user account within WSO2 IS 5.5.0, you have the right to deactivate your account if you find that this privacy policy is unacceptable to you.</p>
-                    <p>If you do not have an account and you do not agree with our privacy policy, you can chose not to create one.</p>
-                    <div class="margin-bottom"></div>
-                    <h3 id="contact-us">Contact us</h3>
-                    <p>Please contact WSO2 if you have any question or concerns regarding this privacy policy.</p>
-                    <p><a href="https://wso2.com/contact/">https://wso2.com/contact/</a></p>
+                    <h3 id="your-choices">你的选择</h3>
+                    <p>如果您已在身份服务器中拥有用户帐户，则如果您发现本隐私政策对您不可接受，则您有权停用您的帐户.</p>
+                    <p>如果您没有帐户且您不同意我们的隐私政策，您可以选择不创建帐户.</p>
                     <div class="margin-bottom-double"></div>
-                    <h2 id="disclaimer">Disclaimer</h2>
+                    <h2 id="disclaimer">放弃或拒绝</h2>
                     <ol>
-                      <li>WSO2, its employees, partners, and affiliates do not have access to and do not require, store, process or control any of the data, including personal data contained in WSO2 IS 5.5.0. All data, including personal data is controlled and processed by the entity or individual running WSO2 IS 5.5.0.  WSO2, its employees partners and affiliates are not a data processor or a data controller within the meaning of any data privacy regulations.  WSO2 does not provide any warranties or undertake any responsibility or liability in connection with the lawfulness or the manner and purposes for which WSO2 IS 5.5.0 is used by such entities or persons. </li>  
+                      <li>产品提供者的员工，合作伙伴和关联公司无权访问，也不需要，存储，处理或控制任何数据，包括身份服务器中包含的个人数据。 所有数据，包括个人数据，均由运行身份服务器的实体或个人控制和处理。 产品提供者及其员工合作伙伴和附属公司不是任何数据隐私法规意义上的数据处理者或数据控制者。
+                    对于此类实体或个人使用身份服务器的合法性或方式和目的，产品提供者不提供任何保证或承担任何责任或义务. </li>
                       </br>
-                      <li>This privacy policy is for the informational purposes of the entity or persons  running WSO2 IS 5.5.0 and sets out the processes and functionality contained within WSO2 IS 5.5.0 regarding personal data protection. It is the responsibility of entities and persons running WSO2 IS 5.5.0 to create and administer its own rules and processes governing users’ personal data, and such  rules and processes may change the use, storage and disclosure policies contained herein. Therefore users should consult the entity or persons running WSO2 IS 5.5.0 for its own privacy policy for details governing users’ personal data. </li>
+                      <li>本隐私政策仅供运行身份服务器的实体或个人参考，并列出了身份服务器中有关个人数据保护的流程和功能。 运行身份服务器的实体和个人有责任创建和管理自己的管理用户数据的规则和流程，此类规则和流程可能会更改此处包含的使用，存储和披露政策。
+                    因此，用户应咨询运营身份服务器的实体或其自身隐私政策的人员，以了解管理用户的详细信息。聙聂个人数据. </li>
                     </ol>
                 </div>
                 <%-- /Costomizable content --%>
@@ -193,7 +191,7 @@
     <div class="container-fluid">
         <p><%=AuthenticationEndpointUtil.i18n(resourceBundle, "wso2.identity.server")%> | &copy;
             <script>document.write(new Date().getFullYear());</script>
-            <a href="http://wso2.com/" target="_blank"><i class="icon fw fw-wso2"></i>
+            <a href="#" target="_blank"><i class="icon fw fw-wso2"></i>
                 <%=AuthenticationEndpointUtil.i18n(resourceBundle, "inc")%>
             </a>. <%=AuthenticationEndpointUtil.i18n(resourceBundle, "all.rights.reserved")%>
         </p>
