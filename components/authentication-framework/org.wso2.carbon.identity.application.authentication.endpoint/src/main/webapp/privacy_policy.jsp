@@ -175,7 +175,7 @@
                     对于此类实体或个人使用身份服务器的合法性或方式和目的，产品提供者不提供任何保证或承担任何责任或义务. </li>
                       </br>
                       <li>本隐私政策仅供运行身份服务器的实体或个人参考，并列出了身份服务器中有关个人数据保护的流程和功能。 运行身份服务器的实体和个人有责任创建和管理自己的管理用户数据的规则和流程，此类规则和流程可能会更改此处包含的使用，存储和披露政策。
-                    因此，用户应咨询运营身份服务器的实体或其自身隐私政策的人员，以了解管理用户的详细信息。聙聂个人数据. </li>
+                    因此，用户应咨询运营身份服务器的实体或其自身隐私政策的人员，以了解管理用户的详细信息. </li>
                     </ol>
                 </div>
                 <%-- /Costomizable content --%>
@@ -203,7 +203,7 @@
 
 <script type="text/javascript" src="js/u2f-api.js"></script>
 <script type="text/javascript">
-    var ToC = "<nav role='navigation' class='table-of-contents'>" + "<h4>On this page:</h4>" + "<ul>";
+    var ToC = "<nav role='navigation' class='table-of-contents'>" + "<h4>目录:</h4>" + "<ul>";
     var newLine, el, title, link;
 
     $("#privacyPolicy h2,#privacyPolicy h3").each(function() {
