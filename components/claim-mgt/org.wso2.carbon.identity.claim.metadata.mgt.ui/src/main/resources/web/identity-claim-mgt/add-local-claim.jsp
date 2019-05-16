@@ -13,7 +13,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar"
            prefix="carbon" %>
@@ -125,7 +125,7 @@
                                 '<td><a href="#" class="icon-link deleteLink" ' +
                                 'style="background-image:url(../identity-claim-mgt/images/delete.gif)"' +
                                 'onclick="deleteAttributeRow(this);return false;">' +
-                                'Delete' +
+                                '删除' +
                                 '</a></td></tr>'));
                     })
                 });
@@ -153,7 +153,7 @@
                                 '<td><a href="#" class="icon-link deleteLink" ' +
                                 'style="background-image:url(../identity-claim-mgt/images/delete.gif)"' +
                                 'onclick="deletePropertyRow(this);return false;">' +
-                                'Delete' +
+                                '删除' +
                                 '</a></td></tr>'));
                     })
                 });
