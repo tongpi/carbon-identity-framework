@@ -15,7 +15,7 @@
 ~ specific language governing permissions and limitations
 ~ under the License.
 -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.wso2.carbon.ui.CarbonUIUtil" %>
 <%@ page import="org.wso2.carbon.utils.ServerConstants" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
@@ -67,7 +67,7 @@ function createAppOnclick() {
     var spName = document.getElementById("spName").value;
     var description = document.getElementById("sp-description").value;
     if( spName == '') {
-        CARBON.showWarningDialog('Please provide Service Provider ID');
+        CARBON.showWarningDialog('请提供服务提供者名称');
         location.href = '#';
     } else if (!validateTextForIllegal(document.getElementById("spName"))) {
         return false;
@@ -78,7 +78,7 @@ function createAppOnclick() {
 }
 
 function validateTextForIllegal(fld) {
-    var isValid = doValidateInput(fld, "Provided Service Provider name is invalid.");
+    var isValid = doValidateInput(fld, "服务提供者名称无效.");
     if (isValid) {
         return true;
     } else {
@@ -99,7 +99,7 @@ var openFile = function (event) {
 
 function importAppOnclick() {
     if (document.getElementById('sp-file-content').value === null || document.getElementById('sp-file-content').value === "") {
-        CARBON.showWarningDialog('Please specify service provider configuration file.');
+        CARBON.showWarningDialog('请指定服务提供者配置文件.');
         location.href = '#';
         return false;
     } else {
@@ -156,21 +156,21 @@ window.onload = function() {
                 <tr>
                     <td><input type="radio" id="manual-option" name="upload-type-selector" checked="checked"
                                onclick="showManual();">
-                        <label for="manual-option">Manual Configuration</label>
+                        <label for="manual-option">手动配置</label>
                     </td>
-            
+
                 </tr>
                 <tr>
                     <td>
                         <input type="radio" id="file-option" name="upload-type-selector" onclick="showFile();">
-                        <label for="file-option">File Configuration</label>
+                        <label for="file-option">文件配置</label>
                     </td>
                 </tr>
-                
+
                 </tbody>
             </table>
             <br/>
-    
+
             <form id="add-sp-form" name="add-service-provider-form" method="post"
                   action="add-service-provider-finish-ajaxprocessor.jsp">
             <div class="sectionSeperator togglebleTitle"><fmt:message key='title.config.app.basic.config'/></div>
@@ -186,7 +186,7 @@ window.onload = function() {
                         </td>
                     </tr>
                     <tr>
-                       <td class="leftCol-med labelField">Description:</td>
+                       <td class="leftCol-med labelField">描述:</td>
                      <td>
                         <textarea maxlength="1023" style="width:50%" type="text" name="sp-description" id="sp-description" class="text-box-big"></textarea>
                         <div class="sectionHelp">
@@ -201,7 +201,7 @@ window.onload = function() {
                         <%--<td style="width:15%" class="leftCol-med labelField"><fmt:message key='config.application.info.basic.template'/>:</td>--%>
                         <%--<td>--%>
                             <%--<select style="min-width: 250px;" id="sp-template" name="sp-template">--%>
-                                <%--<option value="">---Select---</option>--%>
+                                <%--<option value="">---请选择---</option>--%>
                                 <%--<%--%>
                                     <%--for (SpTemplate spTemplate : spTemplates) {--%>
                                         <%--if (spTemplate != null) {--%>
@@ -251,7 +251,7 @@ window.onload = function() {
                     <tbody>
                     <tr>
                         <td>
-                            <span>File Location: </span><input type="file" class="button" id="sp_file" name="sp_file" onchange='openFile(event)'/>
+                            <span>文件位置: </span><input type="file" class="button" id="sp_file" name="sp_file" onchange='openFile(event)'/>
                         </td>
                         <textarea hidden="hidden" name="sp-file-content" id="sp-file-content"></textarea>
                         <textarea hidden="hidden" name="sp-file-name" id="sp-file-name"></textarea>

@@ -15,6 +15,7 @@
 ~ specific language governing permissions and limitations
 ~ under the License.
 -->
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.wso2.carbon.identity.application.common.model.xsd.AuthenticationStep"%>
 
 <%@ page import="org.wso2.carbon.identity.application.common.model.xsd.FederatedAuthenticatorConfig"%>
@@ -52,17 +53,17 @@
     }
     String spName = appBean.getServiceProvider().getApplicationName();
     Map<String, String> claimMapping = appBean.getClaimMapping();
-    
+
     LocalAuthenticatorConfig[] localAuthenticatorConfigs = appBean.getLocalAuthenticatorConfigs();
     IdentityProvider[] federatedIdPs = appBean.getFederatedIdentityProviders();
-    
+
     StringBuffer localAuthTypes = new StringBuffer();
     StringBuffer graphsStr = new StringBuffer();
     String startOption = "<option value=\"";
     String middleOption = "\">";
     String middleOptionWithSelected = "\" selected>";
     String endOption = "</option>";
-    
+
     if (localAuthenticatorConfigs != null && localAuthenticatorConfigs.length > 0) {
         for (LocalAuthenticatorConfig auth : localAuthenticatorConfigs) {
             localAuthTypes.append(startOption + Encode.forHtmlAttribute(auth.getName()) + middleOption + Encode.forHtmlContent(auth.getDisplayName()) + endOption);
@@ -74,14 +75,14 @@
 </script>
 
 <%
-    
+
     StringBuffer idpType = new StringBuffer();
     StringBuffer enabledIdpType = new StringBuffer();
     Map<String, String> idpAuthenticators = new HashMap<String, String>();
     Map<String, String> enabledIdpAuthenticators = new HashMap<String, String>();
     Map<String, Boolean> idpEnableStatus = new HashMap<String, Boolean>();
     Map<String, Boolean> idpAuthenticatorsStatus = new HashMap<String, Boolean>();
-    
+
     if (federatedIdPs != null && federatedIdPs.length > 0) {
         for (IdentityProvider idp : federatedIdPs) {
             idpEnableStatus.put(idp.getIdentityProviderName(), idp.getEnable());
@@ -90,7 +91,7 @@
                 StringBuffer fedAuthenticatorType = new StringBuffer();
                 StringBuffer fedAuthType = new StringBuffer();
                 StringBuffer enabledfedAuthType = new StringBuffer();
-                
+
                 int i = 1;
                 for (FederatedAuthenticatorConfig fedAuth : idp.getFederatedAuthenticatorConfigs()) {
                     if (i == idp.getFederatedAuthenticatorConfigs().length) {
@@ -100,7 +101,7 @@
                         fedAuthenticatorDisplayType.append(fedAuth.getDisplayName() + "%fed_auth_sep_%");
                         fedAuthenticatorType.append(fedAuth.getName() + "%fed_auth_sep_%");
                     }
-                    
+
                     fedAuthType.append(startOption + Encode.forHtmlAttribute(fedAuth.getName()) + middleOption + Encode.forHtmlContent(fedAuth.getDisplayName()) + endOption);
                     if (fedAuth.getEnabled()) {
                         enabledfedAuthType.append(startOption + Encode.forHtmlAttribute(fedAuth.getName()) + middleOption + Encode.forHtmlContent(fedAuth.getDisplayName()) + endOption);
@@ -108,10 +109,10 @@
                     idpAuthenticatorsStatus.put(idp.getIdentityProviderName() + "_" + fedAuth.getName(), fedAuth.getEnabled());
                     i++;
                 }
-                
+
                 idpAuthenticators.put(idp.getIdentityProviderName(), fedAuthType.toString());
                 enabledIdpAuthenticators.put(idp.getIdentityProviderName(), enabledfedAuthType.toString());
-                
+
                 idpType.append(startOption + Encode.forHtmlAttribute(idp.getIdentityProviderName()) + "\" data=\"" + Encode.forHtmlAttribute(fedAuthenticatorDisplayType.toString()) + "\"" + " data-values=\"" + Encode.forHtmlAttribute(fedAuthenticatorType.toString()) + "\" >" + Encode.forHtmlContent(idp.getIdentityProviderName()) + endOption);
                 if (idp.getEnable() && enabledfedAuthType.length() > 0) {
                     enabledIdpType.append(startOption + Encode.forHtmlAttribute(idp.getIdentityProviderName()) + "\" data=\"" + Encode.forHtmlAttribute(fedAuthenticatorDisplayType.toString()) + "\"" + " data-values=\"" + Encode.forHtmlAttribute(fedAuthenticatorType.toString()) + "\" >" + Encode.forHtmlContent(idp.getIdentityProviderName()) + endOption);
@@ -119,10 +120,10 @@
             }
         }
     }
-    
+
     AuthenticationStep[] steps = appBean.getServiceProvider().getLocalAndOutBoundAuthenticationConfig().getAuthenticationSteps();
     Map<String, String> stepIdpAuthenticators = new HashMap<String, String>();
-    
+
     if (steps != null && steps.length > 0) {
         for (AuthenticationStep step : steps) {
             IdentityProvider[] stepFedIdps = step.getFederatedIdentityProviders();
@@ -166,17 +167,17 @@
     <%
     }
     %>
-    
-    
+
+
     var idpNumber = 0;
     var reqPathAuth = 0;
     var localAuthNumber = 0;
-    
+
     function createAppOnclick() {
-        
+
         document.getElementById("configure-auth-flow-form").submit();
     }
-    
+
     jQuery(document).ready(function () {
         jQuery('#ReqPathAuth').hide();
         jQuery('#authenticationConfRow').hide();
@@ -193,7 +194,7 @@
         })
         jQuery('#stepsAddLink').click(function () {
             stepOrder++;
-            jQuery('#stepsConfRow').append(jQuery('<h2 id="step_head_' + stepOrder + '" class="sectionSeperator trigger active step_heads" style="background-color: beige; clear: both;"><input type="hidden" value="' + stepOrder + '" name="auth_step" id="auth_step"><a class="step_order_header" href="#">Step ' + stepOrder + '</a><a onclick="deleteStep(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif);float:right;width: 9px;"></a></h2><div class="toggle_container sectionSub step_contents" style="margin-bottom:10px;" id="step_dev_' + stepOrder + '"> <div style="padding-bottom: 5px"><table class="carbonFormTable"><tr><td><input type="checkbox" style="vertical-align: middle;" id="subject_step_' + stepOrder + '" name="subject_step_' + stepOrder + '" class="subject_steps" onclick="setSubjectStep(this)"><label for="subject_step_' + stepOrder + '" style="cursor: pointer;">Use subject identifier from this step</label></td></tr><tr><td><input type="checkbox" style="vertical-align: middle;" id="attribute_step_' + stepOrder + '" name="attribute_step_' + stepOrder + '" class="attribute_steps" onclick="setAttributeStep(this)" ><label for="attribute_step_' + stepOrder + '" style="cursor: pointer;">Use attributes from this step</label></td></tr></table></div><h2 id="local_auth_head_' + stepOrder + '" class="sectionSeperator trigger active" style="background-color: floralwhite;"><a href="#">Local Authenticators</a></h2><div class="toggle_container sectionSub" style="margin-bottom:10px;" id="local_auth_head_dev_' + stepOrder + '"><table class="styledLeft" width="100%" id="local_auth_table_' + stepOrder + '"><thead><tr><td><select name="step_' + stepOrder + '_local_oauth_select" style="float: left; min-width: 150px;font-size:13px;"><%=localAuthTypes.toString()%></select><a id="claimMappingAddLinkss" onclick="addLocalRow(this,' + stepOrder + ');return false;" class="icon-link claimMappingAddLinkssLocal" style="background-image:url(images/add.gif);">Add Authenticator</a></td></tr></thead></table> </div><%if (enabledIdpType.length() > 0) { %> <h2 id="fed_auth_head_' + stepOrder + '" class="sectionSeperator trigger active" style="background-color: floralwhite;"><a href="#">Federated Authenticators</a></h2><div class="toggle_container sectionSub" style="margin-bottom:10px;" id="fed_auth_head_dev_' + stepOrder + '"><table class="styledLeft" width="100%" id="fed_auth_table_' + stepOrder + '"><thead> <tr><td><select name="idpAuthType_' + stepOrder + '" style="float: left; min-width: 150px;font-size:13px;"><%=enabledIdpType.toString()%></select><a id="claimMappingAddLinkss" onclick="addIDPRow(this,' + stepOrder + ');return false;" class="icon-link claimMappingAddLinkssIdp" style="background-image:url(images/add.gif);">Add Authenticator</a></td></tr></thead></table></div><%}%></div>'));
+            jQuery('#stepsConfRow').append(jQuery('<h2 id="step_head_' + stepOrder + '" class="sectionSeperator trigger active step_heads" style="background-color: beige; clear: both;"><input type="hidden" value="' + stepOrder + '" name="auth_step" id="auth_step"><a class="step_order_header" href="#">步骤 ' + stepOrder + '</a><a onclick="deleteStep(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif);float:right;width: 9px;"></a></h2><div class="toggle_container sectionSub step_contents" style="margin-bottom:10px;" id="step_dev_' + stepOrder + '"> <div style="padding-bottom: 5px"><table class="carbonFormTable"><tr><td><input type="checkbox" style="vertical-align: middle;" id="subject_step_' + stepOrder + '" name="subject_step_' + stepOrder + '" class="subject_steps" onclick="setSubjectStep(this)"><label for="subject_step_' + stepOrder + '" style="cursor: pointer;">使用此步骤中的主题标识符</label></td></tr><tr><td><input type="checkbox" style="vertical-align: middle;" id="attribute_step_' + stepOrder + '" name="attribute_step_' + stepOrder + '" class="attribute_steps" onclick="setAttributeStep(this)" ><label for="attribute_step_' + stepOrder + '" style="cursor: pointer;">使用此步骤中的属性</label></td></tr></table></div><h2 id="local_auth_head_' + stepOrder + '" class="sectionSeperator trigger active" style="background-color: floralwhite;"><a href="#">本地认证器</a></h2><div class="toggle_container sectionSub" style="margin-bottom:10px;" id="local_auth_head_dev_' + stepOrder + '"><table class="styledLeft" width="100%" id="local_auth_table_' + stepOrder + '"><thead><tr><td><select name="step_' + stepOrder + '_local_oauth_select" style="float: left; min-width: 150px;font-size:13px;"><%=localAuthTypes.toString()%></select><a id="claimMappingAddLinkss" onclick="addLocalRow(this,' + stepOrder + ');return false;" class="icon-link claimMappingAddLinkssLocal" style="background-image:url(images/add.gif);">添加认证器</a></td></tr></thead></table> </div><%if (enabledIdpType.length() > 0) { %> <h2 id="fed_auth_head_' + stepOrder + '" class="sectionSeperator trigger active" style="background-color: floralwhite;"><a href="#">联邦认证器</a></h2><div class="toggle_container sectionSub" style="margin-bottom:10px;" id="fed_auth_head_dev_' + stepOrder + '"><table class="styledLeft" width="100%" id="fed_auth_table_' + stepOrder + '"><thead> <tr><td><select name="idpAuthType_' + stepOrder + '" style="float: left; min-width: 150px;font-size:13px;"><%=enabledIdpType.toString()%></select><a id="claimMappingAddLinkss" onclick="addIDPRow(this,' + stepOrder + ');return false;" class="icon-link claimMappingAddLinkssIdp" style="background-image:url(images/add.gif);">添加认证器</a></td></tr></thead></table></div><%}%></div>'));
             if (!$('#stepsConfRow').is(":visible")) {
                 $(jQuery('#stepsConfRow')).toggle();
             }
@@ -202,11 +203,11 @@
                 $('#attribute_step_' + stepOrder).attr('checked', true);
             }
         })
-        
+
     })
-    
+
     var deletePermissionRows = [];
-    
+
     function deletePermissionRow(obj) {
         if (jQuery(obj).parent().prev().children()[0].value != '') {
             deletePermissionRows.push(jQuery(obj).parent().prev().children()[0].value);
@@ -216,7 +217,7 @@
             $(jQuery('#permissionAddTable')).toggle();
         }
     }
-    
+
     function deleteStepRow(obj) {
         stepOrder--;
         jQuery(obj).parent().parent().remove();
@@ -224,7 +225,7 @@
             $(jQuery('#permissionAddTable')).toggle();
         }
     }
-    
+
     function deleteIDPRow(obj) {
         idpNumber--;
         jQuery(obj).parent().parent().remove();
@@ -232,7 +233,7 @@
             $(jQuery('#permissionAddTable')).toggle();
         }
     }
-    
+
     function deleteStep(obj) {
         stepOrder--;
         jQuery(obj).parent().next().remove();
@@ -241,27 +242,27 @@
             var newStepOrderVal = 1;
             $.each($('.step_heads'), function () {
                 var oldStepOrderVal = parseInt($(this).find('input[name="auth_step"]').val());
-                
+
                 //Changes in header
                 $(this).attr('id', 'step_head_' + newStepOrderVal)
                 $(this).find('input[name="auth_step"]').val(newStepOrderVal);
-                $(this).find('.step_order_header').text('Step ' + newStepOrderVal);
-                
+                $(this).find('.step_order_header').text('步骤 ' + newStepOrderVal);
+
                 //Changes in content
                 var contentDiv = $('#step_dev_' + oldStepOrderVal);
                 if (contentDiv.length > 0) {
                     contentDiv.attr('id', 'step_dev_' + newStepOrderVal);
-                    
+
                     var subjectStepInput = contentDiv.find('#subject_step_' + oldStepOrderVal);
                     subjectStepInput.attr('id', 'subject_step_' + newStepOrderVal);
                     subjectStepInput.attr('name', 'subject_step_' + newStepOrderVal);
                     contentDiv.find('label[for="subject_step_' + oldStepOrderVal + '"]').attr('for', 'subject_step_' + newStepOrderVal);
-                    
+
                     var attributeStepInput = contentDiv.find('#attribute_step_' + oldStepOrderVal);
                     attributeStepInput.attr('id', 'attribute_step_' + newStepOrderVal);
                     attributeStepInput.attr('name', 'attribute_step_' + newStepOrderVal);
                     contentDiv.find('label[for="attribute_step_' + oldStepOrderVal + '"]').attr('for', 'attribute_step_' + newStepOrderVal);
-                    
+
                     contentDiv.find('#local_auth_head_' + oldStepOrderVal).attr('id', 'local_auth_head_' + newStepOrderVal);
                     contentDiv.find('#local_auth_head_dev_' + oldStepOrderVal).attr('id', 'local_auth_head_dev_' + newStepOrderVal);
                     contentDiv.find('#local_auth_table_' + oldStepOrderVal).attr('id', 'local_auth_table_' + newStepOrderVal);
@@ -278,8 +279,8 @@
                         addLocalRow(this, tempStepOrderVal);
                         return false;
                     });
-                    
-                    
+
+
                     if (contentDiv.find('#fed_auth_head_' + oldStepOrderVal).length > 0) {
                         contentDiv.find('#fed_auth_head_' + oldStepOrderVal).attr('id', 'fed_auth_head_' + newStepOrderVal);
                         contentDiv.find('#fed_auth_head_dev_' + oldStepOrderVal).attr('id', 'fed_auth_head_dev_' + newStepOrderVal);
@@ -303,12 +304,12 @@
                         }
                     }
                 }
-                
+
                 newStepOrderVal++;
             });
         }
     }
-    
+
     function deleteLocalAuthRow(obj) {
         localAuthNumber--;
         jQuery(obj).parent().parent().remove();
@@ -316,7 +317,7 @@
             $(jQuery('#permissionAddTable')).toggle();
         }
     }
-    
+
     function addLocalRow(obj, stepId) {
         //var stepId = jQuery(obj).parent().children()[0].value;
         var selectedObj = jQuery(obj).prev().find(":selected");
@@ -325,24 +326,24 @@
         if (!validateAuthenticators('step_' + stepId + '_local_auth', selectedAuthenticatorName)) {
             return false;
         }
-        
+
         jQuery(obj)
             .parent()
             .parent()
             .parent()
             .parent()
             .append(
-                jQuery('<tr><td><input name="step_' + stepId + '_local_auth" id="" type="hidden" value="' + selectedAuthenticatorName + '" />' + selectedAuthenticatorDisplayName + '</td><td class="leftCol-small" ><a onclick="deleteLocalAuthRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> Delete </a></td></tr>'));
+                jQuery('<tr><td><input name="step_' + stepId + '_local_auth" id="" type="hidden" value="' + selectedAuthenticatorName + '" />' + selectedAuthenticatorDisplayName + '</td><td class="leftCol-small" ><a onclick="deleteLocalAuthRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> 删除 </a></td></tr>'));
     }
-    
-    
+
+
     function addIDPRow(obj, stepID) {
         var selectedObj = jQuery(obj).prev().find(":selected");
         var selectedIDPName = selectedObj.val();
         if (!validateAuthenticators('step_' + stepID + '_fed_auth', selectedIDPName)) {
             return false;
         }
-        
+
         //var stepID = jQuery(obj).parent().children()[1].value;
         var dataArray = selectedObj.attr('data').split('%fed_auth_sep_%');
         var valuesArray = selectedObj.attr('data-values').split('%fed_auth_sep_%');
@@ -350,7 +351,7 @@
         for (var i = 0; i < dataArray.length; i++) {
             newRow += '<option value="' + valuesArray[i] + '">' + dataArray[i] + '</option>';
         }
-        newRow += '</select></td><td class="leftCol-small" ><a onclick="deleteIDPRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> Delete </a></td></tr>';
+        newRow += '</select></td><td class="leftCol-small" ><a onclick="deleteIDPRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> 删除 </a></td></tr>';
         jQuery(obj)
             .parent()
             .parent()
@@ -359,13 +360,13 @@
             .append(
                 jQuery(newRow));
     }
-    
+
     function validateAuthenticators(itemName, authenticatorName) {
         if ($('[name=' + itemName + ']').length > 0) {
             var isNew = true;
             $.each($('[name=' + itemName + ']'), function () {
                 if ($(this).val() == authenticatorName) {
-                    CARBON.showWarningDialog('Authenticator "' + authenticatorName + '" is already added.');
+                    CARBON.showWarningDialog('认证器 "' + authenticatorName + '" 已经添加.');
                     isNew = false;
                     return false;
                 }
@@ -376,14 +377,14 @@
         }
         return true;
     }
-    
+
     function setSubjectStep(element) {
         $.each($('.subject_steps'), function () {
             $(this).attr('checked', false);
         });
         $(element).attr('checked', true);
     }
-    
+
     function setAttributeStep(element) {
         $.each($('.attribute_steps'), function () {
             $(this).attr('checked', false);
@@ -402,14 +403,14 @@
             <form id="configure-auth-flow-form" method="post" name="configure-auth-flow-form" method="post"
                   action="configure-authentication-flow-by-graph-finish-ajaxprocessor.jsp">
                 <input type=hidden name=spName value='<%=Encode.forHtmlAttribute(spName)%>'/>
-                
-                
+
+
                 <h2 id="authentication_step_config_head" class="sectionSeperator trigger active">
                     <a href="#"><fmt:message key="title.config.authentication.graph"/></a>
                 </h2>
-                
+
                 <div class="toggle_container sectionSub" style="margin-bottom:10px;height:150px" id="stepsConfRow">
-                    
+
                     <select name="graph" style="float: left; min-width: 150px;font-size:13px;">
                         <%=graphsStr%>
                     </select>

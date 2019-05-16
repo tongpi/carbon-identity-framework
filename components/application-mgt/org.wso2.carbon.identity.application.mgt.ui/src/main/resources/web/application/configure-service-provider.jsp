@@ -15,7 +15,7 @@
 ~ specific language governing permissions and limitations
 ~ under the License.
 -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@ page import="org.apache.commons.collections.CollectionUtils" %>
 <%@ page import="org.apache.commons.lang.StringUtils" %>
@@ -402,14 +402,14 @@
             }
         });
         if (templateName === null || 0 === templateName.length) {
-            CARBON.showWarningDialog('Please specify service provider template name.');
+            CARBON.showWarningDialog('请指定服务提供者模板名称.');
             return;
         }
 
         templateNames = document.getElementById('templateNames').value.split(",");
         for (var i = 0; i < templateNames.length; i++) {
             if (templateNames[i] == templateName) {
-                CARBON.showWarningDialog('Service provider template name is already taken. Please pick a different name.');
+                CARBON.showWarningDialog('服务提供者名称已经存在，请使用不同的名称.');
                 return;
             }
         }
@@ -423,11 +423,11 @@
             url: 'add-service-provider-as-template.jsp',
             data: $("#configure-sp-form").serialize(),
             success: function () {
-                CARBON.showInfoDialog('Service provider template is added successfully.');
+                CARBON.showInfoDialog('服务提供者模板添加成功.');
                 return;
             },
             error: function(e) {
-                CARBON.showErrorDialog('Error when adding service provider template.');
+                CARBON.showErrorDialog('添加服务提供者模板出错了.');
                 return;
             },
             async: false
@@ -447,7 +447,7 @@
                 $.each($('.spClaimVal'), function () {
                     if ($(this).val().length == 0) {
                         isValied = false;
-                        CARBON.showWarningDialog('Please complete Claim Configuration section');
+                        CARBON.showWarningDialog('请完成声明配置环节');
                         return false;
                     }
                 });
@@ -464,7 +464,7 @@
                 $.each($('[name=app_permission]'), function () {
                     if ($(this).val().length == 0) {
                         isValied = false;
-                        CARBON.showWarningDialog('Please complete Permission Configuration section');
+                        CARBON.showWarningDialog('请完成权限配置环节');
                         return false;
                     }
                 });
@@ -477,7 +477,7 @@
                 $.each($('.roleMapIdp'), function () {
                     if ($(this).val().length == 0) {
                         isValied = false;
-                        CARBON.showWarningDialog('Please complete Role Mapping Configuration section');
+                        CARBON.showWarningDialog('请完成角色映射配置环节');
                         return false;
                     }
                 });
@@ -486,7 +486,7 @@
                         $.each($('.roleMapSp'), function () {
                             if ($(this).val().length == 0) {
                                 isValied = false;
-                                CARBON.showWarningDialog('Please complete Role Mapping Configuration section');
+                                CARBON.showWarningDialog('请完成角色映射配置环节');
                                 return false;
                             }
                         });
@@ -503,8 +503,8 @@
             document.getElementById('number_of_rolemappings').value = numberOfRoleMappings;
 
             if (jQuery('#deletePublicCert').val() == 'true') {
-                var confirmationMessage = 'Are you sure you want to delete the public certificate of ' +
-                    spName + '?';
+                var confirmationMessage = '你确定要删除服务提供者 ' +
+                    spName + '的公钥证书吗?';
                 if (jQuery('#certFile').val() != '') {
                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                 }
@@ -711,7 +711,7 @@
                 '            value="0" autofocus="">' +
                 '    </td>' +
                 '    <td><a class="icon-link" style="background-image: url(../admin/images/delete.gif)"' +
-                '        onclick="removeSharedPurposeRow(\'row_shared_purpose_id_' + sharedPurposeId + '\')">Delete</a>' +
+                '        onclick="removeSharedPurposeRow(\'row_shared_purpose_id_' + sharedPurposeId + '\')">删除</a>' +
                 '    </td>' +
                 '</tr>';
         $('#shared_purposes_tbl tbody').append(row);
@@ -759,7 +759,7 @@
                 '<tr id="spClaimDialectUri_' + parseInt(currentColumnId) + '">' +
                 '</td><td style="padding-left: 30px !important; color: rgb(119, 119, 119);font-style: italic;">' + spClaimDialect +
                 '</td><td><a onclick="removeSpClaimDialect(\'' + spClaimDialect + '\', \'spClaimDialectUri_' + parseInt(currentColumnId) + '\');return false;"' +
-                ' href="#" class="icon-link" style="background-image: url(../admin/images/delete.gif)">Delete</a></td></tr>';
+                ' href="#" class="icon-link" style="background-image: url(../admin/images/delete.gif)">删除</a></td></tr>';
             $('#spClaimDialectsTable tbody').append(row);
         } else {
             var isExist = false;
@@ -779,7 +779,7 @@
                 '<tr id="spClaimDialectUri_' + parseInt(currentColumnId) + '">' +
                 '</td><td style="padding-left: 30px !important; color: rgb(119, 119, 119);font-style: italic;">' + spClaimDialect +
                 '</td><td><a onclick="removeSpClaimDialect(\'' + spClaimDialect + '\', \'spClaimDialectUri_' + parseInt(currentColumnId) + '\');return false;"' +
-                ' href="#" class="icon-link" style="background-image: url(../admin/images/delete.gif)">Delete</a></td></tr>';
+                ' href="#" class="icon-link" style="background-image: url(../admin/images/delete.gif)">删除</a></td></tr>';
             $('#spClaimDialectsTable tr:last').after(row);
         }
         $("#standard_dialect").val("");
@@ -875,7 +875,7 @@
             jQuery('#permissionAddTable').append(jQuery('<tr><td class="leftCol-big"><input style="width: 98%;" type="text" id="app_permission" name="app_permission"/></td>' +
                 '<td><a onclick="deletePermissionRow(this)" class="icon-link" ' +
                 'style="background-image: url(images/delete.gif)">' +
-                'Delete' +
+                '删除' +
                 '</a></td></tr>'));
         });
         jQuery('#claimMappingAddLink').click(function () {
@@ -899,7 +899,7 @@
                     '<td>' + idpClaimListDiv.html() + '</td>' +
                     '<td style="display:none;"><input type="checkbox"  name="spClaim_req_' + claimMappinRowID + '"  id="spClaim_req_' + claimMappinRowID + '" checked/></td>' +
                     '<td><input type="checkbox"  name="spClaim_mand_' + claimMappinRowID + '"  id="spClaim_mand_' + claimMappinRowID + '"/></td>' +
-                    '<td><a onclick="deleteClaimRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> Delete</a></td>' +
+                    '<td><a onclick="deleteClaimRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> 删除</a></td>' +
                     '</tr>'));
             }
             else {
@@ -910,7 +910,7 @@
                     '<td>' + idpClaimListDiv.html() + '</td>' +
                     '<td><input type="checkbox"  name="spClaim_req_' + claimMappinRowID + '"  id="spClaim_req_' + claimMappinRowID + '"/></td>' +
                     '<td><input type="checkbox"  name="spClaim_mand_' + claimMappinRowID + '"  id="spClaim_mand_' + claimMappinRowID + '"/></td>' +
-                    '<td><a onclick="deleteClaimRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> Delete</a></td>' +
+                    '<td><a onclick="deleteClaimRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> 删除</a></td>' +
                     '</tr>'));
                 $('#spClaim_' + claimMappinRowID).change(function () {
                     resetRoleClaims();
@@ -923,7 +923,7 @@
             $('#roleMappingAddTable').show();
             jQuery('#roleMappingAddTable').append(jQuery('<tr><td><input style="width: 98%;" class="roleMapIdp" type="text" id="idpRole_' + roleMappinRowID + '" name="idpRole_' + roleMappinRowID + '"/></td>' +
                 '<td><input style="width: 98%;" class="roleMapSp" type="text" id="spRole_' + roleMappinRowID + '" name="spRole_' + roleMappinRowID + '"/></td> ' +
-                '<td><a onclick="deleteRoleMappingRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> Delete</a>' +
+                '<td><a onclick="deleteRoleMappingRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> 删除</a>' +
                 '</td></tr>'));
         })
         jQuery('#reqPathAuthenticatorAddLink').click(function () {
@@ -939,7 +939,7 @@
                 .parent()
                 .parent()
                 .append(
-                    jQuery('<tr><td><input name="req_path_auth' + '" id="req_path_auth" type="hidden" value="' + selectedRePathAuthenticator + '" />' + selectedRePathAuthenticator + '</td><td class="leftCol-small" ><a onclick="deleteReqPathRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> Delete </a></td></tr>'));
+                    jQuery('<tr><td><input name="req_path_auth' + '" id="req_path_auth" type="hidden" value="' + selectedRePathAuthenticator + '" />' + selectedRePathAuthenticator + '</td><td class="leftCol-small" ><a onclick="deleteReqPathRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> 删除 </a></td></tr>'));
 
         });
 
@@ -950,7 +950,7 @@
             claimMappinRowID = -1;
 
             if ($('.idpClaim').length > 0) {
-                CARBON.showConfirmationDialog('Changing dialect will delete all claim mappings. Do you want to proceed?',
+                CARBON.showConfirmationDialog('修改方言会删除全部声明映射. 要继续处理吗?',
                     function () {
                         $.each($('.idpClaim'), function () {
                             $(this).parent().parent().remove();
@@ -983,8 +983,7 @@
         var authenticationType = $('input:radio[name=auth_type]:checked').val();
         var isAuthTypeClicked = false;
         var lastSelectedAuthType;
-        var changeAuthTypeMsg = "Changing the Authentication Type from Advanced Configuration to another will remove the " +
-            "advanced configurations when updating the Service Provider. Do you want to proceed?";
+        var changeAuthTypeMsg = "将身份验证类型从高级配置更改为其他配置将在更新服务提供程序时删除高级配置。你想继续吗?";
 
         $('#advanceAuthnConfRow input[name=auth_type]').mouseup(function(){
             lastSelectedAuthType = $('#advanceAuthnConfRow input[name=auth_type]:checked').val();
@@ -1002,7 +1001,7 @@
                     });
             }
         });
-        
+
 
         if ($('#isNeedToUpdate').val() == 'true') {
             $('#isNeedToUpdate').val('false');
@@ -1060,7 +1059,7 @@
         }).remove();
 
         if (element.val() == 'local') {
-            $('#addClaimUrisLbl').text('Requested Claims:');
+            $('#addClaimUrisLbl').text('请求的声明:');
             $('#roleMappingSelection').hide();
             if ($('#local_calim_uris').length > 0 && $('#local_calim_uris').val().length > 0) {
                 var dataArray = $('#local_calim_uris').val().split(',');
@@ -1077,7 +1076,7 @@
                 }
             }
         } else {
-            $('#addClaimUrisLbl').text('Identity Provider Claim URIs:');
+            $('#addClaimUrisLbl').text('身份提供者声明URIs:');
             $('#roleMappingSelection').show();
         }
     }
@@ -1136,9 +1135,9 @@
             }
         }
         newRow += '</select></td><td><input type="checkbox" name="blocking_prov_' + selectedIDPName +
-            '"  />Blocking</td><td><input type="checkbox" name="rules_enabled_' + selectedIDPName +
-            '"  />Enable Rules</td><td><input type="checkbox" name="provisioning_jit_' + selectedIDPName +
-            '"  />JIT Outbound</td><td class="leftCol-small" ><a onclick="deleteIDPRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> Delete </a></td></tr>';
+            '"  />阻塞</td><td><input type="checkbox" name="rules_enabled_' + selectedIDPName +
+            '"  />启用规则</td><td><input type="checkbox" name="provisioning_jit_' + selectedIDPName +
+            '"  />即时出站</td><td class="leftCol-small" ><a onclick="deleteIDPRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> 删除 </a></td></tr>';
         jQuery(obj)
             .parent()
             .parent()
@@ -1157,7 +1156,7 @@
             var isNew = true;
             $.each($(selector), function () {
                 if ($(this).val() == authenticatorName) {
-                    CARBON.showWarningDialog(type + ' "' + authenticatorName + '" is already added');
+                    CARBON.showWarningDialog(type + ' "' + authenticatorName + '" 已经添加');
                     isNew = false;
                     return false;
                 }
@@ -1170,12 +1169,12 @@
     }
 
     function showHidePassword(element, inputId) {
-        if ($(element).text() == 'Show') {
+        if ($(element).text() == '显示') {
             document.getElementById(inputId).type = 'text';
-            $(element).text('Hide');
+            $(element).text('隐藏');
         } else {
             document.getElementById(inputId).type = 'password';
-            $(element).text('Show');
+            $(element).text('显示');
         }
     }
 
@@ -1185,7 +1184,7 @@
     }
 
     function validateTextForIllegal(fld) {
-        var isValid = doValidateInput(fld, "Provided Service Provider name is invalid.");
+        var isValid = doValidateInput(fld, "提供的服务提供者名称无效.");
         if (isValid) {
             return true;
         } else {
@@ -1220,7 +1219,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:15%" class="leftCol-med labelField">Description:</td>
+                            <td style="width:15%" class="leftCol-med labelField">描述:</td>
                             <td>
                                 <textarea maxlength="1023" style="width:50%" type="text" name="sp-description" id="sp-description"
                                           class="text-box-big"><%=appBean.getServiceProvider().getDescription() != null ? Encode.forHtmlContent(appBean.getServiceProvider().getDescription()) : "" %></textarea>
@@ -1230,7 +1229,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:15%" class="leftCol-med labelField">Application Certificate:</td>
+                            <td style="width:15%" class="leftCol-med labelField">应用证书:</td>
                             <td>
                             <textarea style="width:100%;height: 100px;" type="text" name="sp-certificate"
                                       id="sp-certificate"
@@ -1353,7 +1352,7 @@
                         <tr>
                             <td class="leftCol-med labelField" style="width:15%">
                                 <label
-                                    id="addClaimUrisLbl"><%=isLocalClaimsSelected ? "Requested Claims:" : "Identity Provider Claim URIs:"%>
+                                    id="addClaimUrisLbl"><%=isLocalClaimsSelected ? "请求的声明:" : "身份提供者声明URIs:"%>
                                 </label>
                             </td>
                             <td class="leftCol-med">
@@ -1450,7 +1449,7 @@
                             <td>
                                 <select class="leftCol-med" id="subject_claim_uri" name="subject_claim_uri"
                                         style=" margin-left: 5px; ">
-                                    <option value="">---Select---</option>
+                                    <option value="">---请选择---</option>
                                     <% if (isLocalClaimsSelected) {
                                         String[] localClaimUris = appBean.getClaimUris();
                                         for (String localClaimName : localClaimUris) {
@@ -1550,7 +1549,7 @@
                                 <td>
                                     <select class="leftCol-med" id="standard_dialect" name="standard_dialect"
                                             style=" margin-left: 5px; ">
-                                        <option value="">---Select---</option>
+                                        <option value="">---请选择---</option>
                                         <%
                                             for (String dialectURI : claimDialectUris) {%>
                                         <option
@@ -1592,7 +1591,7 @@
                                                     'spClaimDialectUri_<%=spClaimDialectColumnId%>');return false;"
                                                    href="#" class="icon-link"
                                                    style="background-image: url(../admin/images/delete.gif)">
-                                                    Delete
+                                                    删除
                                                 </a>
                                             </td>
                                         </tr>
@@ -1768,7 +1767,7 @@
                 <div class="toggle_container sectionSub" style="margin-bottom:10px;" id="permissionConfRow">
                     <h2 id="permission_mapping_head" class="sectionSeperator trigger active"
                         style="background-color: beige;">
-                        <a href="#">Permissions</a>
+                        <a href="#">权限</a>
                     </h2>
                     <div class="toggle_container sectionSub" style="margin-bottom:10px;display: none;"
                          id="appPermissionRow">
@@ -1821,7 +1820,7 @@
                         </table>
                     </div>
                     <h2 id="role_mapping_head" class="sectionSeperator trigger active" style="background-color: beige;">
-                        <a href="#">Role Mapping</a>
+                        <a href="#">角色映射</a>
                     </h2>
                     <div class="toggle_container sectionSub" style="margin-bottom:10px;display: none;"
                          id="roleMappingRowRow">
@@ -1949,14 +1948,14 @@
                                                         <a title="Edit Service Providers"
                                                            onclick="updateBeanAndRedirect('../sso-saml/add_service_provider.jsp?SPAction=editServiceProvider&issuer=<%=Encode.forUriComponent(appBean.getSAMLIssuer())%>&spName=<%=Encode.forUriComponent(spName)%>');"
                                                            class="icon-link"
-                                                           style="background-image: url(../admin/images/edit.gif)">Edit</a>
+                                                           style="background-image: url(../admin/images/edit.gif)">编辑</a>
                                                         <a title="Delete Service Providers"
                                                            onclick="updateBeanAndPost('../sso-saml/remove_service_provider-finish-ajaxprocessor.jsp',
                                                                'issuer=<%=Encode.forUriComponent(appBean.getSAMLIssuer())%>&spName=<%=Encode.forUriComponent(spName)%>',
                                                                'configure-service-provider.jsp?action=delete&samlIssuer=<%=Encode.forUriComponent(appBean.getSAMLIssuer())%>&spName=<%=Encode.forUriComponent(spName)%>');"
                                                            class="icon-link"
                                                            style="background-image: url(images/delete.gif)">
-                                                            Delete </a>
+                                                            删除 </a>
                                                     </td>
                                                 </tr>
                                                 </tbody>
@@ -2024,7 +2023,7 @@
                                                                        readonly="readonly">
                                                                 <span style="float: right;">
                                 						<a style="margin-top: 5px;" class="showHideBtn"
-                                                           onclick="showHidePassword(this, 'oauthConsumerSecret')">Show</a>
+                                                           onclick="showHidePassword(this, 'oauthConsumerSecret')">显示</a>
                                 					</span>
                                                             </div>
                                                             <% } %>
@@ -2034,20 +2033,19 @@
                                                             <a title="Edit Service Providers"
                                                                onclick="updateBeanAndRedirect('../oauth/edit.jsp?appName=<%=Encode.forUriComponent(spName)%>');"
                                                                class="icon-link"
-                                                               style="background-image: url(../admin/images/edit.gif)">Edit</a>
+                                                               style="background-image: url(../admin/images/edit.gif)">编辑</a>
 
 
                                                             <a title="Revoke Service Providers"
                                                                onclick="updateBeanAndPostTo('../oauth/edit-app-ajaxprocessor.jsp','appName=<%=Encode.forUriComponent(spName)%>&consumerkey=<%=Encode.forUriComponent(appBean.getOIDCClientId())%>&action=revoke');"
                                                                class="icon-link"
-                                                               style="background-image: url(images/disabled.png)">Revoke</a>
+                                                               style="background-image: url(images/disabled.png)">回收</a>
 
 
                                                             <a title="Regenerate Secret Key"
                                                                onclick="updateBeanAndPostTo('../oauth/edit-app-ajaxprocessor.jsp','appName=<%=Encode.forUriComponent(spName)%>&consumerkey=<%=Encode.forUriComponent(appBean.getOIDCClientId())%>&action=regenerate');"
                                                                class="icon-link"
-                                                               style="background-image: url(images/enabled.png)">Regenerate
-                                                                Secret</a>
+                                                               style="background-image: url(images/enabled.png)">重新生成Secret</a>
 
 
                                                             <a title="Delete Service Providers"
@@ -2056,7 +2054,7 @@
                                                                    'configure-service-provider.jsp?action=delete&spName=<%=Encode.forUriComponent(spName)%>&oauthapp=<%=Encode.forUriComponent(appBean.getOIDCClientId())%>');"
                                                                class="icon-link"
                                                                style="background-image: url(images/delete.gif)">
-                                                                Delete </a>
+                                                                删除 </a>
                                                         </td>
                                                     </tr>
                                                     </tbody>
@@ -2073,7 +2071,7 @@
 
                                 <h2 id="openid.config.head" class="sectionSeperator trigger active"
                                     style="background-color: beige;">
-                                    <a href="#">OpenID Configuration</a>
+                                    <a href="#">OpenID 配置</a>
                                     <div class="enablelogo"><img src="images/ok.png" width="16" height="16"></div>
                                 </h2>
                                 <div class="toggle_container sectionSub" style="margin-bottom:10px;display:none;"
@@ -2108,7 +2106,7 @@
 
                                 <h2 id="passive.sts.config.head" class="sectionSeperator trigger active"
                                     style="background-color: beige;">
-                                    <a href="#">WS-Federation (Passive) Configuration</a>
+                                    <a href="#">WS-Federation (Passive) 配置</a>
                                     <div class="enablelogo"><img src="images/ok.png" width="16" height="16"></div>
                                 </h2>
                                 <div class="toggle_container sectionSub" style="margin-bottom:10px;display:none;"
@@ -2203,17 +2201,17 @@
                                                             <td><%=Encode.forHtmlContent(appBean.getWstrustSP())%>
                                                             </td>
                                                             <td style="white-space: nowrap;">
-                                                                <a title="Edit Audience"
+                                                                <a title="编辑 Audience"
                                                                    onclick="updateBeanAndRedirect('../generic-sts/sts.jsp?spName=<%=Encode.forUriComponent(spName)%>&&spAudience=<%=Encode.forUriComponent(appBean.getWstrustSP())%>&spAction=spEdit');"
                                                                    class="icon-link"
-                                                                   style="background-image: url(../admin/images/edit.gif)">Edit</a>
-                                                                <a title="Delete Audience"
+                                                                   style="background-image: url(../admin/images/edit.gif)">编辑</a>
+                                                                <a title="删除 Audience"
                                                                    onclick="updateBeanAndPost('../generic-sts/remove-sts-trusted-service-ajaxprocessor.jsp',
                                                                        'action=delete&spName=<%=Encode.forUriComponent(spName)%>&endpointaddrs=<%=Encode.forUriComponent(appBean.getWstrustSP())%>',
                                                                        'configure-service-provider.jsp?spName=<%=Encode.forUriComponent(spName)%>&action=delete&serviceName=<%=Encode.forUriComponent(appBean.getWstrustSP())%>');"
                                                                    class="icon-link"
                                                                    style="background-image: url(images/delete.gif)">
-                                                                    Delete </a>
+                                                                    删除 </a>
                                                             </td>
                                                         </tr>
                                                         </tbody>
@@ -2277,15 +2275,14 @@
                                                                     <a title="Change Password"
                                                                        onclick="updateBeanAndRedirect('../servicestore/change-passwd.jsp?SPAction=changePWr&spnName=<%=Encode.forUriComponent(appBean.getKerberosServiceName())%>&spName=<%=Encode.forUriComponent(spName)%>');"
                                                                        class="icon-link"
-                                                                       style="background-image: url(../admin/images/edit.gif)">Change
-                                                                        Password</a>
+                                                                       style="background-image: url(../admin/images/edit.gif)">修改密码</a>
                                                                     <a title="Delete"
                                                                        onclick="updateBeanAndPost('../servicestore/delete-finish-ajaxprocessor.jsp',
                                                                            'SPAction=delete&spnName=<%=Encode.forUriComponent(appBean.getKerberosServiceName())%>&spName=<%=Encode.forUriComponent(spName)%>',
                                                                            'configure-service-provider.jsp?action=delete&spName=<%=Encode.forUriComponent(spName)%>&kerberos=<%=Encode.forUriComponent(appBean.getKerberosServiceName())%>');"
                                                                        class="icon-link"
                                                                        style="background-image: url(images/delete.gif)">
-                                                                        Delete </a>
+                                                                        删除 </a>
                                                                 </td>
                                                             </tr>
                                                             </tbody>
@@ -2385,7 +2382,7 @@
 						                            180px;"/>
                                                             <span style=" float: right; padding-right: 5px;">
 					                            <a style="margin-top: 5px;" class="showHideBtn"
-                                                   onclick="showHidePassword(this, '<%=propName%>')">Show</a>
+                                                   onclick="showHidePassword(this, '<%=propName%>')">显示</a>
 				                            </span>
                                                         </div>
                                                         <% } else { %>
@@ -2484,7 +2481,7 @@
                                                                             }
                                                                         }
                                                             %>
-                                                            
+
                                                             <% if (authenticator.getName().equals(appBean.getStepZeroAuthenticatorName(ApplicationBean.AUTH_TYPE_LOCAL))) { %>
                                                             <option
                                                                 value="<%=Encode.forHtmlAttribute(authenticator.getName())%>"
@@ -2644,7 +2641,7 @@
                                                                     style="float: left; min-width: 150px;font-size:13px;"><%=requestPathAuthTypes.toString()%>
                                                             </select>
                                                             <a id="reqPathAuthenticatorAddLink" class="icon-link"
-                                                               style="background-image:url(images/add.gif);">Add</a>
+                                                               style="background-image:url(images/add.gif);">添加</a>
                                                             <div style="clear:both"></div>
                                                             <div class="sectionHelp">
                                                                 <fmt:message key='help.local.authnticators'/>
@@ -2675,7 +2672,7 @@
                                                             <a onclick="deleteReqPathRow(this);return false;" href="#"
                                                                class="icon-link"
                                                                style="background-image: url(images/delete.gif)">
-                                                                Delete </a>
+                                                                删除 </a>
                                                         </td>
                                                     </tr>
                                                     <%
@@ -2704,12 +2701,9 @@
                                                  id="scim-inbound-provisioning-div">
                                                 <table class="carbonFormTable">
                                                     <tr>
-                                                        <td>Service provider based SCIM provisioning is protected via
-                                                            OAuth 2.0.
-                                                            Your service provider must have a valid OAuth 2.0 client key
-                                                            and a client secret to invoke the SCIM API.
-                                                            To create OAuth 2.0 key/secret : Inbound Authentication
-                                                            Configuration -> OAuth/OpenID Connect Configuration.<br/>
+                                                        <td>基于服务提供者的SCIM配置受到OAuth 2.0保护。
+                                                            您的服务提供者必须具有有效的OAuth 2.0 client key以及client secret调用SCIM API。
+                                                            要创建OAuth 2.0 key/secret，请单击：入站身份验证配置 -> OAuth/OpenID 连接配置.<br/>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -2750,8 +2744,7 @@
                                                     <tr>
                                                         <td>
                                                             <input type="checkbox" name="dumb" id="dumb" value="false"
-                                                                   onclick="disable()" <%=appBean.getServiceProvider().getInboundProvisioningConfig().getDumbMode() ? "checked" : "" %>>Enable
-                                                            Dumb Mode<br>
+                                                                   onclick="disable()" <%=appBean.getServiceProvider().getInboundProvisioningConfig().getDumbMode() ? "checked" : "" %>>启用Dumb模式<br>
                                                             <div class="sectionHelp">
                                                                 <fmt:message key='help.inbound.scim.dumb'/>
                                                             </div>
@@ -2788,8 +2781,7 @@
                                                 </thead>
                                                 <% } else { %>
                                                 <tr>
-                                                    <td colspan="4" style="border: none;">There are no provisioning
-                                                        enabled identity providers defined in the system.
+                                                    <td colspan="4" style="border: none;">系统中未定义配置启用的身份提供者.
                                                     </td>
                                                 </tr>
                                                 <%} %>
@@ -2837,7 +2829,7 @@
                                                         <div class="sectionCheckbox">
                                                             <input type="checkbox"
                                                                    id="blocking_prov_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>"
-                                                                   name="blocking_prov_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>" <%=blocking ? "checked" : "" %>>Blocking
+                                                                   name="blocking_prov_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>" <%=blocking ? "checked" : "" %>>阻塞
                                                         </div>
                                                     </td>
                                                     <td>
@@ -2845,21 +2837,20 @@
                                                             <input type="checkbox"
                                                                    id="rules_enabled_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>"
                                                                    name="rules_enabled_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>" <%=ruleEnabled ? "checked" :
-                                                        "" %>>Enable Rules
+                                                        "" %>>启用规则
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="sectionCheckbox">
                                                             <input type="checkbox"
                                                                    id="provisioning_jit_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>"
-                                                                   name="provisioning_jit_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>" <%=jitEnabled ? "checked" : "" %>>Enable
-                                                            JIT
+                                                                   name="provisioning_jit_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>" <%=jitEnabled ? "checked" : "" %>>启用即时配置
                                                         </div>
                                                     </td>
                                                     <td class="leftCol-small">
                                                         <a onclick="deleteIDPRow(this);return false;" href="#"
                                                            class="icon-link"
-                                                           style="background-image: url(images/delete.gif)"> Delete </a>
+                                                           style="background-image: url(images/delete.gif)"> 删除 </a>
                                                     </td>
                                                 </tr>
                                                 <%
@@ -2920,7 +2911,7 @@
                            value=<%=Encode.forHtmlAttribute(appBean.getOIDCClientId())%> readonly="readonly">
                     <span>
                         <a style="margin-top: 5px;" class="showHideBtn"
-                           onclick="showHidePassword(this, 'consumerKey')">Show</a>
+                           onclick="showHidePassword(this, 'consumerKey')">显示</a>
                     </span>
                     <span style="margin-left: 6px;float: right;">
                         <a style="margin-top: 5px;" class="showHideBtn"
@@ -2938,7 +2929,7 @@
                            value="<%=Encode.forHtmlAttribute(oauthConsumerSecret)%>" readonly="readonly">
                     <span>
                         <a style="margin-top: 5px;" class="showHideBtn"
-                           onclick="showHidePassword(this, 'consumerSecret')">Show</a>
+                           onclick="showHidePassword(this, 'consumerSecret')">显示</a>
                     </span>
                     <span style="margin-left: 6px;float: right;">
                         <a style="margin-top: 5px;" class="showHideBtn"

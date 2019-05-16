@@ -41,19 +41,19 @@
         response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
         return;
     }
-    
+
     String spName = request.getParameter("spName");
     String secrets = request.getParameter("exportSecrets");
     boolean exportSecrets = "on".equals(secrets);
     ResourceBundle resourceBundle = ResourceBundle.getBundle(BUNDLE, request.getLocale());
-    
+
     if (StringUtils.isNotEmpty(spName)) {
         try {
             String cookie = (String) session.getAttribute(ServerConstants.ADMIN_SERVICE_COOKIE);
             String backendServerURL = CarbonUIUtil.getServerURL(config.getServletContext(), session);
             ConfigurationContext configContext = (ConfigurationContext) config.getServletContext()
                     .getAttribute(CarbonConstants.CONFIGURATION_CONTEXT);
-            
+
             ApplicationManagementServiceClient serviceClient =
                     new ApplicationManagementServiceClient(cookie, backendServerURL, configContext);
             String appData = serviceClient.exportApplication(spName, exportSecrets);

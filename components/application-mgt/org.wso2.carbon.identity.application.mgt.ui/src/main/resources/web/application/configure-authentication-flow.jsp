@@ -1,3 +1,4 @@
+
 <!--
 ~ Copyright (c) 2005-2013, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 ~
@@ -15,6 +16,7 @@
 ~ specific language governing permissions and limitations
 ~ under the License.
 -->
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="codemirror/lib/codemirror.css">
 <link rel="stylesheet" href="codemirror/theme/mdn-like.css">
 <link rel="stylesheet" href="codemirror/addon/dialog/dialog.css">
@@ -89,24 +91,24 @@
     ApplicationBean appBean = ApplicationMgtUIUtil.getApplicationBeanFromSession(session, request.getParameter("spName"));
     String spName = appBean.getServiceProvider().getApplicationName();
     Map<String, String> claimMapping = appBean.getClaimMapping();
-    
+
     LocalAuthenticatorConfig[] localAuthenticatorConfigs = appBean.getLocalAuthenticatorConfigs();
     IdentityProvider[] federatedIdPs = appBean.getFederatedIdentityProviders();
     String templatesJson = null;
     String availableJsFunctionsJson = null;
-    
+
     StringBuilder localAuthTypes = new StringBuilder();
     String startOption = "<option value=\"";
     String middleOption = "\">";
     String endOption = "</option>";
-    
+
     if (localAuthenticatorConfigs != null && localAuthenticatorConfigs.length > 0) {
         for (LocalAuthenticatorConfig auth : localAuthenticatorConfigs) {
             localAuthTypes.append(startOption).append(Encode.forHtmlAttribute(auth.getName())).append(middleOption)
                 .append(Encode.forHtmlContent(auth.getDisplayName())).append(endOption);
         }
     }
-    
+
     try {
         String cookie = (String) session.getAttribute(ServerConstants.ADMIN_SERVICE_COOKIE);
         String backendServerURL = CarbonUIUtil.getServerURL(config.getServletContext(), session);
@@ -133,14 +135,14 @@
 %>
 
 <%
-    
+
     StringBuilder idpType = new StringBuilder();
     StringBuilder enabledIdpType = new StringBuilder();
     Map<String, String> idpAuthenticators = new HashMap<String, String>();
     Map<String, String> enabledIdpAuthenticators = new HashMap<String, String>();
     Map<String, Boolean> idpEnableStatus = new HashMap<String, Boolean>();
     Map<String, Boolean> idpAuthenticatorsStatus = new HashMap<String, Boolean>();
-    
+
     if (federatedIdPs != null && federatedIdPs.length > 0) {
         for (IdentityProvider idp : federatedIdPs) {
             idpEnableStatus.put(idp.getIdentityProviderName(), idp.getEnable());
@@ -149,7 +151,7 @@
                 StringBuffer fedAuthenticatorType = new StringBuffer();
                 StringBuffer fedAuthType = new StringBuffer();
                 StringBuffer enabledfedAuthType = new StringBuffer();
-                
+
                 int i = 1;
                 for (FederatedAuthenticatorConfig fedAuth : idp.getFederatedAuthenticatorConfigs()) {
                     if (i == idp.getFederatedAuthenticatorConfigs().length) {
@@ -159,7 +161,7 @@
                         fedAuthenticatorDisplayType.append(fedAuth.getDisplayName()).append("%fed_auth_sep_%");
                         fedAuthenticatorType.append(fedAuth.getName()).append("%fed_auth_sep_%");
                     }
-                    
+
                     fedAuthType.append(startOption).append(Encode.forHtmlAttribute(fedAuth.getName()))
                         .append(middleOption).append(Encode.forHtmlContent(fedAuth.getDisplayName())).append(endOption);
                     if (fedAuth.getEnabled()) {
@@ -171,10 +173,10 @@
                         fedAuth.getEnabled());
                     i++;
                 }
-                
+
                 idpAuthenticators.put(idp.getIdentityProviderName(), fedAuthType.toString());
                 enabledIdpAuthenticators.put(idp.getIdentityProviderName(), enabledfedAuthType.toString());
-                
+
                 idpType.append(startOption).append(Encode.forHtmlAttribute(idp.getIdentityProviderName()))
                     .append("\" data=\"").append(Encode.forHtmlAttribute(fedAuthenticatorDisplayType.toString()))
                     .append("\"").append(" data-values=\"")
@@ -190,11 +192,11 @@
             }
         }
     }
-    
+
     AuthenticationStep[] steps =
         appBean.getServiceProvider().getLocalAndOutBoundAuthenticationConfig().getAuthenticationSteps();
     Map<String, String> stepIdpAuthenticators = new HashMap<String, String>();
-    
+
     if (steps != null && steps.length > 0) {
         for (AuthenticationStep step : steps) {
             IdentityProvider[] stepFedIdps = step.getFederatedIdentityProviders();
@@ -271,9 +273,7 @@
                                                    id="subject_step_<%=step.getStepOrder()%>"
                                                    name="subject_step_<%=step.getStepOrder()%>" class="subject_steps"
                                                    onclick="setSubjectStep(this)" <%=step.getSubjectStep() ? "checked" : "" %>><label
-                                                for="subject_step_<%=step.getStepOrder()%>" style="cursor: pointer;">Use
-                                            subject
-                                            identifier from this step</label></td>
+                                                for="subject_step_<%=step.getStepOrder()%>" style="cursor: pointer;">使用此步骤中的主题标识符</label></td>
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" style="vertical-align: middle;"
@@ -281,8 +281,7 @@
                                                    name="attribute_step_<%=step.getStepOrder()%>"
                                                    class="attribute_steps"
                                                    onclick="setAttributeStep(this)" <%=step.getAttributeStep() ? "checked" : "" %>><label
-                                                for="attribute_step_<%=step.getStepOrder()%>" style="cursor: pointer;">Use
-                                            attributes from this step</label></td>
+                                                for="attribute_step_<%=step.getStepOrder()%>" style="cursor: pointer;">使用此步骤中的属性</label></td>
                                     </tr>
                                 </table>
                             </div>
@@ -303,7 +302,7 @@
                                             <a id="localOptionAddLinkStep_<%=step.getStepOrder()%>"
                                                onclick="addLocalRow(this,'<%=step.getStepOrder()%>');return false;"
                                                class="icon-link claimmappingAddLinkss claimMappingAddLinkssLocal"
-                                               style="background-image:url(images/add.gif);">Add Authenticator
+                                               style="background-image:url(images/add.gif);">添加验证器
                                             </a>
                                         </td>
                                     </tr>
@@ -325,7 +324,7 @@
                                         <td class="leftCol-small">
                                             <a onclick="deleteLocalAuthRow(this);return false;" href="#"
                                                class="icon-link"
-                                               style="background-image: url(images/delete.gif)"> Delete </a>
+                                               style="background-image: url(images/delete.gif)"> 删除 </a>
                                         </td>
                                     </tr>
                                     <%
@@ -355,7 +354,7 @@
                                             <a id="claimMappingAddLinkss"
                                                onclick="addIDPRow(this,'<%=step.getStepOrder()%>');return false;"
                                                class="icon-link claimMappingAddLinkssIdp"
-                                               style="background-image:url(images/add.gif);">Add Authenticator</a>
+                                               style="background-image:url(images/add.gif);">添加验证器</a>
                                         </td>
                                     </tr>
                                     </thead>
@@ -382,7 +381,7 @@
                                         </td>
                                         <td class="leftCol-small">
                                             <a onclick="deleteIDPRow(this);return false;" href="#" class="icon-link"
-                                               style="background-image: url(images/delete.gif)"> Delete </a>
+                                               style="background-image: url(images/delete.gif)"> 删除 </a>
                                         </td>
                                     </tr>
                                     <%
@@ -408,7 +407,7 @@
                                                 .getAuthenticationScriptConfig().getEnabled()) { %>
                                    checked="checked"  <% }
                             }
-                            }%>/> Enable Script Based Adaptive Authentication
+                            }%>/> 启用基于脚本的自适应身份验证
                         </label>
                     </div>
                 </div>
@@ -417,46 +416,46 @@
                 <!-- sectionSub Div -->
                 <br/>
                 <h2 id="authentication_step_config_head" class="sectionSeperator trigger active">
-                    <a href="#">Script Based Adaptive Authentication</a>
+                    <a href="#">基于脚本的自适应身份验证</a>
                 </h2>
 
                 <div class="toggle_container sectionSub" id="editorRow">
                     <div class="err_warn_container">
                         <div class="disable_status">
-                            <img src="images/disabled.png"><span class="disable_text">Disabled</span>
+                            <img src="images/disabled.png"><span class="disable_text">禁用</span>
                             <span class="show_errors_toggle_buttons">
-                                <a href="#">[+] Show Errors</a>
-                                <a href="#" style="display: none;">[-] Hide Errors</a>
+                                <a href="#">[+] 显示错误</a>
+                                <a href="#" style="display: none;">[-] 隐藏错误</a>
                             </span>
                         </div>
                         <div class="err_warn_content">
                             <div class="err_container">
-                                <img src="images/error.gif" class="editor_err_img"/> <span class="err_head">Errors</span>
+                                <img src="images/error.gif" class="editor_err_img"/> <span class="err_head">错误</span>
                                 <ul class="err_list"></ul>
                             </div>
                             <div class="warn_container">
-                                <img src="images/warning.gif" class="editor_warn_img"/><span class="err_head">Warnings</span>
+                                <img src="images/warning.gif" class="editor_warn_img"/><span class="err_head">警告</span>
                                 <ul class="warn_list"></ul>
                             </div>
                         </div>
-                        <div class="instruction">Correct errors and update to enable the script.</div>
+                        <div class="instruction">更正错误并更新以启用脚本.</div>
                     </div>
                     <div class="warning_container">
                         <span class="show_errors_toggle_buttons">
-                            <a href="#">[+] Show Warnings</a>
-                            <a href="#" style="display: none;">[-] Hide Warnings</a>
+                            <a href="#">[+] 显示警告</a>
+                            <a href="#" style="display: none;">[-] 隐藏警告</a>
                         </span>
                     </div>
                     <div class="warning_content">
                         <div class="warning_container">
-                            <img src="images/warning.gif" class="editor_warn_img"/><span class="err_head">Warnings</span>
+                            <img src="images/warning.gif" class="editor_warn_img"/><span class="err_head">警告</span>
                             <ul class="warning_list"></ul>
                         </div>
                     </div>
                     <div style="position: relative;">
                         <div class="sectionSub step_contents" id="codeMirror">
 <textarea id="scriptTextArea" name="scriptTextArea"
-          placeholder="Write custom JavaScript or select from templates that match a scenario..."
+          placeholder="编写自定义javascript或从匹配方案的模板中选择..."
           style="height: 500px;width: 100%; display: none;"><%
     if (appBean.getServiceProvider().getLocalAndOutBoundAuthenticationConfig() != null) {
         if (appBean.getServiceProvider().getLocalAndOutBoundAuthenticationConfig().getAuthenticationScriptConfig() != null) {
@@ -467,7 +466,7 @@
                         </div>
                         <div id="codeMirrorTemplate" class="step_contents">
                             <div class="add-template-container vertical-text">
-                                <a id="addTemplate" class="icon-link noselect">Templates</a>
+                                <a id="addTemplate" class="icon-link noselect">模板</a>
                             </div>
                             <div class="template-list-container">
                                 <ul id="template_list"></ul>
@@ -510,7 +509,7 @@
         <br/>
         {{/if}}
         {{#if preRequisites}}
-        <h3>Prerequisites</h3>
+        <h3>先决条件</h3>
         <ul>
             {{#each preRequisites}}
             <li>{{this}}</li>
@@ -519,7 +518,7 @@
         <br/>
         {{/if}}
         {{#if parametersDescription}}
-        <h3>Parameters</h3>
+        <h3>参数</h3>
         <table>
             <tbody>
             {{#each parametersDescription}}
@@ -533,7 +532,7 @@
         <br/>
         {{/if}}
         {{#if defaultStepsDescription}}
-        <h3>Default Steps</h3>
+        <h3>缺省步骤</h3>
         <ul>
             {{#each defaultStepsDescription}}
             <li>{{@key}} : {{this}}</li>
@@ -542,13 +541,13 @@
         <br/>
         {{/if}}
         {{#if helpLink}}
-        <h3>Help/Reference</h3>
+        <h3>帮助/参考</h3>
         <a href="{{helpLink}}" target="_blank">{{helpLink}}</a>
         <br/>
         {{/if}}
         {{#if code}}
         <br/>
-        <h3>Code</h3>
+        <h3>代码</h3>
         <br/>
         <textarea  id="codesnippet_readonly" name="codesnippet_readonly"></textarea>
         <br/>
@@ -592,7 +591,7 @@
     function addNewUIStep(){
         stepOrder++;
         jQuery('#stepsConfRow .steps').append(jQuery('<h2 id="step_head_' + stepOrder +
-            '" class="sectionSeperator trigger active step_heads" style="background-color: beige; clear: both;"><input type="hidden" value="' + stepOrder + '" name="auth_step" id="auth_step"><a class="step_order_header" href="#">Step ' + stepOrder + '</a><a href="#" class="delete_step icon-link" data-step-no="' + stepOrder + '" style="background-image: url(images/delete.gif);float:right;width: 9px;"></a></h2><div class="toggle_container sectionSub step_contents step_body" style="margin-bottom:10px;" id="step_dev_' + stepOrder + '"> <div style="padding-bottom: 5px"><table class="carbonFormTable"><tr><td><input type="checkbox" style="vertical-align: middle;" id="subject_step_' + stepOrder + '" name="subject_step_' + stepOrder + '" class="subject_steps" onclick="setSubjectStep(this)"><label for="subject_step_' + stepOrder + '" style="cursor: pointer;">Use subject identifier from this step</label></td></tr><tr><td><input type="checkbox" style="vertical-align: middle;" id="attribute_step_' + stepOrder + '" name="attribute_step_' + stepOrder + '" class="attribute_steps" onclick="setAttributeStep(this)" ><label for="attribute_step_' + stepOrder + '" style="cursor: pointer;">Use attributes from this step</label></td></tr></table></div><h2 id="local_auth_head_' + stepOrder + '" class="sectionSeperator trigger active" style="background-color: floralwhite;"><a href="#">Local Authenticators</a></h2><div class="toggle_container sectionSub" style="margin-bottom:10px;" id="local_auth_head_dev_' + stepOrder + '"><table class="styledLeft auth_table" width="100%" id="local_auth_table_' + stepOrder + '"><thead><tr><td><select name="step_' + stepOrder + '_local_oauth_select" style="float: left; min-width: 150px;font-size:13px;"><%=localAuthTypes.toString()%></select><a id="localOptionAddLinkStep_' + stepOrder + '" onclick="addLocalRow(this,' + stepOrder + ');return false;" class="icon-link claimMappingAddLinkss claimMappingAddLinkssLocal" style="background-image:url(images/add.gif);">Add Authenticator</a></td></tr></thead></table> </div><%if (enabledIdpType.length() > 0) { %> <h2 id="fed_auth_head_' + stepOrder + '" class="sectionSeperator trigger active" style="background-color: floralwhite;"><a href="#">Federated Authenticators</a></h2><div class="toggle_container sectionSub" style="margin-bottom:10px;" id="fed_auth_head_dev_' + stepOrder + '"><table class="styledLeft auth_table" width="100%" id="fed_auth_table_' + stepOrder + '"><thead> <tr><td><select name="idpAuthType_' + stepOrder + '" style="float: left; min-width: 150px;font-size:13px;"><%=enabledIdpType.toString()%></select><a id="claimMappingAddLinkss" onclick="addIDPRow(this,' + stepOrder + ');return false;" class="icon-link claimMappingAddLinkssIdp" style="background-image:url(images/add.gif);">Add Authenticator</a></td></tr></thead></table></div><%}%></div>'));
+            '" class="sectionSeperator trigger active step_heads" style="background-color: beige; clear: both;"><input type="hidden" value="' + stepOrder + '" name="auth_step" id="auth_step"><a class="step_order_header" href="#">步骤 ' + stepOrder + '</a><a href="#" class="delete_step icon-link" data-step-no="' + stepOrder + '" style="background-image: url(images/delete.gif);float:right;width: 9px;"></a></h2><div class="toggle_container sectionSub step_contents step_body" style="margin-bottom:10px;" id="step_dev_' + stepOrder + '"> <div style="padding-bottom: 5px"><table class="carbonFormTable"><tr><td><input type="checkbox" style="vertical-align: middle;" id="subject_step_' + stepOrder + '" name="subject_step_' + stepOrder + '" class="subject_steps" onclick="setSubjectStep(this)"><label for="subject_step_' + stepOrder + '" style="cursor: pointer;">使用此步骤中的主题标识符</label></td></tr><tr><td><input type="checkbox" style="vertical-align: middle;" id="attribute_step_' + stepOrder + '" name="attribute_step_' + stepOrder + '" class="attribute_steps" onclick="setAttributeStep(this)" ><label for="attribute_step_' + stepOrder + '" style="cursor: pointer;">使用此步骤中的属性</label></td></tr></table></div><h2 id="local_auth_head_' + stepOrder + '" class="sectionSeperator trigger active" style="background-color: floralwhite;"><a href="#">本地认证</a></h2><div class="toggle_container sectionSub" style="margin-bottom:10px;" id="local_auth_head_dev_' + stepOrder + '"><table class="styledLeft auth_table" width="100%" id="local_auth_table_' + stepOrder + '"><thead><tr><td><select name="step_' + stepOrder + '_local_oauth_select" style="float: left; min-width: 150px;font-size:13px;"><%=localAuthTypes.toString()%></select><a id="localOptionAddLinkStep_' + stepOrder + '" onclick="addLocalRow(this,' + stepOrder + ');return false;" class="icon-link claimMappingAddLinkss claimMappingAddLinkssLocal" style="background-image:url(images/add.gif);">添加认证器</a></td></tr></thead></table> </div><%if (enabledIdpType.length() > 0) { %> <h2 id="fed_auth_head_' + stepOrder + '" class="sectionSeperator trigger active" style="background-color: floralwhite;"><a href="#">联邦认证器</a></h2><div class="toggle_container sectionSub" style="margin-bottom:10px;" id="fed_auth_head_dev_' + stepOrder + '"><table class="styledLeft auth_table" width="100%" id="fed_auth_table_' + stepOrder + '"><thead> <tr><td><select name="idpAuthType_' + stepOrder + '" style="float: left; min-width: 150px;font-size:13px;"><%=enabledIdpType.toString()%></select><a id="claimMappingAddLinkss" onclick="addIDPRow(this,' + stepOrder + ');return false;" class="icon-link claimMappingAddLinkssIdp" style="background-image:url(images/add.gif);">添加认证器</a></td></tr></thead></table></div><%}%></div>'));
         if (!$('#stepsConfRow').is(":visible")) {
             $(jQuery('#stepsConfRow')).toggle();
         }

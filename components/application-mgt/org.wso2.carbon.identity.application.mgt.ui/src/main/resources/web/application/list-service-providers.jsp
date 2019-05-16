@@ -15,6 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@page import="org.wso2.carbon.CarbonConstants" %>
 <%@ page import="org.wso2.carbon.identity.application.common.model.xsd.ApplicationBasicInfo" %>
@@ -97,7 +98,7 @@
                         });
                     }
 
-                    CARBON.showConfirmationDialog('Are you sure you want to delete "' + appid + '" SP information?',
+                    CARBON.showConfirmationDialog('你确定要删除 "' + appid + '" 的服务提供者信息吗?',
                             doDelete, null);
                 }
 
@@ -194,19 +195,19 @@
                                 <td><%=app.getDescription() != null ? Encode.forHtml(app.getDescription()) : ""%>
                                 </td>
                                 <td style="width: 100px; white-space: nowrap;"><a
-                                        title="Edit Service Providers"
+                                        title="编辑服务提供者"
                                         href="load-service-provider.jsp?spName=<%=Encode.forUriComponent(app.getApplicationName())%>"
                                         class="icon-link"
-                                        style="background-image: url(../admin/images/edit.gif)">Edit</a>
-                                    <a title="Export Service Providers"
+                                        style="background-image: url(../admin/images/edit.gif)">编辑</a>
+                                    <a title="导出服务提供者"
                                        onclick="exportSP('<%=Encode.forJavaScriptAttribute(app.getApplicationName())%>');return false;" href="#"
                                        class="icon-link"
-                                       style="background-image: url(../entitlement/images/publish.gif)">Export
+                                       style="background-image: url(../entitlement/images/publish.gif)">导出
                                     </a>
-                                    <a title="Remove Service Providers"
+                                    <a title="删除服务提供者"
                                        onclick="removeItem('<%=Encode.forJavaScriptAttribute(app.getApplicationName())%>');return false;" href="#"
                                        class="icon-link"
-                                       style="background-image: url(../admin/images/delete.gif)">Delete
+                                       style="background-image: url(../admin/images/delete.gif)">删除
                                     </a>
                                 </td>
                             </tr>
@@ -218,7 +219,7 @@
                             <% } else { %>
                             <tbody>
                             <tr>
-                                <td colspan="3"><i>No Service Providers registered</i></td>
+                                <td colspan="3"><i>还没有注册服务提供者</i></td>
                             </tr>
                             </tbody>
                             <% } %>
@@ -240,11 +241,11 @@
     </div>
     <div id='exportSPMsgDialog' title='WSO2 Carbon'>
         <div id='messagebox-confirm'>
-            <p> Do you want to export Service Provider as the file ? </p><br>
+            <p> 你确定要导出服务提供者到一个文件中吗 ? </p><br>
             <form id="spExportData" name="sp-export-data" method="post"
                   action="export-service-provider-finish-ajaxprocessor.jsp">
                 <input hidden id="spName" name="spName"/>
-                <input type="checkbox" id="exportSecrets" name="exportSecrets" checked> Include Secrets (hashed or encrypted values will be excluded)<br>
+                <input type="checkbox" id="exportSecrets" name="exportSecrets" checked> 包含秘钥 (将排除散列或加密值)<br>
             </form>
         </div>
     </div>

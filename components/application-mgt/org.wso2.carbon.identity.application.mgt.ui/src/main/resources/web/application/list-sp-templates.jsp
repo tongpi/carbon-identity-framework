@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@page import="org.wso2.carbon.CarbonConstants" %>
 <%@ page import="org.wso2.carbon.ui.CarbonUIMessage" %>
@@ -92,7 +92,7 @@
                             }
                         });
                     }
-                    CARBON.showConfirmationDialog('Are you sure you want to delete service provider template ' + templateName + ' ?',
+                    CARBON.showConfirmationDialog('你确定要删除服务提供者模板 ' + templateName + ' 吗?',
                         doDelete, null);
                 }
 
@@ -184,7 +184,7 @@
                                     <%
                                         if (canEdit) {
                                     %>
-                                    <a title="Edit Service Provider Template"
+                                    <a title="编辑服务提供者模板"
                                        onclick="editSPTemplate('<%=Encode.forJavaScriptAttribute(template.getName())%>',
                                                '<%=template.getDescription() != null ? Encode.forJavaScriptAttribute(template.getDescription()) : ""%>');return false;" href="#"
                                        class="icon-link"
@@ -194,7 +194,7 @@
                                         }
                                         if (canView) {
                                     %>
-                                    <a title="Export Service Provider Template"
+                                    <a title="导出服务提供者模板"
                                        onclick="exportSPTemplate('<%=Encode.forJavaScriptAttribute(template.getName())%>');return false;" href="#"
                                        class="icon-link"
                                        style="background-image: url(../application/images/publish.gif)">
@@ -204,7 +204,7 @@
                                         }
                                         if (canDelete) {
                                     %>
-                                    <a title="Remove Service Provider Template"
+                                    <a title="删除服务提供者模板"
                                        onclick="removeSPTemplate('<%=Encode.forJavaScriptAttribute(template.getName())%>');return false;" href="#"
                                        class="icon-link"
                                        style="background-image: url(../application/images/delete.gif)"><fmt:message key="sp.template.delete"/>
@@ -239,7 +239,7 @@
         </div>
     </div>
     </div>
-    <div id='exportSPTemplateMsgDialog' title='WSO2 Carbon'>
+    <div id='exportSPTemplateMsgDialog' title='身份服务'>
         <div id='messagebox-confirm'>
             <p><fmt:message key="sp.template.export.para"/></p><br>
             <form id="templateExportData" name="template-export-data" method="post"

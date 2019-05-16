@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@ page import="org.wso2.carbon.CarbonConstants" %>
 <%@ page import="org.wso2.carbon.identity.application.common.model.xsd.ServiceProvider" %>
@@ -46,7 +46,7 @@
         ServiceProvider sp = appBean.getServiceProvider();
         serviceClient.createApplicationTemplateFromSP(sp, spTemplate);
     } catch (Exception e) {
-        CarbonUIMessage.sendCarbonUIMessage("Error occurred while adding the Service Provider as a template",
+        CarbonUIMessage.sendCarbonUIMessage("当添加服务提供者为模板时发生错误",
                 CarbonUIMessage.ERROR, request, e);
     }
 %>

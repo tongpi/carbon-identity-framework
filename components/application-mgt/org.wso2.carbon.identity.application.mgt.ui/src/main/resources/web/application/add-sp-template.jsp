@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="carbon" uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar"%>
 <carbon:breadcrumb label="breadcrumb.service.provider"
@@ -36,7 +36,7 @@
 %>
 <script type="text/javascript">
     function validateTextForIllegal(fld) {
-        var isValid = doValidateInput(fld, "Provided Service Provider Template name is invalid.");
+        var isValid = doValidateInput(fld, "提供的服务提供者模板名称无效.");
         if (isValid) {
             return true;
         } else {
@@ -57,11 +57,11 @@
         var templateName = $.trim(document.getElementById('template-name').value);
         var templateContent = $.trim(document.getElementById('sp-template-file-content').value);
         if (templateName === null || 0 === templateName.length) {
-            CARBON.showWarningDialog('Please specify service provider template name.');
+            CARBON.showWarningDialog('请指定服务提供者模板名称.');
             location.href = '#';
             return false;
         } else if (templateContent === null || 0 === templateContent.length) {
-            CARBON.showWarningDialog('Please specify service provider template configuration file.');
+            CARBON.showWarningDialog('请指定服务提供者模板配置文件.');
             location.href = '#';
             return false;
         } else {

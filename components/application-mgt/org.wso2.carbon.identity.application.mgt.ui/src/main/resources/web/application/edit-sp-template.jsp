@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="codemirror/lib/codemirror.css">
 <link rel="stylesheet" href="codemirror/theme/mdn-like.css">
 <link rel="stylesheet" href="codemirror/addon/dialog/dialog.css">
@@ -102,11 +102,11 @@
             var templateName = $.trim(document.getElementById('template-name').value);
             var templateContent = $.trim(document.getElementById('templateContent').value);
             if (templateName === null || 0 === templateName.length) {
-                CARBON.showWarningDialog('Please specify service provider template name.');
+                CARBON.showWarningDialog('请指定服务提供者模板名称.');
                 location.href = '#';
                 return false;
             } else if (templateContent === null || 0 === templateContent.length) {
-                CARBON.showWarningDialog('Please specify service provider template content.');
+                CARBON.showWarningDialog('请指定服务提供者模板内容.');
                 location.href = '#';
                 return false;
             } else {
@@ -144,7 +144,7 @@
                 <div style="position: relative;">
                     <div class="sectionSub step_contents" id="codeMirror">
                         <textarea id="templateContent" name="templateContent"
-                                  placeholder="Write custom JavaScript or select from templates that match a scenario..."
+                                  placeholder="编写自定义JavaScript或从与方案匹配的模板中进行选择..."
                                   style="height: 500px;width: 100%; display: none;"><%out.print(templateContent);%></textarea>
                     </div>
                 </div>

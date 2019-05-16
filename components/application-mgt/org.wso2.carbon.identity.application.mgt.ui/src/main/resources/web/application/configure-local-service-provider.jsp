@@ -15,6 +15,7 @@
 ~ specific language governing permissions and limitations
 ~ under the License.
 -->
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="org.wso2.carbon.CarbonConstants" %>
@@ -50,24 +51,24 @@
 <%
 } else {
     String spName = appBean.getServiceProvider().getApplicationName();
-    
+
     StringBuffer localAuthTypes = new StringBuffer();
     String startOption = "<option value=\"";
     String middleOption = "\">";
     String endOption = "</option>";
-    
+
     IdentityProvider[] federatedIdPs = appBean.getFederatedIdentityProviders();
     Map<String, String> proIdpConnector = new HashMap<String, String>();
     Map<String, String> selectedProIdpConnectors = new HashMap<String, String>();
     Map<String, String> enabledProIdpConnector = new HashMap<String, String>();
     Map<String, Boolean> idpStatus = new HashMap<String, Boolean>();
     Map<String, Boolean> IdpProConnectorsStatus = new HashMap<String, Boolean>();
-    
+
     StringBuffer idpType = null;
     StringBuffer connType = null;
     StringBuffer enabledConnType = null;
     String[] userStoreDomains = null;
-    
+
     if (federatedIdPs != null && federatedIdPs.length > 0) {
         idpType = new StringBuffer();
         StringBuffer provisioningConnectors = null;
@@ -99,11 +100,11 @@
                 }
             }
         }
-        
+
         if (appBean.getServiceProvider().getOutboundProvisioningConfig() != null
             && appBean.getServiceProvider().getOutboundProvisioningConfig().getProvisioningIdentityProviders() != null
             && appBean.getServiceProvider().getOutboundProvisioningConfig().getProvisioningIdentityProviders().length > 0) {
-            
+
             IdentityProvider[] proIdps = appBean.getServiceProvider().getOutboundProvisioningConfig().getProvisioningIdentityProviders();
             for (IdentityProvider idp : proIdps) {
                 ProvisioningConnectorConfig proIdp = idp.getDefaultProvisioningConnectorConfig();
@@ -122,11 +123,11 @@
                     options = enabledProIdpConnector.get(idp.getIdentityProviderName());
                     selectedProIdpConnectors.put(idp.getIdentityProviderName(), options);
                 }
-                
+
             }
         }
     }
-    
+
     try {
         String cookie = (String) session.getAttribute(ServerConstants.ADMIN_SERVICE_COOKIE);
         String backendServerURL = CarbonUIUtil.getServerURL(config.getServletContext(), session);
@@ -139,19 +140,19 @@
 %>
 
 <script>
-    
+
     function disable() {
         document.getElementById("scim-inbound-userstore").disabled = !document.getElementById("scim-inbound-userstore").disabled;
         document.getElementById("dumb").value = document.getElementById("scim-inbound-userstore").disabled;
     }
-    
-    
+
+
     function createAppOnclick() {
-        
+
         document.getElementById("dumb").value = document.getElementById("scim-inbound-userstore").disabled;
         document.getElementById("configure-sp-form").submit();
     }
-    
+
     jQuery(document).ready(function () {
         jQuery('#outboundProvisioning').hide();
         jQuery('#inboundProvisioning').hide();
@@ -164,13 +165,13 @@
             jQuery(this).next().slideToggle("fast");
             return false; //Prevent the browser jump to the link anchor
         })
-        
+
     })
-    
-    
+
+
     function addIDPRow(obj) {
         var selectedObj = jQuery(obj).prev().find(":selected");
-        
+
         var selectedIDPName = selectedObj.val();
         if (!validaForDuplications('[name=provisioning_idp]', selectedIDPName, 'Configuration')) {
             return false;
@@ -183,7 +184,7 @@
                 newRow += '<option>' + dataArray[i] + '</option>';
             }
         }
-        newRow += '</select></td><td><input type="checkbox" name="blocking_prov_' + selectedIDPName + '"  />Blocking</td><td><input type="checkbox" name="rules_enabled_' + selectedIDPName + '"  />Enable Rules</td><td class="leftCol-small" ><a onclick="deleteIDPRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> Delete </a></td></tr>';
+        newRow += '</select></td><td><input type="checkbox" name="blocking_prov_' + selectedIDPName + '"  />阻塞</td><td><input type="checkbox" name="rules_enabled_' + selectedIDPName + '"  />启用规则</td><td class="leftCol-small" ><a onclick="deleteIDPRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> 删除 </a></td></tr>';
         jQuery(obj)
             .parent()
             .parent()
@@ -192,17 +193,17 @@
             .append(
                 jQuery(newRow));
     }
-    
+
     function deleteIDPRow(obj) {
         jQuery(obj).parent().parent().remove();
     }
-    
+
     function validaForDuplications(selector, selectedIDPName, type) {
         if ($(selector).length > 0) {
             var isNew = true;
             $.each($(selector), function () {
                 if ($(this).val() == selectedIDPName) {
-                    CARBON.showWarningDialog(type + ' "' + selectedIDPName + '" is already added');
+                    CARBON.showWarningDialog(type + ' "' + selectedIDPName + '" 已经添加');
                     isNew = false;
                     return false;
                 }
@@ -227,12 +228,12 @@
                 <input type="hidden" value="<%=Encode.forHtmlAttribute(appBean.getServiceProvider().getDescription())%>"
                        name="sp-description">
                 <input type="hidden" name="oldSPName" value="<%=Encode.forHtmlAttribute(spName)%>"/>
-                
+
                 <h2 id="inbound_provisioning_head" class="sectionSeperator trigger active">
                     <a href="#"><fmt:message key="inbound.provisioning.head"/></a>
                 </h2>
                 <div class="toggle_container sectionSub" style="margin-bottom:10px;" id="inboundProvisioning">
-                    
+
                     <h2 id="scim-inbound_provisioning_head" class="sectionSeperator trigger active"
                         style="background-color: beige;">
                         <a href="#"><fmt:message key="scim.inbound.provisioning.head"/></a>
@@ -241,15 +242,14 @@
                          id="scim-inbound-provisioning-div">
                         <table class="carbonFormTable">
                             <tr>
-                                <td>SCIM/SOAP provisioning is protected via HTTP Basic Authentication.You must use a
-                                    privileged local account to invoke the API.<br/>
+                                <td>SCIM/SOAP设置通过HTTP基本身份验证受到保护。必须使用用于调用API的特权本地帐户.<br/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <select style="min-width: 250px;" id="scim-inbound-userstore"
                                             name="scim-inbound-userstore" <%=appBean.getServiceProvider().getInboundProvisioningConfig().getDumbMode() ? "disabled" : "" %>>
-                                        <option value="">---Select---</option>
+                                        <option value="">---请选择---</option>
                                         <%
                                             if (userStoreDomains != null && userStoreDomains.length > 0) {
                                                 for (String userStoreDomain : userStoreDomains) {
@@ -282,8 +282,7 @@
                             <tr>
                                 <td>
                                     <input type="checkbox" name="dumb" id="dumb" value="false"
-                                           onclick="disable()" <%=appBean.getServiceProvider().getInboundProvisioningConfig().getDumbMode() ? "checked" : "" %>>Enable
-                                    Dumb Mode for SCIM<br>
+                                           onclick="disable()" <%=appBean.getServiceProvider().getInboundProvisioningConfig().getDumbMode() ? "checked" : "" %>>启用SCIM的Dumb模式<br>
                                     <div class="sectionHelp">
                                         <fmt:message key='help.inbound.scim.dumb'/>
                                     </div>
@@ -291,19 +290,19 @@
                             </tr>
                         </table>
                     </div>
-                
-                
+
+
                 </div>
-                
+
                 <h2 id="outbound_provisioning_head" class="sectionSeperator trigger active">
                     <a href="#"><fmt:message key="outbound.provisioning.head"/></a>
                 </h2>
                 <div class="toggle_container sectionSub" style="margin-bottom:10px;" id="outboundProvisioning">
                     <table class="styledLeft" width="100%" id="fed_auth_table">
-                        
+
                         <% if (idpType != null && idpType.length() > 0) {%>
                         <thead>
-                        
+
                         <tr>
                             <td>
                                 <select name="provisioning_idps" style="float: left; min-width: 150px;font-size:13px;">
@@ -313,16 +312,15 @@
                                    style="background-image:url(images/add.gif);"></a>
                             </td>
                         </tr>
-                        
+
                         </thead>
                         <% } else { %>
                         <tr>
-                            <td colspan="4" style="border: none;">There are no provisioning enabled identity providers
-                                defined in the system.
+                            <td colspan="4" style="border: none;">没有启用系统中定义的身份提供者供应.
                             </td>
                         </tr>
                         <%} %>
-                        
+
                         <%
                             if (appBean.getServiceProvider().getOutboundProvisioningConfig() != null) {
                                 IdentityProvider[] fedIdps = appBean.getServiceProvider().getOutboundProvisioningConfig().getProvisioningIdentityProviders();
@@ -332,12 +330,12 @@
                                             boolean jitEnabled = false;
                                             boolean blocking = false;
                                             boolean ruleEnabled = false;
-                                            
+
                                             if (idp.getJustInTimeProvisioningConfig() != null &&
                                                 idp.getJustInTimeProvisioningConfig().getProvisioningEnabled()) {
                                                 jitEnabled = true;
                                             }
-                                            
+
                                             if (idp.getDefaultProvisioningConnectorConfig() != null &&
                                                 idp.getDefaultProvisioningConnectorConfig().getBlocking()) {
                                                 blocking = true;
@@ -347,7 +345,7 @@
                                                 ruleEnabled = true;
                                             }
                         %>
-                        
+
                         <tr>
                             <td>
                                 <input name="provisioning_idp" id="" type="hidden"
@@ -366,21 +364,20 @@
                                 <div class="sectionCheckbox">
                                     <input type="checkbox"
                                            id="blocking_prov_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>"
-                                           name="blocking_prov_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>" <%=blocking ? "checked" : "" %>>Blocking
+                                           name="blocking_prov_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>" <%=blocking ? "checked" : "" %>>阻塞
                                 </div>
                             </td>
                             <td>
                                 <div class="sectionCheckbox">
                                     <input type="checkbox"
                                            id="rules_enabled_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>"
-                                           name="rules_enabled_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>" <%=ruleEnabled ? "checked" : "" %>>Enable
-                                    Rules
+                                           name="rules_enabled_<%=Encode.forHtmlAttribute(idp.getIdentityProviderName())%>" <%=ruleEnabled ? "checked" : "" %>>启用规则
                                 </div>
                             </td>
                             <td>
                             <td class="leftCol-small">
                                 <a onclick="deleteIDPRow(this);return false;" href="#" class="icon-link"
-                                   style="background-image: url(images/delete.gif)"> Delete </a>
+                                   style="background-image: url(images/delete.gif)"> 删除 </a>
                             </td>
                         </tr>
                         <%
@@ -390,9 +387,9 @@
                             }
                         %>
                     </table>
-                
+
                 </div>
-                
+
                 <div style="clear:both"/>
                 <!-- sectionSub Div -->
                 <div class="buttonRow">
