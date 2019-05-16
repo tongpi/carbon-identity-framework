@@ -332,7 +332,7 @@ function checkEnabled(obj) {
 
                 if (jQuery('#openIdDefault').attr('checked')) {
                     jQuery('#openIdEnabled').attr('checked', 'checked');
-                    CARBON.showWarningDialog("Make other enabled authenticator to default before disabling default authenticator");
+                    CARBON.showWarningDialog("在禁用默认验证器之前，将其他启用的验证器设为默认验证器");
                 } else {
                     jQuery('#openIdDefault').attr('disabled', 'disabled');
                     jQuery('#openIdDefault').removeAttr('checked');
@@ -354,7 +354,7 @@ function checkEnabled(obj) {
 
                 if (jQuery('#saml2SSODefault').attr('checked')) {
                     jQuery('#saml2SSOEnabled').attr('checked', 'checked');
-                    CARBON.showWarningDialog("Make other enabled authenticator to default before disabling default authenticator");
+                    CARBON.showWarningDialog("在禁用默认验证器之前，将其他启用的验证器设为默认验证器");
                 } else {
                     jQuery('#saml2SSODefault').attr('disabled', 'disabled');
                     jQuery('#saml2SSODefault').removeAttr('checked');
@@ -375,7 +375,7 @@ function checkEnabled(obj) {
 
                 if (jQuery('#oidcDefault').attr('checked')) {
                     jQuery('#oidcEnabled').attr('checked', 'checked');
-                    CARBON.showWarningDialog("Make other enabled authenticator to default before disabling default authenticator");
+                    CARBON.showWarningDialog("在禁用默认验证器之前，将其他启用的验证器设为默认验证器");
                 } else {
                     jQuery('#oidcDefault').attr('disabled', 'disabled');
                     jQuery('#oidcDefault').removeAttr('checked');
@@ -395,7 +395,7 @@ function checkEnabled(obj) {
 
                 if (jQuery('#passiveSTSDefault').attr('checked')) {
                     jQuery('#passiveSTSEnabled').attr('checked', 'checked');
-                    CARBON.showWarningDialog("Make other enabled authenticator to default before disabling default authenticator");
+                    CARBON.showWarningDialog("在禁用默认验证器之前，将其他启用的验证器设为默认验证器");
                 } else {
                     jQuery('#passiveSTSDefault').attr('disabled', 'disabled');
                     jQuery('#passiveSTSDefault').removeAttr('checked');
@@ -416,7 +416,7 @@ function checkEnabled(obj) {
 
                 if (jQuery('#fbAuthDefault').attr('checked')) {
                     jQuery('#fbAuthEnabled').attr('checked', 'checked');
-                    CARBON.showWarningDialog("Make other enabled authenticator to default before disabling default authenticator");
+                    CARBON.showWarningDialog("在禁用默认验证器之前，将其他启用的验证器设为默认验证器");
                 } else {
                     jQuery('#fbAuthDefault').attr('disabled', 'disabled');
                     jQuery('#fbAuthDefault').removeAttr('checked');
@@ -439,7 +439,7 @@ function checkEnabled(obj) {
 
                         if (jQuery(defId).attr('checked')) {
                             jQuery('#' + id).attr('checked', 'checked');
-                            CARBON.showWarningDialog("Make other enabled authenticator to default before disabling default authenticator");
+                            CARBON.showWarningDialog("在禁用默认验证器之前，将其他启用的验证器设为默认验证器");
                         } else {
                             jQuery(defId).attr('disabled', 'disabled');
                             jQuery(defId).removeAttr('checked');
@@ -680,14 +680,14 @@ function doValidation() {
     var reason = "";
     reason = validateEmpty("idPName");
     if (reason != "") {
-        CARBON.showWarningDialog("Name of IdP cannot be empty");
+        CARBON.showWarningDialog("IdP 名称不能为空");
         return false;
     }
 
     if (jQuery('#openIdEnabled').attr('checked')) {
 
         if ($('#openIdUrl').val() == "") {
-            CARBON.showWarningDialog('OpenID Server URL cannot be empty');
+            CARBON.showWarningDialog('OpenID 服务器 URL 不能为空');
             return false;
         }
     }
@@ -697,17 +697,17 @@ function doValidation() {
         if ($('#meta_data_saml').val() == "") {
 
             if ($('#idPEntityId').val() == "") {
-                CARBON.showWarningDialog('Identity Provider Entity ID cannot be empty');
+                CARBON.showWarningDialog('身份提供者实体ID 不能为空');
                 return false;
             }
             if ($('#ssoUrl').val() == "") {
-                CARBON.showWarningDialog('SSO URL cannot be empty');
+                CARBON.showWarningDialog('SSO URL 不能为空');
                 return false;
             }
         }
 
         if ($('#spEntityId').val() == "") {
-            CARBON.showWarningDialog('Service Provider Entity ID cannot be empty');
+            CARBON.showWarningDialog('服务提供者实体ID不能为空');
             return false;
         }
 
@@ -716,7 +716,7 @@ function doValidation() {
 
     if ($('#meta_data_saml').val() != ""  && !jQuery('#saml2SSOEnabled').attr('checked') ) {
         if ($('#spEntityId').val() == "") {
-            CARBON.showWarningDialog('Service Provider Entity ID cannot be empty');
+            CARBON.showWarningDialog("服务提供者实体ID不能为空");
             return false;
         }
 
@@ -725,22 +725,22 @@ function doValidation() {
     if (jQuery('#oidcEnabled').attr('checked')) {
 
         if ($('#authzUrl').val() == "") {
-            CARBON.showWarningDialog('OAuth2/OpenId  Authorization Endpoint URL cannot be empty');
+            CARBON.showWarningDialog('OAuth2/OpenId  认证端点URL不能为空');
             return false;
         }
 
         if ($('#tokenUrl').val() == "") {
-            CARBON.showWarningDialog('OAuth2/OpenId Token Endpoint URL cannot be empty');
+            CARBON.showWarningDialog('OAuth2/OpenId Token 端点URL不能为空');
             return false;
         }
 
         if ($('#clientId').val() == "") {
-            CARBON.showWarningDialog('OAuth2/OpenId Client Id cannot be empty');
+            CARBON.showWarningDialog('OAuth2/OpenId Client Id不能为空');
             return false;
         }
 
         if ($('#clientSecret').val() == "") {
-            CARBON.showWarningDialog('OAuth2/OpenId Client Secret cannot be empty');
+            CARBON.showWarningDialog('OAuth2/OpenId Client Secret不能为空');
             return false;
         }
 
@@ -749,12 +749,12 @@ function doValidation() {
     if (jQuery('#passiveSTSEnabled').attr('checked')) {
 
         if ($('#passiveSTSRealm').val() == "") {
-            CARBON.showWarningDialog('Passive STS Realm cannot be empty');
+            CARBON.showWarningDialog("Passive STS Realm 不能为空");
             return false;
         }
 
         if ($('#passiveSTSUrl').val() == "") {
-            CARBON.showWarningDialog('Passive STS URL cannot be empty');
+            CARBON.showWarningDialog("Passive STS URL 不能为空");
             return false;
         }
     }
@@ -762,12 +762,12 @@ function doValidation() {
     if (jQuery('#fbAuthEnabled').attr('checked')) {
 
         if ($('#fbClientId').val() == "") {
-            CARBON.showWarningDialog('Facebook Client Id cannot be empty');
+            CARBON.showWarningDialog("Facebook Client Id 不能为空");
             return false;
         }
 
         if ($('#fbClientSecret').val() == "") {
-            CARBON.showWarningDialog('Facebook Client Secret cannot be empty');
+            CARBON.showWarningDialog('Facebook Client Secret 不能为空');
             return false;
         }
     }
@@ -776,47 +776,47 @@ function doValidation() {
     if (jQuery('#googleProvEnabled').attr('checked')) {
 
         if ($('#google_prov_domain_name').val() == "") {
-            CARBON.showWarningDialog('Google Domain cannot be empty');
+            CARBON.showWarningDialog("Google Domain 不能为空");
             return false;
         }
 
 
         var errorMsg = emailValidator($('#google_prov_service_acc_email').val());
         if (errorMsg == "null") {
-            CARBON.showWarningDialog('Google connector Service Account Email cannot be empty');
+            CARBON.showWarningDialog('Google 连接器服务账户 Email 不能为空');
             return false;
         } else if (errorMsg == "notValied") {
-            CARBON.showWarningDialog('Google connector Service Account Email is not valid');
+            CARBON.showWarningDialog('Google 连接器服务账户 Email 地址无效');
             return false;
         }
 
         var errorMsgAdmin = emailValidator($('#google_prov_admin_email').val());
         if (errorMsgAdmin == "null") {
-            CARBON.showWarningDialog('Google connector Administrator\'s Email cannot be empty');
+            CARBON.showWarningDialog('Google 连接器管理员 Email不能为空');
             return false;
         } else if (errorMsgAdmin == "notValied") {
-            CARBON.showWarningDialog('Google connector Administrator\'s Email is not valid');
+            CARBON.showWarningDialog('Google 连接器管理员 Email无效');
             return false;
         }
 
 
         if ($('#google_prov_application_name').val() == "") {
-            CARBON.showWarningDialog('Google connector Application Name cannot be empty');
+            CARBON.showWarningDialog('Google 应用名称不能为空');
             return false;
         }
 
         if ($('#google_prov_email_claim_dropdown').val() == "") {
-            CARBON.showWarningDialog('Google connector Primary Email claim URI should be selected ');
+            CARBON.showWarningDialog('Google 连接器主Email声明URI应该被选择 ');
             return false;
         }
 
         if ($('#google_prov_givenname_claim_dropdown').val() == "") {
-            CARBON.showWarningDialog('Google connector Given Name claim URI should be selected ');
+            CARBON.showWarningDialog('Google 连接器名字声明URI应该被选择 ');
             return false;
         }
 
         if ($('#google_prov_familyname_claim_dropdown').val() == "") {
-            CARBON.showWarningDialog('Google connector Family Name claim URI should be selected ');
+            CARBON.showWarningDialog('Google 连接器姓氏声明URI应该被选择 ');
             return false;
         }
 
@@ -825,37 +825,37 @@ function doValidation() {
     if (jQuery('#sfProvEnabled').attr('checked')) {
 
         if ($('#sf-api-version').val() == "") {
-            CARBON.showWarningDialog('Salesforce Provisioning Configuration API version cannot be empty');
+            CARBON.showWarningDialog('Salesforce 供应配置API版本不能为空');
             return false;
         }
 
         if ($('#sf-domain-name').val() == "") {
-            CARBON.showWarningDialog('Salesforce Provisioning Configuration Domain Name cannot be empty');
+            CARBON.showWarningDialog('Salesforce 供应配置域名不能为空');
             return false;
         }
 
         if ($('#sf-clientid').val() == "") {
-            CARBON.showWarningDialog('Salesforce Provisioning Configuration Client Id cannot be empty');
+            CARBON.showWarningDialog('Salesforce 供应配置Client Id 不能为空');
             return false;
         }
 
         if ($('#sf-client-secret').val() == "") {
-            CARBON.showWarningDialog('Salesforce Provisioning Configuration Client Secret cannot be empty');
+            CARBON.showWarningDialog('Salesforce 供应配置Client Secret 不能为空');
             return false;
         }
 
         if ($('#sf-username').val() == "") {
-            CARBON.showWarningDialog('Salesforce Provisioning Configuration Username cannot be empty');
+            CARBON.showWarningDialog('Salesforce 供应配置用户名不能为空');
             return false;
         }
 
         if ($('#sf-password').val() == "") {
-            CARBON.showWarningDialog('Salesforce Provisioning Configuration Password cannot be empty');
+            CARBON.showWarningDialog('Salesforce 供应配置密码不能为空');
             return false;
         }
 
         if ($('#sf-token-endpoint').val() == "") {
-            CARBON.showWarningDialog('Salesforce Provisioning Configuration Oauth2 Token Endpoint cannot be empty');
+            CARBON.showWarningDialog('Salesforce 供应配置Oauth2 令牌端点不能为空');
             return false;
         }
     }
@@ -864,17 +864,17 @@ function doValidation() {
     if (jQuery('#scimProvEnabled').attr('checked')) {
 
         if ($('#scim-username').val() == "") {
-            CARBON.showWarningDialog('Scim Configuration username cannot be empty');
+            CARBON.showWarningDialog('Scim 配置用户名不能为空');
             return false;
         }
 
         if ($('#scim-password').val() == "") {
-            CARBON.showWarningDialog('Scim Configuration password cannot be empty');
+            CARBON.showWarningDialog('Scim 配置密码不能为空');
             return false;
         }
 
         if ($('#scim-user-ep').val() == "") {
-            CARBON.showWarningDialog('Scim Configuration User endpoint cannot be empty');
+            CARBON.showWarningDialog('Scim 配置用户端点不能为空');
             return false;
         }
     }
@@ -882,12 +882,12 @@ function doValidation() {
     if (jQuery('#spmlProvEnabled').attr('checked')) {
 
         if ($('#spml-ep').val() == "") {
-            CARBON.showWarningDialog('SPML Endpoint cannot be empty');
+            CARBON.showWarningDialog('SPML 端点不能为空');
             return false;
         }
 
         if ($('#spml-oc').val() == "") {
-            CARBON.showWarningDialog('SPML Object class cannot be empty');
+            CARBON.showWarningDialog('SPML Object class 不能为空');
             return false;
         }
 
@@ -897,7 +897,7 @@ function doValidation() {
         if (document.getElementsByName('claimrowname_' + i)[0] != null) {
             reason = validateEmpty('claimrowname_' + i);
             if (reason != "") {
-                CARBON.showWarningDialog("Claim URI strings cannot be of zero length");
+                CARBON.showWarningDialog("声明URI不能为空");
                 return false;
             }
         }
@@ -907,7 +907,7 @@ function doValidation() {
         if (document.getElementsByName('rolerowname_' + i)[0] != null) {
             reason = validateEmpty('rolerowname_' + i);
             if (reason != "") {
-                CARBON.showWarningDialog("Role name strings cannot be of zero length");
+                CARBON.showWarningDialog("角色名称不能为空");
                 return false;
             }
         }
@@ -1042,7 +1042,7 @@ jQuery('#advancedClaimMappingAddLink').click(function () {
     jQuery('#advancedClaimMappingAddTable').append(jQuery('<tr>' +
         '<td><input type="text" style="width: 99%;" value="' + selectedIDPClaimName + '" id="advancnedIdpClaim_' + advancedClaimMappinRowID + '" name="advancnedIdpClaim_' + advancedClaimMappinRowID + '" readonly="readonly" /></td>' +
         '<td><input type="text" style="width: 99%;" id="advancedDefault_' + advancedClaimMappinRowID + '" name="advancedDefault_' + advancedClaimMappinRowID + '"/></td> ' +
-        '<td><a onclick="deleteRow(this);return false;" href="#" class="icon-link" style="background-image: url(../images/delete.gif)"> Delete</a></td>' +
+        '<td><a onclick="deleteRow(this);return false;" href="#" class="icon-link" style="background-image: url(../images/delete.gif)"> 删除</a></td>' +
 
         '</tr>'));
 
@@ -1058,7 +1058,7 @@ jQuery('#roleAddLink').click(function () {
         '<td><input type="text" id="localrowname_' + roleRowId + '" name="localrowname_' + roleRowId + '"/></td>' +
         '<td><a onclick="deleteRoleRow(this)" class="icon-link" ' +
         'style="background-image: url(../images/delete.gif)">' +
-        'Delete' +
+        '删除' +
         '</a></td></tr>'));
     if ($(jQuery('#roleAddTable tr')).length == 2) {
         $(jQuery('#roleAddTable')).toggle();

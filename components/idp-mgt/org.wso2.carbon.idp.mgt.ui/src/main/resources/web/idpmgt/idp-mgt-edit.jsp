@@ -15,7 +15,7 @@
 ~ specific language governing permissions and limitations
 ~ under the License.
 -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@page import="org.apache.commons.lang.StringUtils" %>
 <%@page import="org.owasp.encoder.Encode" %>
@@ -1432,37 +1432,37 @@
 
 
         if ('<%=userIdClaimURI%>' == '') {
-            $user_id_claim_dropdown.append('<option value = "">--- Select Claim URI ---</option>');
+            $user_id_claim_dropdown.append('<option value = "">--- 选择声明URI ---</option>');
         } else {
-            $user_id_claim_dropdown.append('<option selected="selected" value = "">--- Select Claim URI ---</option>');
+            $user_id_claim_dropdown.append('<option selected="selected" value = "">--- 选择声明URI ---</option>');
         }
 
         if ('<%=roleClaimURI%>' == '') {
-            $role_claim_dropdown.append('<option value = "">--- Select Claim URI ---</option>');
+            $role_claim_dropdown.append('<option value = "">--- 选择声明URI ---</option>');
         } else {
-            $role_claim_dropdown.append('<option selected="selected" value = "">--- Select Claim URI ---</option>');
+            $role_claim_dropdown.append('<option selected="selected" value = "">--- 选择声明URI ---</option>');
         }
 
 
         if ('<%=Encode.forJavaScriptBlock(googlePrimaryEmailClaim)%>' == '') {
-            $google_prov_email_claim_dropdown.append('<option value = "">--- Select Claim URI ---</option>');
+            $google_prov_email_claim_dropdown.append('<option value = "">--- 选择声明URI ---</option>');
         } else {
-            $google_prov_email_claim_dropdown.append('<option selected="selected" value = "">--- Select Claim URI ---</option>');
+            $google_prov_email_claim_dropdown.append('<option selected="selected" value = "">--- 选择声明URI ---</option>');
         }
 
         if ('<%=Encode.forJavaScriptBlock(googleFamilyNameClaim)%>' == '') {
-            $google_prov_familyname_claim_dropdown.append('<option value = "">--- Select Claim URI ---</option>');
+            $google_prov_familyname_claim_dropdown.append('<option value = "">--- 选择声明URI ---</option>');
         } else {
-            $google_prov_familyname_claim_dropdown.append('<option selected="selected" value = "">--- Select Claim URI ---</option>');
+            $google_prov_familyname_claim_dropdown.append('<option selected="selected" value = "">--- 选择声明URI ---</option>');
         }
 
         if ('<%=Encode.forJavaScriptBlock(googleGivenNameClaim)%>' == '') {
-            $google_prov_givenname_claim_dropdown.append('<option value = "">--- Select Claim URI ---</option>');
+            $google_prov_givenname_claim_dropdown.append('<option value = "">--- 选择声明URI ---</option>');
         } else {
-            $google_prov_givenname_claim_dropdown.append('<option selected="selected" value = "">--- Select Claim URI ---</option>');
+            $google_prov_givenname_claim_dropdown.append('<option selected="selected" value = "">--- 选择声明URI ---</option>');
         }
 
-        $idpClaimsList2.append('<option value = "" >--- Select Claim URI ---</option>');
+        $idpClaimsList2.append('<option value = "" >--- 选择声明URI ---</option>');
 
         jQuery('#claimAddTable .claimrow').each(function () {
             var val = htmlEncode($(this).val());
@@ -1509,7 +1509,7 @@
 
         if (selectedVal == "choose_dialet_type1") {
             $(".customClaim").hide();
-            var option = '<option value="">---Select Claim URI ---</option>';
+            var option = '<option value="">--- 选择声明URI ---</option>';
             $user_id_claim_dropdown.empty();
             $role_claim_dropdown.empty();
             $google_prov_email_claim_dropdown.empty();
@@ -1518,7 +1518,7 @@
             $idpClaimsList2.empty();
 
 
-            var user_id_option = '<option value="">---Select Claim URI ---</option>';
+            var user_id_option = '<option value="">--- 选择声明URI ---</option>';
 
             <% for(int i =0 ; i< claimUris.length ; i++){
 
@@ -1530,7 +1530,7 @@
             }%>
 
 
-            var google_prov_email_option = '<option value="">---Select Claim URI ---</option>';
+            var google_prov_email_option = '<option value="">--- 选择声明URI ---</option>';
 
             <% for(int i =0 ; i< claimUris.length ; i++){
 
@@ -1542,7 +1542,7 @@
             }%>
 
 
-            var google_prov_family_email_option = '<option value="">---Select Claim URI ---</option>';
+            var google_prov_family_email_option = '<option value="">--- 选择声明URI ---</option>';
 
             <% for(int i =0 ; i< claimUris.length ; i++){
 
@@ -1554,7 +1554,7 @@
             }%>
 
 
-            var google_prov_givenname_option = '<option value="">---Select Claim URI ---</option>';
+            var google_prov_givenname_option = '<option value="">--- 选择声明URI ---</option>';
 
             <% for(int i =0 ; i< claimUris.length ; i++){
 
@@ -1736,7 +1736,7 @@
         jQuery('#claimAddLink').click(function () {
 
             claimRowId++;
-            var option = '<option value="">---Select Claim URI ---</option>';
+            var option = '<option value="">--- 选择声明URI ---</option>';
 
             <% for(int i =0 ; i< claimUris.length ; i++){%>
             option += '<option value="' + "<%=claimUris[i]%>" + '">' + "<%=claimUris[i]%>" + '</option>';
@@ -1750,7 +1750,7 @@
                     '<td><select class="claimrow_wso2" name="claimrow_name_wso2_' + claimRowId + '">' + option + '</select></td> ' +
                     '<td><a onclick="deleteClaimRow(this)" class="icon-link" ' +
                     'style="background-image: url(images/delete.gif)">' +
-                    'Delete' +
+                    '删除' +
                     '</a></td></tr>');
             jQuery('.claimrow', newrow).blur(function () {
                 claimURIDropdownPopulator();
@@ -1838,34 +1838,34 @@
             }
 
             if (jQuery('#deletePublicCert').val() == 'true') {
-                var confirmationMessage = 'Are you sure you want to delete the public certificate of ' +
-                        jQuery('#idPName').val() + '?';
+                var confirmationMessage = '你确定要删除 ' +
+                        jQuery('#idPName').val() + '的公钥证书吗?';
                 if (jQuery('#certFile').val() != '') {
                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                 }
                 CARBON.showConfirmationDialog(confirmationMessage,
                         function () {
                             if (allDeletedClaimStr != "") {
-                                CARBON.showConfirmationDialog('Are you sure you want to delete the claim URI(s) ' +
+                                CARBON.showConfirmationDialog('你确定要删除声明URI ' +
                                         allDeletedClaimStr,
                                         function () {
                                             if (allDeletedRoleStr != "") {
-                                                CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                                        'role(s) ' + allDeletedRoleStr,
+                                                CARBON.showConfirmationDialog('你确定要删除 ' +
+                                                        '角色 ' + allDeletedRoleStr,
                                                         function () {
                                                             if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                                var confirmationMessage = 'Are you sure you want to ' +
-                                                                        'delete the Claim URI Mappings of ' +
-                                                                        jQuery('#idPName').val() + '?';
+                                                                var confirmationMessage = '你确定要 ' +
+                                                                        '删除 ' +
+                                                                        jQuery('#idPName').val() + '的声明URL映射吗?';
                                                                 if (jQuery('#claimMappingFile').val() != '') {
                                                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                 }
                                                                 CARBON.showConfirmationDialog(confirmationMessage,
                                                                         function () {
                                                                             if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                                var confirmationMessage = 'Are you sure you want to ' +
-                                                                                        'delete the Role Mappings of ' +
-                                                                                        jQuery('#idPName').val() + '?';
+                                                                                var confirmationMessage = '你确定要 ' +
+                                                                                        '删除 ' +
+                                                                                        jQuery('#idPName').val() + '的角色映射吗?';
                                                                                 if (jQuery('#roleMappingFile').val() != '') {
                                                                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                                 }
@@ -1886,9 +1886,9 @@
                                                                         });
                                                             } else {
                                                                 if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                    var confirmationMessage = 'Are you sure you want to ' +
-                                                                            'delete the Role Mappings of ' +
-                                                                            jQuery('#idPName').val() + '?';
+                                                                    var confirmationMessage = '你确定要 ' +
+                                                                            '删除 ' +
+                                                                            jQuery('#idPName').val() + '的角色映射吗?';
                                                                     if (jQuery('#roleMappingFile').val() != '') {
                                                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                     }
@@ -1910,9 +1910,9 @@
                                                         });
                                             } else {
                                                 if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                    var confirmationMessage = 'Are you sure you want to ' +
-                                                            'delete the Claim URI mappings of ' +
-                                                            jQuery('#idPName').val() + '?';
+                                                    var confirmationMessage = '你确定要 ' +
+                                                            '删除 ' +
+                                                            jQuery('#idPName').val() + '的声明URL映射吗?';
                                                     if (jQuery('#claimMappingFile').val() != '') {
                                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                     }
@@ -1925,9 +1925,9 @@
                                                             });
                                                 } else {
                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Role Mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
@@ -1949,13 +1949,13 @@
                                         });
                             } else {
                                 if (allDeletedRoleStr != "") {
-                                    CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                            'role(s) ' + allDeletedRoleStr,
+                                    CARBON.showConfirmationDialog('你确定要删除 ' +
+                                            '角色 ' + allDeletedRoleStr,
                                             function () {
                                                 if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                    var confirmationMessage = 'Are you sure you want to ' +
-                                                            'delete the Claim URI mappings of ' +
-                                                            jQuery('#idPName').val() + '?';
+                                                    var confirmationMessage = '你确定要 ' +
+                                                            '删除 ' +
+                                                            jQuery('#idPName').val() + '的声明URL映射吗?';
                                                     if (jQuery('#claimMappingFile').val() != '') {
                                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                     }
@@ -1968,9 +1968,9 @@
                                                             });
                                                 } else {
                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Role Mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
@@ -1991,18 +1991,18 @@
                                             });
                                 } else {
                                     if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                'delete the Claim URI mappings of ' +
-                                                jQuery('#idPName').val() + '?';
+                                        var confirmationMessage = '你确定要 ' +
+                                                '删除 ' +
+                                                jQuery('#idPName').val() + '的声明URL映射吗?';
                                         if (jQuery('#claimMappingFile').val() != '') {
                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                         }
                                         CARBON.showConfirmationDialog(confirmationMessage,
                                                 function () {
                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Role Mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
@@ -2022,9 +2022,9 @@
                                                 });
                                     } else {
                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                    'delete the Role Mappings of ' +
-                                                    jQuery('#idPName').val() + '?';
+                                            var confirmationMessage = '你确定要 ' +
+                                                    '删除 ' +
+                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                             if (jQuery('#roleMappingFile').val() != '') {
                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                             }
@@ -2047,17 +2047,17 @@
                         });
             } else {
                 if (allDeletedClaimStr != "") {
-                    CARBON.showConfirmationDialog('Are you sure you want to delete the claim URI(s) ' +
+                    CARBON.showConfirmationDialog('你确定要删除声明URI ' +
                             allDeletedClaimStr,
                             function () {
                                 if (allDeletedRoleStr != "") {
-                                    CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                            'role(s) ' + allDeletedRoleStr,
+                                    CARBON.showConfirmationDialog('你确定要删除 ' +
+                                            '角色 ' + allDeletedRoleStr,
                                             function () {
                                                 if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                    var confirmationMessage = 'Are you sure you want to ' +
-                                                            'delete the Claim URI mappings of ' +
-                                                            jQuery('#idPName').val() + '?';
+                                                    var confirmationMessage = '你确定要 ' +
+                                                            '删除 ' +
+                                                            jQuery('#idPName').val() + '的声明URL映射吗?';
                                                     if (jQuery('#claimMappingFile').val() != '') {
                                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                     }
@@ -2070,9 +2070,9 @@
                                                             });
                                                 } else {
                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Role Mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
@@ -2093,18 +2093,18 @@
                                             });
                                 } else {
                                     if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                'delete the Claim URI mappings of ' +
-                                                jQuery('#idPName').val() + '?';
+                                        var confirmationMessage = '你确定要 ' +
+                                                '删除 ' +
+                                                jQuery('#idPName').val() + '的声明URL映射吗?';
                                         if (jQuery('#claimMappingFile').val() != '') {
                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                         }
                                         CARBON.showConfirmationDialog(confirmationMessage,
                                                 function () {
                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Role Mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
@@ -2124,9 +2124,9 @@
                                                 });
                                     } else {
                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                    'delete the Role Mappings of ' +
-                                                    jQuery('#idPName').val() + '?';
+                                            var confirmationMessage = '你确定要 ' +
+                                                    '删除 ' +
+                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                             if (jQuery('#roleMappingFile').val() != '') {
                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                             }
@@ -2148,22 +2148,22 @@
                             });
                 } else {
                     if (allDeletedRoleStr != "") {
-                        CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                'role(s) ' + allDeletedRoleStr,
+                        CARBON.showConfirmationDialog('你确定要删除 ' +
+                                '角色 ' + allDeletedRoleStr,
                                 function () {
                                     if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                'delete the Claim URI mappings of ' +
-                                                jQuery('#idPName').val() + '?';
+                                        var confirmationMessage = '你确定要 ' +
+                                                '删除 ' +
+                                                jQuery('#idPName').val() + '的声明URL映射吗?';
                                         if (jQuery('#claimMappingFile').val() != '') {
                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                         }
                                         CARBON.showConfirmationDialog(confirmationMessage,
                                                 function () {
                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Role Mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
@@ -2183,9 +2183,9 @@
                                                 });
                                     } else {
                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                    'delete the Role Mappings of ' +
-                                                    jQuery('#idPName').val() + '?';
+                                            var confirmationMessage = '你确定要 ' +
+                                                    '删除 ' +
+                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                             if (jQuery('#roleMappingFile').val() != '') {
                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                             }
@@ -2206,18 +2206,18 @@
                                 });
                     } else {
                         if (jQuery('#deleteClaimMappings').val() == 'true') {
-                            var confirmationMessage = 'Are you sure you want to ' +
-                                    'delete the Claim URI mappings of ' +
-                                    jQuery('#idPName').val() + '?';
+                            var confirmationMessage = '你确定要 ' +
+                                    '删除 ' +
+                                    jQuery('#idPName').val() + '的声明URL映射吗?';
                             if (jQuery('#claimMappingFile').val() != '') {
                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                             }
                             CARBON.showConfirmationDialog(confirmationMessage,
                                     function () {
                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                    'delete the Role Mappings of ' +
-                                                    jQuery('#idPName').val() + '?';
+                                            var confirmationMessage = '你确定要 ' +
+                                                    '删除 ' +
+                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                             if (jQuery('#roleMappingFile').val() != '') {
                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                             }
@@ -2237,9 +2237,9 @@
                                     });
                         } else {
                             if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                var confirmationMessage = 'Are you sure you want to ' +
-                                        'delete the Role Mappings of ' +
-                                        jQuery('#idPName').val() + '?';
+                                var confirmationMessage = '你确定要 ' +
+                                        '删除 ' +
+                                        jQuery('#idPName').val() + '的角色映射吗?';
                                 if (jQuery('#roleMappingFile').val() != '') {
                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                 }
@@ -2264,7 +2264,7 @@
             <%
                 if(idPName != null && !(idPName.equals(""))){
                 %>
-            CARBON.showConfirmationDialog("This will delete your public certificate and SAML SSO configuration, Do you want to proceed?",
+            CARBON.showConfirmationDialog("此操作将会删除公钥证书和SAML SSO配置, 你确定要继续处理吗?",
                     function () {
                         if (doValidation()) {
                             var allDeletedClaimStr = "";
@@ -2285,34 +2285,34 @@
                             }
 
                             if (jQuery('#deletePublicCert').val() == 'true') {
-                                var confirmationMessage = 'Are you sure you want to delete the public certificate of ' +
-                                        jQuery('#idPName').val() + '?';
+                                var confirmationMessage = '你确定要删除 ' +
+                                        jQuery('#idPName').val() + '的公钥证书吗?';
                                 if (jQuery('#certFile').val() != '') {
                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                 }
                                 CARBON.showConfirmationDialog(confirmationMessage,
                                         function () {
                                             if (allDeletedClaimStr != "") {
-                                                CARBON.showConfirmationDialog('Are you sure you want to delete the claim URI(s) ' +
+                                                CARBON.showConfirmationDialog('你确定要删除声明URI ' +
                                                         allDeletedClaimStr,
                                                         function () {
                                                             if (allDeletedRoleStr != "") {
-                                                                CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                                                        'role(s) ' + allDeletedRoleStr,
+                                                                CARBON.showConfirmationDialog('你确定要删除 ' +
+                                                                        '角色 ' + allDeletedRoleStr,
                                                                         function () {
                                                                             if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                                                var confirmationMessage = 'Are you sure you want to ' +
-                                                                                        'delete the Claim URI Mappings of ' +
-                                                                                        jQuery('#idPName').val() + '?';
+                                                                                var confirmationMessage = '你确定要 ' +
+                                                                                        '删除 ' +
+                                                                                        jQuery('#idPName').val() + '的声明URL映射吗?';
                                                                                 if (jQuery('#claimMappingFile').val() != '') {
                                                                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                                 }
                                                                                 CARBON.showConfirmationDialog(confirmationMessage,
                                                                                         function () {
                                                                                             if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                                                var confirmationMessage = 'Are you sure you want to ' +
-                                                                                                        'delete the Role Mappings of ' +
-                                                                                                        jQuery('#idPName').val() + '?';
+                                                                                                var confirmationMessage = '你确定要 ' +
+                                                                                                        '删除 ' +
+                                                                                                        jQuery('#idPName').val() + '的角色映射吗?';
                                                                                                 if (jQuery('#roleMappingFile').val() != '') {
                                                                                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                                                 }
@@ -2333,9 +2333,9 @@
                                                                                         });
                                                                             } else {
                                                                                 if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                                    var confirmationMessage = 'Are you sure you want to ' +
-                                                                                            'delete the Role Mappings of ' +
-                                                                                            jQuery('#idPName').val() + '?';
+                                                                                    var confirmationMessage = '你确定要 ' +
+                                                                                            '删除 ' +
+                                                                                            jQuery('#idPName').val() + '的角色映射吗?';
                                                                                     if (jQuery('#roleMappingFile').val() != '') {
                                                                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                                     }
@@ -2357,9 +2357,9 @@
                                                                         });
                                                             } else {
                                                                 if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                                    var confirmationMessage = 'Are you sure you want to ' +
-                                                                            'delete the Claim URI mappings of ' +
-                                                                            jQuery('#idPName').val() + '?';
+                                                                    var confirmationMessage = '你确定要 ' +
+                                                                            '删除 ' +
+                                                                            jQuery('#idPName').val() + '的声明URL映射吗?';
                                                                     if (jQuery('#claimMappingFile').val() != '') {
                                                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                     }
@@ -2372,9 +2372,9 @@
                                                                             });
                                                                 } else {
                                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                                'delete the Role Mappings of ' +
-                                                                                jQuery('#idPName').val() + '?';
+                                                                        var confirmationMessage = '你确定要 ' +
+                                                                                '删除 ' +
+                                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                         }
@@ -2396,13 +2396,13 @@
                                                         });
                                             } else {
                                                 if (allDeletedRoleStr != "") {
-                                                    CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                                            'role(s) ' + allDeletedRoleStr,
+                                                    CARBON.showConfirmationDialog('你确定要删除 ' +
+                                                            '角色 ' + allDeletedRoleStr,
                                                             function () {
                                                                 if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                                    var confirmationMessage = 'Are you sure you want to ' +
-                                                                            'delete the Claim URI mappings of ' +
-                                                                            jQuery('#idPName').val() + '?';
+                                                                    var confirmationMessage = '你确定要 ' +
+                                                                            '删除 ' +
+                                                                            jQuery('#idPName').val() + '的声明URL映射吗?';
                                                                     if (jQuery('#claimMappingFile').val() != '') {
                                                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                     }
@@ -2415,9 +2415,9 @@
                                                                             });
                                                                 } else {
                                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                                'delete the Role Mappings of ' +
-                                                                                jQuery('#idPName').val() + '?';
+                                                                        var confirmationMessage = '你确定要 ' +
+                                                                                '删除 ' +
+                                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                         }
@@ -2438,18 +2438,18 @@
                                                             });
                                                 } else {
                                                     if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Claim URI mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的声明URL映射吗?';
                                                         if (jQuery('#claimMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
                                                         CARBON.showConfirmationDialog(confirmationMessage,
                                                                 function () {
                                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                                'delete the Role Mappings of ' +
-                                                                                jQuery('#idPName').val() + '?';
+                                                                        var confirmationMessage = '你确定要 ' +
+                                                                                '删除 ' +
+                                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                         }
@@ -2469,9 +2469,9 @@
                                                                 });
                                                     } else {
                                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                                    'delete the Role Mappings of ' +
-                                                                    jQuery('#idPName').val() + '?';
+                                                            var confirmationMessage = '你确定要 ' +
+                                                                    '删除 ' +
+                                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                                             if (jQuery('#roleMappingFile').val() != '') {
                                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                             }
@@ -2494,17 +2494,17 @@
                                         });
                             } else {
                                 if (allDeletedClaimStr != "") {
-                                    CARBON.showConfirmationDialog('Are you sure you want to delete the claim URI(s) ' +
+                                    CARBON.showConfirmationDialog('你确定要删除声明URI ' +
                                             allDeletedClaimStr,
                                             function () {
                                                 if (allDeletedRoleStr != "") {
-                                                    CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                                            'role(s) ' + allDeletedRoleStr,
+                                                    CARBON.showConfirmationDialog('你确定要删除 ' +
+                                                            '角色 ' + allDeletedRoleStr,
                                                             function () {
                                                                 if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                                    var confirmationMessage = 'Are you sure you want to ' +
-                                                                            'delete the Claim URI mappings of ' +
-                                                                            jQuery('#idPName').val() + '?';
+                                                                    var confirmationMessage = '你确定要 ' +
+                                                                            '删除 ' +
+                                                                            jQuery('#idPName').val() + '的声明URL映射吗?';
                                                                     if (jQuery('#claimMappingFile').val() != '') {
                                                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                     }
@@ -2517,9 +2517,9 @@
                                                                             });
                                                                 } else {
                                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                                'delete the Role Mappings of ' +
-                                                                                jQuery('#idPName').val() + '?';
+                                                                        var confirmationMessage = '你确定要 ' +
+                                                                                '删除 ' +
+                                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                         }
@@ -2540,18 +2540,18 @@
                                                             });
                                                 } else {
                                                     if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Claim URI mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的声明URI映射吗?';
                                                         if (jQuery('#claimMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
                                                         CARBON.showConfirmationDialog(confirmationMessage,
                                                                 function () {
                                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                                'delete the Role Mappings of ' +
-                                                                                jQuery('#idPName').val() + '?';
+                                                                        var confirmationMessage = '你确定要 ' +
+                                                                                '删除 ' +
+                                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                         }
@@ -2571,9 +2571,9 @@
                                                                 });
                                                     } else {
                                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                                    'delete the Role Mappings of ' +
-                                                                    jQuery('#idPName').val() + '?';
+                                                            var confirmationMessage = '你确定要 ' +
+                                                                    '删除 ' +
+                                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                                             if (jQuery('#roleMappingFile').val() != '') {
                                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                             }
@@ -2595,22 +2595,22 @@
                                             });
                                 } else {
                                     if (allDeletedRoleStr != "") {
-                                        CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                                'role(s) ' + allDeletedRoleStr,
+                                        CARBON.showConfirmationDialog('你确定要删除 ' +
+                                                '角色 ' + allDeletedRoleStr,
                                                 function () {
                                                     if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Claim URI mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的声明URI映射吗?';
                                                         if (jQuery('#claimMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
                                                         CARBON.showConfirmationDialog(confirmationMessage,
                                                                 function () {
                                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                                'delete the Role Mappings of ' +
-                                                                                jQuery('#idPName').val() + '?';
+                                                                        var confirmationMessage = '你确定要 ' +
+                                                                                '删除 ' +
+                                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                         }
@@ -2630,9 +2630,9 @@
                                                                 });
                                                     } else {
                                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                                    'delete the Role Mappings of ' +
-                                                                    jQuery('#idPName').val() + '?';
+                                                            var confirmationMessage = '你确定要 ' +
+                                                                    '删除 ' +
+                                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                                             if (jQuery('#roleMappingFile').val() != '') {
                                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                             }
@@ -2653,18 +2653,18 @@
                                                 });
                                     } else {
                                         if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                    'delete the Claim URI mappings of ' +
-                                                    jQuery('#idPName').val() + '?';
+                                            var confirmationMessage = '你确定要 ' +
+                                                    '删除 ' +
+                                                    jQuery('#idPName').val() + '的声明URI映射吗?';
                                             if (jQuery('#claimMappingFile').val() != '') {
                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                             }
                                             CARBON.showConfirmationDialog(confirmationMessage,
                                                     function () {
                                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                                    'delete the Role Mappings of ' +
-                                                                    jQuery('#idPName').val() + '?';
+                                                            var confirmationMessage = '你确定要 ' +
+                                                                    '删除 ' +
+                                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                                             if (jQuery('#roleMappingFile').val() != '') {
                                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                             }
@@ -2684,9 +2684,9 @@
                                                     });
                                         } else {
                                             if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                var confirmationMessage = 'Are you sure you want to ' +
-                                                        'delete the Role Mappings of ' +
-                                                        jQuery('#idPName').val() + '?';
+                                                var confirmationMessage = '你确定要 ' +
+                                                        '删除 ' +
+                                                        jQuery('#idPName').val() + '的角色映射吗?';
                                                 if (jQuery('#roleMappingFile').val() != '') {
                                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                 }
@@ -2736,34 +2736,34 @@
                 }
 
                 if (jQuery('#deletePublicCert').val() == 'true') {
-                    var confirmationMessage = 'Are you sure you want to delete the public certificate of ' +
-                            jQuery('#idPName').val() + '?';
+                    var confirmationMessage = '你确定要删除' +
+                            jQuery('#idPName').val() + '的公钥证书吗?';
                     if (jQuery('#certFile').val() != '') {
                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                     }
                     CARBON.showConfirmationDialog(confirmationMessage,
                             function () {
                                 if (allDeletedClaimStr != "") {
-                                    CARBON.showConfirmationDialog('Are you sure you want to delete the claim URI(s) ' +
+                                    CARBON.showConfirmationDialog('你确定要删除这些声明URI吗 ' +
                                             allDeletedClaimStr,
                                             function () {
                                                 if (allDeletedRoleStr != "") {
-                                                    CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                                            'role(s) ' + allDeletedRoleStr,
+                                                    CARBON.showConfirmationDialog('你确定要删除 ' +
+                                                            '角色 ' + allDeletedRoleStr,
                                                             function () {
                                                                 if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                                    var confirmationMessage = 'Are you sure you want to ' +
-                                                                            'delete the Claim URI Mappings of ' +
-                                                                            jQuery('#idPName').val() + '?';
+                                                                    var confirmationMessage = '你确定要 ' +
+                                                                            '删除 ' +
+                                                                            jQuery('#idPName').val() + '的声明URI映射吗?';
                                                                     if (jQuery('#claimMappingFile').val() != '') {
                                                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                     }
                                                                     CARBON.showConfirmationDialog(confirmationMessage,
                                                                             function () {
                                                                                 if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                                    var confirmationMessage = 'Are you sure you want to ' +
-                                                                                            'delete the Role Mappings of ' +
-                                                                                            jQuery('#idPName').val() + '?';
+                                                                                    var confirmationMessage = '你确定要 ' +
+                                                                                            '删除 ' +
+                                                                                            jQuery('#idPName').val() + '的角色映射吗?';
                                                                                     if (jQuery('#roleMappingFile').val() != '') {
                                                                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                                     }
@@ -2784,9 +2784,9 @@
                                                                             });
                                                                 } else {
                                                                     if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                                'delete the Role Mappings of ' +
-                                                                                jQuery('#idPName').val() + '?';
+                                                                        var confirmationMessage = '你确定要 ' +
+                                                                                '删除 ' +
+                                                                                jQuery('#idPName').val() + '的角色映射吗?';
                                                                         if (jQuery('#roleMappingFile').val() != '') {
                                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                                         }
@@ -2808,9 +2808,9 @@
                                                             });
                                                 } else {
                                                     if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Claim URI mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的声明URI映射吗?';
                                                         if (jQuery('#claimMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
@@ -2823,9 +2823,9 @@
                                                                 });
                                                     } else {
                                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                                    'delete the Role Mappings of ' +
-                                                                    jQuery('#idPName').val() + '?';
+                                                            var confirmationMessage = '你确定要 ' +
+                                                                    '删除 ' +
+                                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                                             if (jQuery('#roleMappingFile').val() != '') {
                                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                             }
@@ -2847,13 +2847,13 @@
                                             });
                                 } else {
                                     if (allDeletedRoleStr != "") {
-                                        CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                                'role(s) ' + allDeletedRoleStr,
+                                        CARBON.showConfirmationDialog('你确定要删除 ' +
+                                                '角色 ' + allDeletedRoleStr,
                                                 function () {
                                                     if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Claim URI mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的声明URL映射吗?';
                                                         if (jQuery('#claimMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
@@ -2866,9 +2866,9 @@
                                                                 });
                                                     } else {
                                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                                    'delete the Role Mappings of ' +
-                                                                    jQuery('#idPName').val() + '?';
+                                                            var confirmationMessage = '你确定要 ' +
+                                                                    '删除 ' +
+                                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                                             if (jQuery('#roleMappingFile').val() != '') {
                                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                             }
@@ -2889,18 +2889,18 @@
                                                 });
                                     } else {
                                         if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                    'delete the Claim URI mappings of ' +
-                                                    jQuery('#idPName').val() + '?';
+                                            var confirmationMessage = '你确定要 ' +
+                                                    '删除 ' +
+                                                    jQuery('#idPName').val() + '的声明URL映射吗?';
                                             if (jQuery('#claimMappingFile').val() != '') {
                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                             }
                                             CARBON.showConfirmationDialog(confirmationMessage,
                                                     function () {
                                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                                    'delete the Role Mappings of ' +
-                                                                    jQuery('#idPName').val() + '?';
+                                                            var confirmationMessage = '你确定要 ' +
+                                                                    '删除 ' +
+                                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                                             if (jQuery('#roleMappingFile').val() != '') {
                                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                             }
@@ -2920,9 +2920,9 @@
                                                     });
                                         } else {
                                             if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                var confirmationMessage = 'Are you sure you want to ' +
-                                                        'delete the Role Mappings of ' +
-                                                        jQuery('#idPName').val() + '?';
+                                                var confirmationMessage = '你确定要 ' +
+                                                        '删除 ' +
+                                                        jQuery('#idPName').val() + '的角色映射吗?';
                                                 if (jQuery('#roleMappingFile').val() != '') {
                                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                 }
@@ -2945,17 +2945,17 @@
                             });
                 } else {
                     if (allDeletedClaimStr != "") {
-                        CARBON.showConfirmationDialog('Are you sure you want to delete the claim URI(s) ' +
+                        CARBON.showConfirmationDialog('你确定要删除声明URI ' +
                                 allDeletedClaimStr,
                                 function () {
                                     if (allDeletedRoleStr != "") {
-                                        CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                                'role(s) ' + allDeletedRoleStr,
+                                        CARBON.showConfirmationDialog('你确定要删除 ' +
+                                                '角色 ' + allDeletedRoleStr,
                                                 function () {
                                                     if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                                        var confirmationMessage = 'Are you sure you want to ' +
-                                                                'delete the Claim URI mappings of ' +
-                                                                jQuery('#idPName').val() + '?';
+                                                        var confirmationMessage = '你确定要 ' +
+                                                                '删除 ' +
+                                                                jQuery('#idPName').val() + '的声明URI映射吗?';
                                                         if (jQuery('#claimMappingFile').val() != '') {
                                                             confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                         }
@@ -2968,9 +2968,9 @@
                                                                 });
                                                     } else {
                                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                                    'delete the Role Mappings of ' +
-                                                                    jQuery('#idPName').val() + '?';
+                                                            var confirmationMessage = '你确定要 ' +
+                                                                    '删除 ' +
+                                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                                             if (jQuery('#roleMappingFile').val() != '') {
                                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                             }
@@ -2991,18 +2991,18 @@
                                                 });
                                     } else {
                                         if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                    'delete the Claim URI mappings of ' +
-                                                    jQuery('#idPName').val() + '?';
+                                            var confirmationMessage = '你确定要 ' +
+                                                    '删除 ' +
+                                                    jQuery('#idPName').val() + '的声明URI映射吗?';
                                             if (jQuery('#claimMappingFile').val() != '') {
                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                             }
                                             CARBON.showConfirmationDialog(confirmationMessage,
                                                     function () {
                                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                                    'delete the Role Mappings of ' +
-                                                                    jQuery('#idPName').val() + '?';
+                                                            var confirmationMessage = '你确定要 ' +
+                                                                    '删除 ' +
+                                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                                             if (jQuery('#roleMappingFile').val() != '') {
                                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                             }
@@ -3022,9 +3022,9 @@
                                                     });
                                         } else {
                                             if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                var confirmationMessage = 'Are you sure you want to ' +
-                                                        'delete the Role Mappings of ' +
-                                                        jQuery('#idPName').val() + '?';
+                                                var confirmationMessage = '你确定要 ' +
+                                                        '删除 ' +
+                                                        jQuery('#idPName').val() + '的角色映射吗?';
                                                 if (jQuery('#roleMappingFile').val() != '') {
                                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                 }
@@ -3046,22 +3046,22 @@
                                 });
                     } else {
                         if (allDeletedRoleStr != "") {
-                            CARBON.showConfirmationDialog('Are you sure you want to delete the ' +
-                                    'role(s) ' + allDeletedRoleStr,
+                            CARBON.showConfirmationDialog('你确定要删除 ' +
+                                    '角色 ' + allDeletedRoleStr,
                                     function () {
                                         if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                    'delete the Claim URI mappings of ' +
-                                                    jQuery('#idPName').val() + '?';
+                                            var confirmationMessage = '你确定要 ' +
+                                                    '删除 ' +
+                                                    jQuery('#idPName').val() + '的声明URI映射吗?';
                                             if (jQuery('#claimMappingFile').val() != '') {
                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                             }
                                             CARBON.showConfirmationDialog(confirmationMessage,
                                                     function () {
                                                         if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                            var confirmationMessage = 'Are you sure you want to ' +
-                                                                    'delete the Role Mappings of ' +
-                                                                    jQuery('#idPName').val() + '?';
+                                                            var confirmationMessage = '你确定要 ' +
+                                                                    '删除 ' +
+                                                                    jQuery('#idPName').val() + '的角色映射吗?';
                                                             if (jQuery('#roleMappingFile').val() != '') {
                                                                 confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                             }
@@ -3081,9 +3081,9 @@
                                                     });
                                         } else {
                                             if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                var confirmationMessage = 'Are you sure you want to ' +
-                                                        'delete the Role Mappings of ' +
-                                                        jQuery('#idPName').val() + '?';
+                                                var confirmationMessage = '你确定要 ' +
+                                                        '删除 ' +
+                                                        jQuery('#idPName').val() + '的角色映射吗?';
                                                 if (jQuery('#roleMappingFile').val() != '') {
                                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                 }
@@ -3104,18 +3104,18 @@
                                     });
                         } else {
                             if (jQuery('#deleteClaimMappings').val() == 'true') {
-                                var confirmationMessage = 'Are you sure you want to ' +
-                                        'delete the Claim URI mappings of ' +
-                                        jQuery('#idPName').val() + '?';
+                                var confirmationMessage = '你确定要 ' +
+                                        '删除' +
+                                        jQuery('#idPName').val() + '的声明URI映射吗?';
                                 if (jQuery('#claimMappingFile').val() != '') {
                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                 }
                                 CARBON.showConfirmationDialog(confirmationMessage,
                                         function () {
                                             if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                                var confirmationMessage = 'Are you sure you want to ' +
-                                                        'delete the Role Mappings of ' +
-                                                        jQuery('#idPName').val() + '?';
+                                                var confirmationMessage = '你确定要' +
+                                                        '删除 ' +
+                                                        jQuery('#idPName').val() + '的角色映射吗?';
                                                 if (jQuery('#roleMappingFile').val() != '') {
                                                     confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                                 }
@@ -3135,9 +3135,9 @@
                                         });
                             } else {
                                 if (jQuery('#deleteRoleMappings').val() == 'true') {
-                                    var confirmationMessage = 'Are you sure you want to ' +
-                                            'delete the Role Mappings of ' +
-                                            jQuery('#idPName').val() + '?';
+                                    var confirmationMessage = '你确定要 ' +
+                                            '删除 ' +
+                                            jQuery('#idPName').val() + '的角色映射吗?';
                                     if (jQuery('#roleMappingFile').val() != '') {
                                         confirmationMessage = confirmationMessage.replace("delete", "re-upload");
                                     }
@@ -3159,7 +3159,7 @@
 
             <%}%>
         } else {
-            CARBON.showWarningDialog('Select a valid IDP metadata file');
+            CARBON.showWarningDialog('请选择一个有效的IDP元数据文件');
             return false;
         }
     }
@@ -3291,14 +3291,14 @@
                                            .isEmpty(certDataArr))) { %>
                                            checked="checked" <% } %>
                                            onclick="selectJWKS('<%=(ArrayUtils.isNotEmpty(certDataArr))%>');" />
-                                    Use IDP JWKS endpoint
+                                    使用IDP JWKS 端点
                                 </label>
                                 <label style="display:block">
                                     <input type="radio" id="choose_upload_certificate" name="choose_certificate_type"
                                             <% if (ArrayUtils.isNotEmpty(certDataArr)) { %> checked="checked" <% } %>
                                            value="choose_upload_certificate"
                                            onclick="selectCertificate()" />
-                                    Upload IDP certificate
+                                    上传IDP证书
                                 </label>
                             </td>
                         </tr>
@@ -3312,7 +3312,7 @@
                                 </div>
 
                                     <% if (ArrayUtils.isNotEmpty(certDataArr)) { %>
-                                
+
                                 <div class="publicCertDiv">
                                     <div style="clear:both"></div>
                                     <table class="styledLeft" id="certTableData">
@@ -3376,7 +3376,7 @@
                                             <td>
                                                 <a id="publicCertDeleteLink" data-certno="<%=certificate%>"
                                                    class="icon-link publicCertDeleteLinkClass"
-                                                   style="margin-left:0;background-image:url(images/delete.gif);">Delete</a>
+                                                   style="margin-left:0;background-image:url(images/delete.gif);">删除</a>
                                             </td>
                                             <%
                                                     i++;
@@ -3441,13 +3441,13 @@
                                         <input type="radio" id="choose_dialet_type1" name="choose_dialet_type_group"
                                                value="choose_dialet_type1" <% if (!isCustomClaimEnabled) { %>
                                                checked="checked" <% } %> />
-                                        Use Local Claim Dialect
+                                        使用本地说明方言
                                     </label>
                                     <label style="display:block">
                                         <input type="radio" id="choose_dialet_type2" name="choose_dialet_type_group"
                                                value="choose_dialet_type2"  <% if (isCustomClaimEnabled) { %>
                                                checked="checked" <% } %> />
-                                        Define Custom Claim Dialect
+                                        定义自定义的声明方言
                                     </label>
                                 </td>
                             </tr>
@@ -3491,7 +3491,7 @@
                                             <td>
                                                 <select id="claimrow_id_wso2_<%=i%>" class="claimrow_wso2"
                                                         name="claimrow_name_wso2_<%=i%>">
-                                                    <option value="">--- Select Claim URI ---</option>
+                                                    <option value="">--- 选择声明URI ---</option>
                                                             <% for(String wso2ClaimName : claimUris) {
 													if(claimMappings[i].getLocalClaim().getClaimUri() != null && claimMappings[i].getLocalClaim().getClaimUri().equals(wso2ClaimName)){	%>
                                                     <option selected="selected"
@@ -3593,9 +3593,9 @@
                                     <table class="styledLeft" id="advancedClaimMappingAddTable" style="display:none">
                                         <thead>
                                         <tr>
-                                            <th class="leftCol-big">Claim URI</th>
-                                            <th class="leftCol-big">Default Value</th>
-                                            <th>Actions</th>
+                                            <th class="leftCol-big">声明URI</th>
+                                            <th class="leftCol-big">缺省值</th>
+                                            <th>操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -3861,13 +3861,13 @@
                                         <input type="radio" value="0"
                                                name="open_id_user_id_location" <% if (!isOpenIdUserIdInClaims) { %>
                                                checked="checked" <%}%> />
-                                        User ID found in 'claimed_id'
+                                        在 'claimed_id'中提取用户ID
                                     </label>
                                     <label>
                                         <input type="radio" value="1"
                                                name="open_id_user_id_location" <% if (isOpenIdUserIdInClaims) { %>
                                                checked="checked" <%}%> />
-                                        User ID found among claims
+                                        在什么中提取用户ID
                                     </label>
 
                                     <div class="sectionHelp">
@@ -4286,13 +4286,13 @@
 
                                             <label><input type="radio" value="yes" <%
 	              if(forceAuthentication !=null && forceAuthentication.equals("yes")){%>checked="checked"<%
-                                                }%> name="ForceAuthentication"/> Yes </label>
+                                                }%> name="ForceAuthentication"/> 是 </label>
                                             <label><input type="radio" value="no" <%
 	              if(forceAuthentication !=null && forceAuthentication.equals("no")){%>checked
-                                                    ="checked"<%}%> name="ForceAuthentication"/>No </label>
+                                                    ="checked"<%}%> name="ForceAuthentication"/>否 </label>
                                             <label><input type="radio" value="as_request" <%
 	              if(forceAuthentication!=null&&forceAuthentication.equals("as_request")){%>checked="checked"<%}%>
-                                                          name="ForceAuthentication"/>As Per Request</label>
+                                                          name="ForceAuthentication"/>针对每个请求</label>
 
                                         </div>
                                         <div class="sectionHelp" style="margin-top: 5px">
@@ -4364,14 +4364,14 @@
                                         <div class="sectionCheckbox">
                                             <label><input type="radio" id="includeAuthnCtxYes" value="yes" <%
 	              if(includeAuthenticationContext != null && includeAuthenticationContext.equals("yes")){%>checked="checked"<%
-                                                }%> name="IncludeAuthnContext"/>Yes </label>
+                                                }%> name="IncludeAuthnContext"/>是 </label>
                                             <label><input type="radio" id="includeAuthnCtxNo" value="no" <%
 	              if(includeAuthenticationContext != null && includeAuthenticationContext.equals("no")){%>checked="checked"<%
-                                                }%> name="IncludeAuthnContext"/>No </label>
+                                                }%> name="IncludeAuthnContext"/>否 </label>
                                             <label><input type="radio" id="includeAuthnCtxReq" value="as_request" <%
 	              if(includeAuthenticationContext !=null && includeAuthenticationContext.equals("as_request")){%>checked="checked"
                                                           <%
-	              		}%>name="IncludeAuthnContext"/>As Per Request</label>
+	              		}%>name="IncludeAuthnContext"/>针对每个请求</label>
                                         </div>
                                         <div class="sectionHelp" style="margin-top: 5px">
                                             <fmt:message key='include.authentication.context.help'/>
@@ -4487,13 +4487,13 @@
                                             <input type="radio" value="0"
                                                    name="saml2_sso_user_id_location" <% if (!isSAMLSSOUserIdInClaims) { %>
                                                    checked="checked" <%}%> />
-                                            User ID found in 'Name Identifier'
+                                            在'Name Identifier'中提取用户ID
                                         </label>
                                         <label>
                                             <input type="radio" value="1"
                                                    name="saml2_sso_user_id_location" <% if (isSAMLSSOUserIdInClaims) { %>
                                                    checked="checked" <%}%> />
-                                            User ID found among claims
+                                            在什么中提取用户ID
                                         </label>
 
                                         <div class="sectionHelp">
@@ -4528,7 +4528,7 @@
                                     <td>
                                         <label>
                                             <input type="radio" name="ResponseAuthnContextClassRef" value="default"
-                                                   <% if(responseAuthnContextClassRef != null && responseAuthnContextClassRef.equals("default")){%>checked="checked"<%}%>/>Default
+                                                   <% if(responseAuthnContextClassRef != null && responseAuthnContextClassRef.equals("default")){%>checked="checked"<%}%>/>缺省
                                         </label>
                                         <label><input type="radio" name="ResponseAuthnContextClassRef" value="as_response"
                                                       <% if(responseAuthnContextClassRef != null && responseAuthnContextClassRef.equals("as_response")){%>checked="checked"<%}%>/>As Per Response
@@ -4573,7 +4573,7 @@
                                 <tbody>
 
                                 <tr>
-                                    <td><span>File Location: </span><input type="file" id="meta_data_saml"
+                                    <td><span>文件位置: </span><input type="file" id="meta_data_saml"
                                                                            name="meta_data_saml" size="50"/></td>
                                 </tr>
                                 <tr>
@@ -4665,7 +4665,7 @@
                                                style="  outline: none; border: none; min-width: 175px; max-width: 180px;"/>
                                         <span id="showHideButtonIdOauth" style=" float: right; padding-right: 5px;">
 	                        		<a style="margin-top: 5px;" class="showHideBtn"
-                                       onclick="showHidePassword(this, 'clientSecret')">Show</a>
+                                       onclick="showHidePassword(this, 'clientSecret')">显示</a>
 	                       		</span>
                                     </div>
                                     <div class="sectionHelp">
@@ -4728,13 +4728,13 @@
                                         <input type="radio" value="0"
                                                name="oidc_user_id_location" <% if (!isOIDCUserIdInClaims) { %>
                                                checked="checked" <%}%> />
-                                        User ID found in 'sub' attribute
+                                        在'sub'属性中提取用户ID
                                     </label>
                                     <label>
                                         <input type="radio" value="1"
                                                name="oidc_user_id_location" <% if (isOIDCUserIdInClaims) { %>
                                                checked="checked" <%}%> />
-                                        User ID found among claims
+                                        在什么中提取用户ID
                                     </label>
 
                                     <div class="sectionHelp">
@@ -4844,13 +4844,13 @@
                                         <input type="radio" value="0"
                                                name="passive_sts_user_id_location" <% if (!isPassiveSTSUserIdInClaims) { %>
                                                checked="checked" <%}%>/>
-                                        User ID found in 'Name Identifier'
+                                        在'Name Identifier'中提取用户ID
                                     </label>
                                     <label>
                                         <input type="radio" value="1"
                                                name="passive_sts_user_id_location" <% if (isPassiveSTSUserIdInClaims) { %>
                                                checked="checked" <%}%>/>
-                                        User ID found among claims
+                                        在声明中提取用户ID
                                     </label>
 
                                     <div class="sectionHelp">
@@ -4973,7 +4973,7 @@
                                                style="  outline: none; border: none; min-width: 175px; max-width: 180px;"/>
                                         <span id="showHideButtonId" style=" float: right; padding-right: 5px;">
        								<a style="margin-top: 5px;" class="showHideBtn"
-                                       onclick="showHidePassword(this, 'fbClientSecret')">Show</a>
+                                       onclick="showHidePassword(this, 'fbClientSecret')">显示</a>
        							</span>
                                     </div>
 
@@ -5017,21 +5017,21 @@
                                 </td>
                             </tr>
                             <tr style="display:none;">
-                                <td class="leftCol-med labelField">Facebook Authentication Endpoint:<span
+                                <td class="leftCol-med labelField">Facebook 认证端点:<span
                                         class="required">*</span></td>
                                 <td><input class="text-box-big" id="fbAuthnEndpoint"
                                            name="fbAuthnEndpoint" type="text"
                                            value=<%=Encode.forHtmlAttribute(fbAuthnEndpoint)%>></td>
                             </tr>
                             <tr style="display:none;">
-                                <td class="leftCol-med labelField">Facebook OAuth2 Token Endpoint:<span
+                                <td class="leftCol-med labelField">Facebook OAuth2 Token 端点:<span
                                         class="required">*</span></td>
                                 <td><input class="text-box-big" id="fbOauth2TokenEndpoint"
                                            name="fbOauth2TokenEndpoint" type="text"
                                            value=<%=Encode.forHtmlAttribute(fbOauth2TokenEndpoint)%>></td>
                             </tr>
                             <tr style="display:none;">
-                                <td class="leftCol-med labelField">Facebook User Information Endpoint:<span
+                                <td class="leftCol-med labelField">Facebook 用户信息端点:<span
                                         class="required">*</span></td>
                                 <td><input class="text-box-big" id="fbUserInfoEndpoint"
                                            name="fbUserInfoEndpoint" type="text"
@@ -5081,7 +5081,7 @@
 
                     <h2 id="custom_auth_head_"<%=fedConfig.getDisplayName() %> class="sectionSeperator trigger active"
                         style="background-color: beige;">
-                        <a href="#" style="text-transform:capitalize;"><%=fedConfig.getDisplayName()%> Configuration</a>
+                        <a href="#" style="text-transform:capitalize;"><%=fedConfig.getDisplayName()%> 配置</a>
                         <% if (isEnabled) { %>
                         <div id="custom_auth_head_enable_logo_<%=fedConfig.getName()%>" class="enablelogo"
                              style="float:right;padding-right: 5px;padding-top: 5px;"><img src="images/ok.png"
@@ -5103,7 +5103,7 @@
                                     <input type="hidden" name="<%=fedConfig.getName()%>_DisplayName"
                                            value=<%=fedConfig.getDisplayName()%>>
 
-                                    <label for="<%=fedConfig.getName()%>Enabled">Enable</label>
+                                    <label for="<%=fedConfig.getName()%>Enabled">启用</label>
                                 </td>
                                 <td>
                                     <div class="sectionCheckbox">
@@ -5111,14 +5111,14 @@
                                                name="<%=fedConfig.getName()%>_Enabled"
                                                type="checkbox" <%=enableChecked%>
                                                onclick="checkEnabled(this); checkEnabledLogo(this, '<%=fedConfig.getName()%>')"/>
-                                        <span style="display:inline-block" class="sectionHelp">Specifies if custom authenticator is enabled for this Identity Provider
+                                        <span style="display:inline-block" class="sectionHelp">指定是否为此身份提供者启用自定义身份验证器
                                 </span>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="leftCol-med labelField">
-                                    <label for="<%=fedConfig.getName()%>_Default">Default</label>
+                                    <label for="<%=fedConfig.getName()%>_Default">缺省</label>
                                 </td>
                                 <td>
                                     <div class="sectionCheckbox">
@@ -5126,7 +5126,7 @@
                                                name="<%=fedConfig.getName()%>_Default"
                                                type="checkbox" <%=valueChecked%> <%=valueDefaultDisabled%>
                                                onclick="checkDefault(this);"/>
-                                        <span style="display:inline-block" class="sectionHelp">Specifies if custom authenticator is the default
+                                        <span style="display:inline-block" class="sectionHelp">指定自定义身份验证器是否为默认值
                                 </span>
                                     </div>
                                 </td>
@@ -5172,7 +5172,7 @@
                                         <span id="showHideButtonId"
                                               style=" float: right; padding-right: 5px;">
        													<a style="margin-top: 5px;" class="showHideBtn"
-                                                           onclick="showHidePassword(this, 'cust_auth_prop_<%=fedConfig.getName()%>#<%=prop.getName()%>')">Show</a>
+                                                           onclick="showHidePassword(this, 'cust_auth_prop_<%=fedConfig.getName()%>#<%=prop.getName()%>')">显示</a>
        												</span>
                                     </div>
                                     <% } else { %>
@@ -5186,7 +5186,7 @@
                                         <span id="showHideButtonId"
                                               style=" float: right; padding-right: 5px;">
        													<a style="margin-top: 5px;" class="showHideBtn"
-                                                           onclick="showHidePassword(this, 'cust_auth_prop_<%=fedConfig.getName()%>#<%=prop.getName()%>')">Show</a>
+                                                           onclick="showHidePassword(this, 'cust_auth_prop_<%=fedConfig.getName()%>#<%=prop.getName()%>')">显示</a>
        												</span>
                                     </div>
 
@@ -5244,7 +5244,7 @@
                                     <input type="radio" id="provision_disabled" name="provisioning"
                                            value="provision_disabled" <% if (!isProvisioningEnabled) { %>
                                            checked="checked" <% } %> />
-                                    No provisioning
+                                    不添加用户
                                 </label>
 
                                 <div>
@@ -5252,7 +5252,7 @@
                                         <input type="radio" id="provision_static" name="provisioning"
                                                value="provision_static" <% if (isProvisioningEnabled && provisioningUserStoreId != null) { %>
                                                checked="checked" <% } %>/>
-                                        Always provision to User Store Domain
+                                        始终添加到用户存储
                                     </label>
                                     <select id="provision_static_dropdown"
                                             name="provision_static_dropdown" <%=provisionStaticDropdownDisabled%>>
@@ -5287,7 +5287,7 @@
                                                name="choose_jit_type_group"
                                                value="prompt_username_password_consent" <% if (isPasswordProvisioningEnabled
                                                 && isUserNameModificationAllowed && isPromptConsent) { %>
-                                               checked="checked" <% } if(!isProvisioningEnabled) { %> disabled
+                                               checked="checked" <% } if(!isProvisioningEnabled) { %> 禁用
                                                 <%}%>/>
                                         <fmt:message key='jit.prompt.username.password.consent'/>
                                     </label>
@@ -5297,7 +5297,7 @@
                                         <input type="radio" id=prompt_password_consent" name="choose_jit_type_group"
                                                value="prompt_password_consent"  <% if (isPasswordProvisioningEnabled &&
                                                 !isUserNameModificationAllowed && isPromptConsent) { %>
-                                               checked="checked" <% } if(!isProvisioningEnabled) { %> disabled
+                                               checked="checked" <% } if(!isProvisioningEnabled) { %> 禁用
                                                 <%}%>/>
                                         <fmt:message key='jit.prompt.password.consent'/>
                                     </label>
@@ -5307,7 +5307,7 @@
                                         <input type="radio" id="prompt_consent" name="choose_jit_type_group"
                                                value="prompt_consent"  <% if (!isPasswordProvisioningEnabled &&
                                                 !isUserNameModificationAllowed && isPromptConsent) { %>
-                                               checked="checked" <% } if(!isProvisioningEnabled) { %> disabled
+                                               checked="checked" <% } if(!isProvisioningEnabled) { %> 禁用
                                                 <%}%>/>
                                         <fmt:message key='jit.prompt.consent'/>
                                     </label>
@@ -5316,7 +5316,7 @@
                                     <label style="display:block">
                                         <input type="radio" id="do_not_prompt" name="choose_jit_type_group"
                                                value="do_not_prompt"  <% if (!isPromptConsent) { %>
-                                               checked="checked" <% } if(!isProvisioningEnabled) { %> disabled
+                                               checked="checked" <% } if(!isProvisioningEnabled) { %> 禁用
                                                 <%}%>/>
                                         <fmt:message key='jit.provision.silently'/>
                                     </label>
@@ -5418,13 +5418,13 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label> <!-- --> Pick given name from Claim :
+                                        <label> <!-- --> 从声明中获取 :
                                         </label> <select id="google_prov_givenname_claim_dropdown"
                                                          name="google_prov_givenname_claim_dropdown">
                                     </select>
                                     </div>
                                     <div style=" display: none; ">
-                                        <label> Given name default value : </label> <input
+                                        <label> 名字缺省值 : </label> <input
                                             id="google_prov_givenname" name="google_prov_givenname"
                                             type="text"
                                             value="<%=Encode.forHtmlAttribute(googleGivenNameDefaultValue)%>"/>
@@ -5441,13 +5441,13 @@
                                         class="required">*</span></td>
                                 <td>
                                     <div>
-                                        <label> Pick family name from Claim : </label> <select
+                                        <label> 从声明中获取姓氏 : </label> <select
                                             id="google_prov_familyname_claim_dropdown"
                                             name="google_prov_familyname_claim_dropdown">
                                     </select>
                                     </div>
                                     <div style=" display: none;">
-                                        <label> Family name default value : </label> <input
+                                        <label> 姓氏缺省值 : </label> <input
                                             id="google_prov_familyname" name="google_prov_familyname"
                                             type="text"
                                             value="<%=Encode.forHtmlAttribute(googleFamilyNameDefaultValue)%>"/>
@@ -5483,7 +5483,7 @@
                                                  name="google_prov_private_key" type="file"/>
 									<% if (Encode.forJavaScriptBlock(googleProvPrivateKeyData) != null) { %>
                                          <img src="images/key.png" alt="key" width="14" height="14"
-                                              style=" padding-right: 5px; "><label>Private Key attached</label>
+                                              style=" padding-right: 5px; "><label>附加的私钥</label>
 									<% } %></span>
 
                                     <div class="sectionHelp">
@@ -5789,8 +5789,7 @@
 
                     <h2 id="custom_pro_head_"<%=fedConfig.getName() %> class="sectionSeperator trigger active"
                         style="background-color: beige;">
-                        <a href="#" style="text-transform:capitalize;"><%=fedConfig.getName()%> Provisioning
-                            Configuration</a>
+                        <a href="#" style="text-transform:capitalize;"><%=fedConfig.getName()%> 供应配置</a>
                         <% if (isEnabled) { %>
                         <div id="custom_pro_head_enable_logo_<%=fedConfig.getName()%>" class="enablelogo"
                              style="float:right;padding-right: 5px;padding-top: 5px;"><img src="images/ok.png"
@@ -5810,7 +5809,7 @@
                                 <td class="leftCol-med labelField">
                                     <input type="hidden" name="custom_pro_name" value=<%=fedConfig.getName()%>>
 
-                                    <label for="<%=fedConfig.getName()%>Enabled">Enable</label>
+                                    <label for="<%=fedConfig.getName()%>Enabled">启用</label>
                                 </td>
                                 <td>
                                     <div class="sectionCheckbox">
@@ -5818,7 +5817,7 @@
                                                name="<%=fedConfig.getName()%>_PEnabled"
                                                type="checkbox" <%=enableChecked%>
                                                onclick="checkEnabledLogo(this, '<%=fedConfig.getName()%>')"/>
-                                        <span style="display:inline-block" class="sectionHelp">Specifies if custom provisioning connector is enabled for this Identity Provider
+                                        <span style="display:inline-block" class="sectionHelp">指定是否为此身份提供者启用自定义设置连接器
                                 </span>
                                     </div>
                                 </td>
@@ -5853,7 +5852,7 @@
                                         <span id="showHideButtonId"
                                               style=" float: right; padding-right: 5px;">
        													<a style="margin-top: 5px;" class="showHideBtn"
-                                                           onclick="showHidePassword(this, 'cust_pro_prop_<%=fedConfig.getName()%>#<%=prop.getName()%>')">Show</a>
+                                                           onclick="showHidePassword(this, 'cust_pro_prop_<%=fedConfig.getName()%>#<%=prop.getName()%>')">显示</a>
        												</span>
                                     </div>
                                     <% } else { %>
@@ -5867,7 +5866,7 @@
                                         <span id="showHideButtonId"
                                               style=" float: right; padding-right: 5px;">
        													<a style="margin-top: 5px;" class="showHideBtn"
-                                                           onclick="showHidePassword(this, 'cust_pro_prop_<%=fedConfig.getName()%>#<%=prop.getName()%>')">Show</a>
+                                                           onclick="showHidePassword(this, 'cust_pro_prop_<%=fedConfig.getName()%>#<%=prop.getName()%>')">显示</a>
        												</span>
                                     </div>
 

@@ -15,7 +15,7 @@
 ~ specific language governing permissions and limitations
 ~ under the License.
 -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.commons.lang.StringUtils" %>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="org.wso2.carbon.identity.application.common.model.idp.xsd.FederatedAuthenticatorConfig" %>
@@ -235,26 +235,26 @@ function idpMgtCancel(){
         var reason = "";
         reason = validateEmpty("homeRealmId");
         if (reason != "") {
-            CARBON.showWarningDialog("Resident Home Realm ID cannot be empty");
+            CARBON.showWarningDialog("自身Home Realm ID 不能为空");
             return false;
         }
         reason = validateEmpty("idPEntityId");
         if (reason != "") {
-            CARBON.showWarningDialog("Resident IdP Entity ID cannot be empty");
+            CARBON.showWarningDialog("自身 IdP 实体 ID 不能为空");
             return false;
         }
-        var isSessionTimeoutValidated = doValidateInput(document.getElementById('sessionIdleTimeout'), "Resident IdP Idle Session Timeout must be numeric value greater than 0");
+        var isSessionTimeoutValidated = doValidateInput(document.getElementById('sessionIdleTimeout'), "自身 IdP 空闲会话超时必须是大于0的数字值");
         if (!isSessionTimeoutValidated) {
             return false;
         }
-        var isRememberTimeValidated = doValidateInput(document.getElementById('rememberMeTimeout'), "Resident IdP Remember Me Period must be numeric value greater than 0");
+        var isRememberTimeValidated = doValidateInput(document.getElementById('rememberMeTimeout'), "自身 IdP 记住我时间周期必须是大于0的数字值");
         if (!isRememberTimeValidated) {
             return false;
         }
         return true;
     }
     function onClickAddDestinationUrl() {
-        var isValidated = doValidateInput(document.getElementById('destinationURLTxt'), "Please enter a valid destination");
+        var isValidated = doValidateInput(document.getElementById('destinationURLTxt'), "请指定一个有效的目的地");
         if (isValidated) {
             addDestinationURL();
         }
@@ -263,7 +263,7 @@ function idpMgtCancel(){
 
         var destinationURL = $("#destinationURLTxt").val();
         if (destinationURL == null || destinationURL.trim().length == 0) {
-            CARBON.showWarningDialog("Please enter a valid destination");
+            CARBON.showWarningDialog("请指定一个有效的目的地");
             return false;
         }
 
@@ -292,7 +292,7 @@ function idpMgtCancel(){
                     '<tr id="destinationUrl_' + parseInt(currentColumnId) + '">' +
                     '</td><td style="padding-left: 15px !important; color: rgb(119, 119, 119);font-style: italic;">' + destinationURL +
                     '</td><td><a onclick="removeDestinationURL (\'' + destinationURL + '\', \'destinationUrl_' + parseInt(currentColumnId) + '\');return false;"' +
-                    'href="#" class="icon-link" style="background-image: url(../admin/images/delete.gif)"> Delete </a></td></tr>';
+                    'href="#" class="icon-link" style="background-image: url(../admin/images/delete.gif)"> 删除 </a></td></tr>';
 
             $('#destinationURLsTable tbody').append(row);
         } else {
@@ -300,7 +300,7 @@ function idpMgtCancel(){
             $.each(destinationURLs.split(","), function (index, value) {
                 if (value === destinationURL) {
                     isExist = true;
-                    CARBON.showWarningDialog("Destination URL already exist");
+                    CARBON.showWarningDialog("目的地 URL 已经存在");
                     return false;
                 }
             });
@@ -313,7 +313,7 @@ function idpMgtCancel(){
                     '<tr id="destinationUrl_' + parseInt(currentColumnId) + '">' +
                     '</td><td style="padding-left: 15px !important; color: rgb(119, 119, 119);font-style: italic;">' + destinationURL +
                     '</td><td><a onclick="removeDestinationURL(\'' + destinationURL + '\', \'destinationUrl_' + parseInt(currentColumnId) + '\');return false;"' +
-                    'href="#" class="icon-link" style="background-image: url(../admin/images/delete.gif)"> Delete </a></td></tr>';
+                    'href="#" class="icon-link" style="background-image: url(../admin/images/delete.gif)"> 删除 </a></td></tr>';
 
             $('#destinationURLsTable tr:last').after(row);
 
@@ -329,7 +329,7 @@ function idpMgtCancel(){
         var isDeletingSelected = false;
 
         if (destinationURLs.split(',').length <= 1) {
-            CARBON.showWarningDialog("You should have atleast one destination URL. Add another URL to remove the last URL", null, null);
+            CARBON.showWarningDialog("您应该至少有一个目标URL。添加另一个URL以删除最后一个URL", null, null);
             return false;
         }
         if (destinationURLs != null && destinationURLs.trim().length > 0) {
@@ -404,7 +404,7 @@ function idpMgtCancel(){
                     </table>
 
                     <h2 id="authenticationconfighead"  class="sectionSeperator trigger active" >
-                		<a href="#">Inbound Authentication Configuration</a>
+                		<a href="#">入站认证配置</a>
             		</h2>
             		<div class="toggle_container sectionSub" style="margin-bottom:10px;display:none" id="authenticationconfig">
 
@@ -473,7 +473,7 @@ function idpMgtCancel(){
                                                     '<%=Encode.forJavaScriptAttribute(id)%>');return false;"
                                                href="#" class="icon-link"
                                                style="background-image: url(../admin/images/delete.gif)">
-                                                Delete
+                                                删除
                                             </a>
                                         </td>
                                     </tr>
@@ -639,7 +639,7 @@ function idpMgtCancel(){
                         </div>
                 </div>
                     <h2 id="inboundprovisioningconfighead"  class="sectionSeperator trigger active">
-                		<a href="#">Inbound Provisioning Configuration</a>
+                		<a href="#">入站供应配置</a>
             		</h2>
             		<div class="toggle_container sectionSub" style="margin-bottom:10px;display:none" id="inboundprovisioningconfig">
             		  <table class="carbonFormTable">
@@ -681,7 +681,7 @@ function idpMgtCancel(){
                             String displayName = connectorProperties[k].getDisplayName();
                             String name = connectorProperties[k].getName();
                             if (StringUtils.isNotEmpty(name) && name.startsWith("_url_")) {%>
-    
+
                     <tr>
                         <td style="width: 500px;">
                             <%=Encode.forHtmlContent(displayName)%>
@@ -689,8 +689,8 @@ function idpMgtCancel(){
                         <td>
                             <a class="icon-link"
                                style="background-image:url(images/configure.gif); margin-left: 0px; display: block; float:none"
-                               href="<%=Encode.forHtmlAttribute(value)%>"> Click here </a>
-            
+                               href="<%=Encode.forHtmlAttribute(value)%>"> 点击这里 </a>
+
                             <% if (StringUtils.isNotBlank(connectorProperties[k].getDescription())) {%>
                             <div class="sectionHelp">
                                 <%=Encode.forHtmlContent(connectorProperties[k].getDescription())%>
@@ -698,8 +698,8 @@ function idpMgtCancel(){
                             <%}%>
                         </td>
                     </tr>
-    
-    
+
+
                     <% } else { %>
                         <tr>
                             <td style="width: 500px;">
@@ -754,12 +754,12 @@ function idpMgtCancel(){
         <h2 id="governance_config_header_subcategory" class="sectionSeperator trigger active">
             <a href="#"><%=Encode.forHtmlContent(catName)%></a>
         </h2>
-        
+
 <%
         if (StringUtils.isNotEmpty(category) && category.equalsIgnoreCase(catName)) {
 %>
             <div class="toggle_container sectionSub" style="margin-bottom:10px; display: block;" id="roleConfig2">
-            
+
 <%      }  else {
 %>
             <div class="toggle_container sectionSub" style="margin-bottom:10px; display:none;" id="roleConfig2">
@@ -775,7 +775,7 @@ function idpMgtCancel(){
                 <a href="#"><%=Encode.forHtmlContent(connectorConfig.getFriendlyName())%>
                 </a>
             </h2>
-            
+
 <%
         if (StringUtils.isNotEmpty(subCategory) && subCategory.equalsIgnoreCase(connectorConfig.getFriendlyName())) {
 %>
@@ -787,7 +787,7 @@ function idpMgtCancel(){
 <%
         }
 %>
-            
+
                 <table class="carbonFormTable">
                     <%
                         org.wso2.carbon.identity.governance.stub.bean.Property[] connectorProperties = connectorConfig.getProperties();
@@ -796,7 +796,7 @@ function idpMgtCancel(){
                             String displayName = connectorProperties[k].getDisplayName();
                             String name = connectorProperties[k].getName();
                             if (StringUtils.isNotEmpty(name) && name.startsWith("_url_")) { %>
-    
+
                     <tr>
                         <td style="width: 500px;">
                             <%=Encode.forHtmlContent(displayName)%>
@@ -804,8 +804,8 @@ function idpMgtCancel(){
                         <td>
                             <a class="icon-link"
                                style="background-image:url(images/configure.gif); margin-left: 0px; display: block; float:none"
-                               href="<%=Encode.forHtmlAttribute(value)%>"> Click here </a>
-            
+                               href="<%=Encode.forHtmlAttribute(value)%>"> 点击这里 </a>
+
                             <% if (StringUtils.isNotBlank(connectorProperties[k].getDescription())) {%>
                             <div class="sectionHelp">
                                 <%=Encode.forHtmlContent(connectorProperties[k].getDescription())%>
@@ -813,8 +813,8 @@ function idpMgtCancel(){
                             <%}%>
                         </td>
                     </tr>
-    
-    
+
+
                     <% } else { %>
                     <tr>
                             <td style="width: 500px;">

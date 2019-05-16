@@ -15,7 +15,7 @@
 ~ specific language governing permissions and limitations
 ~ under the License.
 -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="org.wso2.carbon.identity.application.common.model.idp.xsd.IdentityProvider" %>
 <%@ page import="java.util.List" %>
@@ -65,10 +65,10 @@
             });
         }
 
-        CARBON.showConfirmationDialog('Are you sure you want to delete "'  +
-                idpName + '" IdP information?', doDelete, null);
+        CARBON.showConfirmationDialog('你确定要删除 "'  +
+                idpName + '" 的IdP 信息吗?', doDelete, null);
     }
-    
+
 
     function enableOrDisableIdP(idpName, indicator) {
         $.ajax({
