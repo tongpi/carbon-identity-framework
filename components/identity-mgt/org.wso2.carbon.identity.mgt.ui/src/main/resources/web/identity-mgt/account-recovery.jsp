@@ -17,7 +17,7 @@
   ~ under the License.
   ~
   -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar"
 	prefix="carbon"%>
@@ -71,7 +71,7 @@
         client = new IdentityManagementAdminClient(cookie,
                 backendServerURL, configContext);
         infoClient = new UserInformationRecoveryClient(cookie, backendServerURL, configContext);
-        
+
      	challenges = infoClient.getChallengeQuestions();
 		try {
 			userChallenges = client.getChallengeQuestionsOfUser(username);
@@ -136,7 +136,7 @@
 
     <div id="middle">
         <h2><fmt:message key="my.account.recovery"/></h2>
-        <div id="workArea">   
+        <div id="workArea">
         <%
         if(!client.isReadOnlyUserStore(username, null)) {
         %>
@@ -211,14 +211,14 @@
             }
         %>
             <div class="buttonRow">
-                    <input type="submit" class="button" value="Update" />
+                    <input type="submit" class="button" value="更新" />
                 </div>
         </form>
         <%
         } else {
-        %> 
+        %>
         	<fmt:message key="recovery.not.supported"/>
-       	<%        	
+       	<%
         }
         %>
         </div>

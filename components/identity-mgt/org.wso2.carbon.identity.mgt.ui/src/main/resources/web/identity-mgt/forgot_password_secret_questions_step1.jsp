@@ -17,7 +17,7 @@
   ~ under the License.
   ~
   -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@ page import="org.wso2.carbon.CarbonConstants" %>
 <%@ page import="org.wso2.carbon.identity.mgt.stub.dto.UserChallengesDTO" %>
@@ -51,7 +51,7 @@
            <script type="text/javascript">
                 location.href = "fail _password_reset.jsp";
             </script>
-<%            
+<%
             }
             if(questionDTOs != null && questionDTOs.length > 0) {
                 currentChallenge = questionDTOs[0];
@@ -111,8 +111,8 @@
         </tr>
         <tr>
             <td>
-                <input type="button" value="Cancel" onclick="cancel()"/>
-                <input type="submit" value="Next" />
+                <input type="button" value="取消" onclick="cancel()"/>
+                <input type="submit" value="下一步" />
             </td>
         </tr>
         </tbody>
@@ -126,7 +126,6 @@
             location.href = "fail _password_reset.jsp";
         </script>
 <%
-    }    
+    }
 %>
 </fmt:bundle>
-

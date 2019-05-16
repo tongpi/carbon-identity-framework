@@ -17,7 +17,7 @@
   ~ under the License.
   ~
   -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@ page import="org.wso2.carbon.CarbonConstants" %>
 <%@ page import="org.wso2.carbon.captcha.mgt.beans.xsd.CaptchaInfoBean" %>
@@ -75,7 +75,7 @@
     <script type="text/javascript">
 
         function doSubmit(){
-            
+
             var sendEmail = document.getElementById("sendEmail");
             var secretQuestions = document.getElementById("secretQuestions");
             if(sendEmail.checked){
@@ -89,7 +89,7 @@
 
         function cancel(){
             location.href = "../admin/login.jsp";
-        }        
+        }
     </script>
 
     <form action="" id="passwordResetMethodForm"  method="post">
@@ -97,11 +97,11 @@
         <tbody>
         <tr>
             <td><input type="radio" name="passwordResetMethod" id="sendEmail"/></td>
-            <td>Send an email</td>
+            <td>发送一封邮件</td>
         </tr>
         <tr>
             <td><input type="radio" name="passwordResetMethod" id="secretQuestions"/></td>
-            <td>Secret Questions</td>
+            <td>安全问题</td>
         </tr>
         <tr>
             <td><input type="hidden"  name="userName" id="userName"
@@ -111,12 +111,11 @@
         </tr>
         <tr>
             <td>
-                <input type="button" value="Cancel"  onclick="cancel()"/>
-                <input type="button" value="Next" onclick="doSubmit()"/>
+                <input type="button" value="取消"  onclick="cancel()"/>
+                <input type="button" value="下一步" onclick="doSubmit()"/>
             </td>
         </tr>
         </tbody>
     </table>
     </form>
 </fmt:bundle>
-

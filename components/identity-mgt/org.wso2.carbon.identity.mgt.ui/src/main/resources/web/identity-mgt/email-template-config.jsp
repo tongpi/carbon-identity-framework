@@ -17,7 +17,7 @@
   ~ under the License.
   ~
   -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="org.apache.axis2.context.ConfigurationContext"%>
 <%@page import="org.wso2.carbon.CarbonConstants"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -43,7 +43,7 @@
 	String username = request.getParameter("username");
     String forwardTo = null;
     AccountCredentialMgtConfigClient client = null;
-    
+
     EmailConfigDTO emailConfig = null;
     String emailSubject = null;
     String emailBody = null;
@@ -53,7 +53,7 @@
     String emailBody0 = null;
     String emailFooter0 = null;
     String templateName0 = null;
-    
+
     if (username == null) {
         username = (String) request.getSession().getAttribute("logged-user");
     }
@@ -71,7 +71,7 @@
 				CarbonConstants.CONFIGURATION_CONTEXT);
         client = new AccountCredentialMgtConfigClient(cookie,
                 backendServerURL, configContext);
-             	
+
 		try {
 			emailConfig = client.loadEmailConfig();
 
@@ -79,7 +79,7 @@
 			e.printStackTrace();
 		}
 
-		
+
 	} catch (Exception e) {
 		String message = resourceBundle
 				.getString("error.while.loading.email.tepmplate.data");
@@ -88,14 +88,14 @@
 	}
 %>
 <script type="text/javascript">
-	
+
 	function updateFields(elm){
 		var $selectedOption = jQuery(elm).find(":selected");
 		jQuery('#emailSubject').val($selectedOption.attr('data-subject'));
 		jQuery('#emailBody').html($selectedOption.attr('data-body'));
 		jQuery('#emailFooter').html($selectedOption.attr('data-footer'));
 		jQuery('#templateName').val($selectedOption.attr('data-templateName'));
-		
+
 	}
 </script>
 <%
@@ -143,28 +143,28 @@
 									<%
 									EmailTemplateDTO[] templates = emailConfig.getTemplates();
 									for(int i=0; i < templates.length; i++) {
-										
+
 										EmailTemplateDTO template = templates[i];
 										if(i==0){
-											emailSubject0 = template.getSubject();	
+											emailSubject0 = template.getSubject();
 											emailBody0 = template.getBody();
 											emailFooter0 = template.getFooter();
 											templateName0 = template.getName();
-										} 								
+										}
 										emailSubject = template.getSubject();
 										emailBody = template.getBody();
 										emailFooter = template.getFooter();
 										templateName = template.getName();
 	                                %>
-										<option 
-										value="<%=i%>" 
+										<option
+										value="<%=i%>"
 										data-subject="<%=StringEscapeUtils.escapeHtml(Encode.forHtmlContent(emailSubject))%>"
 										data-body="<%=StringEscapeUtils.escapeHtml(Encode.forHtmlContent(emailBody))%>"
 										data-footer="<%=StringEscapeUtils.escapeHtml(Encode.forHtmlContent(emailFooter))%>"
 										data-templateName="<%=StringEscapeUtils.escapeHtml(Encode.forHtmlContent(templateName))%>"
 										><%=Encode.forHtmlContent(template.getDisplayName())%></option>
-									<% 
-									}									
+									<%
+									}
                                 	%>
 							</select></td>
 						</tr>
@@ -188,7 +188,7 @@
 					</table>
 				</div>
 				<div class="buttonRow">
-					<input type="submit" class="button" value="Save"/>
+					<input type="submit" class="button" value="保存"/>
 				</div>
 			</form>
 		</div>

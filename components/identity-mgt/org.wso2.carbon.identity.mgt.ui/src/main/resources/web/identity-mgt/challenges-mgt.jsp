@@ -17,7 +17,7 @@
   ~ under the License.
   ~
   -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
@@ -46,7 +46,7 @@
     String setName = request.getParameter("setName");
     challenges = (List<ChallengeQuestionDTO>) session.
                                     getAttribute(IdentityManagementAdminClient.CHALLENGE_QUESTION);
-    
+
     if(challenges == null){
         try {
             String cookie = (String) session
@@ -106,7 +106,7 @@
 
     session.setAttribute(IdentityManagementAdminClient.CHALLENGE_QUESTION, challenges);
 %>
-        
+
 <fmt:bundle basename="org.wso2.carbon.identity.mgt.ui.i18n.Resources">
 <carbon:breadcrumb label="challenge.add"
 		resourceBundle="org.wso2.carbon.identity.mgt.ui.i18n.Resources"
@@ -121,7 +121,7 @@
 	            location.href= 'challenges-mgt.jsp?deleteRowId=' + encodeURIComponent(row) + '&setName=' +
                         encodeURIComponent(setName);
         	}
-        	
+
             CARBON.showConfirmationDialog("<fmt:message key="confirm.delete.challenge.question"/> ?", doDelete, null);
         }
 
@@ -142,17 +142,17 @@
                 location.href= 'challenges-mgt.jsp?addRowId=' + encodeURIComponent(question) + '&setName=' +
                         encodeURIComponent(setName);
             }
-            
+
         }
 
         function cancelForm(){
-            location.href = 'challenges-set-mgt.jsp';    
+            location.href = 'challenges-set-mgt.jsp';
         }
 
     </script>
 
     <div id="middle">
-        <h2>Add Challenge Questions</h2>
+        <h2>添加挑战问题</h2>
 
             <form id="questionForm" name="questionForm" method="post" action="challenges-mgt-finish-ajaxprocessor.jsp">
             <div id="workArea">
@@ -162,12 +162,12 @@
                        <%
                            if(setName != null && setName.trim().length() > 0){
                        %>
-                            <td  style="padding-top:8px;"> Challenge Question Set Id :</td>
+                            <td  style="padding-top:8px;"> 挑战问题集Id :</td>
                             <td><input name="setName" id="setName"  value="<%=Encode.forHtmlAttribute(setName)%>" readonly="readonly" size="35" /></td>
                        <%
                            } else {
                        %>
-                            <td style="padding-top:8px;"> Enter Challenge Question Set Id :</td>
+                            <td style="padding-top:8px;"> 输入挑战问题集Id :</td>
                             <td><input name="setName" id="setName" /></td>
                        <%
                            }
@@ -177,7 +177,7 @@
                        <%
                            if(selectedChallenge != null && selectedChallenge.trim().length() > 0){
                        %>
-                            <td style="padding-top:8px;"> Edit Challenge Question :</td>
+                            <td style="padding-top:8px;"> 编辑挑战问题 :</td>
                             <td><input size="70" name="question0" id="question0"  value="<%=Encode.forHtmlAttribute(selectedChallenge)%>"  /></td>
 <!--                             <td>
                                 <a onclick="addRow()" style='background-image:url(images/add.gif);' type="button" class="icon-link">Update</a>
@@ -187,7 +187,7 @@
                        <%
                            } else {
                        %>
-                            <td style="padding-top:8px;"> Enter New Challenge Question :</td>
+                            <td style="padding-top:8px;"> 输入新的挑战问题 :</td>
                             <td><input size="70" name="question0" id="question0" /></td>
 <!--                             <td class="buttonRow">
                                 <a onclick="addRow()" style='background-image:url(images/add.gif);' type="button" class="icon-link">Add</a>
@@ -201,33 +201,33 @@
 							<%
 	                           if(selectedChallenge != null && selectedChallenge.trim().length() > 0){
 	                       %>
-	                    
-	                                <button onclick="addRow()"  type="button" class="button">Update</button>
-	                           
-	
+
+	                                <button onclick="addRow()"  type="button" class="button">更新</button>
+
+
 	                       <%
 	                           } else {
 	                       %>
-	                          
-	                                <button onclick="addRow()" type="button" class="button">Add</button>
-	                            
+
+	                                <button onclick="addRow()" type="button" class="button">添加</button>
+
 	                       <%
 	                           }
 	                       %>
-							
+
 						</td>
  						<td></td>
 						<td></td>
-				</tr> 
+				</tr>
             </table>
-            <p>&nbsp;</p>    
+            <p>&nbsp;</p>
             <table class="styledLeft">
                 <tr>
                     <td class="nopadding">
                         <table cellspacing="0" id="mainTable" style="width:100%;border:none !important">
                             <thead>
-                                <th class="leftCol-small">Challenge Questions</th>
-                                <th>Actions</th>
+                                <th class="leftCol-small">挑战问题</th>
+                                <th>操作</th>
                             </thead>
                             <tbody>
 
@@ -241,8 +241,8 @@
                                 	<%=Encode.forHtmlContent(challenges.get(i).getQuestion())%>
                                 </td>
                                 <td width="40%">
-                                    <a onclick="removeRow('<%=i%>')" style='background-image:url(images/delete.gif);' type="button" class="icon-link">Delete</a>
-                                    <a onclick="editRow('<%=i%>')" style='background-image:url(images/edit.gif);' type="button" class="icon-link">Edit</a>
+                                    <a onclick="removeRow('<%=i%>')" style='background-image:url(images/delete.gif);' type="button" class="icon-link">删除</a>
+                                    <a onclick="editRow('<%=i%>')" style='background-image:url(images/edit.gif);' type="button" class="icon-link">编辑</a>
                                 </td>
                             </tr>
 
@@ -264,7 +264,7 @@
                                     }
                                 }
                             %>
-                            
+
                             </tbody>
                         </table>
                     </td>
@@ -272,15 +272,14 @@
                 </tr>
 					<tr>
 						<td class="buttonRow">
-						<input type="submit" value="Finish" class="button" />
-						<input type="button" value="Cancel" onclick="cancelForm();" class="button" />
+						<input type="submit" value="完成" class="button" />
+						<input type="button" value="取消" onclick="cancelForm();" class="button" />
 						</td>
 					</tr>
 				</table>
 
-            
+
         </div>
         </form>
     </div>
 </fmt:bundle>
-

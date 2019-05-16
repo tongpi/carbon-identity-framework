@@ -18,7 +18,7 @@
   ~
   -->
 
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@ page import="org.wso2.carbon.CarbonConstants" %>
 <%@ page import="org.wso2.carbon.captcha.mgt.beans.xsd.CaptchaInfoBean" %>
@@ -32,7 +32,7 @@
 <script type="text/javascript">
 
     var captchaImgUrl;
-    
+
     function showCaptcha(captchaImgUrlArg) {
         captchaImgUrl = captchaImgUrlArg;
         var captchaImgDiv = document.getElementById("captchaImgDiv");
@@ -53,7 +53,7 @@
 </script>
 
 <fmt:bundle basename="org.wso2.carbon.identity.mgt.ui.i18n.Resources">
-    <link href="css/forgot-password.css" rel="stylesheet" type="text/css" media="all"/>    
+    <link href="css/forgot-password.css" rel="stylesheet" type="text/css" media="all"/>
     <%
         CaptchaInfoBean captchaInfoBean;
         String backendServerURL;
@@ -65,7 +65,7 @@
                     .getServletContext()
                     .getAttribute(CarbonConstants.CONFIGURATION_CONTEXT);
             IdentityManagementClient client =
-                    new IdentityManagementClient(backendServerURL, configContext);                        
+                    new IdentityManagementClient(backendServerURL, configContext);
             captchaInfoBean = client.generateRandomCaptcha();
 
         } catch (Exception e) {
@@ -94,7 +94,7 @@
     <%
             return;
         }
-        
+
         String captchaImagePath = captchaInfoBean.getImagePath();
         String captchaImageUrl = "../../" + captchaImagePath;
         String captchaSecretKey = captchaInfoBean.getSecretKey();
@@ -135,16 +135,15 @@
 
             <tr id="buttonRow">
                 <td>
-                    <input type="button" tabindex="2" value="Cancel"  onclick="cancel()"/>
-                    <input type="submit" tabindex="2" value="Next"/>
+                    <input type="button" tabindex="2" value="取消"  onclick="cancel()"/>
+                    <input type="submit" tabindex="2" value="下一步"/>
                 </td>
             </tr>
             <tr id="waitMessage" style="display:none">
                 <td>
                     <div style="font-size:13px !important;margin-top:10px;margin-bottom:10px;">
                         <img
-                                src="images/ajax-loader.gif" align="left" hspace="20"/>Please
-                        wait until the Service is imported to the Registry.
+                                src="images/ajax-loader.gif" align="left" hspace="20"/>请等待直到服务被导入注册表.
                     </div>
                 </td>
             </tr>
@@ -156,4 +155,3 @@
         </script>
     </form>
 </fmt:bundle>
-

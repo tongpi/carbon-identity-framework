@@ -18,7 +18,7 @@
   ~
   -->
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
@@ -29,7 +29,7 @@
     <script type="text/javascript">
 
         function doSubmit(){
-            
+
             var password = document.getElementById("password");
             var accountId = document.getElementById("accountId");
             if(password.checked){
@@ -60,21 +60,20 @@
             <tr>
                 <td><input type="radio" name="forgotSelection" id="password"
                                                                     checked="checked"/></td>
-                <td>I have forgot my password</td>
+                <td>我忘记了密码</td>
             </tr>
             <tr>
                 <td><input type="radio" name="forgotSelection" id="accountId"/></td>
-                <td>I forgot my user id</td>
+                <td>我忘记了账号</td>
             </tr>
             <tr id="buttonRow">
                 <td>
-                    <input type="button" value="Cancel"  onclick="cancel()"/>
-                    <input type="button" value="Next" onclick="doSubmit();"/>
+                    <input type="button" value="取消"  onclick="cancel()"/>
+                    <input type="button" value="下一步" onclick="doSubmit();"/>
                 </td>
             </tr>
             </tbody>
         </table>
-    </form>    
+    </form>
     </div>
 </fmt:bundle>
-

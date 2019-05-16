@@ -16,7 +16,7 @@
   ~ under the License.
   ~
   -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@ page import="org.wso2.carbon.CarbonConstants" %>
 <%@ page import="org.wso2.carbon.captcha.mgt.beans.xsd.CaptchaInfoBean" %>
@@ -54,15 +54,15 @@
 
     function showCaptchaTimely() {
         var captchaImgDiv = document.getElementById("captchaImgDiv");
-        captchaImgDiv.innerHTML = "<img src='" + captchaImgUrl + "' alt='If you can not see the captcha " +
-                        "image please refresh the page or click the link again.'/>";
+        captchaImgDiv.innerHTML = "<img src='" + captchaImgUrl + "' alt='如果你看不到挑战吗 " +
+                        "图片请刷新或点击链接重新.'/>";
     }
 
 </script>
 <%
     String userName = null;
     String secretKey = null;
-    
+
     VerificationBean bean = (VerificationBean) session.getAttribute("confirmationBean");
     if(bean != null){
         userName = bean.getUserId();
@@ -84,7 +84,7 @@
         } catch (Exception e) {
     %>
     <div>
-        <p><fmt:message key="error.captcha.generate"/></p>    
+        <p><fmt:message key="error.captcha.generate"/></p>
     </div>
     <%
             return;
@@ -99,7 +99,7 @@
     %>
     <script type="text/javascript">
         jQuery(document).ready(function() {
-            CARBON.showWarningDialog('Please enter the letters shown as in the image to change your password.');
+            CARBON.showWarningDialog('请输入图像中显示的字母以更改密码.');
         });
     </script>
     <%
@@ -193,7 +193,7 @@
                 <tr id="buttonRow">
                     <td>
                         <input class="button" type="button"
-                               value="Cancel" onclick="cancel()"/>                        
+                               value="Cancel" onclick="cancel()"/>
                         <input class="button" type="button"
                                value="Update" onclick="updateCredentials()"/>
                     </td>

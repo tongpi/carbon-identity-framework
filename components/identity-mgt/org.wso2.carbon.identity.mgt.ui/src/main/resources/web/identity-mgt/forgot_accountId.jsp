@@ -24,7 +24,7 @@
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 
 <fmt:bundle basename="org.wso2.carbon.identity.mgt.ui.i18n.Resources">
-    
+
     <script type="text/javascript">
         function cancel(){
             location.href = "../admin/login.jsp";
@@ -38,7 +38,7 @@
         <p><fmt:message key="account.id.recovery.message"/></p>
     </div>
     <div>
-    <form action="forgot_accountId_finish.jsp" id="accountId"  method="post">        
+    <form action="forgot_accountId_finish.jsp" id="accountId"  method="post">
         <table>
             <tbody>
             <tr>
@@ -56,10 +56,10 @@
             </tr>
             <tr>
                 <td>
-                    <input type="button" value="Cancel" onclick="cancel()"/>
+                    <input type="button" value="取消" onclick="cancel()"/>
                 </td>
                 <td>
-                    <input type="submit"  value="Next"/>
+                    <input type="submit"  value="下一步"/>
                 </td>
             </tr>
             </tbody>
@@ -67,4 +67,3 @@
     </form>
     </div>
 </fmt:bundle>
-

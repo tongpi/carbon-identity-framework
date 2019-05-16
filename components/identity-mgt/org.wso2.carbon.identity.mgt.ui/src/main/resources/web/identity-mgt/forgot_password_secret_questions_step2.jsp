@@ -17,7 +17,7 @@
   ~ under the License.
   ~
   -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@ page import="org.wso2.carbon.CarbonConstants" %>
 <%@ page import="org.wso2.carbon.identity.mgt.stub.beans.VerificationBean" %>
@@ -73,7 +73,7 @@
             location.href = "../admin/login.jsp";
         }
     </script>
-    
+
     <div id="middle">
         <h2><fmt:message key="secret.information"/></h2>
     </div>
@@ -109,8 +109,8 @@
         </tr>
         <tr>
             <td>
-                <input type="button"  value="Cancel" onclick="cancel()"/>
-                <input type="submit"  value="Next"/>
+                <input type="button"  value="取消" onclick="cancel()"/>
+                <input type="submit"  value="下一步"/>
             </td>
         </tr>
         </tbody>
@@ -121,9 +121,8 @@
 %>
     <script type="text/javascript">
         location.href = "fail _password_reset.jsp";
-    </script>    
+    </script>
 <%
     }
 %>
 </fmt:bundle>
-

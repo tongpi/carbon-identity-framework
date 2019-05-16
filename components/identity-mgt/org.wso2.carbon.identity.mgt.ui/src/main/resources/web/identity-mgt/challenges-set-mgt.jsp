@@ -17,7 +17,7 @@
   ~ under the License.
   ~
   -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
@@ -79,7 +79,7 @@
 
 
 %>
-        
+
 <fmt:bundle basename="org.wso2.carbon.identity.mgt.ui.i18n.Resources">
 <carbon:breadcrumb label="challenge.mgt"
 		resourceBundle="org.wso2.carbon.identity.mgt.ui.i18n.Resources"
@@ -114,12 +114,12 @@
     </script>
 
     <div id="middle">
-        <h2>Challenge Questions Management</h2>
+        <h2>挑战问题管理</h2>
             <div id="workArea">
             <table class="normal">
             <tr>
                <td ><a href="challenges-mgt.jsp" style="background-image: url(images/add.gif);"
-                       class="icon-link">Add new challenge questions set</a></td>
+                       class="icon-link">添加新的挑战问题集</a></td>
             </tr>
             </table>
 
@@ -127,7 +127,7 @@
 
             <table  class="styledLeft" style="width: 100%;">
                 <thead>
-                    <th colspan="2" class="leftCol-small">Challenge Questions Sets</th>
+                    <th colspan="2" class="leftCol-small">挑战问题集</th>
                 </thead>
                 <tbody>
 
@@ -140,7 +140,7 @@
                     </td>
                     <td width="40%">
                         <a onclick="removeSet('<%=Encode.forJavaScriptAttribute(questionSetName)%>')" style='background-image:url(images/delete.gif);'
-                           type="button" class="icon-link">Delete</a>
+                           type="button" class="icon-link">删除</a>
                     </td>
                 </tr>
 
@@ -149,7 +149,7 @@
                 } else {
                 %>
                 <tr>
-                    <td colspan="2"><i>No challenges questions set registered</i></td>
+                    <td colspan="2"><i>没有注册的挑战问题集</i></td>
                 </tr>
                 <%
                     }
