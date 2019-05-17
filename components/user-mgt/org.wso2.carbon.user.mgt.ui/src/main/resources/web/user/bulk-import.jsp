@@ -82,7 +82,7 @@
             var error = "";
             error = validateEmpty("usersFile");
             if (error.length > 0) {
-                CARBON.showWarningDialog("Users file cannot be empty.");
+                CARBON.showWarningDialog("用户文件不能为空.");
                 return false;
             }
 

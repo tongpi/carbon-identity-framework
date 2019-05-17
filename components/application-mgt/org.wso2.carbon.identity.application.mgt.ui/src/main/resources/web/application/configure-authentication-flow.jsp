@@ -287,7 +287,7 @@
                             </div>
                             <h2 id="local_auth_head_<%=step.getStepOrder()%>" class="sectionSeperator trigger active"
                                 style="background-color: floralwhite;">
-                                <a href="#">Local Authenticators</a>
+                                <a href="#">本地认证器</a>
                             </h2>
                             <div class="toggle_container sectionSub" style="margin-bottom:10px;"
                                  id="local_auth_head_dev_<%=step.getStepOrder()%>">
@@ -338,7 +338,7 @@
                             <%if (federatedIdPs != null && federatedIdPs.length > 0 && (enabledIdpType.length() > 0 || (step.getFederatedIdentityProviders() != null && step.getFederatedIdentityProviders().length > 0))) { %>
                             <h2 id="fed_auth_head_<%=step.getStepOrder()%>" class="sectionSeperator trigger active"
                                 style="background-color: floralwhite;">
-                                <a href="#">Federated Authenticators</a>
+                                <a href="#">联邦认证器</a>
                             </h2>
 
                             <div class="toggle_container sectionSub" style="margin-bottom:10px;"

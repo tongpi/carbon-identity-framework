@@ -187,9 +187,9 @@
   });}
 
   var replaceQueryDialog =
-    ' <input type="text" style="width: 10em" class="CodeMirror-search-field"/> <span style="color: #888" class="CodeMirror-search-hint">(Use /re/ syntax for regexp search)</span>';
-  var replacementQueryDialog = '<span class="CodeMirror-search-label">With:</span> <input type="text" style="width: 10em" class="CodeMirror-search-field"/>';
-  var doReplaceConfirm = '<span class="CodeMirror-search-label">Replace?</span> <button>Yes</button> <button>No</button> <button>All</button> <button>Stop</button>';
+    ' <input type="text" style="width: 10em" class="CodeMirror-search-field"/> <span style="color: #888" class="CodeMirror-search-hint">(用 /re/ 语法进行正则表达式搜索)</span>';
+  var replacementQueryDialog = '<span class="CodeMirror-search-label">用:</span> <input type="text" style="width: 10em" class="CodeMirror-search-field"/>';
+  var doReplaceConfirm = '<span class="CodeMirror-search-label">替换?</span> <button>是</button> <button>否</button> <button>全部</button> <button>停止</button>';
 
   function replaceAll(cm, query, text) {
     cm.operation(function() {
@@ -205,11 +205,11 @@
   function replace(cm, all) {
     if (cm.getOption("readOnly")) return;
     var query = cm.getSelection() || getSearchState(cm).lastQuery;
-    var dialogText = '<span class="CodeMirror-search-label">' + (all ? 'Replace all:' : 'Replace:') + '</span>';
+    var dialogText = '<span class="CodeMirror-search-label">' + (all ? '全部替换:' : '替换:') + '</span>';
     dialog(cm, dialogText + replaceQueryDialog, dialogText, query, function(query) {
       if (!query) return;
       query = parseQuery(query);
-      dialog(cm, replacementQueryDialog, "Replace with:", "", function(text) {
+      dialog(cm, replacementQueryDialog, "替换用:", "", function(text) {
         text = parseString(text)
         if (all) {
           replaceAll(cm, query, text)
@@ -225,7 +225,7 @@
             }
             cm.setSelection(cursor.from(), cursor.to());
             cm.scrollIntoView({from: cursor.from(), to: cursor.to()});
-            confirmDialog(cm, doReplaceConfirm, "Replace?",
+            confirmDialog(cm, doReplaceConfirm, "替换?",
                           [function() {doReplace(match);}, advance,
                            function() {replaceAll(cm, query, text)}]);
           };

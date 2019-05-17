@@ -205,7 +205,7 @@
 
         function doNext() {
             if (!validateTextForIllegal(document.getElementsByName("roleName")[0].value)) {
-                CARBON.showWarningDialog(org_wso2_carbon_registry_common_ui_jsi18n["the"] + " " + "role name " + " " + org_wso2_carbon_registry_common_ui_jsi18n["contains.illegal.chars"]);
+                CARBON.showWarningDialog(org_wso2_carbon_registry_common_ui_jsi18n["the"] + " " + "角色名称 " + " " + org_wso2_carbon_registry_common_ui_jsi18n["contains.illegal.chars"]);
                 return false;
             }
             document.addRoleForm.action = "add-step2.jsp";

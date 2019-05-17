@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
@@ -650,27 +650,27 @@
                 <tr>
                     <td><%=Encode.forHtml(displayName)%>
                         <%if (!users[i].getEditable()) { %> <%="(Read-Only)"%> <% } %>
-                        <img src="images/workflow_pending_add.gif" title="Workflow-pending-user-add"
+                        <img src="images/workflow_pending_add.gif" title="流程挂起用户删除"
                              alt="Workflow-pending-user-add" height="15" width="15">
                     </td>
                     <td>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(../admin/images/edit.gif);color:#CCC;"><fmt:message
                                 key="change.password"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(../admin/images/edit.gif);color:#CCC;"><fmt:message
                                 key="edit.roles"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/view.gif);color:#CCC;"><fmt:message
                                 key="view.roles"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message
                                 key="delete"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;">User
                             Profile</a>
                     </td>
@@ -681,7 +681,7 @@
                 <tr>
                     <td><%=Encode.forHtml(displayName)%>
                         <%if (!users[i].getEditable()) { %> <%="(Read-Only)"%> <% } %>
-                        <img src="images/workflow_pending_remove.gif" title="Workflow-pending-user-delete"
+                        <img src="images/workflow_pending_remove.gif" title="流程挂起用户删除"
                              alt="Workflow-pending-user-delete" height="15" width="15">
                     </td>
                     <td>
@@ -709,7 +709,7 @@
                             }
                         %>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(../admin/images/edit.gif);color:#CCC;"><fmt:message
                                 key="edit.roles"/></a>
 
@@ -725,7 +725,7 @@
                             }
                         %>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message
                                 key="delete"/></a>
 
@@ -769,23 +769,23 @@
                             if (userRealmInfo.getAdminUser().equals(userName) &&
                                     !Util.isCurrentUser(currentUser, userName, userRealmInfo)) {
                         %>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(../admin/images/edit.gif);color:#CCC;"><fmt:message
                                 key="change.password"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(../admin/images/edit.gif);color:#CCC;"><fmt:message
                                 key="edit.roles"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/view.gif);color:#CCC;"><fmt:message
                                 key="view.roles"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message
                                 key="delete"/></a>
 
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;">User
                             Profile</a>
                         <%
@@ -854,7 +854,7 @@
                         } else if (Util.isCurrentUser(currentUser, userName, userRealmInfo) ||
                                 userName.equals(userRealmInfo.getAdminUser())) {
                         %>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message
                                 key="delete"/></a>
                         <%

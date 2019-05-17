@@ -67,7 +67,7 @@
         function verify() {
             var txtField = document.getElementById("browseField");
             if (txtField.value == "") {
-                CARBON.showWarningDialog('Please specify a path before importing certificate');
+                CARBON.showWarningDialog('导入证书前请先指定路径');
             } else {
                 document.certForm.submit();
             }

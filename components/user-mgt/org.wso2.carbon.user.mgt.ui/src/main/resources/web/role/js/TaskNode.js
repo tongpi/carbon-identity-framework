@@ -134,7 +134,7 @@ YAHOO.extend(YAHOO.widget.TaskNode, YAHOO.widget.TextNode, {
     	var p = this.parent;
          if (!(p.checkState === 0) && (p.index !=0)) {
             this.check();
-            CARBON.showWarningDialog('can\'t unselect child permisions when parent permision is selected');
+            CARBON.showWarningDialog('父权限选中时不能取消选择子权限');
         }
         this.logger.log("onCheckClick: " + this);
     },

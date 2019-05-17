@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 
@@ -574,20 +574,20 @@
                 <tr>
                     <td><%=Encode.forHtmlContent(displayName)%>
                         <%if (!data.getEditable()) { %> <%="(Read-Only)"%> <% } %>
-                        <img src="images/workflow_pending_add.gif" title="Workflow-pending-user-add"
+                        <img src="images/workflow_pending_add.gif" title="工作流挂起用户添加"
                              alt="Workflow-pending-user-add" height="15" width="15">
                     </td>
                     <td>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="rename"/></a>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message
                                 key="edit.permissions"/></a>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/edit.gif);color:#CCC;"><fmt:message key="edit.users"/></a>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/view.gif);color:#CCC;"><fmt:message key="view.users"/></a>
-                        <a href="#" class="icon-link" title="Operation is Disabled"
+                        <a href="#" class="icon-link" title="操作被禁用"
                            style="background-image:url(images/delete.gif);color:#CCC;"><fmt:message key="delete"/></a>
                     </td>
                 </tr>
@@ -604,7 +604,7 @@
                 <tr>
                     <td><%=Encode.forHtmlContent(displayName)%>
                         <%if (!data.getEditable()) { %> <%="(Read-Only)"%> <% } %>
-                        <img src="images/workflow_pending_remove.gif" title="Workflow-pending-user-delete"
+                        <img src="images/workflow_pending_remove.gif" title="流程挂起用户删除"
                              alt="Workflow-pending-user-delete" height="15" width="15">
                     </td>
                     <td>

@@ -15,7 +15,7 @@
    specific language governing permissions and limitations
    under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="org.apache.axis2.context.ConfigurationContext"%>
 <%@page import="org.owasp.encoder.Encode"%>
 <%@page import="org.wso2.carbon.CarbonConstants"%>
@@ -177,8 +177,8 @@
 
             <!-- markup for expand/contract links -->
             <div id="expandcontractdiv" style="margin-bottom:10px;">
-                    <a id="expand" href="#"><img src="images/expandall.gif" align="top" /> Expand all</a>
-                    <a id="collapse" href="#" style="margin-left:20px"><img src="images/contractall.gif" align="top" /> Collapse all</a>
+                    <a id="expand" href="#"><img src="images/expandall.gif" align="top" /> 展开全部</a>
+                    <a id="collapse" href="#" style="margin-left:20px"><img src="images/contractall.gif" align="top" /> 折叠全部</a>
                 </div>
 
             <div id="treeDiv1"></div>

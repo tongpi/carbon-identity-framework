@@ -177,13 +177,13 @@ function getStepErrorsWarnings(elementWarn, elementErr) {
 
     if (stepsInUI.length > stepsInScript.length) {
         for (var i = 0; i < stepDifference.ui.length; ++i) {
-            elementWarn.append("<li>Could not find matching 'executeStep' function for" +
-                " <span>Step " + stepDifference.ui[i] + ".</span></li>");
+            elementWarn.append("<li>未找到" +
+                " <span>步骤 " + stepDifference.ui[i] + "的匹配 'executeStep' 函数.</span></li>");
         }
     }
 
     if (!editorContent.trim().match(functionRegex)) {
-        elementErr.append("<li>Missing required function: <b>onLoginRequest(parameter)</b>.</li>");
+        elementErr.append("<li>缺失必需的函数: <b>onLoginRequest(parameter)</b>.</li>");
     }
 }
 
@@ -256,7 +256,7 @@ function submitFormWithEnabledScript() {
     $("#configure-auth-flow-form").submit();
 }
 
-$(".CodeMirror").append('<div id="toggleEditorSize" class="maximizeIcon" title="Toggle Full Screen"></div>');
+$(".CodeMirror").append('<div id="toggleEditorSize" class="maximizeIcon" title="切换到全屏幕模式"></div>');
 
 $("#toggleEditorSize").click(function () {
     if (myCodeMirror.getOption("fullScreen")) {
@@ -344,9 +344,9 @@ function populateTemplates() {
             $.each(sortedCategoryTempArr[i].templates, function (i, template) {
                 details += '<li class="name"><span class="templateName">' +
                     '<span class="truncate-content">' + template.name + '</span></span>' +
-                    '<a  href="#" data-toggle="template-link" data-type-name="' + template.name + '"title="View ' +
+                    '<a  href="#" data-toggle="template-link" data-type-name="' + template.name + '"title="查看 ' +
                     template.name + ' Template Information" class="view-template"><img  style="float:right;" src="./images/template-view.png"/></a>' +
-                    '<a  href="#" data-type-name="' + template.name + '" title="Add ' + template.name + ' Template"class="add-template">' +
+                    '<a  href="#" data-type-name="' + template.name + '" title="添加 ' + template.name + ' Template"class="add-template">' +
                     '<img  style="float:right;" src="./images/add.png"/></a></li>';
             });
             details += '</ul>';
@@ -366,8 +366,7 @@ $('.add-template').click(function (e) {
     if ((editorContent.length === 0 || editorContent.replace(/\s/g, '') == "functiononLoginRequest(context){}")) {
         doReplaceRange(typeName, templateObj, data);
     } else {
-        CARBON.showConfirmationDialog('The template code will replace the existing scripts in the editor. Any of your current' +
-            '            changes will be lost. Do you want to continue?',
+        CARBON.showConfirmationDialog('模板代码将替换编辑器中现有的脚本。您当前的任何更改都将丢失。你想继续吗?',
             function () {
                 doReplaceRange(typeName, templateObj, data);
             }, null);
@@ -712,14 +711,12 @@ $('body').delegate("a.delete_step", 'click', function (e) {
     } else {
         if ($.inArray(parseInt(stepNo), executeStepsInScript) > -1) {
             if (stepNo == $(".steps > h2").length) {
-                CARBON.showConfirmationDialog('You are deleting a step that is used in the script. Are' +
-                    ' you sure you want to delete? ',
+                CARBON.showConfirmationDialog('您正在删除脚本中使用的步骤。是否确实要删除? ',
                     function () {
                         deleteStep(element);
                     }, null);
             } else {
-                CARBON.showConfirmationDialog('You are deleting a step that is used in the script. Are' +
-                    ' you sure you want to delete?\nPlease note that the steps will be reordered.',
+                CARBON.showConfirmationDialog('您正在删除脚本中使用的步骤。确实要删除吗？\n请注意，这些步骤将被重新排序.',
                     function () {
                         deleteStep(element);
                     }, null);
@@ -772,7 +769,7 @@ function deleteStep(obj) {
     var subjectStep = $('#step_dev_' + currentStep).find('#subject_step_' + currentStep).prop("checked");
     var attributeStep = $('#step_dev_' + currentStep).find('#attribute_step_' + currentStep).prop("checked");
     if (subjectStep || attributeStep) {
-        CARBON.showWarningDialog("You can't delete a step which is configured for Attribute selection or Subject identifier.");
+        CARBON.showWarningDialog("不能删除为属性选择或主题标识符配置的步骤.");
         return false;
     }
 
@@ -868,7 +865,7 @@ function addLocalRow(obj, stepId) {
         return false;
     }
     if (localHandlers.includes(selectedAuthenticatorName)) {
-        CARBON.showWarningDialog("This is a handler. Make sure you add authenticators in other steps.");
+        CARBON.showWarningDialog("这是一个处理器。确保在其他步骤中添加验证器.");
     }
 
 
@@ -878,7 +875,7 @@ function addLocalRow(obj, stepId) {
         .parent()
         .parent()
         .append(
-            jQuery('<tr><td><input name="step_' + stepId + '_local_auth" id="" type="hidden" value="' + selectedAuthenticatorName + '" />' + selectedAuthenticatorDisplayName + '</td><td class="leftCol-small" ><a onclick="deleteLocalAuthRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> Delete </a></td></tr>'));
+            jQuery('<tr><td><input name="step_' + stepId + '_local_auth" id="" type="hidden" value="' + selectedAuthenticatorName + '" />' + selectedAuthenticatorDisplayName + '</td><td class="leftCol-small" ><a onclick="deleteLocalAuthRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> 删除 </a></td></tr>'));
 }
 
 function addIDPRow(obj, stepID) {
@@ -894,7 +891,7 @@ function addIDPRow(obj, stepID) {
     for (var i = 0; i < dataArray.length; i++) {
         newRow += '<option value="' + valuesArray[i] + '">' + dataArray[i] + '</option>';
     }
-    newRow += '</select></td><td class="leftCol-small" ><a onclick="deleteIDPRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> Delete </a></td></tr>';
+    newRow += '</select></td><td class="leftCol-small" ><a onclick="deleteIDPRow(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif)"> 删除 </a></td></tr>';
     jQuery(obj)
         .parent()
         .parent()
@@ -909,7 +906,7 @@ function validateAuthenticators(itemName, authenticatorName) {
         var isNew = true;
         $.each($('[name=' + itemName + ']'), function () {
             if ($(this).val() == authenticatorName) {
-                CARBON.showWarningDialog('Authenticator "' + authenticatorName + '" is already added.');
+                CARBON.showWarningDialog('认证器 "' + authenticatorName + '" 已经添加.');
                 isNew = false;
                 return false;
             }

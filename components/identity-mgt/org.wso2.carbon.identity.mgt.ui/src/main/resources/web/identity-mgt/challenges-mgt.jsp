@@ -180,7 +180,7 @@
                             <td style="padding-top:8px;"> 编辑挑战问题 :</td>
                             <td><input size="70" name="question0" id="question0"  value="<%=Encode.forHtmlAttribute(selectedChallenge)%>"  /></td>
 <!--                             <td>
-                                <a onclick="addRow()" style='background-image:url(images/add.gif);' type="button" class="icon-link">Update</a>
+                                <a onclick="addRow()" style='background-image:url(images/add.gif);' type="button" class="icon-link">更新</a>
                             </td> -->
 
 
@@ -190,7 +190,7 @@
                             <td style="padding-top:8px;"> 输入新的挑战问题 :</td>
                             <td><input size="70" name="question0" id="question0" /></td>
 <!--                             <td class="buttonRow">
-                                <a onclick="addRow()" style='background-image:url(images/add.gif);' type="button" class="icon-link">Add</a>
+                                <a onclick="addRow()" style='background-image:url(images/add.gif);' type="button" class="icon-link">添加</a>
                             </td> -->
                        <%
                            }

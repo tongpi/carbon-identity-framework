@@ -15,7 +15,7 @@
 * limitations under the License.
 */
 -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="org.wso2.balana.utils.Constants.PolicyConstants" %>
@@ -52,7 +52,7 @@
             getPolicyEditorData(EntitlementConstants.PolicyEditor.SET);
     if(holder == null){
         //String message = MessageFormat.format(resourceBundle.getString("no.policy.editor.data"));
-        String message = "Policy Editor data can not loaded. Please check with policy editor configurations";
+        String message = "无法加载策略编辑器数据。请检查策略编辑器配置";
 %>
 <script type="text/javascript">
     jQuery(document).ready(function () {
@@ -191,7 +191,7 @@
                     '<td style="padding-left:0px !important;padding-right:0px !important"><select id="targetPreFunction_'  + index + '" name="targetPreFunction_'  + index + '"><%for (String targetPreFunction : targetPreFunctions) {if (currentPreFunction != null && targetPreFunction.equals(currentPreFunction)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(targetPreFunction))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(targetPreFunction))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(targetPreFunction))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(targetPreFunction))%></option><%}}%></select></td>' +
                     '<td style="padding-left:0px !important;padding-right:0px !important"><select id="targetFunction_'  + index + '" name="targetFunction_'  + index + '" class="leftCol-small"><%for (String targetFunction : targetFunctions) {if (currentFunction != null && targetFunction.equals(currentFunction)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(targetFunction))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(targetFunction))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(targetFunction))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(targetFunction))%></option><%}}%></select></td>' +
                     '<td style="padding-left:0px !important;padding-right:0px !important"><%if (currentAttributeValue != null && !"".equals(currentAttributeValue)) {%><input type="text" size="60" name="targetAttributeValue_'  + index + '" id="targetAttributeValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(currentAttributeValue))%>" class="text-box-big"/><%} else {%><input type="text" size="60" name="targetAttributeValue_'  + index + '" id="targetAttributeValue_'  + index + '" class="text-box-big"/><%}%></td>' +
-                    '<td><a title="Select Resources Names" class="icon-link" onclick="selectAttributesForTarget(' + index + ');" style="background-image:url(images/registry.gif);"></a></td>' +
+                    '<td><a title="选择资源名称" class="icon-link" onclick="selectAttributesForTarget(' + index + ');" style="background-image:url(images/registry.gif);"></a></td>' +
                     '<td style="padding-left:0px !important;padding-right:0px !important"><select id="targetCombineFunctions_'  + index + '" name="targetCombineFunctions_'  + index + '" class="newTargetRow" onchange="createNewTargetRow(this.options[this.selectedIndex].value)"><%for (String combineFunction : combineFunctions) {if (currentCombineFunction != null && combineFunction.equals(currentCombineFunction)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(combineFunction))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(combineFunction))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(combineFunction))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(combineFunction))%></option><%}}%></select></td>' +
                     '<td><a onclick="removeRow(this)" style="background-image:url(images/delete.gif);" type="button" class="icon-link"></a></td>' +
                     '<td><input type="hidden" name="targetAttributeId_'  + index +  '" id="targetAttributeId_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(currentAttributeId))%>"/></td>' +
@@ -643,7 +643,7 @@
                             %>
                         </td>
                         <td>
-                            <a title="Select Resources Names" class='icon-link'
+                            <a title="选择资源名称" class='icon-link'
                                onclick='selectAttributesForTarget(0);'
                                style='background-image:url(images/registry.gif);'></a>
                         </td>
@@ -723,7 +723,7 @@
                     '<td style="padding-left:0px !important;padding-right:0px !important"><select id="targetPreFunction_'  + index + '" name="targetPreFunction_'  + index + '" ><%for (String targetPreFunction : targetPreFunctions) {if (currentPreFunction != null && targetPreFunction.equals(currentPreFunction)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(targetPreFunction))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(targetPreFunction))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(targetPreFunction))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(targetPreFunction))%></option><%}}%></select></td>' +
                     '<td style="padding-left:0px !important;padding-right:0px !important"><select id="targetFunction_'  + index + '" name="targetFunction_'  + index + '" class="leftCol-small"><%for (String targetFunction : targetFunctions) {if (currentFunction != null && targetFunction.equals(currentFunction)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(targetFunction))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(targetFunction))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(targetFunction))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(targetFunction))%></option><%}}%></select></td>' +
                     '<td style="padding-left:0px !important;padding-right:0px !important"><%if (currentAttributeValue != null && !"".equals(currentAttributeValue)) {%><input type="text" size="60" name="targetAttributeValue_'  + index + '" id="targetAttributeValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(currentAttributeValue))%>" class="text-box-big"/><%} else {%><input type="text" size="60" name="targetAttributeValue_'  + index + '" id="targetAttributeValue_'  + index + '" class="text-box-big"/><%}%></td>' +
-                    '<td><a title="Select Resources Names" class="icon-link" onclick="selectAttributesForTarget(' + index + ');" style="background-image:url(images/registry.gif);"></a></td>' +
+                    '<td><a title="选择资源名称" class="icon-link" onclick="selectAttributesForTarget(' + index + ');" style="background-image:url(images/registry.gif);"></a></td>' +
                     '<td style="padding-left:0px !important;padding-right:0px !important"><select id="targetCombineFunctions_'  + index + '" name="targetCombineFunctions_'  + index + '" class="newTargetRow " onchange="createNewTargetRow(this.options[this.selectedIndex].value)"><%for (String combineFunction : combineFunctions) {if (currentCombineFunction != null && combineFunction.equals(currentCombineFunction)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(combineFunction))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(combineFunction))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(combineFunction))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(combineFunction))%></option><%}}%></select></td>' +
                     '<td><a onclick="removeRow(this)" style="background-image:url(images/delete.gif);" type="button" class="icon-link"></a></td>' +
                     '<td><input type="hidden" name="targetAttributeId_'  + index +  '" id="targetAttributeId_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(currentAttributeId))%>"/></td>' +
@@ -748,10 +748,10 @@
         <div class="toggle_container" id="newObligationLinkRow">
 
             <table class="ob-table">
-                <td style="width:152px;">Obligation Type</td>
+                <td style="width:152px;">职责类型</td>
                 <td style="width:120px;">Id</td>
-                <td style="width:100px;">Effect </td>
-                <td style="width:270px;">Attribute Value </td>
+                <td style="width:100px;">效果 </td>
+                <td style="width:270px;">属性值 </td>
             </table>
             <table id="obligationTable" name="obligationTable" class="normal"
                    style="padding-left:0px !important">

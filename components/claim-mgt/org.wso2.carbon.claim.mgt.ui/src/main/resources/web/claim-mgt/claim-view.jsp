@@ -241,7 +241,7 @@
                 <a href="#" class="trigger-title"><i class="claim-arrow-down"></i>
                     <span><%=Encode.forHtmlContent(claims[j].getClaim().getDisplayTag())%></span></a>
                 <a href="update-claim.jsp?dialect=<%=Encode.forUriComponent(dialectUri)%>&claimUri=<%=Encode.forUriComponent(claims[j].getClaim().getClaimUri())%>"
-                   class="editLink icon-link">Edit</a>
+                   class="editLink icon-link">编辑</a>
                 <a href="#" class="icon-link deleteLink" style="background-image:url(../claim-mgt/images/delete.gif);"
                    onclick="removeItem('<%=Encode.forJavaScriptAttribute(dialectUri)%>','<%=Encode.forJavaScriptAttribute(claims[j].getClaim().getClaimUri())%>','<%=Encode.forJavaScriptAttribute(String.valueOf(claims.length))%>'  );return false;"><fmt:message
                         key='remove.claim.mapping'/></a>

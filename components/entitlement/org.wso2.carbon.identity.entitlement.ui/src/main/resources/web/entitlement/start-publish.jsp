@@ -15,6 +15,7 @@
 ~ specific language governing permissions and limitations
 ~ under the License.
 -->
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page
         import="org.apache.axis2.context.ConfigurationContext" %>
 <%@ page import="org.owasp.encoder.Encode" %>
@@ -701,16 +702,16 @@
                 <%
                     if("true".equals(toPDP)){
                 %>
-                <input type="button" class="button" value="Publish" onclick="publishToSubscriber(true);">
+                <input type="button" class="button" value="发布" onclick="publishToSubscriber(true);">
                 <%
                     }  else {
                 %>
-                <input type="button" class="button" value="Publish" onclick="publishToSubscriber(false);">
-                <input type="button" class="button" value="PublishToAll" onclick="publishToAll();">
+                <input type="button" class="button" value="发布" onclick="publishToSubscriber(false);">
+                <input type="button" class="button" value="发布到全部" onclick="publishToAll();">
                 <%
                     }
                 %>
-                <input type="button" class="button" value="Cancel" onclick="doCancel();">
+                <input type="button" class="button" value="取消" onclick="doCancel();">
             </td>
         </tr>
     </form>

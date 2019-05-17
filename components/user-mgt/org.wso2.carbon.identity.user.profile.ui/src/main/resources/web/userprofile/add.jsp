@@ -130,7 +130,7 @@ function validateTextForIllegal(fld,fldName) {
                     // JS injection validation for name fields
 
                     if(!validateTextForIllegal(document.getElementsByName("profile")[0],"profile")) {
-                        CARBON.showWarningDialog(org_wso2_carbon_registry_common_ui_jsi18n["the"] + " "+ "profile name content"+" " + org_wso2_carbon_registry_common_ui_jsi18n["contains.illegal.chars"]);
+                        CARBON.showWarningDialog(org_wso2_carbon_registry_common_ui_jsi18n["the"] + " "+ "资料名称内容"+" " + org_wso2_carbon_registry_common_ui_jsi18n["contains.illegal.chars"]);
                         return false;
                     }
 
@@ -146,7 +146,7 @@ function validateTextForIllegal(fld,fldName) {
 
                     // JS injection validation for name fields
                     if(!validateTextForIllegal(document.getElementsByName("<%=userFields[i].getClaimUri()%>")[0],"profilefiled")) {
-                        CARBON.showWarningDialog(org_wso2_carbon_registry_common_ui_jsi18n["the"] + " "+ "profile content"+" " + org_wso2_carbon_registry_common_ui_jsi18n["contains.illegal.chars"]);
+                        CARBON.showWarningDialog(org_wso2_carbon_registry_common_ui_jsi18n["the"] + " "+ "资料内容"+" " + org_wso2_carbon_registry_common_ui_jsi18n["contains.illegal.chars"]);
                         return false;
                     }
 

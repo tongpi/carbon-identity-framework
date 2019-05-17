@@ -16,7 +16,7 @@
 * limitations under the License.
 */
 -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <jsp:useBean id="entitlementPolicyBean" type="org.wso2.carbon.identity.entitlement.ui.EntitlementPolicyBean"
@@ -157,12 +157,12 @@
             <td>
                 <label><input type="checkbox" id="multipleRequest"
                               name="multipleRequest" value="true"
-                              <%if(multipleRequest != null){%>checked="checked" <%}%> >Multiple Request</label>
+                              <%if(multipleRequest != null){%>checked="checked" <%}%> >多个请求</label>
             </td>
             <td>
                 <label><input type="checkbox" id="returnPolicyList"
                               name="returnPolicyList" value="true"
-                              <%if(returnPolicyList != null){%>checked="checked" <%}%> >Return Policy List</label>
+                              <%if(returnPolicyList != null){%>checked="checked" <%}%> >返回策略列表</label>
             </td>
         </tr>
         <tr>
@@ -185,7 +185,7 @@
             <td style="width: 40%;margin-top:10px;">
                 <label><input type="checkbox" id="resourceNamesInclude"
                               name="resourceNamesInclude" value="true"
-                              <%if(resourceNamesInclude != null){%>checked="checked" <%}%> >Include In Result</label>
+                              <%if(resourceNamesInclude != null){%>checked="checked" <%}%> >包含在结果中</label>
             </td>
         </tr>
 
@@ -208,7 +208,7 @@
             <td  style="width: 40%;margin-top:10px;">
                 <label><input type="checkbox" id="subjectNamesInclude"
                               name="subjectNamesInclude" value="true"
-                              <%if(subjectNamesInclude != null){%>checked="checked" <%}%> >Include In Result</label>
+                              <%if(subjectNamesInclude != null){%>checked="checked" <%}%> >包含在结果中</label>
             </td>
         </tr>
 
@@ -231,7 +231,7 @@
             <td  style="width: 40%;margin-top:10px;">
                 <label><input type="checkbox" id="actionNamesInclude"
                               name="actionNamesInclude" value="true"
-                              <%if(actionNamesInclude != null){%>checked="checked" <%}%> >Include In Result</label>
+                              <%if(actionNamesInclude != null){%>checked="checked" <%}%> >包含在结果中</label>
             </td>
         </tr>            
 
@@ -254,7 +254,7 @@
             <td style="width: 40%;margin-top:10px;">
                 <label><input type="checkbox" id="environmentNamesInclude"
                               name="environmentNamesInclude" value="true"
-                              <%if(environmentNamesInclude != null){%>checked="checked" <%}%> >Include In Result</label>
+                              <%if(environmentNamesInclude != null){%>checked="checked" <%}%> >包含在结果中</label>
             </td>
         </tr>
 

@@ -15,7 +15,7 @@
    specific language governing permissions and limitations
    under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <%@ taglib uri="http://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project/Owasp.CsrfGuard.tld" prefix="csrf" %>
@@ -483,7 +483,7 @@
                                             %>
                                             <%=Encode.forHtmlContent(name.getItemDisplayName())%>
                                             <img src="images/workflow_pending_remove.gif"
-                                                 title="Workflow-pending-user-delete"
+                                                 title="流程挂起用户删除"
                                                  alt="Workflow-pending-user-delete" height="15" width="15">
                                             <%
                                             } else {

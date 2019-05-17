@@ -1510,7 +1510,7 @@
                                 </td>
                                 <td>
                                     <select id="roleClaim" name="roleClaim" style="float:left;min-width: 250px;">
-                                        <option value="">---Select---</option>
+                                        <option value="">---请选择---</option>
                                         <% if (!isLocalClaimsSelected) {
                                             for (Map.Entry<String, String> entry : claimMapping.entrySet()) { %>
                                         <% if (entry.getValue() != null && !entry.getValue().isEmpty()) {
@@ -1719,7 +1719,7 @@
                                                 </option>
                                                 <%}%>
                                             </select>
-                                            <input id="addSharedConsentBtn" type="button" value="Add" onclick="onSharedPurposesClick()"/>
+                                            <input id="addSharedConsentBtn" type="button" value="添加" onclick="onSharedPurposesClick()"/>
                                     </td>
                                 </tr>
                         </table>
@@ -1945,11 +1945,11 @@
                                                         <% } %>
                                                     </td>
                                                     <td style="white-space: nowrap;">
-                                                        <a title="Edit Service Providers"
+                                                        <a title="编辑服务提供者"
                                                            onclick="updateBeanAndRedirect('../sso-saml/add_service_provider.jsp?SPAction=editServiceProvider&issuer=<%=Encode.forUriComponent(appBean.getSAMLIssuer())%>&spName=<%=Encode.forUriComponent(spName)%>');"
                                                            class="icon-link"
                                                            style="background-image: url(../admin/images/edit.gif)">编辑</a>
-                                                        <a title="Delete Service Providers"
+                                                        <a title="删除服务提供者"
                                                            onclick="updateBeanAndPost('../sso-saml/remove_service_provider-finish-ajaxprocessor.jsp',
                                                                'issuer=<%=Encode.forUriComponent(appBean.getSAMLIssuer())%>&spName=<%=Encode.forUriComponent(spName)%>',
                                                                'configure-service-provider.jsp?action=delete&samlIssuer=<%=Encode.forUriComponent(appBean.getSAMLIssuer())%>&spName=<%=Encode.forUriComponent(spName)%>');"
@@ -2030,25 +2030,25 @@
                                                             <%} %>
                                                         </td>
                                                         <td style="white-space: nowrap;">
-                                                            <a title="Edit Service Providers"
+                                                            <a title="编辑服务提供者"
                                                                onclick="updateBeanAndRedirect('../oauth/edit.jsp?appName=<%=Encode.forUriComponent(spName)%>');"
                                                                class="icon-link"
                                                                style="background-image: url(../admin/images/edit.gif)">编辑</a>
 
 
-                                                            <a title="Revoke Service Providers"
+                                                            <a title="回收服务提供者"
                                                                onclick="updateBeanAndPostTo('../oauth/edit-app-ajaxprocessor.jsp','appName=<%=Encode.forUriComponent(spName)%>&consumerkey=<%=Encode.forUriComponent(appBean.getOIDCClientId())%>&action=revoke');"
                                                                class="icon-link"
                                                                style="background-image: url(images/disabled.png)">回收</a>
 
 
-                                                            <a title="Regenerate Secret Key"
+                                                            <a title="查询生成 Secret Key"
                                                                onclick="updateBeanAndPostTo('../oauth/edit-app-ajaxprocessor.jsp','appName=<%=Encode.forUriComponent(spName)%>&consumerkey=<%=Encode.forUriComponent(appBean.getOIDCClientId())%>&action=regenerate');"
                                                                class="icon-link"
                                                                style="background-image: url(images/enabled.png)">重新生成Secret</a>
 
 
-                                                            <a title="Delete Service Providers"
+                                                            <a title="删除服务提供者"
                                                                onclick="updateBeanAndPost('../oauth/remove-app-ajaxprocessor.jsp',
                                                                    'consumerkey=<%=Encode.forUriComponent(appBean.getOIDCClientId())%>&appName=<%=Encode.forUriComponent(spName)%>&spName=<%=Encode.forUriComponent(spName)%>',
                                                                    'configure-service-provider.jsp?action=delete&spName=<%=Encode.forUriComponent(spName)%>&oauthapp=<%=Encode.forUriComponent(appBean.getOIDCClientId())%>');"
@@ -2272,11 +2272,11 @@
                                                                 <td><%=Encode.forHtmlContent(appBean.getKerberosServiceName())%>
                                                                 </td>
                                                                 <td style="white-space: nowrap;">
-                                                                    <a title="Change Password"
+                                                                    <a title="修改密码"
                                                                        onclick="updateBeanAndRedirect('../servicestore/change-passwd.jsp?SPAction=changePWr&spnName=<%=Encode.forUriComponent(appBean.getKerberosServiceName())%>&spName=<%=Encode.forUriComponent(spName)%>');"
                                                                        class="icon-link"
                                                                        style="background-image: url(../admin/images/edit.gif)">修改密码</a>
-                                                                    <a title="Delete"
+                                                                    <a title="删除"
                                                                        onclick="updateBeanAndPost('../servicestore/delete-finish-ajaxprocessor.jsp',
                                                                            'SPAction=delete&spnName=<%=Encode.forUriComponent(appBean.getKerberosServiceName())%>&spName=<%=Encode.forUriComponent(spName)%>',
                                                                            'configure-service-provider.jsp?action=delete&spName=<%=Encode.forUriComponent(spName)%>&kerberos=<%=Encode.forUriComponent(appBean.getKerberosServiceName())%>');"
@@ -2711,7 +2711,7 @@
                                                             <select style="min-width: 250px;"
                                                                     id="scim-inbound-userstore"
                                                                     name="scim-inbound-userstore" <%=appBean.getServiceProvider().getInboundProvisioningConfig().getDumbMode() ? "disabled" : "" %>>
-                                                                <option value="">---Select---</option>
+                                                                <option value="">---请选择---</option>
                                                                 <%
                                                                     if (userStoreDomains != null && userStoreDomains.length > 0) {
                                                                         for (String userStoreDomain : userStoreDomains) {
@@ -2881,7 +2881,7 @@
         </div>
     </div>
 
-    <div id="showDialog" title="WSO2 Carbon">
+    <div id="showDialog" title="身份服务">
         <h2 style="margin-left:20px;margin-top:20px;">
             <fmt:message key="title.oauth.application"/>
         </h2>

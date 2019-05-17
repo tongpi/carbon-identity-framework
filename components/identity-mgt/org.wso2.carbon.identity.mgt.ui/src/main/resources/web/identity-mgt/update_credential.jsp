@@ -54,8 +54,8 @@
 
     function showCaptchaTimely() {
         var captchaImgDiv = document.getElementById("captchaImgDiv");
-        captchaImgDiv.innerHTML = "<img src='" + captchaImgUrl + "' alt='如果你看不到挑战吗 " +
-                        "图片请刷新或点击链接重新.'/>";
+        captchaImgDiv.innerHTML = "<img src='" + captchaImgUrl + "' alt='如果你看不到挑战码 " +
+                        "图片，请刷新或点击链接重新.'/>";
     }
 
 </script>
@@ -114,7 +114,7 @@
 
     <script type="text/javascript">
         jQuery(document).ready(function() {
-            CARBON.showWarningDialog('Credentials Update Failed. Pls retry updating the credentials.');
+            CARBON.showWarningDialog('凭据更新失败。请重新尝试更新凭据.');
         });
     </script>
     <%
@@ -154,7 +154,7 @@
                                                        style="width:400px"/></td>
                             </tr>
                             <tr>
-                                <td colspan="2">(Minimum of 6 Characters in length)</td>
+                                <td colspan="2">(最少6个字符)</td>
                             </tr>
                             <tr>
                                 <td><fmt:message key="new.password.repeat"/>
@@ -193,17 +193,16 @@
                 <tr id="buttonRow">
                     <td>
                         <input class="button" type="button"
-                               value="Cancel" onclick="cancel()"/>
+                               value="取消" onclick="cancel()"/>
                         <input class="button" type="button"
-                               value="Update" onclick="updateCredentials()"/>
+                               value="更新" onclick="updateCredentials()"/>
                     </td>
                 </tr>
                 <tr id="waitMessage" style="display:none">
                     <td>
                         <div style="font-size:13px !important;margin-top:10px;margin-bottom:10px;">
                             <img
-                                    src="images/ajax-loader.gif" align="left" hspace="20"/>Please
-                            wait until the Service is imported to the Registry.
+                                    src="images/ajax-loader.gif" align="left" hspace="20"/>请等待直到服务被导入注册表.
                         </div>
                     </td>
                 </tr>

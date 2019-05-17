@@ -1034,7 +1034,7 @@ jQuery('#choose_dialet_type2').click(function () {
 jQuery('#advancedClaimMappingAddLink').click(function () {
     var selectedIDPClaimName = $('select[name=idpClaimsList2]').val();
     if (selectedIDPClaimName == "" || selectedIDPClaimName == null) {
-        CARBON.showWarningDialog('Add valid attribute');
+        CARBON.showWarningDialog('添加有效的属性');
         return false;
     }
     advancedClaimMappinRowID++;

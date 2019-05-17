@@ -15,6 +15,7 @@
  ~ specific language governing permissions and limitations
  ~ under the License.
  -->
+ <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="org.apache.axis2.context.ConfigurationContext"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar"
@@ -261,7 +262,7 @@
                     <td class="leftCol-small"><fmt:message key='select.module'/><span class="required">*</span></td>
                     <td colspan="2">
                     <select  onchange="getSelectedSubjectType();" id="selectedModule" name="selectedModule">
-                            <option value="Selected" selected="selected">---Select----</option>
+                            <option value="Selected" selected="selected">---请选择----</option>
                             <%
                                 if(dataHolders != null){
                                     for (PublisherDataHolder module : dataHolders) {

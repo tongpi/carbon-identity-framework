@@ -15,6 +15,7 @@
 * limitations under the License.
 */
 -->
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="org.wso2.balana.utils.policy.dto.BasicRuleDTO" %>
 <%@ page import="org.wso2.balana.utils.policy.dto.BasicTargetDTO" %>
@@ -715,7 +716,7 @@
             %>
         </td>
         <td>
-            <a title="Select Resources Names" class='icon-link' onclick='selectAttributes("Resource");'
+            <a title="选择资源名称" class='icon-link' onclick='selectAttributes("Resource");'
                style='background-image:url(images/registry.gif); float:right;'></a>
         </td>
         <td>
@@ -785,7 +786,7 @@
             %>
         </td>
         <td>
-            <a title="Select Subject Names" class='icon-link' onclick='selectAttributes("Subject");'
+            <a title="选择主体名称" class='icon-link' onclick='selectAttributes("Subject");'
                style='background-image:url(images/user-store.gif); float:right;'></a>
         </td>
         </tr>
@@ -835,7 +836,7 @@
             %>
         </td>
         <td>
-            <a title="Select Action Names" class='icon-link' onclick='selectAttributes("Action");'
+            <a title="选择动作名称" class='icon-link' onclick='selectAttributes("Action");'
                style='background-image:url(images/actions.png); float:right;'></a>
         </td>
 
@@ -910,7 +911,7 @@
             %>
         </td>
         <td>
-            <a title="Select Environment Names" class='icon-link' onclick='selectAttributes("Environment");'
+            <a title="选择环境名称" class='icon-link' onclick='selectAttributes("Environment");'
                style='background-image:url(images/calendar.jpg); float:right;'></a>
         </td>
         </tr>
@@ -1076,7 +1077,7 @@
                         %>
                     </td>
                     <td>
-                        <a title="Select Resources Names" class='icon-link' onclick='selectAttributes("Resource");'
+                        <a title="选择资源名称" class='icon-link' onclick='selectAttributes("Resource");'
                            style='background-image:url(images/registry.gif); float:right;'></a>
                     </td>
                     <td>
@@ -1174,7 +1175,7 @@
                         %>
                     </td>
                     <td>
-                        <a title="Select Subject Names" class='icon-link' onclick='selectAttributes("Subject");'
+                        <a title="选择主体名称" class='icon-link' onclick='selectAttributes("Subject");'
                            style='background-image:url(images/user-store.gif); float:right;'></a>
                     </td>
 
@@ -1249,7 +1250,7 @@
                         %>
                     </td>
                     <td>
-                        <a title="Select Action Names" class='icon-link' onclick='selectAttributes("Action");'
+                        <a title="选择动作名称" class='icon-link' onclick='selectAttributes("Action");'
                            style='background-image:url(images/actions.png); float:right;'></a>
                     </td>
 
@@ -1348,7 +1349,7 @@
                         %>
                     </td>
                     <td>
-                        <a title="Select Environment Names" class='icon-link' onclick='selectAttributes("Environment");'
+                        <a title="选择环境名称" class='icon-link' onclick='selectAttributes("Environment");'
                            style='background-image:url(images/calendar.jpg); float:right;'></a>
                     </td>
 

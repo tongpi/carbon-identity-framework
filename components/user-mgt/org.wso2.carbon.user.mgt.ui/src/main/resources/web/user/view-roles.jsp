@@ -461,7 +461,7 @@
                                             %>
                                             <%=Encode.forHtml(name.getItemDisplayName())%>
                                             <img src="images/workflow_pending_remove.gif"
-                                                 title="Workflow-pending-user-delete"
+                                                 title="流程挂起用户删除"
                                                  alt="Workflow-pending-user-delete" height="15" width="15">
                                             <%
                                             } else {

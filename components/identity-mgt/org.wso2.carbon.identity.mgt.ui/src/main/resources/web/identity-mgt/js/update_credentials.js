@@ -7,13 +7,13 @@ function updateCredentials() {
     adminPasswordRepeat = document.getElementById('admin-password-repeat');
 
     if (reason == "") {
-        reason += validateEmpty(adminPassword, "New Admin Password");
+        reason += validateEmpty(adminPassword, "新密码");
     }
     if (reason == "") {
         reason += validateAdminPassword(adminPassword);
     }
     if (reason == "") {
-        reason += validateEmpty(adminPasswordRepeat, "New Admin Password (Repeat)");
+        reason += validateEmpty(adminPasswordRepeat, "新密码 (重复)");
     }
     if (reason == "") {
         if (adminPassword.value != adminPasswordRepeat.value) {
@@ -55,8 +55,7 @@ function showCaptcha(captchaImgUrlArg) {
 
 function showCaptchaTimely() {
     var captchaImgDiv = document.getElementById("captchaImgDiv");
-    captchaImgDiv.innerHTML = "<img src='" + captchaImgUrl + "' alt='If you can not see the captcha " +
-                    "image please refresh the page or click the link again.'/>";
+    captchaImgDiv.innerHTML = "<img src='" + captchaImgUrl + "' alt='如果看不到图像请刷新页面或再次点击链接.'/>";
 }
 
 

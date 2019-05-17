@@ -15,6 +15,7 @@
 * limitations under the License.
 */
 -->
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="org.wso2.carbon.identity.entitlement.common.EntitlementConstants" %>
 <%@ page import="org.wso2.carbon.identity.entitlement.common.PolicyEditorEngine" %>
@@ -216,7 +217,7 @@
         var rowIndex =  jQuery(document.getElementById('resourceRuleTable').rows[document.
                             getElementById('resourceRuleTable').rows.length-1]).attr('data-value');
         var index = parseInt(rowIndex, 10) + 1;
-        jQuery('#resourceRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr><td style="white-space:nowrap;">Child resource</td><td>User</td><td></td><td>Action</td><td>Environment</td><td></td></tr>' +
+        jQuery('#resourceRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr><td style="white-space:nowrap;">Child 资源</td><td>用户</td><td></td><td>动作</td><td>环境</td><td></td></tr>' +
             '<td><%if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {%><input type="text" name="resourceRuleValue_'  + index + '"  id="resourceRuleValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleResourceValue))%>"/><%} else {%><input type="text" name="resourceRuleValue_'  + index + '"  id="resourceRuleValue_'  + index + '"  /><% }%> </td>' +
             '<td><select id="userRuleAttributeId_'  + index + '"  name="userRuleAttributeId_'  + index + '"  ><%for (String userAttribute : userAttributeIds) {if (selectedRuleUserAttributeId != null && userAttribute.equals(selectedRuleUserAttributeId)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%}}%></select></td>' +
             '<td><%if (selectedRuleUserAttributeValue != null && selectedRuleUserAttributeValue.trim().length() > 0) {%><input type="text" name="userRuleAttributeValue_'  + index + '"  id="userRuleAttributeValue_'  + index + '"  value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleUserAttributeValue))%>"/><%} else {%><input type="text" name="userRuleAttributeValue_'  + index + '"  id="userRuleAttributeValue_'  + index + '"  /><%}%></td>' +
@@ -232,11 +233,11 @@
         var rowIndex =  jQuery(document.getElementById('userRuleTable').rows[document.
                             getElementById('userRuleTable').rows.length-1]).attr('data-value');
         var index = parseInt(rowIndex, 10) + 1;
-        jQuery('#userRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td> Action </td>' +
+        jQuery('#userRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td> 动作 </td>' +
             '<td><%if (selectedRuleActionValue != null && selectedRuleActionValue.trim().length() > 0) {%><input type="text" name="actionRuleValue_'  + index + '" id="actionRuleValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleActionValue))%>"/><%} else {%><input type="text" name="actionRuleValue_'  + index + '" id="actionRuleValue_'  + index + '" /><%}%></td>' +
-            '<td> Resource </td>' +
+            '<td> 资源 </td>' +
             '<td><%if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {%><input type="text" name="resourceRuleValue_'  + index + '" id="resourceRuleValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleResourceValue))%>"/><%} else {%><input type="text" name="resourceRuleValue_'  + index + '" id="resourceRuleValue_'  + index + '" /><%}%></td>' +
-            '<td> Environment </td>' +
+            '<td> 环境 </td>' +
             '<td><select id="environmentRuleId_'  + index + '"  name="environmentRuleId_'  + index + '"  ><%for (String userAttribute : envAttributeIds) {if (selectedRuleEnvironmentId != null && userAttribute.equals(selectedRuleEnvironmentId)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%}}%></select></td>' +
             '<td><%if (selectedRuleEnvironmentValue != null && selectedRuleEnvironmentValue.trim().length() > 0) {%><input type="text" name="environmentRuleValue_'  + index + '"  id="environmentRuleValue_'  + index + '"  value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleEnvironmentValue))%>"/><%} else {%><input type="text" name="environmentRuleValue_'  + index + '"  id="environmentRuleValue_'  + index + '"  /><%}%></td>' +
             '<td><a onclick="removeRow(this)" style="background-image:url(images/delete.gif);" type="button" class="icon-link"></a></td>' +
@@ -247,12 +248,12 @@
         var rowIndex =  jQuery(document.getElementById('actionRuleTable').rows[document.
                             getElementById('actionRuleTable').rows.length-1]).attr('data-value');
         var index = parseInt(rowIndex, 10) + 1;
-        jQuery('#actionRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td>Resource</td>' +
+        jQuery('#actionRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td>资源</td>' +
                 '<td><%if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {%><input type="text" name="resourceRuleValue_'  + index + '"  id="resourceRuleValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleResourceValue))%>"/><%} else {%><input type="text" name="resourceRuleValue_'  + index + '"  id="resourceRuleValue_'  + index + '"  /><% }%> </td>' +
-                '<td>User</td>' +
+                '<td>用户</td>' +
                 '<td><select id="userRuleAttributeId_'  + index + '" name="userRuleAttributeId_'  + index + '" ><%for (String userAttribute : userAttributeIds) {if (selectedRuleUserAttributeId != null && userAttribute.equals(selectedRuleUserAttributeId)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"  selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%}}%></select></td>' +
                 '<td><%if (selectedRuleUserAttributeValue != null && selectedRuleUserAttributeValue.trim().length() > 0) {%><input type="text" name="userRuleAttributeValue_'  + index + '" id="userRuleAttributeValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleUserAttributeValue))%>"/><% } else {%><input type="text" name="userRuleAttributeValue_'  + index + '" id="userRuleAttributeValue_'  + index + '" /><%}%></td>' +
-                '<td> Environment </td>' +
+                '<td> 环境 </td>' +
                 '<td><select id="environmentRuleId_'  + index + '"  name="environmentRuleId_'  + index + '"  ><%for (String userAttribute : envAttributeIds) {if (selectedRuleEnvironmentId != null && userAttribute.equals(selectedRuleEnvironmentId)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%}}%></select></td>' +
                 '<td><%if (selectedRuleEnvironmentValue != null && selectedRuleEnvironmentValue.trim().length() > 0) {%><input type="text" name="environmentRuleValue_'  + index + '"  id="environmentRuleValue_'  + index + '"  value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleEnvironmentValue))%>"/><%} else {%><input type="text" name="environmentRuleValue_'  + index + '"  id="environmentRuleValue_'  + index + '"  /><%}%></td>' +
                 '<td><a onclick="removeRow(this)" style="background-image:url(images/delete.gif);" type="button" class="icon-link"></a></td>' +
@@ -263,12 +264,12 @@
         var rowIndex =  jQuery(document.getElementById('environmentRuleTable').rows[document.
                             getElementById('environmentRuleTable').rows.length-1]).attr('data-value');
         var index = parseInt(rowIndex, 10) + 1;
-        jQuery('#environmentRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td> Resource </td>' +
+        jQuery('#environmentRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td> 资源 </td>' +
             '<td><%if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {%><input type="text" name="resourceRuleValue_'  + index + '"  id="resourceRuleValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleResourceValue))%>"/><%} else {%><input type="text" name="resourceRuleValue_'  + index + '"  id="resourceRuleValue_'  + index + '"  /><% }%> </td>' +
-            '<td> User </td>'+
+            '<td> 用户 </td>'+
             '<td><select id="userRuleAttributeId_'  + index + '"  name="userRuleAttributeId_'  + index + '"  ><%for (String userAttribute : userAttributeIds) {if (selectedRuleUserAttributeId != null && userAttribute.equals(selectedRuleUserAttributeId)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%}}%></select></td>' +
             '<td><%if (selectedRuleUserAttributeValue != null && selectedRuleUserAttributeValue.trim().length() > 0) {%><input type="text" name="userRuleAttributeValue_'  + index + '"  id="userRuleAttributeValue_'  + index + '"  value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleUserAttributeValue))%>"/><%} else {%><input type="text" name="userRuleAttributeValue_'  + index + '"  id="userRuleAttributeValue_'  + index + '"  /><%}%></td>' +
-            '<td> Action </td>' +
+            '<td> 动作 </td>' +
             '<td><%if (selectedRuleActionValue != null && selectedRuleActionValue.trim().length() > 0) {%><input type="text" name="actionRuleValue_'  + index + '"  id="actionRuleValue_'  + index + '"  value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleActionValue))%>"/><%} else {%><input type="text" name="actionRuleValue_'  + index + '"  id="actionRuleValue_'  + index + '"  /><%}%></td>' +
             '<td><a onclick="removeRow(this)" style="background-image:url(images/delete.gif);" type="button" class="icon-link"></a></td>' +
             '</tr></table></td></tr>');
@@ -356,7 +357,7 @@
             <td colspan="2">
             <table class="normal" style="padding-left:0px !important">
             <tr>
-            <td>User whose</td>
+            <td>哪个用户</td>
             <td>
                 <select id="userAttributeId" name="userAttributeId" >
                     <%
@@ -374,7 +375,7 @@
                     %>
                 </select>
             </td>
-            <td> is equal to </td>
+            <td> 等于 </td>
             <td>
                 <%
                     if (selectedUserAttributeValue != null && selectedUserAttributeValue.trim().length() > 0) {
@@ -401,7 +402,7 @@
             <table class="oneline-listing">
             <tr></tr>
             <tr>
-                <td> Action </td>
+                <td> 动作 </td>
                 <td>
                 <%
                     if (selectedRuleActionValue != null && selectedRuleActionValue.trim().length() > 0) {
@@ -415,7 +416,7 @@
                     }
                 %>
                 </td>
-                <td> Resource </td>
+                <td> 资源 </td>
                 <td>
                 <%
                     if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {
@@ -429,7 +430,7 @@
                     }
                 %>
                 </td>
-                <td> Environment </td>
+                <td> 环境 </td>
                 <td>
                     <select id="environmentRuleId_0" name="environmentRuleId_0"  >
                         <%
@@ -487,11 +488,11 @@ if(elementDTOList != null && elementDTOList.size() > 0){
             var rowIndex =  jQuery(document.getElementById('userRuleTable').rows[document.
                         getElementById('userRuleTable').rows.length-1]).attr('data-value');
             var index = parseInt(rowIndex, 10) + 1;
-            jQuery('#userRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td> Action </td>' +
+            jQuery('#userRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td> 动作 </td>' +
                 '<td><%if (selectedRuleActionValue != null && selectedRuleActionValue.trim().length() > 0) {%><input type="text" name="actionRuleValue_'  + index + '" id="actionRuleValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleActionValue))%>"/><%} else {%><input type="text" name="actionRuleValue_'  + index + '" id="actionRuleValue_'  + index + '" /><%}%></td>' +
-                '<td> Resource </td>' +
+                '<td> 资源 </td>' +
                 '<td><%if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {%><input type="text" name="resourceRuleValue_'  + index + '" id="resourceRuleValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleResourceValue))%>"/><%} else {%><input type="text" name="resourceRuleValue_'  + index + '" id="resourceRuleValue_'  + index + '" /><%}%></td>' +
-                '<td> Environment </td>' +
+                '<td> 环境 </td>' +
                 '<td><select id="environmentRuleId_'  + index + '"  name="environmentRuleId_'  + index + '"  ><%for (String userAttribute : envAttributeIds) {if (selectedRuleEnvironmentId != null && userAttribute.equals(selectedRuleEnvironmentId)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%} else {%><option value="Encode.forJavaScript(Encode.forHtmlAttribute(<%=userAttribute%>))"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%}}%></select></td>' +
                 '<td><%if (selectedRuleEnvironmentValue != null && selectedRuleEnvironmentValue.trim().length() > 0) {%><input type="text" name="environmentRuleValue_'  + index + '"  id="environmentRuleValue_'  + index + '"  value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleEnvironmentValue))%>"/><%} else {%><input type="text" name="environmentRuleValue_'  + index + '"  id="environmentRuleValue_'  + index + '"  /><%}%></td>' +
                 '<td><a onclick="removeRow(this)" style="background-image:url(images/delete.gif);" type="button" class="icon-link"></a></td>' +
@@ -529,7 +530,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
         <td colspan="2">
         <table class="normal" style="padding-left:0px !important">
         <tr>
-            <td>Action which is equals to</td>
+            <td>哪种动作等于</td>
             <%
                 if (selectedActionValue != null && selectedActionValue.trim().length() > 0) {
             %>
@@ -555,7 +556,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
             <table class="oneline-listing">
             <tr></tr>
             <tr>
-                <td> Resource</td>
+                <td> 资源</td>
                 <td>
                 <%
                     if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {
@@ -569,7 +570,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
                     }
                 %>
                 </td>
-                <td>User</td>
+                <td>用户</td>
                 <td>
                     <select id="userRuleAttributeId_0" name="userRuleAttributeId_0" >
                         <%
@@ -600,7 +601,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
                         }
                     %>
                 </td>
-            <td> Environment </td>
+            <td> 环境 </td>
             <td>
                 <select id="environmentRuleId_0" name="environmentRuleId_0"  >
                     <%
@@ -658,13 +659,13 @@ if(elementDTOList != null && elementDTOList.size() > 0){
                         var rowIndex =  jQuery(document.getElementById('actionRuleTable').rows[document.
                                     getElementById('actionRuleTable').rows.length-1]).attr('data-value');
                         var index = parseInt(rowIndex, 10) + 1;
-                        jQuery('#actionRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td>Resource</td>' +
-                                <%--'<td><select id="resourceRuleFunction_'  + index + '" name="resourceRuleFunction_'  + index + '"><%for (String function : functions) {if (selectedRuleResourceFunction != null && selectedRuleResourceFunction.equals(function)) { %><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(function))%>"  selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(function))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(function))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(function))%></option><%}}%></select></td><td>to</td>< +--%>
+                        jQuery('#actionRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td>资源</td>' +
+                                <%--'<td><select id="resourceRuleFunction_'  + index + '" name="resourceRuleFunction_'  + index + '"><%for (String function : functions) {if (selectedRuleResourceFunction != null && selectedRuleResourceFunction.equals(function)) { %><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(function))%>"  selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(function))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(function))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(function))%></option><%}}%></select></td><td>到</td>< +--%>
                                 '<td><%if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {%><input type="text" name="resourceRuleValue_'  + index + '" id="resourceRuleValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleResourceValue))%>"/><%} else {%><input type="text" name="resourceRuleValue_'  + index + '" id="resourceRuleValue_'  + index + '" /><%}%></td>' +
-                                '<td>User</td>' +
+                                '<td>用户</td>' +
                                 '<td><select id="userRuleAttributeId_'  + index + '" name="userRuleAttributeId_'  + index + '" ><%for (String userAttribute : userAttributeIds) {if (selectedRuleUserAttributeId != null && userAttribute.equals(selectedRuleUserAttributeId)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"  selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%}}%></select></td>' +
                                 '<td><%if (selectedRuleUserAttributeValue != null && selectedRuleUserAttributeValue.trim().length() > 0) {%><input type="text" name="userRuleAttributeValue_'  + index + '" id="userRuleAttributeValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleUserAttributeValue))%>"/><% } else {%><input type="text" name="userRuleAttributeValue_'  + index + '" id="userRuleAttributeValue_'  + index + '" /><%}%></td>' +
-                                '<td> Environment </td>' +
+                                '<td> 环境 </td>' +
                                 '<td><select id="environmentRuleId_'  + index + '"  name="environmentRuleId_'  + index + '"  ><%for (String userAttribute : envAttributeIds) {if (selectedRuleEnvironmentId != null && userAttribute.equals(selectedRuleEnvironmentId)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%}}%></select></td>' +
                                 '<td><%if (selectedRuleEnvironmentValue != null && selectedRuleEnvironmentValue.trim().length() > 0) {%><input type="text" name="environmentRuleValue_'  + index + '"  id="environmentRuleValue_'  + index + '"  value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleEnvironmentValue))%>"/><%} else {%><input type="text" name="environmentRuleValue_'  + index + '"  id="environmentRuleValue_'  + index + '"  /><%}%></td>' +
                                 '<td><a onclick="removeRow(this)" style="background-image:url(images/delete.gif);" type="button" class="icon-link"></a></td>' +
@@ -704,7 +705,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
         <td colspan="2">
         <table class="normal" style="padding-left:0px !important">
         <tr>
-        <td>Environment which </td>
+        <td>哪种环境 </td>
             <td>
                 <select id="environmentId" name="environmentId"  >
                     <%
@@ -722,7 +723,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
                     %>
                 </select>
             </td>
-            <td> is equals to </td>
+            <td> 等于 </td>
             <%
                 if (selectedEnvironmentValue != null && selectedEnvironmentValue.trim().length() > 0) {
             %>
@@ -747,7 +748,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
               <table class="oneline-listing">
               <tr></tr>
               <tr>
-                  <td> Resource </td>
+                  <td> 资源 </td>
                   <td>
                   <%
                       if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {
@@ -761,7 +762,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
                       }
                   %>
                   </td>
-                  <td> User </td>
+                  <td> 用户 </td>
                   <td>
                       <select id="userRuleAttributeId_0" name="userRuleAttributeId_0"  >
                           <%
@@ -791,7 +792,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
                       }
                   %>
                   </td>
-                  <td> Action </td>
+                  <td> 动作 </td>
                   <td>  <%
                       if (selectedRuleActionValue != null && selectedRuleActionValue.trim().length() > 0) {
                   %>
@@ -831,12 +832,12 @@ if(elementDTOList != null && elementDTOList.size() > 0){
               var rowIndex =  jQuery(document.getElementById('environmentRuleTable').rows[document.
                           getElementById('environmentRuleTable').rows.length-1]).attr('data-value');
               var index = parseInt(rowIndex, 10) + 1;
-              jQuery('#environmentRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td> Resource </td>' +
+              jQuery('#environmentRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr></tr><tr><td> 资源 </td>' +
                   '<td><%if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {%><input type="text" name="resourceRuleValue_'  + index + '"  id="resourceRuleValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleResourceValue))%>"/><%} else {%><input type="text" name="resourceRuleValue_'  + index + '"  id="resourceRuleValue_'  + index + '"  /><% }%> </td>' +
-                  '<td> User </td>' +
+                  '<td> 用户 </td>' +
                   '<td><select id="userRuleAttributeId_'  + index + '"  name="userRuleAttributeId_'  + index + '"  ><%for (String userAttribute : userAttributeIds) {if (selectedRuleUserAttributeId != null && userAttribute.equals(selectedRuleUserAttributeId)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%}}%></select></td>' +
                   '<td><%if (selectedRuleUserAttributeValue != null && selectedRuleUserAttributeValue.trim().length() > 0) {%><input type="text" name="userRuleAttributeValue_'  + index + '"  id="userRuleAttributeValue_'  + index + '"  value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleUserAttributeValue))%>"/><%} else {%><input type="text" name="userRuleAttributeValue_'  + index + '"  id="userRuleAttributeValue_'  + index + '"  /><%}%></td>' +
-                  '<td> Action </td>' +
+                  '<td> 动作 </td>' +
                   '<td><%if (selectedRuleActionValue != null && selectedRuleActionValue.trim().length() > 0) {%><input type="text" name="actionRuleValue_'  + index + '"  id="actionRuleValue_'  + index + '"  value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleActionValue))%>"/><%} else {%><input type="text" name="actionRuleValue_'  + index + '"  id="actionRuleValue_'  + index + '"  /><%}%></td>' +
                   '<td><a onclick="removeRow(this)" style="background-image:url(images/delete.gif);" type="button" class="icon-link"></a></td>' +
                   '</tr></table></td></tr>');
@@ -872,7 +873,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
         <td colspan="2">
         <table class="normal" style="padding-left:0px !important">
         <tr>
-            <td>Resource which is equals to</td>
+            <td>哪种资源等于</td>
 
             <%
                 if (selectedResourceValue != null && selectedResourceValue.trim().length() > 0) {
@@ -897,11 +898,11 @@ if(elementDTOList != null && elementDTOList.size() > 0){
                     <td>
                         <table class="oneline-listing">
                             <tr>
-                                <td style="white-space:nowrap;">Child resource</td>
-                                <td>User</td>
+                                <td style="white-space:nowrap;">子资源</td>
+                                <td>用户</td>
                                 <td></td>
-                                <td>Action</td>
-                                <td>Environment</td>
+                                <td>动作</td>
+                                <td>环境</td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -1017,7 +1018,7 @@ if(elementDTOList != null && elementDTOList.size() > 0){
                                 getElementById('resourceRuleTable').rows.length-1]).attr('data-value');
                         var index = parseInt(rowIndex, 10) + 1;
 
-                        jQuery('#resourceRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr><td style="white-space:nowrap;">Child resource</td><td>User</td><td></td><td>Action</td><td>Environment</td><td></td></tr>' +
+                        jQuery('#resourceRuleTable > tbody:last').append('<tr data-value="'+ index +'"><td><table class="oneline-listing"><tr><td style="white-space:nowrap;">子资源</td><td>User</td><td></td><td>动作</td><td>环境</td><td></td></tr>' +
                                 '<td><%if (selectedRuleResourceValue != null && selectedRuleResourceValue.trim().length() > 0) {%><input type="text" name="resourceRuleValue_'  + index + '"  id="resourceRuleValue_'  + index + '" value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleResourceValue))%>"/><%} else {%><input type="text" name="resourceRuleValue_'  + index + '"  id="resourceRuleValue_'  + index + '"  /><% }%> </td>' +
                                 '<td><select id="userRuleAttributeId_'  + index + '"  name="userRuleAttributeId_'  + index + '"  ><%for (String userAttribute : userAttributeIds) {if (selectedRuleUserAttributeId != null && userAttribute.equals(selectedRuleUserAttributeId)) {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>" selected="selected"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%} else {%><option value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(userAttribute))%>"><%=Encode.forJavaScript(Encode.forHtmlContent(userAttribute))%></option><%}}%></select></td>' +
                                 '<td><%if (selectedRuleUserAttributeValue != null && selectedRuleUserAttributeValue.trim().length() > 0) {%><input type="text" name="userRuleAttributeValue_'  + index + '"  id="userRuleAttributeValue_'  + index + '"  value="<%=Encode.forJavaScript(Encode.forHtmlAttribute(selectedRuleUserAttributeValue))%>"/><%} else {%><input type="text" name="userRuleAttributeValue_'  + index + '"  id="userRuleAttributeValue_'  + index + '"  /><%}%></td>' +

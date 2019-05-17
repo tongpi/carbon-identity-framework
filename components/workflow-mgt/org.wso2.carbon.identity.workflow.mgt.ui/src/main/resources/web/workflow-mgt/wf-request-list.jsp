@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar"
            prefix="carbon" %>
@@ -418,9 +418,9 @@
                             <tr style="border:0; !important">
                                 <td style="border:0; !important">
                                     <nobr>
-                                        <label for="createdAtFrom">From</label>
+                                        <label for="createdAtFrom">从</label>
                                         <input type="text" id="createdAtFrom" name="createdAtFrom">
-                                        <label for="createdAtTo">to</label>
+                                        <label for="createdAtTo">到</label>
                                         <input type="text" id="createdAtTo" name="createdAtTo">
                                     </nobr>
                                 </td>
@@ -489,7 +489,7 @@
                         }
                     } else { %>
                 <tr>
-                    <td colspan="6"><i>No requests found.</i></td>
+                    <td colspan="6"><i>未找到请求.</i></td>
                 </tr>
                 <% }
                 %>
