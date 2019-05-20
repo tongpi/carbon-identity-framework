@@ -107,9 +107,9 @@ import static org.wso2.carbon.identity.core.util.IdentityCoreConstants.IDENTITY_
 public class SSOConsentServiceImpl implements SSOConsentService {
 
     private static final Log log = LogFactory.getLog(SSOConsentServiceImpl.class);
-    private static final String DEFAULT_PURPOSE = "DEFAULT";
-    private static final String DEFAULT_PURPOSE_CATEGORY = "DEFAULT";
-    private static final String DEFAULT_PURPOSE_GROUP = "DEFAULT";
+    private static final String DEFAULT_PURPOSE = "缺省";
+    private static final String DEFAULT_PURPOSE_CATEGORY = "系统缺省";
+    private static final String DEFAULT_PURPOSE_GROUP = "系统缺省";
     private static final String DEFAULT_PURPOSE_GROUP_TYPE = "SP";
     private boolean ssoConsentEnabled = true;
 
@@ -165,11 +165,11 @@ public class SSOConsentServiceImpl implements SSOConsentService {
             throws SSOConsentServiceException {
 
         if (!isSSOConsentManagementEnabled(serviceProvider)) {
-            String message = "Consent management for SSO is disabled.";
+            String message = "SSO的同意管理被禁用.";
             throw new SSOConsentDisabledException(message, message);
         }
         if (serviceProvider == null) {
-            throw new SSOConsentServiceException("Service provider cannot be null.");
+            throw new SSOConsentServiceException("服务提供者不能为空.");
         }
 
         String spName = serviceProvider.getApplicationName();
@@ -311,7 +311,7 @@ public class SSOConsentServiceImpl implements SSOConsentService {
             throws SSOConsentServiceException {
 
         if (!isSSOConsentManagementEnabled(serviceProvider)) {
-            String message = "Consent management for SSO is disabled.";
+            String message = "SSO的同意管理被禁用.";
             throw new SSOConsentDisabledException(message, message);
         }
         if (isDebugEnabled()) {
@@ -342,11 +342,11 @@ public class SSOConsentServiceImpl implements SSOConsentService {
             authenticatedUser) throws SSOConsentServiceException {
 
         if (!isSSOConsentManagementEnabled(serviceProvider)) {
-            String message = "Consent management for SSO is disabled.";
+            String message = "SSO的同意管理被禁用.";
             throw new SSOConsentDisabledException(message, message);
         }
         if (serviceProvider == null) {
-            throw new SSOConsentServiceException("Service provider cannot be null.");
+            throw new SSOConsentServiceException("服务提供者不能为空.");
         }
         String spName = serviceProvider.getApplicationName();
         List<ClaimMetaData> receiptConsentMetaData = new ArrayList<>();
@@ -578,7 +578,7 @@ public class SSOConsentServiceImpl implements SSOConsentService {
 
         PurposeCategory purposeCategory;
         PurposeCategory defaultPurposeCategory = new PurposeCategory(DEFAULT_PURPOSE_CATEGORY,
-                                                                     "For core functionalities of the product");
+                                                                     "产品的核心功能");
         try {
             purposeCategory = getConsentManager().addPurposeCategory(defaultPurposeCategory);
         } catch (ConsentManagementException e) {
@@ -605,11 +605,11 @@ public class SSOConsentServiceImpl implements SSOConsentService {
             if (isInvalidPurposeError(e)) {
                 purpose = addDefaultPurpose();
             } else {
-                throw new SSOConsentServiceException("Consent purpose error", "Error while retrieving purpose: " +
+                throw new SSOConsentServiceException("同意目的出错", "当获取目的时发生错误: " +
                                                                                      DEFAULT_PURPOSE, e);
             }
         } catch (ConsentManagementException e) {
-            throw new SSOConsentServiceException("Consent purpose error", "Error while retrieving purpose: " +
+            throw new SSOConsentServiceException("同意目的出错", "当获取目的时发生错误: " +
                                                                                  DEFAULT_PURPOSE, e);
         }
         return purpose;
@@ -618,13 +618,13 @@ public class SSOConsentServiceImpl implements SSOConsentService {
     private Purpose addDefaultPurpose() throws SSOConsentServiceException {
 
         Purpose purpose;
-        Purpose defaultPurpose = new Purpose(DEFAULT_PURPOSE, "For core functionalities of the product",
+        Purpose defaultPurpose = new Purpose(DEFAULT_PURPOSE, "产品核心功能",
                                              DEFAULT_PURPOSE_GROUP, DEFAULT_PURPOSE_GROUP_TYPE);
         try {
             purpose = getConsentManager().addPurpose(defaultPurpose);
         } catch (ConsentManagementException e) {
-            throw new SSOConsentServiceException("Consent purpose error",
-                                                 "Error while adding purpose: " + DEFAULT_PURPOSE, e);
+            throw new SSOConsentServiceException("同意目的错误",
+                                                 "当添加同意目的时发生错误: " + DEFAULT_PURPOSE, e);
         }
         return purpose;
     }
@@ -646,8 +646,8 @@ public class SSOConsentServiceImpl implements SSOConsentService {
                                                                           approvedClamMetaData);
 
         if (isMandatoryClaimsDisapproved(consentClaimsData.getMandatoryClaims(), disapprovedClaims)) {
-            throw new SSOConsentServiceException("Consent Denied for Mandatory Attributes",
-                                                        "User denied consent to share mandatory attributes.");
+            throw new SSOConsentServiceException("拒绝同意强制属性",
+                                                        "用户拒绝同意共享强制属性.");
         }
 
         userConsent.setApprovedClaims(approvedClamMetaData);
@@ -849,7 +849,7 @@ public class SSOConsentServiceImpl implements SSOConsentService {
                         return isExpired(currentTimeMillis, consentExpiryInMillis);
                     } catch (NumberFormatException e) {
                         if (isDebugEnabled()) {
-                            String message = String.format("Cannot parse timestamp: %s. for PII category %s.",
+                            String message = String.format("不能解析时间戳: %s. PII 类别为 %s.",
                                                            consentValidity, piiCategoryValidity.getName());
                             logDebug(message);
                         }
@@ -928,7 +928,7 @@ public class SSOConsentServiceImpl implements SSOConsentService {
             consentClaimsData.setMandatoryClaims(mandatoryClaimsMetaData);
             consentClaimsData.setRequestedClaims(requestedClaimsMetaData);
         } catch (ClaimMetadataException e) {
-            throw new SSOConsentServiceException("Error while retrieving local claims", "Error occurred while " +
+            throw new SSOConsentServiceException("获取本地声明发生错误", "Error occurred while " +
                                                            "retrieving local claims for tenant: " + tenantDomain, e);
         }
         return consentClaimsData;
@@ -990,8 +990,8 @@ public class SSOConsentServiceImpl implements SSOConsentService {
             startTenantFlowWithUser(subject, authenticatedUser.getTenantDomain());
             currentReceipt = getConsentManager().getReceipt(receiptId);
         } catch (ConsentManagementException e) {
-            throw new SSOConsentServiceException("Consent Management Error",
-                                                 "Error while retrieving user consents.", e);
+            throw new SSOConsentServiceException("同意管理错误",
+                                                 "当获取用户同意心思时发生错误.", e);
         } finally {
             PrivilegedCarbonContext.endTenantFlow();
         }
