@@ -1,4 +1,4 @@
-<%--
+﻿<%--
   ~ Copyright (c) 2018, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
   ~
   ~ WSO2 Inc. licenses this file to you under the Apache License,
@@ -15,7 +15,6 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.google.gson.Gson" %>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="org.wso2.carbon.identity.application.authentication.endpoint.util.AuthContextAPIClient" %>
@@ -53,12 +52,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=AuthenticationEndpointUtil.i18n(resourceBundle, "wso2.identity.server")%>
     </title>
-    
+
     <link rel="icon" href="images/favicon.png" type="image/x-icon"/>
     <link href="libs/bootstrap_3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/Roboto.css" rel="stylesheet">
     <link href="css/custom-common.css" rel="stylesheet">
-    
+
     <!--[if lt IE 9]>
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
@@ -74,7 +73,7 @@
         <div class="pull-left brand float-remove-xs text-center-xs">
             <a href="#">
                 <img src="images/logo-inverse.svg" alt="gds" title="身份服务" class="logo">
-                
+
                 <h1><em><%=AuthenticationEndpointUtil.i18n(resourceBundle, "identity.server")%>
                 </em></h1>
             </a>
@@ -83,10 +82,10 @@
 </header>
 <!-- page content -->
 <div class="container-fluid body-wrapper">
-    
+
     <div class="row">
         <div class="col-md-12">
-    
+
             <%
                 if (templatePath != null) {
             %>
@@ -95,7 +94,7 @@
                 <c:set var="promptId" value="<%=URLEncoder.encode(promptId, StandardCharsets.UTF_8.name())%>" scope="request"/>
                 <jsp:include page="<%=templatePath%>"/>
             </div>
-    
+
             <%
             } else {
             %>
@@ -103,7 +102,7 @@
                 <div>
                     <h2 class="wr-title uppercase blue-bg padding-double white boarder-bottom-blue margin-none"><%=Encode.forHtmlContent("Incorrect Request")%> </h2>
                 </div>
-        
+
                 <div class="boarder-all col-lg-12 padding-top-double padding-bottom-double error-alert  ">
                     <div class="font-medium">
                         <strong>
@@ -118,9 +117,9 @@
             <%
                 }
             %>
-            
+
         </div>
-    
+
     </div>
 </div>
 
