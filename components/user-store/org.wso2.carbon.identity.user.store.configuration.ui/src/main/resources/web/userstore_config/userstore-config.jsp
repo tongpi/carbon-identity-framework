@@ -15,7 +15,7 @@
 * limitations under the License.
 */
 -->
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="org.apache.axis2.context.ConfigurationContext"%>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@page import="org.wso2.carbon.CarbonConstants"%>
@@ -452,7 +452,7 @@
     <%--START properties--%>
     <%--**********************--%>
     <%--**********************--%>
-<div class="sectionSeperator" id="userStoreTypeSub"><%="Define Properties For "%><strong></strong></div>
+<div class="sectionSeperator" id="userStoreTypeSub"><%="定义属性"%><strong></strong></div>
 <div class="sectionSub">
         <%--MandatoryProperties--%>
     <%if (mandatories != null && mandatories[0] != null) {%>
@@ -499,7 +499,7 @@
                             if (propDescription != null) {
                                 description = propDescription;
                             }
-                            
+
                             if (propertyName==null || propertyName.trim().length()==0){
                             	propertyName = mandatories[j].getName();
                             }
@@ -636,7 +636,7 @@
                         isBoolean = -123;
 
                         for (int x = 0; x < optionals.length; x++) {
-                        	
+
                         	String displayName = optionals[x].getName();
                             String propDescription = optionals[x].getDescription();
                             int index = 0;
@@ -645,10 +645,10 @@
                             	propDescription = propDescription.substring(index+1);
                             }
 
-                        	
+
                             propertyName = displayName;
                             propertyValue = optionals[x].getValue();
-                            
+
                             if (propertyName==null || propertyName.trim().length()==0){
                             	propertyName = optionals[x].getName();
                             }
@@ -656,7 +656,7 @@
                             if (optionals[x].getDescription() != null) {
                                 description = propDescription;
                             }
-                            
+
                             if (propertyName==null || propertyName.trim().length()==0){
                             	propertyName = optionals[x].getName();
                             }
@@ -780,7 +780,7 @@
                         isBoolean = -123;
 
                         for (int x = 0; x < advancedProperties.length; x++) {
-                        	
+
                         	String displayName = advancedProperties[x].getName();
                             String propDescription = advancedProperties[x].getDescription();
                             int index = 0;
@@ -795,7 +795,7 @@
                             if (advancedProperties[x].getDescription() != null) {
                                 description = propDescription;
                             }
-                            
+
                             if (propertyName==null || propertyName.trim().length()==0){
                             	propertyName = advancedProperties[x].getName();
                             }
@@ -878,11 +878,11 @@
 </form>
 <div class="buttonRow">
 	<%
-		if (selectedClassApplied.matches(".*jdbc.*")) 
+		if (selectedClassApplied.matches(".*jdbc.*"))
 	{ %>
 	<input type="button" onclick="testConnection();" value="<fmt:message key="test.connection"/>"
            class="button"/>
-           
+
     <script type="text/javascript">
 		function testConnection() {
             var domainName = document.getElementById("domainId").value;
@@ -920,8 +920,8 @@
                 CARBON.showErrorDialog("Error while testing the connection");
             });
 		}
-		
-		
+
+
 	</script>
            <%} %>
     <%if (isEditing) { %>
