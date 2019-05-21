@@ -15,7 +15,7 @@
    specific language governing permissions and limitations
    under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <%@page import="org.apache.axis2.context.ConfigurationContext" %>
@@ -115,7 +115,7 @@
             <table class="styledLeft">
                 <tbody>
                 <tr>
-                    <td class="middle-header">Change Password</td>
+                    <td class="middle-header">修改密码</td>
                 </tr>
                 <tr>
                     <td>
