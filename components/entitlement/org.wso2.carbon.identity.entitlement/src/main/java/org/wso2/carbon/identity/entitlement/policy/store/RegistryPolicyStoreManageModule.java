@@ -51,7 +51,7 @@ import java.util.Set;
 public class RegistryPolicyStoreManageModule extends AbstractPolicyFinderModule
         implements PolicyStoreManageModule {
 
-    private static final String MODULE_NAME = "Registry Policy Finder Module";
+    private static final String MODULE_NAME = "注册策略查找模块";
     private static final String PROPERTY_POLICY_STORE_PATH = "policyStorePath";
     private static final String PROPERTY_ATTRIBUTE_SEPARATOR = "attributeValueSeparator";
     private static final String DEFAULT_POLICY_STORE_PATH = "/repository/identity/entitlement" +

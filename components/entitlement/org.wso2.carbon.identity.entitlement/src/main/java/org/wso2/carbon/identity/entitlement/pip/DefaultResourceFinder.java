@@ -45,7 +45,7 @@ public class DefaultResourceFinder implements PIPResourceFinder {
 
     @Override
     public String getModuleName() {
-        return "Default Resource Finder";
+        return "缺省资源查找模块";
     }
 
     @Override

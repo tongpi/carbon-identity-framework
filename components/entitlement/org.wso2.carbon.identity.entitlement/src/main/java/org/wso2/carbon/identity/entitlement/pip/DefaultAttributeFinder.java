@@ -57,12 +57,12 @@ public class DefaultAttributeFinder extends AbstractPIPAttributeFinder {
 
     @Override
     public String getModuleName() {
-        return "Default Attribute Finder";
+        return "缺省属性查找模块";
     }
 
     /*
      * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.wso2.carbon.identity.entitlement.pip.PIPAttributeFinder#getAttributeValues(java.lang.
 	 * String, java.lang.String, java.lang.String)
