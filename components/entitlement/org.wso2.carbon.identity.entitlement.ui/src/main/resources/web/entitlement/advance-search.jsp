@@ -15,6 +15,7 @@
  ~ specific language governing permissions and limitations
  ~ under the License.
  -->
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar"
 	prefix="carbon"%>
@@ -231,7 +232,7 @@
                 }
             %>
             </td>
-        </tr>            
+        </tr>
 
         <tr>
             <td class="leftCol-small"><fmt:message key='resource.name'/></td>
@@ -291,7 +292,7 @@
                         Set<String> resourceSet = new HashSet <String>();
                         for(EntitledAttributesDTO result : entitledAttributes){
                             if(result.getAllResources()){
-                                resourceSet.add("ANY");            
+                                resourceSet.add("ANY");
                             } else {
                                 resourceSet.add(result.getResourceName());
                             }
@@ -317,7 +318,7 @@
                                             actionSet.add("ANY");
                                         } else {
                                             actionSet.add(result.getAction());
-                                        }       
+                                        }
                                     }
                                 }
 
@@ -339,7 +340,7 @@
                     } else {
                 %>
                     <tr>
-                        <td colspan="2">No Result is found</td>
+                        <td colspan="2">未找到结果</td>
                     </tr>
 
                 <%
