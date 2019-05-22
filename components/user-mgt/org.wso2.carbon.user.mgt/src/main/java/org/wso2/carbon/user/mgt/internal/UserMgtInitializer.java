@@ -58,7 +58,7 @@ public class UserMgtInitializer {
             Map<String, String> map = new HashMap<String, String>();
             map.put(CarbonConstants.UI_PERMISSION_COLLECTION, "全部权限");
             map.put(CarbonConstants.UI_ADMIN_PERMISSION_COLLECTION, "管理权限");
-            map.put(UserMgtConstants.UI_PROTECTED_PERMISSION_ROOT, "成绩管理员权限");
+            map.put(UserMgtConstants.UI_PROTECTED_PERMISSION_ROOT, "超级管理员权限");
             map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "manage", "管理");
             map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "monitor", "监控");
             map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "manage/modify", "配置");
@@ -105,7 +105,7 @@ public class UserMgtInitializer {
             }
         } catch (Exception e) {
             log.error("While adding management permission :: " + e.getMessage(), e);
-            throw new Exception("当提及昂立权限时发生错误 :: " + e.getMessage(), e);
+            throw new Exception("当添加管理权限时发生错误 :: " + e.getMessage(), e);
         }
     }
 }
