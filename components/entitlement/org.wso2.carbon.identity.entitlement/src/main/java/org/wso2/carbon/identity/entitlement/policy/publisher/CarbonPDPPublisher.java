@@ -42,7 +42,7 @@ public class CarbonPDPPublisher implements PolicyPublisherModule {
 
     @Override
     public String getModuleName() {
-        return "PDP Publisher";
+        return "PDP 发布器";
     }
 
     @Override

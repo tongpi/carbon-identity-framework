@@ -54,7 +54,7 @@ import java.util.regex.Pattern;
 public class PolicyPublisher {
 
     public static final String SUBSCRIBER_ID = "subscriberId";
-    public static final String SUBSCRIBER_DISPLAY_NAME = "Subscriber Id";
+    public static final String SUBSCRIBER_DISPLAY_NAME = "订阅者 Id";
     private static Log log = LogFactory.getLog(PolicyPublisher.class);
     private static ExecutorService threadPool = Executors.newFixedThreadPool(2);
     /**

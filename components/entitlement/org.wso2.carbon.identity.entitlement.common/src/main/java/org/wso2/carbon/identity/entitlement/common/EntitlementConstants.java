@@ -35,7 +35,7 @@ public class EntitlementConstants {
     public static final String ENTITLEMENT_POLICY_SET_EDITOR_CONFIG_FILE_REGISTRY_PATH =
             ENTITLEMENT_REGISTRY_PATH + "/policyEditor/config/set/config.xml";
 
-    public static final String PDP_SUBSCRIBER_ID = "PDP Subscriber";
+    public static final String PDP_SUBSCRIBER_ID = "PDP 订阅者";
 
     public static final class PolicyPublish {
 
