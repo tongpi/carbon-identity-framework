@@ -46,7 +46,7 @@ import java.util.Properties;
  */
 public class CarbonBasicPolicyPublisherModule extends AbstractPolicyPublisherModule {
 
-    private static final String MODULE_NAME = "Carbon Basic Auth Policy Publisher Module";
+    private static final String MODULE_NAME = "基本身份验证策略发布者模块";
     private static Log log = LogFactory.getLog(CarbonBasicPolicyPublisherModule.class);
     private ConfigurationContext configCtx;
     private String serverUrl;
@@ -88,17 +88,17 @@ public class CarbonBasicPolicyPublisherModule extends AbstractPolicyPublisherMod
 
         Map<String, String> dataMap1 = new HashMap<String, String>();
         dataMap1.put(AbstractPolicyPublisherModule.REQUIRED, "true");
-        dataMap1.put(AbstractPolicyPublisherModule.DISPLAY_NAME, "Subscriber URL");
+        dataMap1.put(AbstractPolicyPublisherModule.DISPLAY_NAME, "订阅者 URL");
         dataMap1.put(AbstractPolicyPublisherModule.ORDER, "1");
 
         Map<String, String> dataMap2 = new HashMap<String, String>();
         dataMap2.put(AbstractPolicyPublisherModule.REQUIRED, "true");
-        dataMap2.put(AbstractPolicyPublisherModule.DISPLAY_NAME, "Subscriber User Name");
+        dataMap2.put(AbstractPolicyPublisherModule.DISPLAY_NAME, "订阅者用户名");
         dataMap2.put(AbstractPolicyPublisherModule.ORDER, "2");
 
         Map<String, String> dataMap3 = new HashMap<String, String>();
         dataMap3.put(AbstractPolicyPublisherModule.REQUIRED, "true");
-        dataMap3.put(AbstractPolicyPublisherModule.DISPLAY_NAME, "Subscriber Password");
+        dataMap3.put(AbstractPolicyPublisherModule.DISPLAY_NAME, "订阅者密码");
         dataMap3.put(AbstractPolicyPublisherModule.ORDER, "3");
         dataMap3.put(AbstractPolicyPublisherModule.SECRET, "true");
 
