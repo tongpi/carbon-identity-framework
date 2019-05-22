@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  ~
@@ -18,43 +19,43 @@
 <component xmlns="http://products.wso2.org/carbon">
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Identity</DisplayName>
+            <DisplayName>身份</DisplayName>
             <ResourceId>/permission/admin/manage/identity</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Entitlement Management</DisplayName>
+            <DisplayName>访问控制管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement</ResourceId>
         </ManagementPermission>
 
         <!--Entitlement PAP-->
         <ManagementPermission>
-            <DisplayName>Entitlement PAP Management</DisplayName>
+            <DisplayName>访问控制 PAP 管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap</ResourceId>
         </ManagementPermission>
 
         <!--Entitlement Policy-->
         <ManagementPermission>
-            <DisplayName>Entitlement Policy Management</DisplayName>
+            <DisplayName>访问控制策略管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/delete</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Publish</DisplayName>
+            <DisplayName>发布</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/publish</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
@@ -62,70 +63,70 @@
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/demote</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Enable</DisplayName>
+            <DisplayName>启用</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/enable</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Rollback</DisplayName>
+            <DisplayName>回滚</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/rollback</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Order</DisplayName>
+            <DisplayName>排序</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/order</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>List</DisplayName>
+            <DisplayName>列表</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/list</ResourceId>
         </ManagementPermission>
 
 
         <!--Entitlement Subscriber-->
         <ManagementPermission>
-            <DisplayName>Entitlement Subscriber Management</DisplayName>
+            <DisplayName>访问控制订阅者管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/subscriber</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/subscriber/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/subscriber/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/subscriber/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/subscriber/delete</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>List</DisplayName>
+            <DisplayName>列表</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/subscriber/list</ResourceId>
         </ManagementPermission>
 
         <!--Entitlement PDP-->
         <ManagementPermission>
-            <DisplayName>Entitlement PDP Management</DisplayName>
+            <DisplayName>访问控制 PDP 管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pdp</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Manage</DisplayName>
+            <DisplayName>管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pdp/manage</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pdp/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Test</DisplayName>
+            <DisplayName>测试</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pdp/test</ResourceId>
         </ManagementPermission>
 
         <!--Entitlement PEP-->
         <ManagementPermission>
-            <DisplayName>Entitlement PEP Management</DisplayName>
+            <DisplayName>访问控制 PEP 管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pep</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>
