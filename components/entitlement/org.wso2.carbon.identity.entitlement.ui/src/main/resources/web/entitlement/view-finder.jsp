@@ -15,6 +15,7 @@
  ~ specific language governing permissions and limitations
  ~ under the License.
  -->
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar"
 	prefix="carbon"%>
@@ -148,13 +149,13 @@
 
                     <table  class="styledLeft"  style="width: 100%">
                         <tr>
-                            <td>Name</td><td><%=Encode.forHtml(policyFinderDataHolder.getModuleName())%></td>
+                            <td>名称</td><td><%=Encode.forHtml(policyFinderDataHolder.getModuleName())%></td>
                         </tr>
                         <tr>
-                            <td>Class Name</td><td><%=Encode.forHtml(policyFinderDataHolder.getClassName())%></td>
+                            <td>类名</td><td><%=Encode.forHtml(policyFinderDataHolder.getClassName())%></td>
                         </tr>
                         <tr>
-                            <td>Policy Ids </td>
+                            <td>策略ID </td>
                             <td><%=Encode.forHtml(policyString)%></td>
                         </tr>
                     </table>
@@ -169,13 +170,13 @@
 
                     <table  class="styledLeft"  style="width: 100%">
                         <tr>
-                            <td>Name</td><td><%=Encode.forHtml(pipFinderDataHolder.getModuleName())%></td>
+                            <td>名称</td><td><%=Encode.forHtml(pipFinderDataHolder.getModuleName())%></td>
                         </tr>
                         <tr>
-                            <td>Class Name</td><td><%=Encode.forHtml(pipFinderDataHolder.getClassName())%></td>
+                            <td>类名</td><td><%=Encode.forHtml(pipFinderDataHolder.getClassName())%></td>
                         </tr>
                         <tr>
-                            <td>Support Attribute Ids </td>
+                            <td>支持的属性ID </td>
                             <td><%=Encode.forHtml(attributeString)%></td>
                         </tr>
                     </table>
