@@ -59,7 +59,7 @@
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/publish</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Demote</DisplayName>
+            <DisplayName>降级</DisplayName>
             <ResourceId>/permission/admin/manage/identity/entitlement/pap/policy/demote</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
