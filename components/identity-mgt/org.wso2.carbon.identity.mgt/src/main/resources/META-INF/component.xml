@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~
   ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
@@ -22,23 +23,23 @@
 
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Identity Management</DisplayName>
+            <DisplayName>身份管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/identitymgt</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/identitymgt/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/identitymgt/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/identitymgt/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/identitymgt/delete</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  ~
@@ -18,32 +19,32 @@
 <component xmlns="http://products.wso2.org/carbon">
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Identity</DisplayName>
+            <DisplayName>身份</DisplayName>
             <ResourceId>/permission/admin/manage/identity</ResourceId>
         </ManagementPermission>
 
         <ManagementPermission>
-            <DisplayName>Claim</DisplayName>
+            <DisplayName>声明</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Claim Management</DisplayName>
+            <DisplayName>声明管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt/claim</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt/claim/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt/claim/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt/claim/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt/claim/delete</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>

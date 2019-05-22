@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  ~ Copyright (c) 2005-2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  ~
@@ -76,60 +77,60 @@
 	</menus>
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Applications</DisplayName>
+            <DisplayName>应用</DisplayName>
             <ResourceId>/permission/applications</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Identity</DisplayName>
+            <DisplayName>身份</DisplayName>
             <ResourceId>/permission/admin/manage/identity</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Application Management</DisplayName>
+            <DisplayName>应用管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/applicationmgt</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/applicationmgt/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/applicationmgt/delete</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/applicationmgt/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/applicationmgt/create</ResourceId>
         </ManagementPermission>
 
         <ManagementPermission>
-            <DisplayName>Applications</DisplayName>
+            <DisplayName>应用</DisplayName>
             <ResourceId>/permission/applications</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Identity</DisplayName>
+            <DisplayName>身份</DisplayName>
             <ResourceId>/permission/admin/manage/identity</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Application Template Management</DisplayName>
+            <DisplayName>应用模板管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/apptemplatemgt</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/apptemplatemgt/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/apptemplatemgt/delete</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/apptemplatemgt/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/apptemplatemgt/create</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>

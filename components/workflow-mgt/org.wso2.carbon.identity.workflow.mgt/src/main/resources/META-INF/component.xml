@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~
   ~ Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
@@ -22,59 +23,59 @@
 
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Workflow Management</DisplayName>
+            <DisplayName>工作流管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Workflows</DisplayName>
+            <DisplayName>流程</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/definition</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/definition/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/definition/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/definition/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/definition/delete</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Associations</DisplayName>
+            <DisplayName>关联</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/association</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/association/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/association/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/association/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/association/delete</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Monitor</DisplayName>
+            <DisplayName>监控</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/monitor</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/monitor/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/workflow/monitor/delete</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>

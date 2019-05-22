@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~
   ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
@@ -20,24 +21,24 @@
 <component xmlns="http://products.wso2.org/carbon">
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>User Store Count Management</DisplayName>
+            <DisplayName>用户存储计数管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userstore/count</ResourceId>
         </ManagementPermission>
 
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userstore/count/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userstore/count/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userstore/count/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userstore/count/delete</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>

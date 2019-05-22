@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  ~
@@ -18,65 +19,65 @@
 <component xmlns="http://products.wso2.org/carbon">
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Identity</DisplayName>
+            <DisplayName>身份</DisplayName>
             <ResourceId>/permission/admin/manage/identity</ResourceId>
         </ManagementPermission>
 
         <!--User Management Permissions-->
         <ManagementPermission>
-            <DisplayName>User Management</DisplayName>
+            <DisplayName>用户管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/usermgt</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/usermgt/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/usermgt/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>List</DisplayName>
+            <DisplayName>列表</DisplayName>
             <ResourceId>/permission/admin/manage/identity/usermgt/list</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/usermgt/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/usermgt/delete</ResourceId>
         </ManagementPermission>
 
         <!--Role Management Permissions-->
         <ManagementPermission>
-            <DisplayName>Role Management</DisplayName>
+            <DisplayName>角色管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/rolemgt</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/rolemgt/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/rolemgt/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/rolemgt/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/rolemgt/delete</ResourceId>
         </ManagementPermission>
 
         <!--User/Role UI Management Permissions-->
         <ManagementPermission>
-            <DisplayName>User Role UI Management</DisplayName>
+            <DisplayName>用户角色 UI 管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userroleuimgt</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>UI-Create</DisplayName>
+            <DisplayName>UI-创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userroleuimgt/create</ResourceId>
         </ManagementPermission>
 

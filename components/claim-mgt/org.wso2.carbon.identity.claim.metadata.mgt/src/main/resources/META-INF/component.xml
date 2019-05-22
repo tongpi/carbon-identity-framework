@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
   ~
@@ -18,23 +19,23 @@
 
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Claim Metadata Management</DisplayName>
+            <DisplayName>声明元数据管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt/metadata</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt/metadata/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt/metadata/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt/metadata/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/claimmgt/metadata/delete</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>

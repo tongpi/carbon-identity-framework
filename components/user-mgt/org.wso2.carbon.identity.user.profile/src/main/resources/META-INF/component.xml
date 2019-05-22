@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 
@@ -19,49 +20,49 @@
 
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Identity</DisplayName>
+            <DisplayName>身份</DisplayName>
             <ResourceId>/permission/admin/manage/identity</ResourceId>
         </ManagementPermission>
 
         <ManagementPermission>
-            <DisplayName>User Profile Management</DisplayName>
+            <DisplayName>用户资料管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userprofile</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userprofile/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userprofile/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Update</DisplayName>
+            <DisplayName>更新</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userprofile/update</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/userprofile/delete</ResourceId>
         </ManagementPermission>
 
         <ManagementPermission>
-            <DisplayName>User</DisplayName>
+            <DisplayName>用户</DisplayName>
             <ResourceId>/permission/admin/manage/identity/user</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Association</DisplayName>
+            <DisplayName>关联</DisplayName>
             <ResourceId>/permission/admin/manage/identity/user/association</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Create</DisplayName>
+            <DisplayName>创建</DisplayName>
             <ResourceId>/permission/admin/manage/identity/user/association/create</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/user/association/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/user/association/delete</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>

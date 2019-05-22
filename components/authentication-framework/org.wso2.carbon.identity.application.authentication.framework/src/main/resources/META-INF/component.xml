@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  ~
@@ -18,26 +19,26 @@
 <component xmlns="http://products.wso2.org/carbon">
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Identity</DisplayName>
+            <DisplayName>身份</DisplayName>
             <ResourceId>/permission/admin/manage/identity</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Authentication Management</DisplayName>
+            <DisplayName>身份验证管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/authentication</ResourceId>
         </ManagementPermission>
 
         <!--Session Management-->
         <ManagementPermission>
-            <DisplayName>Session Management</DisplayName>
+            <DisplayName>会话管理</DisplayName>
             <ResourceId>/permission/admin/manage/identity/authentication/session</ResourceId>
         </ManagementPermission>
 
         <ManagementPermission>
-            <DisplayName>View</DisplayName>
+            <DisplayName>查看</DisplayName>
             <ResourceId>/permission/admin/manage/identity/authentication/session/view</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Delete</DisplayName>
+            <DisplayName>删除</DisplayName>
             <ResourceId>/permission/admin/manage/identity/authentication/session/delete</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>
