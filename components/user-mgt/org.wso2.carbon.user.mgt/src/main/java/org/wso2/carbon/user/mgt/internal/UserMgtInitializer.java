@@ -56,22 +56,22 @@ public class UserMgtInitializer {
         try {
             UserRegistry registry = registryService.getGovernanceSystemRegistry();
             Map<String, String> map = new HashMap<String, String>();
-            map.put(CarbonConstants.UI_PERMISSION_COLLECTION, "All Permissions");
-            map.put(CarbonConstants.UI_ADMIN_PERMISSION_COLLECTION, "Admin Permissions");
-            map.put(UserMgtConstants.UI_PROTECTED_PERMISSION_ROOT, "Super Admin Permissions");
-            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "manage", "Manage");
-            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "monitor", "Monitor");
-            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "manage/modify", "Configure");
-            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "manage/add", "Add");
-            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "configure", "Configure");
-            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "configure/security", "Security");
-            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "configure/security/usermgt", "Identity Management");
-            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "configure/security/usermgt/users", "User Management");
+            map.put(CarbonConstants.UI_PERMISSION_COLLECTION, "全部权限");
+            map.put(CarbonConstants.UI_ADMIN_PERMISSION_COLLECTION, "管理权限");
+            map.put(UserMgtConstants.UI_PROTECTED_PERMISSION_ROOT, "成绩管理员权限");
+            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "manage", "管理");
+            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "monitor", "监控");
+            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "manage/modify", "配置");
+            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "manage/add", "添加");
+            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "configure", "配置");
+            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "configure/security", "安全");
+            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "configure/security/usermgt", "身份管理");
+            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "configure/security/usermgt/users", "用户管理");
             map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "configure/security/usermgt/passwords",
-                    "Password Management");
+                    "密码管理");
             map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "configure/security/usermgt/profiles",
-                    "Profile Management");
-            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "login", "Login");
+                    "个人资料管理");
+            map.put(UserMgtConstants.UI_ADMIN_PERMISSION_ROOT + "login", "登录");
 
             for (Iterator<Map.Entry<String, String>> ite = map.entrySet().iterator(); ite.hasNext(); ) {
                 Map.Entry<String, String> entry = ite.next();
@@ -105,7 +105,7 @@ public class UserMgtInitializer {
             }
         } catch (Exception e) {
             log.error("While adding management permission :: " + e.getMessage(), e);
-            throw new Exception("While adding management permission :: " + e.getMessage(), e);
+            throw new Exception("当提及昂立权限时发生错误 :: " + e.getMessage(), e);
         }
     }
 }

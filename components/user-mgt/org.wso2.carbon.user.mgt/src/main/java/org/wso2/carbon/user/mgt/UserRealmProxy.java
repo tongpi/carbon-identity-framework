@@ -1989,7 +1989,7 @@ public class UserRealmProxy {
                 if (tenentRegistry.resourceExists(APPLICATIONS_PATH)) {
                     appRoot = (Collection) tenentRegistry.get(APPLICATIONS_PATH);
                     parent = (Collection) tenentRegistry.newCollection();
-                    parent.setProperty(UserMgtConstants.DISPLAY_NAME, "All Permissions");
+                    parent.setProperty(UserMgtConstants.DISPLAY_NAME, "全部权限");
                     parent.setChildren(new String[]{regRoot.getPath(), appRoot.getPath()});
                 }
 
@@ -2044,7 +2044,7 @@ public class UserRealmProxy {
                 if (tenentRegistry.resourceExists(APPLICATIONS_PATH)) {
                     appRoot = (Collection) tenentRegistry.get(APPLICATIONS_PATH);
                     parent = (Collection) tenentRegistry.newCollection();
-                    parent.setProperty(UserMgtConstants.DISPLAY_NAME, "All Permissions");
+                    parent.setProperty(UserMgtConstants.DISPLAY_NAME, "全部权限");
                     parent.setChildren(new String[]{regRoot.getPath(), appRoot.getPath()});
                 }
 
