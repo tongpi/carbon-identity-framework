@@ -127,7 +127,7 @@
 <script type="text/javascript" src="../carbon/admin/js/main.js"></script>
 <script type="text/javascript">
 
-    var allPolicesSelected = false;        
+    var allPolicesSelected = false;
 
     function setPolicyCombineAlgorithm() {
         var comboBox = document.getElementById("globalAlgorithmName");
@@ -221,7 +221,7 @@
                 if (document.policyForm.policies[j].checked) {
                     isSelected = true;
                 }
-            }                           
+            }
         } else if (document.policyForm.policies != null) { // only 1 service
             if (document.policyForm.policies.checked) {
                 isSelected = true;
@@ -295,12 +295,39 @@
                   if (policyCombiningAlgorithms != null && policyCombiningAlgorithms.length > 0) {
                       for (String algorithmName : policyCombiningAlgorithms) {
                           if(algorithmName.equals(globalPolicyCombiningAlgorithm)){
+                          String algorithmDisplayName="";
+                          switch(algorithmName) {
+                             case PolicyEditorConstants.CombiningAlog.DENY_OVERRIDE_ID:
+                                  algorithmDisplayName="????";
+                                  break;
+                             case PolicyEditorConstants.CombiningAlog.PERMIT_OVERRIDE_ID:
+                                  algorithmDisplayName="????";
+                                  break;
+                             case PolicyEditorConstants.CombiningAlog.FIRST_APPLICABLE_ID:
+                                  algorithmDisplayName="?????";
+                                  break;
+                             case PolicyEditorConstants.CombiningAlog.PERMIT_UNLESS_DENY_ID:
+                                  algorithmDisplayName="??????";
+                                  break;
+                             case PolicyEditorConstants.CombiningAlog.DENY_UNLESS_PERMIT_ID:
+                                  algorithmDisplayName="??????";
+                                  break;
+                             case PolicyEditorConstants.CombiningAlog.ORDER_PERMIT_OVERRIDE_ID:
+                                  algorithmDisplayName="??????";
+                                  break;
+                             case PolicyEditorConstants.CombiningAlog.ORDER_DENY_OVERRIDE_ID:
+                                  algorithmDisplayName="??????";
+                                  break;
+                             default:
+                                 algorithmDisplayName=algorithmName;
+                        };
+
                 %>
-                      <option value="<%=Encode.forHtmlAttribute(algorithmName)%>" selected="selected"><%=Encode.forHtmlContent(globalPolicyCombiningAlgorithm)%></option>
+                      <option value="<%=Encode.forHtmlAttribute(algorithmName)%>" selected="selected"><%=algorithmDisplayName%></option>
                 <%
                             } else {
                 %>
-                      <option value="<%=Encode.forHtmlAttribute(algorithmName)%>"><%=Encode.forHtmlContent(algorithmName)%></option>
+                      <option value="<%=Encode.forHtmlAttribute(algorithmName)%>"><%=algorithmDisplayName%></option>
                 <%
                             }
                         }
