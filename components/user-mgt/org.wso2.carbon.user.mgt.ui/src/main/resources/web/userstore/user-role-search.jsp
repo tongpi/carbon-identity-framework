@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
@@ -330,8 +330,8 @@
 
                 resultTable = '<table class="styledLeft noBorders" id="userTable"><thead>';
                 resultTable += '<tr>';
-                resultTable += '<th width="50px">Select</th>';
-                resultTable += '<th>UserName</th>';
+                resultTable += '<th width="50px">选择</th>';
+                resultTable += '<th>用户名</th>';
                 resultTable += '</tr>';
                 resultTable += '</thead>';
                 resultTable += '<tbody>';
@@ -356,8 +356,8 @@
 
                 resultTable = '<table class="styledLeft noBorders" id="userTable"><thead>';
                 resultTable += '<tr>';
-                resultTable += '<th width="50px">Select</th>';
-                resultTable += '<th>RoleName</th>';
+                resultTable += '<th width="50px">选择</th>';
+                resultTable += '<th>角色名</th>';
                 resultTable += '</tr>';
                 resultTable += '</thead>';
                 resultTable += '<tbody>';
@@ -399,8 +399,8 @@
 
                 resultTable = '<table class="styledLeft noBorders" id="userTable"><thead>';
                 resultTable += '<tr>';
-                resultTable += '<th width="50px">Select</th>';
-                resultTable += '<th>UserName</th>';
+                resultTable += '<th width="50px">选择</th>';
+                resultTable += '<th>用户名</th>';
                 resultTable += '</tr>';
                 resultTable += '</thead>';
                 resultTable += '</table>';
@@ -414,8 +414,8 @@
 
                 resultTable = '<table class="styledLeft noBorders" id="userTable"><thead>';
                 resultTable += '<tr>';
-                resultTable += '<th width="50px">Select</th>';
-                resultTable += '<th>RoleName</th>';
+                resultTable += '<th width="50px">选择</th>';
+                resultTable += '<th>角色名</th>';
                 resultTable += '</tr>';
                 resultTable += '</thead>';
                 resultTable += '</table>';
@@ -672,7 +672,7 @@
                     <tr id="id_claim_attribute">
                         <td><fmt:message key="claim.uri"/></td>
                         <td><select id="claimUri" name="claimUri">
-                            <option value="Select" selected="selected">Select</option>
+                            <option value="Select" selected="selected">---请选择---</option>
                             <%
                                 if(claimUris != null){
 

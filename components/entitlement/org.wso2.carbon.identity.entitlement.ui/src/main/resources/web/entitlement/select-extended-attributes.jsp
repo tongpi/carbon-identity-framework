@@ -15,6 +15,7 @@
  ~ specific language governing permissions and limitations
  ~ under the License.
  -->
+ <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.wso2.carbon.identity.entitlement.ui.dto.ExtendAttributeDTO" %>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="java.util.List" %>
@@ -179,7 +180,7 @@
                 <table cellspacing="0" id="mainTable" style="width:100%;border:none !important">
                     <tr>
                         <td>
-                            Select Attributes from request....
+                            从请求选择属性....
                         </td>
                     </tr>
                     <tr>
@@ -232,9 +233,9 @@
                         <td>
                             <table>
                                 <thead>
-                                <th>Category</th>
-                                <th>Attribute Id</th>
-                                <th>Attribute Data Type</th>
+                                <th>类别</th>
+                                <th>属性 Id</th>
+                                <th>属性数据类型</th>
                                 </thead>
                                 <tbody>
                                 <%
@@ -259,7 +260,7 @@
                 <table cellspacing="0"  style="width:100%;border:none !important">
                     <tr>
                         <td>
-                            Select Attributes from Function evaluation.....
+                            从函数评估中选择属性.....
                         </td>
                     </tr>
                     <tr>
@@ -324,10 +325,10 @@
                         <td>
                             <table>
                                 <thead>
-                                <th class="leftCol-small">Selector Type</th>
-                                <th>Category</th>
-                                <th>Attribute Id</th>
-                                <th>Attribute Data Type</th>
+                                <th class="leftCol-small">选择器类型</th>
+                                <th>类别</th>
+                                <th>属性 Id</th>
+                                <th>属性数据类型</th>
                                 </thead>
                                 <tbody>
                                 <tr><td>
