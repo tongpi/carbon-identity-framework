@@ -520,7 +520,7 @@
                             } else {
                             %>
                             <option value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                <%=Encode.forHtml(domainName)%>
+                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtml(domainName)%>
                             </option>
                             <%
                                     }
@@ -547,7 +547,7 @@
                     <tr>
                         <td><fmt:message key="claim.uri"/></td>
                         <td><select id="countClaimUri" name="countClaimUri">
-                            <option value="Select" selected="selected"><%=UserAdminUIConstants.SELECT%></option>
+                            <option value="Select" selected="selected">---请选择---</option>
                             <%
                                 if (claimUris != null) {
 
