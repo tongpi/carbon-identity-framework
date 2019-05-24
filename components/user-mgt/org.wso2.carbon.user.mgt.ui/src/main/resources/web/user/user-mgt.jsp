@@ -514,7 +514,7 @@
                                     if (selectedDomain.equals(domainName)) {
                             %>
                             <option selected="selected" value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                <%=Encode.forHtml(domainName)%>
+                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtml(domainName)%>
                             </option>
                             <%
                             } else {

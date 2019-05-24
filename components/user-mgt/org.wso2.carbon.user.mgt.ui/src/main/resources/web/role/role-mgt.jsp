@@ -406,13 +406,13 @@
                                     if (selectedDomain.equals(domainName)) {
                             %>
                             <option selected="selected"
-                                    value="<%=Encode.forHtmlAttribute(domainName)%>"><%=Encode.forHtmlContent(domainName)%>
+                                    value="<%=Encode.forHtmlAttribute(domainName)%>"><%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtmlContent(domainName)%>
                             </option>
                             <%
                             } else {
                             %>
                             <option value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                <%=Encode.forHtmlContent(domainName)%>
+                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtmlContent(domainName)%>
                             </option>
                             <%
                                     }
