@@ -671,8 +671,7 @@
                                 key="delete"/></a>
 
                         <a href="#" class="icon-link" title="操作被禁用"
-                           style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;">User
-                            Profile</a>
+                           style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;">用户资料</a>
                     </td>
                 </tr>
                 <%
@@ -750,8 +749,7 @@
                         <a
                                 href="../userprofile/index.jsp?username=<%=Encode.forUriComponent(encryptedUsername)%>&displayName=<%=Encode.forUriComponent(displayName)%>&fromUserMgt=true"
                            class="icon-link"
-                           style="background-image:url(../userprofile/images/my-prof.gif);">User
-                            Profile</a>
+                           style="background-image:url(../userprofile/images/my-prof.gif);">用户资料</a>
                         <%
                             }
                         %>
@@ -786,8 +784,7 @@
                                 key="delete"/></a>
 
                         <a href="#" class="icon-link" title="操作被禁用"
-                           style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;">User
-                            Profile</a>
+                           style="background-image:url(../userprofile/images/my-prof.gif);color:#CCC;">用户资料</a>
                         <%
                                 continue;
                             }
@@ -879,8 +876,7 @@
                                     "/permission/admin/configure/security/usermgt/profiles")) {
                         %>
                         <a href="../userprofile/index.jsp?username=<%=Encode.forUriComponent(encryptedUsername)%>&displayName=<%=Encode.forUriComponent(displayName)%>&fromUserMgt=true"
-                           class="icon-link" style="background-image:url(../userprofile/images/my-prof.gif);">User
-                            Profile</a>
+                           class="icon-link" style="background-image:url(../userprofile/images/my-prof.gif);">用户资料</a>
                         <%
                             }
                         %>
