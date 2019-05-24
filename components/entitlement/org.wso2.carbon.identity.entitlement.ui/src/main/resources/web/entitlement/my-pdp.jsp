@@ -294,34 +294,33 @@
                 <%
                   if (policyCombiningAlgorithms != null && policyCombiningAlgorithms.length > 0) {
                       for (String algorithmName : policyCombiningAlgorithms) {
-                          if(algorithmName.equals(globalPolicyCombiningAlgorithm)){
                           String algorithmDisplayName="";
                           switch(algorithmName) {
                              case PolicyEditorConstants.CombiningAlog.DENY_OVERRIDE_ID:
-                                  algorithmDisplayName="????";
+                                  algorithmDisplayName="否决优先";
                                   break;
                              case PolicyEditorConstants.CombiningAlog.PERMIT_OVERRIDE_ID:
-                                  algorithmDisplayName="????";
+                                  algorithmDisplayName="许可优先";
                                   break;
                              case PolicyEditorConstants.CombiningAlog.FIRST_APPLICABLE_ID:
-                                  algorithmDisplayName="?????";
+                                  algorithmDisplayName="第一个适合";
                                   break;
                              case PolicyEditorConstants.CombiningAlog.PERMIT_UNLESS_DENY_ID:
-                                  algorithmDisplayName="??????";
+                                  algorithmDisplayName="许可除非否决";
                                   break;
                              case PolicyEditorConstants.CombiningAlog.DENY_UNLESS_PERMIT_ID:
-                                  algorithmDisplayName="??????";
+                                  algorithmDisplayName="否决除非许可";
                                   break;
                              case PolicyEditorConstants.CombiningAlog.ORDER_PERMIT_OVERRIDE_ID:
-                                  algorithmDisplayName="??????";
+                                  algorithmDisplayName="有序许可优先";
                                   break;
                              case PolicyEditorConstants.CombiningAlog.ORDER_DENY_OVERRIDE_ID:
-                                  algorithmDisplayName="??????";
+                                  algorithmDisplayName="有序否决优先";
                                   break;
                              default:
                                  algorithmDisplayName=algorithmName;
-                        };
-
+                         };
+                         if(algorithmName.equals(globalPolicyCombiningAlgorithm)){
                 %>
                       <option value="<%=Encode.forHtmlAttribute(algorithmName)%>" selected="selected"><%=algorithmDisplayName%></option>
                 <%
