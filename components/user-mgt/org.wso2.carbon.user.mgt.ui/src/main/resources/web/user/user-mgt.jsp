@@ -425,13 +425,13 @@
                                     if (selectedDomain.equals(domainName)) {
                             %>
                             <option selected="selected" value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                <%=Encode.forHtml(domainName)%>
+                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtml(domainName)%>
                             </option>
                             <%
                             } else {
                             %>
                             <option value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                <%=Encode.forHtml(domainName)%>
+                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtml(domainName)%>
                             </option>
                             <%
                                     }
@@ -459,7 +459,7 @@
                     <tr>
                         <td><fmt:message key="claim.uri"/></td>
                         <td><select id="claimUri" name="claimUri">
-                            <option value="Select" selected="selected"><%=UserAdminUIConstants.SELECT%></option>
+                            <option value="Select" selected="selected">---请选择---</option>
                             <%
                                 if (claimUris != null) {
 
