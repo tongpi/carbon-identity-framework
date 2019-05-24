@@ -382,7 +382,7 @@
                                         if (metaData != null) {
                                 %>
                                 <tr>
-                                    <td width="200px" style="vertical-align: top !important;"><%=metaData.getDisplayName()%><%=metaData.getIsRequired()?"<span style=\"color:red\">*</span>":""%>
+                                    <td width="200px" style="vertical-align: top !important;">用户和角色-<%=Encode.forHtmlAttribute(metaData.getDisplayName())%><%=metaData.getIsRequired()?"<span style=\"color:red\">*</span>":""%>
                                     </td>
                                 </tr>
                                 <tr>
