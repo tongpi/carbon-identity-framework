@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="carbon" uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
@@ -245,7 +245,7 @@
         var stepOrder = 0;
         function nextWizard(){
             if(!validateInputs()){
-                alert("Required fields are missing");
+                alert("需要的字段缺失");
                 return ;
             }
 
@@ -509,7 +509,7 @@
                                             var stepHtml = '<div class="toggle_container sectionSub" id="div_step_head_'+stepOrder+'" style="border:solid 1px #ccc;padding: 10px;margin-bottom:10px;" >' +
                                                            '<h2 id="step_head_'+stepOrder+'" class="trigger active step_heads" style="background-color: beige; clear: both;">' +
                                                            '<input type="hidden" value="'+stepOrder+'" name="approve_step" id="approve_step">' +
-                                                           '<a class="step_order_header" href="#">Step '+stepOrder+'</a>' +
+                                                           '<a class="step_order_header" href="#">步骤 '+stepOrder+'</a>' +
                                                            '<a onclick="deleteStep(this);return false;" href="#" class="icon-link" style="background-image: url(images/delete.gif);float:right;width: 9px;" name="delete-obj" id="delete-obj-'+stepOrder+'"></a>' +
                                                            '</h2>' +
                                                            '<table style="width:100%;">' +
@@ -517,14 +517,14 @@
                                                            '<tr id="id_step_roles_'+stepOrder+'" style="display:none;">' +
                                                            '<td style="width:100%;">' +
                                                            '<table  style="width:100%;">' +
-                                                           '<tr><td width="40px">Roles</td><td onclick="moveSearchController(\''+stepOrder+'\',\'roles\', false);"><input readonly  name="<%=Encode.forJavaScriptBlock(Encode.forHtmlAttribute(metaData.getName()))%>-step-'+stepOrder+'-roles" id="p-step-'+stepOrder+'-roles"  type="text"  class="tokenizer_'+stepOrder+'"/></td></tr>' +
+                                                           '<tr><td width="40px">角色</td><td onclick="moveSearchController(\''+stepOrder+'\',\'roles\', false);"><input readonly  name="<%=Encode.forJavaScriptBlock(Encode.forHtmlAttribute(metaData.getName()))%>-step-'+stepOrder+'-roles" id="p-step-'+stepOrder+'-roles"  type="text"  class="tokenizer_'+stepOrder+'"/></td></tr>' +
                                                            '</table>' +
                                                            '</td>' +
                                                            '</tr>' +
                                                            '<tr id="id_step_users_'+stepOrder+'" style="width:100%;display:none;">' +
                                                            '<td style="width:100%;">' +
                                                            '<table style="width:100%;">' +
-                                                           '<tr><td width="40px">Users</td><td onclick="moveSearchController(\''+stepOrder+'\',\'users\', false);"><input readonly  name="<%=Encode.forJavaScriptBlock(Encode.forHtmlAttribute(metaData.getName()))%>-step-'+stepOrder+'-users" id="p-step-'+stepOrder+'-users" type="text" class="tokenizer_'+stepOrder+'"/></td></tr>' +
+                                                           '<tr><td width="40px">用户</td><td onclick="moveSearchController(\''+stepOrder+'\',\'users\', false);"><input readonly  name="<%=Encode.forJavaScriptBlock(Encode.forHtmlAttribute(metaData.getName()))%>-step-'+stepOrder+'-users" id="p-step-'+stepOrder+'-users" type="text" class="tokenizer_'+stepOrder+'"/></td></tr>' +
                                                            '</table>' +
                                                            '</td>' +
                                                            '</tr>' +
@@ -643,7 +643,7 @@
                                     <td>
 
 
-                                        Test
+                                        测试
                                     </td>
                                     <%
 

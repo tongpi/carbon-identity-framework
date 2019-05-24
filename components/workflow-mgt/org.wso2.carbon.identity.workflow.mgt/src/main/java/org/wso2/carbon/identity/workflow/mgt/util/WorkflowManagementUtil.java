@@ -48,7 +48,7 @@ public class WorkflowManagementUtil {
             CarbonContext.getThreadLocalCarbonContext().getUserRealm().getUserStoreManager()
                     .addRole(roleName, user, null);
         } catch (UserStoreException e) {
-            throw new WorkflowException("Error while creating role", e);
+            throw new WorkflowException("创建角色出错", e);
         }
 
     }
@@ -69,7 +69,7 @@ public class WorkflowManagementUtil {
             CarbonContext.getThreadLocalCarbonContext().getUserRealm().getUserStoreManager()
                     .deleteRole(roleName);
         } catch (UserStoreException e) {
-            throw new WorkflowException("Error while creating workflow", e);
+            throw new WorkflowException("创建流程出错", e);
         }
     }
 
@@ -91,7 +91,7 @@ public class WorkflowManagementUtil {
             CarbonContext.getThreadLocalCarbonContext().getUserRealm().getUserStoreManager()
                     .updateRoleName(oldRoleName, newRoleName);
         } catch (UserStoreException e) {
-            throw new WorkflowException("Error while updating workflow role name.", e);
+            throw new WorkflowException("更新流程角色名出错.", e);
         }
 
     }
@@ -156,7 +156,7 @@ public class WorkflowManagementUtil {
             content = resourceFile.toString();
 
         } catch (IOException e) {
-            String errorMsg = "Error occurred while reading file from class path, " + e.getMessage();
+            String errorMsg = "从类路径读取文件时出错, " + e.getMessage();
             log.error(errorMsg);
             throw new WorkflowRuntimeException(errorMsg, e);
         }

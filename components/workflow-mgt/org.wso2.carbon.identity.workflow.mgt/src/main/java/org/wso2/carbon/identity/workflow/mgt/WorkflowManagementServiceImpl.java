@@ -394,17 +394,17 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
 
         if (StringUtils.isBlank(workflowId)) {
             log.error("Null or empty string given as workflow id to be associated to event.");
-            throw new InternalWorkflowException("Service alias cannot be null");
+            throw new InternalWorkflowException("服务别名不能为空");
         }
         if (StringUtils.isBlank(eventId)) {
             log.error("Null or empty string given as 'event' to be associated with the service.");
-            throw new InternalWorkflowException("Event type cannot be null");
+            throw new InternalWorkflowException("事件类型不能为空");
         }
 
         if (StringUtils.isBlank(condition)) {
             log.error("Null or empty string given as condition expression when associating " + workflowId +
                     " to event " + eventId);
-            throw new InternalWorkflowException("Condition cannot be null");
+            throw new InternalWorkflowException("条件不能为空");
         }
 
         //check for xpath syntax errors
@@ -415,7 +415,7 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
             associationDAO.addAssociation(associationName, workflowId, eventId, condition);
         } catch (XPathExpressionException e) {
             log.error("The condition:" + condition + " is not an valid xpath expression.", e);
-            throw new WorkflowRuntimeException("The condition is not a valid xpath expression.");
+            throw new WorkflowRuntimeException("条件不是一个有效的 xpath 表达式.");
         }
         for (WorkflowListener workflowListener : workflowListenerList) {
             if (workflowListener.isEnable()) {
@@ -784,7 +784,7 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
         String loggedUser = CarbonContext.getThreadLocalCarbonContext().getUsername();
         String createdUser = workflowRequestDAO.retrieveCreatedUserOfRequest(requestId);
         if (!loggedUser.equals(createdUser)) {
-            throw new WorkflowException("User not authorized to delete this request");
+            throw new WorkflowException("用户无权删除此申请");
         }
         WorkflowRequest workflowRequest = new WorkflowRequest();
         workflowRequest.setRequestId(requestId);

@@ -217,7 +217,7 @@
 
         function nextWizard(){
             if(!validateInputs()){
-                alert("Required fields are missing");
+                alert("缺失必要的字段，不能继续");
                 return ;
             }
             try {
@@ -609,7 +609,7 @@
                                         <td>
 
 
-                                            Test
+                                            测试
                                         </td>
                                         <%
 
