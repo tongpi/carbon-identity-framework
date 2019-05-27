@@ -15,6 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.commons.collections.MapUtils" %>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ page
@@ -108,15 +109,15 @@
 
 <html>
 <body>
-<p>You are now redirected to <%=commonauthURL%>
-   If the redirection fails, please click the post button.</p>
+<p>正在重定向到 <%=commonauthURL%>
+ 如果重定向失败，请单击“前往”按钮.</p>
 
 <form method='post' action='<%=commonauthURL%>'>
     <p>
         <input id="token" name="token" type="hidden" value="<%=Encode.forHtmlAttribute(token)%>">
         <input id="sessionDataKey" name="sessionDataKey" type="hidden"
                value="<%=Encode.forHtmlAttribute(sessionDataKey)%>">
-        <button type='submit'>POST</button>
+        <button type='submit'>前往</button>
     </p>
 </form>
 <script type='text/javascript'>

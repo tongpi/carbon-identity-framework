@@ -60,7 +60,7 @@
     <div class="container-fluid">
         <div class="pull-left brand float-remove-xs text-center-xs">
             <a href="#">
-                <img src="images/logo-inverse.svg" alt="wso2" title="wso2" class="logo">
+                <img src="images/logo-inverse.svg" alt="wso2" title="gds" class="logo">
                 <h1><em><%=AuthenticationEndpointUtil.i18n(resourceBundle, "identity.server")%> </em></h1>
             </a>
         </div>
@@ -113,6 +113,3 @@
 <script src="libs/bootstrap_3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-
