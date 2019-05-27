@@ -392,8 +392,8 @@ public class SSOConsentServiceImpl implements SSOConsentService {
             }
 
             if (hasUserMultipleReceipts(receiptListResponses)) {
-                throw new SSOConsentServiceException("Consent Management Error", "User cannot have more than one " +
-                                                                             "ACTIVE consent per service provider.");
+                throw new SSOConsentServiceException("同意管理出错", "针对每个服务提供者，用户不能有多于一个 " +
+                                                                             "活动的同意.");
             } else if (hasUserSingleReceipt(receiptListResponses)) {
                 String receiptId = getFirstConsentReceiptFromList(receiptListResponses);
                 return getReceipt(authenticatedUser, receiptId);
@@ -401,8 +401,8 @@ public class SSOConsentServiceImpl implements SSOConsentService {
                 return null;
             }
         } catch (ConsentManagementException e) {
-            throw new SSOConsentServiceException("Consent Management Error",
-                                                 "Error while retrieving user consents.", e);
+            throw new SSOConsentServiceException("同意管理出错",
+                                                 "获取用户同意时发生错误.", e);
         }
     }
 
@@ -416,8 +416,7 @@ public class SSOConsentServiceImpl implements SSOConsentService {
             startTenantFlowWithUser(subject, subjectTenantDomain);
             receiptResponse = getConsentManager().addConsent(receiptInput);
         } catch (ConsentManagementException e) {
-            throw new SSOConsentServiceException("Consent receipt error", "Error while adding the consent " +
-                                                                                 "receipt", e);
+            throw new SSOConsentServiceException("同意回执出错", "添加同意回执时出错", e);
         } finally {
             PrivilegedCarbonContext.endTenantFlow();
         }
@@ -430,7 +429,7 @@ public class SSOConsentServiceImpl implements SSOConsentService {
     private ReceiptInput buildReceiptInput(String subject, ServiceProvider serviceProvider, String spTenantDomain,
                                            List<ClaimMetaData> claims) throws SSOConsentServiceException {
 
-        String collectionMethod = "Web Form - Sign-in";
+        String collectionMethod = "Web 表单 - 登录";
         String jurisdiction = "NONE";
         String language = "us_EN";
         String consentType = "EXPLICIT";
@@ -523,12 +522,12 @@ public class SSOConsentServiceImpl implements SSOConsentService {
                 if (isInvalidPIICategoryError(e)) {
                     piiCategory = addPIICategoryForClaim(claim);
                 } else {
-                    throw new SSOConsentServiceException("Consent PII category error", "Error while retrieving" +
-                            " PII category: " + DEFAULT_PURPOSE_CATEGORY, e);
+                    throw new SSOConsentServiceException("同意 PII 类别错误", "出错了，当获取" +
+                            " PII 类别: " + DEFAULT_PURPOSE_CATEGORY, e);
                 }
             } catch (ConsentManagementException e) {
-                throw new SSOConsentServiceException("Consent PII category error", "Error while retrieving " +
-                        "PII category: " + DEFAULT_PURPOSE_CATEGORY, e);
+                throw new SSOConsentServiceException("同意 PII 类别错误", "发生错误，当获取" +
+                        "PII 类别: " + DEFAULT_PURPOSE_CATEGORY, e);
             }
             piiCategoryIds.add(new PIICategoryValidity(piiCategory.getId(), termination));
         }
@@ -543,8 +542,8 @@ public class SSOConsentServiceImpl implements SSOConsentService {
         try {
             piiCategory = getConsentManager().addPIICategory(piiCategoryInput);
         } catch (ConsentManagementException e) {
-            throw new SSOConsentServiceException("Consent PII category error", "Error while adding" +
-                                                                      " PII category:" + DEFAULT_PURPOSE_CATEGORY, e);
+            throw new SSOConsentServiceException("同意 PII 类别错误", "当添加" +
+                                                                      " PII 类别时发生错误:" + DEFAULT_PURPOSE_CATEGORY, e);
         }
         return piiCategory;
     }
@@ -564,12 +563,12 @@ public class SSOConsentServiceImpl implements SSOConsentService {
             if (isInvalidPurposeCategoryError(e)) {
                 purposeCategory = addDefaultPurposeCategory();
             } else {
-                throw new SSOConsentServiceException("Consent purpose category error", "Error while retrieving" +
-                                                                  " purpose category: " + DEFAULT_PURPOSE_CATEGORY, e);
+                throw new SSOConsentServiceException("同意目的类别错误", "当获取" +
+                                                                  "同意目的类别时出错: " + DEFAULT_PURPOSE_CATEGORY, e);
             }
         } catch (ConsentManagementException e) {
-            throw new SSOConsentServiceException("Consent purpose category error", "Error while retrieving " +
-                                                                  "purpose category: " + DEFAULT_PURPOSE_CATEGORY, e);
+            throw new SSOConsentServiceException("同意目的类别错误", "当获取" +
+                                                                  "同意目的类别时出错: " + DEFAULT_PURPOSE_CATEGORY, e);
         }
         return purposeCategory;
     }
@@ -582,8 +581,8 @@ public class SSOConsentServiceImpl implements SSOConsentService {
         try {
             purposeCategory = getConsentManager().addPurposeCategory(defaultPurposeCategory);
         } catch (ConsentManagementException e) {
-            throw new SSOConsentServiceException("Consent purpose category error", "Error while adding" +
-                                                                  " purpose category: " + DEFAULT_PURPOSE_CATEGORY, e);
+            throw new SSOConsentServiceException("同意目的类别错误", "当添加同意目的类别" +
+                                                                  "时发生错误: " + DEFAULT_PURPOSE_CATEGORY, e);
         }
         return purposeCategory;
     }
@@ -991,7 +990,7 @@ public class SSOConsentServiceImpl implements SSOConsentService {
             currentReceipt = getConsentManager().getReceipt(receiptId);
         } catch (ConsentManagementException e) {
             throw new SSOConsentServiceException("同意管理错误",
-                                                 "当获取用户同意心思时发生错误.", e);
+                                                 "当获取用户同意信息时发生错误.", e);
         } finally {
             PrivilegedCarbonContext.endTenantFlow();
         }
