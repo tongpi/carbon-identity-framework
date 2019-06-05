@@ -15,7 +15,7 @@
    specific language governing permissions and limitations
    under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <%@ taglib uri="http://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project/Owasp.CsrfGuard.tld" prefix="csrf" %>
@@ -393,8 +393,8 @@
                 <table class="styledLeft" id="table_users_list_of_role">
                     <thead>
                     <tr>
-                        <th><fmt:message key="roles.in.the.user"/> <strong><%=Encode.forHtml(decryptedUsername)%>
-                        </strong></th>
+                        <th> <strong><%=Encode.forHtml(decryptedUsername)%>
+                        </strong> <fmt:message key="roles.in.the.user" /></th>
                     </tr>
                     </thead>
 
@@ -465,9 +465,15 @@
                                                  alt="Workflow-pending-user-delete" height="15" width="15">
                                             <%
                                             } else {
+                                                String roleDisplayName = name.getItemName();
+                                                if ("admin".equalsIgnoreCase(roleDisplayName)) {
+                                                    roleDisplayName = "系统管理员";
+                                                }else if ("Internal/everyone".equalsIgnoreCase(roleDisplayName)) {
+                                                    roleDisplayName = "内部/人员";
+                                                }
                                             %>
-                                            <%=Encode.forHtml(name.getItemName())%>
-                                            <%if (!name.getEditable()) { %> <%="(Read-Only)"%> <%
+                                            <%=Encode.forHtml(roleDisplayName)%>
+                                            <%if (!name.getEditable()) { %> <%="(只读)"%> <%
                                                 }
                                             } %>
                                             <input type="hidden" name="shownRoles"
