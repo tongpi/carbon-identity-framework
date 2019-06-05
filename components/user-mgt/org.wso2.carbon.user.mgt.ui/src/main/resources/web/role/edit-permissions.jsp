@@ -111,6 +111,11 @@
     UIPermissionNode rootNode = null;
     String roleName = request.getParameter("roleName");
 
+    String roleDisplayName = roleName;
+    if ("Internal/everyone".equalsIgnoreCase(roleName)) {
+         roleDisplayName = "内部/人员";
+    }
+
     try {
         if (encryptedPrevUser != null) {
             decryptedPrevUser = Util.getDecryptedUsername(encryptedPrevUser);
@@ -143,7 +148,7 @@
                        topPage="false" request="<%=request%>"/>
 
     <div id="middle">
-        <h2><fmt:message key="permissions.of.the.role"/> <%=Encode.forHtmlContent(roleName)%>
+        <h2><fmt:message key="permissions.of.the.role"/> <%=Encode.forHtmlContent(roleDisplayName)%>
         </h2>
 
         <div id="workArea">
