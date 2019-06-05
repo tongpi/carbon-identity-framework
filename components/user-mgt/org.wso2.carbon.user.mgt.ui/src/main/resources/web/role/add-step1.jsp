@@ -281,17 +281,25 @@
                                     <td colspan="2"><select onchange="changeBasedOnDomain()" id="domain" name="domain">
                                         <%
                                             for (String domainName : domainNames) {
+                                                String domainDisplayName=domainName;
+                                                if ("APPLICATION".equalsIgnoreCase(domainName)) {
+                                                    domainDisplayName = "应用域";
+                                                }else if ("INTERNAL".equalsIgnoreCase(domainName)) {
+                                                    domainDisplayName = "内部域";
+                                                }else if ("PRIMARY".equalsIgnoreCase(domainName)) {
+                                                    domainDisplayName = "主域";
+                                                }
                                                 if (selectedDomain.equals(domainName)) {
                                         %>
                                         <option selected="selected"
                                                 value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                            <%=Encode.forHtmlContent(domainName.toUpperCase())%>
+                                            <%=Encode.forHtmlContent(domainDisplayName.toUpperCase())%>
                                         </option>
                                         <%
                                         } else {
                                         %>
                                         <option value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                            <%=Encode.forHtmlContent(domainName.toUpperCase())%>
+                                            <%=Encode.forHtmlContent(domainDisplayName.toUpperCase())%>
                                         </option>
                                         <%
                                                 }
