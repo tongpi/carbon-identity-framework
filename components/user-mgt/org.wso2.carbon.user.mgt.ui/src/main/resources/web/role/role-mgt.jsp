@@ -403,16 +403,24 @@
                         <td><select id="domain" name="domain">
                             <%
                                 for (String domainName : domainNames) {
+                                    String domainDisplayName=domainName;
+                                    if ("APPLICATION".equalsIgnoreCase(domainName)) {
+                                        domainDisplayName = "应用域";
+                                    }else if ("INTERNAL".equalsIgnoreCase(domainName)) {
+                                        domainDisplayName = "内部域";
+                                    }else if ("PRIMARY".equalsIgnoreCase(domainName)) {
+                                        domainDisplayName = "主域";
+                                    }
                                     if (selectedDomain.equals(domainName)) {
                             %>
                             <option selected="selected"
-                                    value="<%=Encode.forHtmlAttribute(domainName)%>"><%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtmlContent(domainName)%>
+                                    value="<%=Encode.forHtmlAttribute(domainName)%>"><%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtmlContent(domainDisplayName)%>
                             </option>
                             <%
                             } else {
                             %>
                             <option value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtmlContent(domainName)%>
+                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtmlContent(domainDisplayName)%>
                             </option>
                             <%
                                     }

@@ -511,16 +511,20 @@
                         <td><select id="countDomain" name="countDomain">
                             <%
                                 for (String domainName : countableUserStores) {
+                                    String domainDisplayName=domainName;
+                                    if ("PRIMARY".equalsIgnoreCase(domainName)) {
+                                        domainDisplayName = "主域";
+                                    }
                                     if (selectedDomain.equals(domainName)) {
                             %>
                             <option selected="selected" value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtml(domainName)%>
+                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtml(domainDisplayName)%>
                             </option>
                             <%
                             } else {
                             %>
                             <option value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtml(domainName)%>
+                                <%=UserAdminUIConstants.ALL_DOMAINS.equals(domainName)?"全部用户存储":Encode.forHtml(domainDisplayName)%>
                             </option>
                             <%
                                     }
