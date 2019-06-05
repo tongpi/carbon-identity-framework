@@ -116,12 +116,16 @@
     } else {
         newFilter = true;
     }
-    
+
     filter = filter.trim();
     session.setAttribute(UserAdminUIConstants.ROLE_LIST_VIEW_USER_FILTER, filter);
 
     String roleName = request.getParameter("roleName");
 
+    String roleDisplayName = roleName;
+    if ("admin".equalsIgnoreCase(roleName)) {
+         roleDisplayName = "系统管理员";
+    }
     String prevRole = (String) session.getAttribute("previousRole");
 
     boolean useCache = false;
@@ -351,7 +355,7 @@
 
 
     <div id="middle">
-        <h2><fmt:message key="users.list.in.role"/> <%=Encode.forHtml(roleName)%>
+        <h2><fmt:message key="users.list.in.role"/> <%=Encode.forHtml(roleDisplayName)%>
         </h2>
 
         <script type="text/javascript">
