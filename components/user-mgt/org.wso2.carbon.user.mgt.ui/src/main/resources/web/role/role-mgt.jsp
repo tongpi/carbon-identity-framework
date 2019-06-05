@@ -569,6 +569,13 @@
                                 if (displayName == null) {
                                     displayName = roleName;
                                 }
+                                if ("admin".equals(displayName)) {
+                                    displayName = "系统管理员";
+                                }
+                                if ("Internal/everyone".equals(displayName)) {
+                                    displayName = "内部/人员";
+                                }
+
                                 if (workFlowAddPendingRolesList.contains(roleName)) {
                 %>
                 <tr>
