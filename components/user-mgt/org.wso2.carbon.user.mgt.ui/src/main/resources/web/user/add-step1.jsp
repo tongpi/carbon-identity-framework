@@ -15,7 +15,7 @@
    specific language governing permissions and limitations
    under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <%@ page import="org.apache.axis2.context.ConfigurationContext" %>
@@ -391,16 +391,20 @@
                                     <td><select id="domain" name="domain">
                                         <%
                                             for (String domainName : domainNames) {
+                                                String domainDisplayName=domainName;
+                                                if ("PRIMARY".equalsIgnoreCase(domainName)) {
+                                                    domainDisplayName = "主域";
+                                                }
                                                 if (selectedDomain.equals(domainName)) {
                                         %>
                                         <option selected="selected" value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                            <%=Encode.forHtmlContent(domainName)%>
+                                            <%=Encode.forHtmlContent(domainDisplayName)%>
                                         </option>
                                         <%
                                         } else {
                                         %>
                                         <option value="<%=Encode.forHtmlAttribute(domainName)%>">
-                                            <%=Encode.forHtmlContent(domainName)%>
+                                            <%=Encode.forHtmlContent(domainDisplayName)%>
                                         </option>
                                         <%
                                                 }
