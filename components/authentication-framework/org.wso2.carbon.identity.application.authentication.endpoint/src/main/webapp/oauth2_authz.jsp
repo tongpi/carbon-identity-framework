@@ -220,7 +220,7 @@
 
 <script src="libs/jquery_1.11.3/jquery-1.11.3.js"></script>
 <script src="libs/bootstrap_3.3.5/js/bootstrap.min.js"></script>
-
+<%--
 <!-- footer -->
 <footer class="footer">
     <div class="container-fluid">
@@ -232,5 +232,6 @@
         </p>
     </div>
 </footer>
+--%>
 </body>
 </html>
