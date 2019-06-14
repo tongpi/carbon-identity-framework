@@ -228,7 +228,7 @@
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" name="consent_select_all" id="consent_select_all"/>
-                                                        Select All
+                                                        全选
                                                     </label>
                                                 </div>
                                             </div>
