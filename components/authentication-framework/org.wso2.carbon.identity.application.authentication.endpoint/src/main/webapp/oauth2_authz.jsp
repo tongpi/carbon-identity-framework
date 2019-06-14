@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.commons.collections.CollectionUtils" %>
 <%@ page import="org.apache.commons.lang.StringUtils" %>
 <%@ page import="org.owasp.encoder.Encode" %>
@@ -38,12 +38,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=AuthenticationEndpointUtil.i18n(resourceBundle, "wso2.identity.server")%></title>
-    
+
     <link rel="icon" href="images/favicon.png" type="image/x-icon"/>
     <link href="libs/bootstrap_3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/Roboto.css" rel="stylesheet">
     <link href="css/custom-common.css" rel="stylesheet">
-    
+
     <!--[if lt IE 9]>
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
@@ -69,7 +69,7 @@
 
         document.getElementById("profile").submit();
     }
-    
+
     function deny() {
         document.getElementById('consent').value = "deny";
         document.getElementById("profile").submit();
@@ -91,10 +91,10 @@
 
 <!-- page content -->
 <div class="container-fluid body-wrapper">
-    
+
     <div class="row">
         <div class="col-md-12">
-            
+
             <!-- content -->
             <div class="container col-xs-10 col-sm-6 col-md-6 col-lg-5 col-centered wr-content wr-login col-centered">
                 <div>
@@ -102,13 +102,13 @@
                         <%=AuthenticationEndpointUtil.i18n(resourceBundle, "authorize")%>
                     </h2>
                 </div>
-                
+
                 <div class="boarder-all ">
                     <div class="clearfix"></div>
                     <div class="padding-double login-form">
                         <form action="<%=oauth2AuthorizeURL%>" method="post" id="profile" name="oauth2_authz"
                               class="form-horizontal" >
-                            
+
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="alert alert-warning" role="alert">
                                     <p class="margin-bottom-double">
@@ -117,22 +117,22 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                
+
                                     <%
                                         if (displayScopes && StringUtils.isNotBlank(scopeString)) {
                                             // Remove "openid" from the scope list to display.
                                             List<String> openIdScopes = Stream.of(scopeString.split(" "))
                                                     .filter(x -> !StringUtils.equalsIgnoreCase(x, "openid"))
                                                     .collect(Collectors.toList());
-            
+
                                             if (CollectionUtils.isNotEmpty(openIdScopes)) {
                                     %>
                                 <h5 class="section-heading-5"><%=AuthenticationEndpointUtil.i18n(resourceBundle, "requested.scopes")%>
                                 </h5>
                                 <div class="border-gray" style="border-bottom: none;">
-        
+
                                     <ul class="scopes-list padding">
                                         <%
                                             for (String scopeID : openIdScopes) {
@@ -153,13 +153,13 @@
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="scope-approval" id="approveCb" value="approve">
-                                            Approve Once
+                                            只同意一次，只允许该应用本次获取以上信息
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="scope-approval" id="approveAlwaysCb" value="approveAlways">
-                                            Approve Always
+                                            信任该应用，总是允许该应用获取以上信息
                                         </label>
                                     </div>
                                 </div>
@@ -193,11 +193,11 @@
                     </div>
                 </div>
             </div>
-        
-        
+
+
         </div>
         <!-- /content -->
-    
+
     </div>
 </div>
 

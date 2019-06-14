@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.commons.collections.CollectionUtils" %>
 <%@ page import="org.apache.commons.lang.ArrayUtils" %>
 <%@ page import="org.apache.commons.lang.StringUtils" %>
@@ -31,17 +31,17 @@
     String app = request.getParameter("application");
     String scopeString = request.getParameter("scope");
     boolean displayScopes = Boolean.parseBoolean(getServletContext().getInitParameter("displayScopes"));
-    
+
     String[] requestedClaimList = new String[0];
     String[] mandatoryClaimList = new String[0];
     if (request.getParameter(Constants.REQUESTED_CLAIMS) != null) {
         requestedClaimList = request.getParameter(Constants.REQUESTED_CLAIMS).split(Constants.CLAIM_SEPARATOR);
     }
-    
+
     if (request.getParameter(Constants.MANDATORY_CLAIMS) != null) {
         mandatoryClaimList = request.getParameter(Constants.MANDATORY_CLAIMS).split(Constants.CLAIM_SEPARATOR);
     }
-    
+
     /*
         This parameter decides whether the consent page will only be used to get consent for sharing claims with the
         Service Provider. If this param is 'true' and user has already given consents for the OIDC scopes, we will be
@@ -56,12 +56,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=AuthenticationEndpointUtil.i18n(resourceBundle, "wso2.identity.server")%></title>
-    
+
     <link rel="icon" href="images/favicon.png" type="image/x-icon"/>
     <link href="libs/bootstrap_3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/Roboto.css" rel="stylesheet">
     <link href="css/custom-common.css" rel="stylesheet">
-    
+
     <!--[if lt IE 9]>
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
@@ -156,7 +156,7 @@
                                         </p>
                                     </div>
                                 </div>
-                            
+
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <% if (userClaimsConsentOnly) {
                                 // If we are getting consent for user claims only we don't need to display OIDC
@@ -188,25 +188,25 @@
                             <%
                                         }
                                     } %>
-    
+
                             <div class="border-gray margin-bottom-double">
                                 <div class="padding">
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="scope-approval" id="approveCb" value="approve">
-                                            Approve Once
+                                            只同意一次，只允许该应用本次获取以上信息
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="scope-approval" id="approveAlwaysCb" value="approveAlways">
-                                            Approve Always
+                                            信任该应用，总是允许该应用获取以上信息
                                         </label>
                                     </div>
                                 </div>
                             </div>
-                            
-    
+
+
                             <%
                                 }
                             %>
@@ -312,11 +312,11 @@
                     </div>
                 </div>
             </div>
-        
-        
+
+
         </div>
         <!-- /content -->
-    
+
     </div>
 </div>
 
