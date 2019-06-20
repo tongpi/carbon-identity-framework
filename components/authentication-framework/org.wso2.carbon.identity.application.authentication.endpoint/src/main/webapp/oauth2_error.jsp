@@ -141,7 +141,7 @@
 </div>
 
 <!-- footer -->
-<footer class="footer">
+<%--<footer class="footer">
     <div class="container-fluid">
         <p><%=AuthenticationEndpointUtil.i18n(resourceBundle, "wso2.identity.server")%> | &copy;
             <script>document.write(new Date().getFullYear());</script>
@@ -150,7 +150,7 @@
             </a>. <%=AuthenticationEndpointUtil.i18n(resourceBundle, "all.rights.reserved")%>
         </p>
     </div>
-</footer>
+</footer>--%>
 
 <script src="libs/jquery_1.11.3/jquery-1.11.3.js"></script>
 <script src="libs/bootstrap_3.3.5/js/bootstrap.min.js"></script>
