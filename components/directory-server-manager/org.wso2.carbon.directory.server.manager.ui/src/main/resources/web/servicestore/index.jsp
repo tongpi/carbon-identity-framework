@@ -22,7 +22,7 @@
 <%@page import="org.owasp.encoder.Encode" %>
 <%@page import="org.wso2.carbon.CarbonConstants" %>
 <%@page import="org.wso2.carbon.directory.common.stub.types.ServerPrinciple" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="org.wso2.carbon.directory.server.manager.ui.DirectoryServerManagerClient"%>
 <%@ page import="org.wso2.carbon.ui.CarbonUIMessage" %>
 <%@ page import="org.wso2.carbon.ui.CarbonUIUtil" %>

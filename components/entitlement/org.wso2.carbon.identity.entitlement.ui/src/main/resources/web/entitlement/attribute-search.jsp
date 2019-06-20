@@ -19,6 +19,7 @@
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar"
 	prefix="carbon"%>
 <%@ page import="org.apache.axis2.context.ConfigurationContext"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.wso2.carbon.CarbonConstants"%>
 <%@ page import="org.wso2.carbon.identity.entitlement.stub.dto.AttributeDTO"%>
 <%@ page import="org.wso2.carbon.identity.entitlement.ui.EntitlementPolicyConstants"%>

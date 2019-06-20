@@ -18,6 +18,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar"
 	prefix="carbon"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.wso2.carbon.identity.entitlement.common.EntitlementConstants" %>
 <%@ page import="org.wso2.carbon.identity.entitlement.common.PolicyEditorEngine" %>
 <%@ page import="org.wso2.carbon.identity.entitlement.common.PolicyEditorException" %>
