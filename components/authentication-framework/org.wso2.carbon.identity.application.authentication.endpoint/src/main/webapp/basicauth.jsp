@@ -15,7 +15,7 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   --%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="org.apache.cxf.jaxrs.client.JAXRSClientFactory" %>
 <%@ page import="org.apache.cxf.jaxrs.provider.json.JSONProvider" %>
 <%@ page import="org.apache.http.HttpStatus" %>

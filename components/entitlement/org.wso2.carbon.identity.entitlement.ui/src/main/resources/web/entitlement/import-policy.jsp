@@ -21,6 +21,7 @@
 <%@ taglib uri="http://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project/Owasp.CsrfGuard.tld" prefix="csrf" %>
 <%@ page import="org.wso2.carbon.identity.entitlement.ui.EntitlementPolicyConstants" %>
 <%@ page import="org.owasp.encoder.Encode" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:include page="../resources/resources-i18n-ajaxprocessor.jsp"/>
 <jsp:include page="../dialog/display_messages.jsp"/>
 <%
